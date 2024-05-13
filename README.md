@@ -38,13 +38,11 @@ Pastiin local/development env kita udah menginstal ini:
 
 5. **Salin Berkas Konfigurasi**
 
-    ```bash
-    cp .env.example .env && nano .env
-    ```
+    Copy .env.example paste dan rename .env
 
     config env + buat database mitraku
 
-6. **Generate Key Aplikasi** -> buka terminal baru
+6. **Generate Key Aplikasi** -> buka terminal baru di directory yang sama
 
     ```bash
     php artisan key:generate
