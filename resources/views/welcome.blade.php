@@ -1,7 +1,6 @@
 @extends('layouts.layout')
 
 @section('content')
-    aaaaaaaaa
 
     <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1">@</span>
