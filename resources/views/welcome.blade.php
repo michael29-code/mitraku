@@ -1,38 +1,25 @@
 @extends('layouts.layout')
 
 @section('content')
-    aaaaaaaaa
 
-    <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">@</span>
-        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-      </div>
-      
-      <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
-        <span class="input-group-text" id="basic-addon2">@example.com</span>
-      </div>
-      
-      <label for="basic-url" class="form-label">Your vanity URL</label>
-      <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
-        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
-      </div>
-      
-      <div class="input-group mb-3">
-        <span class="input-group-text">$</span>
-        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-        <span class="input-group-text">.00</span>
-      </div>
-      
-      <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Username" aria-label="Username">
-        <span class="input-group-text">@</span>
-        <input type="text" class="form-control" placeholder="Server" aria-label="Server">
-      </div>
-      
-      <div class="input-group">
-        <span class="input-group-text">With textarea</span>
-        <textarea class="form-control" aria-label="With textarea"></textarea>
-      </div>
+    <h1>H1: &emsp; Lorem ipsum dolor sit amet consectetur </h1>
+    <h2>H2: &emsp; Lorem ipsum dolor sit amet consectetur </h2>
+    <h3>H3: &emsp; Lorem ipsum dolor sit amet consectetur </h3>
+    <h4>H4: &emsp; Lorem ipsum dolor sit amet consectetur </h4>
+    <h5>H5: &emsp; Lorem ipsum dolor sit amet consectetur </h5>
+    <h6>H6: &emsp; Lorem ipsum dolor sit amet consectetur </h6>
+    <div class="body-large-bold">body-large-bold: &emsp; Lorem ipsum dolor sit amet consectetur </div>
+    <div class="body-large-medium">body-large-medium: &emsp; Lorem ipsum dolor sit amet consectetur </div>
+    <div class="body-medium-bold">body-medium-bold: &emsp; Lorem ipsum dolor sit amet consectetur </div>
+    <div class="body-medium-medium">body-medium-medium: &emsp; Lorem ipsum dolor sit amet consectetur </div>
+    <div class="body-small-bold">body-small-bold: &emsp; Lorem ipsum dolor sit amet consectetur </div>
+    <div class="body-small-small">body-small-small: &emsp; Lorem ipsum dolor sit amet consectetur </div>
+    <div class="blue">blue: &emsp; Lorem ipsum dolor sit amet consectetur </div>
+    <div class="black">black: &emsp; Lorem ipsum dolor sit amet consectetur </div>
+    <div class="white-navbar">white-navbar: &emsp; Lorem ipsum dolor sit amet consectetur </div>
+    <div class="white-background">white-background: &emsp; Lorem ipsum dolor sit amet consectetur </div>
+    <div class="darkkkk-blue-banget">darkkkk-blue-banget: &emsp; Lorem ipsum dolor sit amet consectetur </div>
+    <div class="darkkkk-blue">darkkkk-blue: &emsp; Lorem ipsum dolor sit amet consectetur </div>
+
+
 @endsection
