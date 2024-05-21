@@ -21,7 +21,7 @@
         <div class="col-2">
             @include('components.sideBar')
         </div>
-            <div class="col-10 d-flex align-items-center justify-content-center">
+            <div class="col-10 flex-column align-items-center justify-content-center">
                 @yield('content')
             </div>
     </div>
