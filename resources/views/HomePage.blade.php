@@ -1,7 +1,5 @@
 @extends('layouts.layout')
 
-
-
 @section('content')
 
     <div class="container text-center h1">
@@ -39,12 +37,13 @@
     <div class="row row-cols-2">
         <img src="/images/Dinding.png"  alt="dinding">
 
-        <div class="col">
+        <div class="col body-medium-bold">
             <h2>Multi Curency Increase Update</h2>
 
-            <div class="body-medium-bold">
                 Whether it's selling your current home, getting financing, or buying a new home, we make it easy and efficient. The best part? you'll save a bunch of money and time with our services.
-            </div>
+
+            <button type="button" class="btn btn-primary btn-sm">Button</button>
+
         </div>
     </div>
 
@@ -75,7 +74,7 @@
             </div>
         </div>
         <div class="container text-center">
-            <img src="" alt="">
+            <img src="" alt="bill-icon">
             <h3>Best Price</h3>
             <div class="body-medium-bold">
                 We offer our customer property protection of liability coverage and insurance for their better life.
