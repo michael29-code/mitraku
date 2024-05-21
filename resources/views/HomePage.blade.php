@@ -2,12 +2,19 @@
 
 @section('content')
 
-<div class="text-center h1">
-    <h1>We make it easy for tenants and landlords.</h1>
-</div>
+    <div class="row text-center justify-content-center">
+        <div class="col-6">
+            <h1>We make it easy for tenants and landlords.</h1>
+        </div>
+    </div>
+    <div class="row text-center justify-content-center">
+        <div class="col-6">
+            Whether it's selling your current home, getting financing, or buying a new home, we make it easy and efficient. The best part? you'll save a bunch of money and time with our services.
+        </div>
+    </div>
+
 
 <div class="text-center body-large-bold">
-    Whether it's selling your current home, getting financing, or buying a new home, we make it easy and efficient. The best part? you'll save a bunch of money and time with our services.
 </div>
 
 <div class="text-center">
@@ -15,7 +22,7 @@
 </div>
 
 <div class="text-center">
-    <img src="/images/RumahNekoya.png" class="img-fluid" alt="rumah-nekoya">
+    <img src="/images/RumahNekoya.png" class="img-fluid home-picture" alt="rumah-nekoya">
 </div>
 
 <div class="text-center">
@@ -53,14 +60,12 @@
 
 <div class="text-center row row-cols-4">
 <div class="text-center">
-    <img src="" alt="">
     <h3>Property Insurance</h3>
     <div class="body-medium-bold">
         We offer our customer property protection of liability coverage and insurance for their better life.
     </div>
 </div>
 <div class="text-center">
-    <img src="" alt="">
     <h3>Best Price</h3>
     <div class="body-medium-bold">
         We offer our customer property protection of liability coverage and insurance for their better life.

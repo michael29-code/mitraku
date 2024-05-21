@@ -294,3 +294,12 @@ h6{
 .asd{
     border: 2px solid black;
 }
+
+
+
+/* Size Gambar Home Page */
+
+.home-picture{
+    width: 80rem;
+    height: 40rem;
+}
