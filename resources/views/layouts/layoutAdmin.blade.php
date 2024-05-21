@@ -18,7 +18,7 @@
 
 <body>
     <div class="d-flex">
-        <div class="col-2">
+        <div class="col-2" style="height:100vh">
             @include('components.sideBar')
         </div>
             <div class="col-10 flex-column align-items-center justify-content-center">
