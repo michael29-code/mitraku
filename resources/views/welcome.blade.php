@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.layoutAdmin')
 
 @section('title', 'WELCOME PAGE :DDDDDD')
 @section('isHomeActive', 'active')
