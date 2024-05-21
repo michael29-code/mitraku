@@ -18,5 +18,9 @@ Route::get('/add-detailing-mitra', function () {
     return view('addDetailingMitra');
 });
 
+Route::get('/blog', function () {
+    return view('blog');
+});
+
 
 
