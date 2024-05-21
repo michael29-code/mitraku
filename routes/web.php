@@ -22,6 +22,24 @@ Route::get('/blog', function () {
     return view('blog');
 });
 
+Route::get('/manage-blog', function () {
+    return view('manageBlogPageAdmin');
+});
+Route::get('/view-blog', function () {
+    return view('viewBlogPageAdmin');
+});
+Route::get('/view-blog-detail', function () {
+    return view('viewBlogPageDetailAdmin');
+});
+Route::get('/write-blog', function () {
+    return view('writeBlogPageAdmin');
+});
+Route::get('/edit-blog', function () {
+    return view('editBlogPageAdmin');
+});
+
+
+
 
 
 
