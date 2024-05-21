@@ -24,3 +24,12 @@ Route::get('/blog', function () {
 
 
 
+
+Route::get('/viewMitra', function () {
+    return view('viewMitra');
+});
+
+Route::get('/viewUser', function () {
+    return view('viewUser');
+});
+

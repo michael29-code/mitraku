@@ -43,7 +43,7 @@
 } */
 
 * {
-    font-family: 'Satoshi-Bold';
+    font-family: 'Satoshi-Regular';
     color: #111729
 }
 
@@ -291,3 +291,6 @@ h6{
 }
 
 
+.asd{
+    border: 2px solid black;
+}
