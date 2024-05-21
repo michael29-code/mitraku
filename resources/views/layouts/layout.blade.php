@@ -18,11 +18,8 @@
 
 <body>
     @include('components.navbar')
-    <div class="d-flex">
-        <div class="col-2 " style="height: 300px;"></div>
-        <div class="col-10 flex-column align-items-center justify-content-center">
+    <div class="container">
             @yield('content')
-        </div>
 
     </div>
 
