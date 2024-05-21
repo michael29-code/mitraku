@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>@yield('title')</title>
     @vite(['resources/sass/app.scss', 'resources/css/app.css', 'resources/js/app.js'])
 
 
@@ -18,11 +18,16 @@
 
 <body>
     @include('components.navbar')
-    
-    @yield('content')
-    
+    <div class="d-flex">
+        <div class="col-2 test-blue-border" style="height: 300px;"></div>
+        <div class="col-10 d-flex align-items-center justify-content-center test-red-border">
+            @yield('content')
+        </div>
+
+    </div>
+
     @include('components.footer')
-    
+
 </body>
 
 </html>

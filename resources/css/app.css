@@ -6,9 +6,9 @@
          font-weight: 400;
          font-display: swap;
          font-style: normal;
-  }
-  
-  @font-face {
+} 
+
+@font-face {
     font-family: 'Satoshi-Bold';
     src: url('../../public/fonts/Satoshi-Bold.woff2') format('woff2'),
          url('../../public/fonts/Satoshi-Bold.woff') format('woff'),
@@ -16,78 +16,110 @@
          font-weight: 700;
          font-display: swap;
          font-style: normal;
-  }
+}
+
+@media only screen and (max-width: 600px) {
+    html {
+        font-size: 8px;
+    }
+}
+
+/* Medium devices (landscape tablets, 600px to 992px) */
+@media only screen and (min-width: 601px) and (max-width: 992px) {
+    html {
+        font-size: 10px;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 993px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+/* :root{
+    font-size: 12px;
+} */
 
 * {
     font-family: 'Satoshi-Bold';
+    color: #111729
 }
 
 body{
     background-color: #F8FAFC;
 }
 
+/* === FONT START ===*/
+
 h1{
     font-family: 'Satoshi-Bold';
-    font-size: 64px;
+    font-size: 4rem;
 }
 
 h2{
     font-family: 'Satoshi-Bold';
-    font-size: 48px;
+    font-size: 3rem;
 }
 
 h3{
     font-family: 'Satoshi-Bold';
-    font-size: 40px;
+    font-size: 2.5rem;
 }
 
 h4{
     font-family: 'Satoshi-Bold';
-    font-size: 32px;
+    font-size: 2rem;
 }
 
-h5{
+h5, .h5{
     font-family: 'Satoshi-Bold';
-    font-size: 24px;
+    font-size: 1.5rem;
 }
 
 h6{
     font-family: 'Satoshi-Bold';
-    font-size: 20px;
+    font-size: 1.25rem;
 }
 
 .body-large-bold{
     font-family: 'Satoshi-Bold';
-    font-size: 18px;
+    font-size: 1.125rem;
 }
 
 .body-large-medium{
     font-family: 'Satoshi-Regular';
-    font-size: 18px;
+    font-size: 1.125rem;
 }
 
 .body-medium-bold{
     font-family: 'Satoshi-Bold';
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 .body-medium-medium{
     font-family: 'Satoshi-Regular';
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 .body-small-bold{
     font-family: 'Satoshi-Bold';
-    font-size: 14px;
+    font-size: 0.875rem;
 }
 
 .body-small-small{
     font-family: 'Satoshi-Regular';
-    font-size: 14px;
+    font-size: 0.875rem;
 }
 
 .blue{
     color: #4B7DF3;
+}
+
+.blue-bg{
+    background-color: #4B7DF3;
+    border: 0px solid #4B7DF3;
 }
 
 .black{
@@ -98,8 +130,12 @@ h6{
     color: #FFFFFF;
 }
 
+.white-navbar-bg{
+    background-color: #FFFFFF;
+}
+
 .white-background{
-    color: #F8FAFC;
+    background-color: #F8FAFC;
 }
 
 .darkkkk-blue-banget{
@@ -109,6 +145,63 @@ h6{
 .darkkkk-bluedarkkkk{
     color: #2D68FE;
 }
+
+/* === FONT END === */
+
+.logo-size{
+    width: 18.2rem;
+    height: 4rem;
+}
+
+.logo-size-sm{
+    width: 11.375rem;
+    height: 2.5rem;
+}
+
+
+/* === TOOL RICHIE START === */
+.test-black-border{
+    border: 2px black solid;
+}
+.test-red-border{
+    border: 2px red solid;
+}
+.test-green-border{
+    border: 2px green solid;
+}
+.test-blue-border{
+    border: 2px blue solid;
+}
+/* === TOOL RICHIE END === */
+
+/* === EDIT BOOTSTRAP START === */
+
+/* ===== EDIT NAVBAR START ===== */
+.nav-item{
+    font-family: 'Satoshi-Bold';
+    font-size: 1.5rem;
+}
+
+.btn{
+    border-radius: 18px;    
+    --bs-btn-padding-y: 0.7rem;
+    --bs-btn-padding-x: 2rem;
+    margin: 0rem .5rem;
+}
+
+.navbar-toggler{
+    border: none;
+    font-size: 1.25rem;
+}
+
+.navbar-toggler:focus, .btn-close:focus{
+    box-shadow: none;
+    outline: none;
+}
+
+/* ===== EDIT NAVBAR END ===== */
+
+/* === EDIT BOOTSTRAP END === */
 
 .rectangle{
     width: 85%;
