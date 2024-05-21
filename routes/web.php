@@ -6,9 +6,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', function () {
-    return view('HomePage');
-});
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'HomePage']);
+
 Route::get('/create-mitra', function () {
     return view('createMitra');
 });
