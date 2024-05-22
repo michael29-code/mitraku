@@ -17,9 +17,31 @@
         </div>
     </div>
 
+    <div class="spaceRec"></div>
     <div class="container">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-2">
+                <div class="content">
+                    <div class="card" style="width: 18rem;">
+                        <img src="https://mcdn.wallpapersafari.com/medium/58/14/bwX1dC.jpg" class="cardImage" alt="">
+                        <div    class="card-body">
+                            <div class="categoryBack">
+                                <h5 class="card-category">Technology</h5>
+                            </div>
+                            <p class="card-title">The Impact of Technology on the Workplace: How Technology is Changing</p>
+                            <div class="row">
+                                <div class="col-6">
+                                    <h3 class="authorCategory">Tracey Wilson</h3>
+                                </div>
+                                <div class="col-6">
+                                    <h3 class="dateCategory">August 20, 2022</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
                 <div class="content">
                     <div class="card" style="width: 18rem;">
                         <img src="https://mcdn.wallpapersafari.com/medium/58/14/bwX1dC.jpg" class="cardImage" alt="">
@@ -40,7 +62,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <div class="content">
                     <div class="card" style="width: 18rem;">
                         <img src="https://mcdn.wallpapersafari.com/medium/58/14/bwX1dC.jpg" class="cardImage" alt="">
@@ -51,7 +73,7 @@
                             <p class="card-title">The Impact of Technology on the Workplace: How Technology is Changing</p>
                             <div class="row">
                                 <div class="col-6">
-                                    <h3 class="authorCategory">Hosannia Michaela</h3>
+                                    <h3 class="authorCategory">Tracey Wilson</h3>
                                 </div>
                                 <div class="col-6">
                                     <h3 class="dateCategory">August 20, 2022</h3>
@@ -61,7 +83,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <div class="content">
                     <div class="card" style="width: 18rem;">
                         <img src="https://mcdn.wallpapersafari.com/medium/58/14/bwX1dC.jpg" class="cardImage" alt="">
@@ -72,7 +94,7 @@
                             <p class="card-title">The Impact of Technology on the Workplace: How Technology is Changing</p>
                             <div class="row">
                                 <div class="col-6">
-                                    <h3 class="authorCategory">Hosannia Michaela</h3>
+                                    <h3 class="authorCategory">Tracey Wilson</h3>
                                 </div>
                                 <div class="col-6">
                                     <h3 class="dateCategory">August 20, 2022</h3>
@@ -82,7 +104,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <div class="content">
                     <div class="card" style="width: 18rem;">
                         <img src="https://mcdn.wallpapersafari.com/medium/58/14/bwX1dC.jpg" class="cardImage" alt="">
@@ -93,7 +115,28 @@
                             <p class="card-title">The Impact of Technology on the Workplace: How Technology is Changing</p>
                             <div class="row">
                                 <div class="col-6">
-                                    <h3 class="authorCategory">Hosannia Michaela</h3>
+                                    <h3 class="authorCategory">Tracey Wilson</h3>
+                                </div>
+                                <div class="col-6">
+                                    <h3 class="dateCategory">August 20, 2022</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="content">
+                    <div class="card" style="width: 18rem;">
+                        <img src="https://mcdn.wallpapersafari.com/medium/58/14/bwX1dC.jpg" class="cardImage" alt="">
+                        <div class="card-body">
+                            <div class="categoryBack">
+                                <h5 class="card-category">Technology</h5>
+                            </div>
+                            <p class="card-title">The Impact of Technology on the Workplace: How Technology is Changing</p>
+                            <div class="row">
+                                <div class="col-6">
+                                    <h3 class="authorCategory">Tracey Wilson</h3>
                                 </div>
                                 <div class="col-6">
                                     <h3 class="dateCategory">August 20, 2022</h3>
@@ -104,6 +147,7 @@
                 </div>
             </div>
         </div>
+        <div class="spaceRec"></div>
     </div>
     
 
