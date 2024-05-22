@@ -56,13 +56,30 @@ Route::get('/edit-blog', function () {
     return view('editBlogPageAdmin');
 });
 
+Route::get('/manage-category', function () {
+    return view('manageCategoryAdmin');
+});
 
+Route::get('/view-category', function () {
+    return view('viewCategoryAdmin');
+});
 
-Route::get('/blog/detail', function () {
-    return view('blogDetail');
+Route::get('/add-category', function () {
+    return view('addCategoryAdmin');
+});
+
+Route::get('/delete-category', function () {
+    return view('deleteCategoryAdmin');
+});
+
+Route::get('/update-category', function () {
+    return view('updateCategoryAdmin');
 });
 
 
+Route::get('/blog-detail', function () {
+    return view('blogDetail');
+});
 
 Route::get('/viewMitra', function () {
     return view('viewMitra');

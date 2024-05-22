@@ -251,59 +251,9 @@ h6{
     border-radius: 5px;
 }
 
-.spaceRec{
-    width: 20px;
-    height: 40px;
-}
-
-.blogCard{
-   background-color: #E8E8EA;
-   height: 270px;
-   margin-bottom: 20px;
-   margin: 0 auto;
-}
-
-.cardImage{
-    width: 200px;
-    margin: auto;
-    margin-top: 12px;
-}   
-
-.card-category{
-    font-size: 12px;
-    color: #4B7DF3;
-}
-
 .card-title{
     font-size: 14px;
     color: #111729;
-}
-
-.card-category{
-    width: 70px;
-    background-color: #F8FAFC;
-    border-radius: 10px;
-}
-
-.authorCategory{
-    font-size: 10px;
-}
-
-.dateCategory{
-    font-size: 10px;
-    margin-left: -35px;
-}
-
-.miniRectangleDetail{
-    background-color: #4B7DF3;
-    width: auto;
-    border-radius: 5px;
-    /* margin-left: -5px; */
-}
-
-.categoryDetail{
-    color: white;
-    /* margin-left: -2px; */
 }
 
 .blogTitle{
@@ -315,8 +265,6 @@ h6{
 }.asd{
     border: 2px solid black;
 }
-
-
 
 /* Size Gambar Home Page */
 
