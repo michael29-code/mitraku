@@ -1,7 +1,7 @@
 @extends('layouts.layoutAdmin')
 
 @section('content')
-    <div class="container my-5">
+    <div class="container my-5 p-5 h-100">
         <div class="row shadow bg-body-tertiary rounded">
             <div class="col">
                 <div class="card border border-0">

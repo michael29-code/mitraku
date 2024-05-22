@@ -5,6 +5,11 @@
         <div class="row my-3">
             <div class="col">
                 <h2>Manage Blog</h2>
+                <button>
+
+                    <i class="fas fa-heart"></i> Like
+
+                </button>
             </div>
         </div>
         <div class="row shadow bg-body-tertiary rounded ">
