@@ -2,44 +2,36 @@
 
 @section('content')
 
-    <div class="row text-center justify-content-center">
-        <div class="col-6">
+    <div class="row justify-content-center">
+        <div class="mx-auto m-3 text-center" style="width: 50rem;">
             <h1>We make it easy for tenants and landlords.</h1>
         </div>
-    </div>
-    <div class="row text-center justify-content-center">
-        <div class="col-6">
-            Whether it's selling your current home, getting financing, or buying a new home, we make it easy and efficient. The best part? you'll save a bunch of money and time with our services.
+        <div class="mx-auto m-0 text-center" style="width: 50rem;">
+            <p class="body-large-bold">Whether it's selling your current home, getting financing, or buying a new home, we make it easy and efficient. The best part? you'll save a bunch of money and time with our services.</p>
+        </div>
+        <div class="mx-auto m-3 row justify-content-center">
+            <button type="button" class="btn btn-primary btn-sm" style="width:13rem;">Button</button>
         </div>
     </div>
 
+    <div class="mx-auto m-5 row justify-content-center">
+        <img src="/images/RumahNekoya.png" class="img-fluid home-picture" alt="rumah-nekoya">
+    </div>
 
-<div class="text-center body-large-bold">
-</div>
-
-<div class="text-center">
-    <button type="button" class="btn btn-primary btn-sm">Button</button>
-</div>
-
-<div class="text-center">
-    <img src="/images/RumahNekoya.png" class="img-fluid home-picture" alt="rumah-nekoya">
-</div>
-
-<div class="text-center">
-<h2>Trusted by over a lot of companies.</h2>
-
-<div class="text-center row row-cols-5">
-    <div class="col">Sponsor</div>
-    <div class="col">Sponsor</div>
-    <div class="col">Sponsor</div>
-    <div class="col">Sponsor</div>
-    <div class="col">Sponsor</div>
-    <div class="col">Sponsor</div>
-    <div class="col">Sponsor</div>
-    <div class="col">Sponsor</div>
-    <div class="col">Sponsor</div>
-</div>
-</div>
+    <div class="border m-5 row justify-content-center text-center">        
+        <h2>Trusted by over a lot of companies.</h2>
+        <div class="justify-content-center text-center row row-cols-5">
+            <div class="border rounded-3 m-2 p-3 col" style="width: 13rem;">Sponsor</div>
+            <div class="border rounded-3 m-2 p-3 col" style="width: 13rem;">Sponsor</div>
+            <div class="border rounded-3 m-2 p-3 col" style="width: 13rem;">Sponsor</div>
+            <div class="border rounded-3 m-2 p-3 col" style="width: 13rem;">Sponsor</div>
+            <div class="border rounded-3 m-2 p-3 col" style="width: 13rem;">Sponsor</div>
+            <div class="border rounded-3 m-2 p-3 col" style="width: 13rem;">Sponsor</div>
+            <div class="border rounded-3 m-2 p-3 col" style="width: 13rem;">Sponsor</div>
+            <div class="border rounded-3 m-2 p-3 col" style="width: 13rem;">Sponsor</div>
+            <div class="border rounded-3 m-2 p-3 col" style="width: 13rem;">Sponsor</div>
+        </div>
+    </div>
 
 <div class="row row-cols-2">
 <img src="/images/Dinding.png"  alt="dinding">
