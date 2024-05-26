@@ -8,9 +8,21 @@ Route::get('/', function () {
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'HomePage']);
 
+// Sign In 
+Route::get('/sign-in', function () {
+    return view('signInPage');
+});
+// Sign Up
+Route::get('/sign-up', function () {
+    return view('signUpPage');
+});
+
+
+
 Route::get('/create-mitra', function () {
     return view('createMitra');
 });
+
 Route::get('/add-detail-mitra', function () {
     return view('addDetailMitra');
 });
