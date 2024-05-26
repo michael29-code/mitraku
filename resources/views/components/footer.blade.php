@@ -1,6 +1,62 @@
 <div class="container">
     <footer class="py-5">
-      <div class="row">
+
+        <div class="row">
+            <div class="col">
+                <div class="row p-1">
+                    <a class="navbar-brand me-auto" href="#">
+                        <img src="images/LogoMitraku.png" alt="Mitraku" class="logo-size-sm">
+                    </a>
+                </div>
+                <div class="row p-1 ps-3 body-medium-bold">
+                    One-Stop Shop For Any Data Real Estate related
+                </div>
+                <div class="row p-1 ps-3 body-medium-medium">
+                    ©2023 Mitraku.com - All right reserved
+                </div>
+                <div class="row p-1 ps-3 body-medium-medium">
+                    A Mitraku Software Group Project
+                </div>
+                <div class="row p-1 ps-3 body-medium-medium">
+                    Contact - info@Mitraku.com
+                </div>
+            </div>
+            <div class="col text-center">
+                <h5>Home</h5>
+            </div>
+            <div class="col text-center">
+                <h5>Mitra</h5>
+            </div>
+            <div class="col text-center">
+                <h5>Blog</h5>
+            </div>
+            <div class="col text-center">
+                <h5>Advertise</h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+                <p>&copy; 2024 Company, Inc. All rights reserved.</p>
+                {{-- TODO: ICON --}}
+                <ul class="list-unstyled d-flex">
+                    <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24"
+                                height="24">
+                                <use xlink:href="#twitter" />
+                            </svg>ICON</a></li>
+                    <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24"
+                                height="24">
+                                <use xlink:href="#instagram" />
+                            </svg>ICON</a></li>
+                    <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24"
+                                height="24">
+                                <use xlink:href="#facebook" />
+                            </svg>ICON</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+        {{-- <div class="row">
         <div class="col-6 col-md-2 mb-3">
           <h5>Section</h5>
           <ul class="nav flex-column">
@@ -45,7 +101,7 @@
             </div>
           </form>
         </div>
-      </div>
+      </div> 
   
       <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
         <p>&copy; 2024 Company, Inc. All rights reserved.</p>
@@ -54,6 +110,6 @@
           <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
           <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
         </ul>
-      </div>
+      </div> --}}
     </footer>
-  </div>
+</div>
