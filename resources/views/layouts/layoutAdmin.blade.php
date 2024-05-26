@@ -22,12 +22,57 @@
 </head>
 
 <body>
-    <div class="d-flex">
-        <div class="col-2" style="height:100vh">
-            @include('components.sideBar')
+    <nav class="navbar navbar-expand navbar-light bg-light test-black-border">
+        <div class="container-fluid">
+            <div class="d-flex justify-content-between">
+                <button class="btn px-1 py-0 open-btn me-2">
+                    OPEN
+                </button>
+                {{-- <a class="navbar-brand me-auto" href="#">
+                    <img src="images/LogoMitraku.png" alt="Mitraku" class="logo-size-sm">
+                </a> --}}
+
+            </div>
         </div>
-        <div class="col-10 flex-column align-items-center justify-content-center">
-            @yield('content')
+    </nav>
+
+    <div class="main-container d-flex">
+        <div class="sidebar sidebar-rch test-black-border h6" id="side_nav">
+            <div class="header-box px-2 pt-3 pb-4 d-flex justify-content-between">
+                <a class="navbar-brand me-auto" href="#">
+                    <img src="images/LogoMitraku.png" alt="Mitraku" class="logo-size-sm">
+                </a>
+                <button class="btn d-md-none d-block close-btn px-1 py-0">
+                    {{-- TODO: Ganti jadi icon --}}
+                    X
+                </button>
+            </div>
+
+            <ul class="list-unstyled px-2">
+                <li class="active"><a href="#" class="text-decoration-none px-3 py-2 d-block">
+                        ICON User</a>
+                </li>
+                <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block">
+                        ICON Projects</a>
+                </li>
+                <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block">
+                        ICON Mitra</a>
+                </li>
+                <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block">
+                        ICON Blog</a>
+                </li>
+                <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block">
+                        ICON Category</a>
+                </li>
+                <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block">
+                        ICON Advertisement</a>
+                </li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="dashboard-content px-3 pt-4">
+                @yield('content')
+            </div>
         </div>
     </div>
 </body>

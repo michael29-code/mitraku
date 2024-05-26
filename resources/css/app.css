@@ -38,9 +38,14 @@
     }
 }
 
-/* :root{
-    font-size: 12px;
-} */
+:root{
+    --blue: #4B7DF3;
+    --black: #111729;
+    --white-navbar: #FFFFFF;
+    --white-background: #F8FAFC;
+    --darkkkk-blue-banget: #192A51;
+    --darkkkk-bluedarkkkk: #2D68FE;
+}
 
 * {
     font-family: 'Satoshi-Regular';
@@ -78,7 +83,7 @@ h5, .h5{
     font-size: 1.5rem;
 }
 
-h6{
+h6, .h6{
     font-family: 'Satoshi-Bold';
     font-size: 1.25rem;
 }
@@ -174,6 +179,8 @@ h6{
 }
 /* === TOOL RICHIE END === */
 
+
+
 /* === EDIT BOOTSTRAP START === */
 
 /* ===== EDIT NAVBAR START ===== */
@@ -200,6 +207,64 @@ h6{
 }
 
 /* ===== EDIT NAVBAR END ===== */
+
+
+/* ===== EDIT SIDEBAR START =====*/
+
+#side_nav{
+    width: 100%;
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+
+.sidebar li.active{
+    background: var(--black);
+    border-radius: 8px;
+}
+
+.sidebar li.active a, .sidebar li.active a:hover {
+
+color: var(--white-background);
+}
+
+.sidebar li a{
+color: var(--black);
+}
+
+@media(max-width: 767px){
+#side_nav{
+    margin-left: -250px;
+    position: absolute;
+    min-height: 100vh;
+    z-index: 1;
+
+}
+#side_nav.active{
+    margin-left: 0;
+    }
+    .sidebar-rch{
+        background-color: var(--white-navbar);
+    }
+}
+
+@media(min-width: 768px){
+#side_nav{
+    margin-left: -250px;
+    min-height: 100vh;
+    z-index: 1;
+
+}
+#side_nav.active{
+    margin-left: 0;
+    }
+    .sidebar-rch{
+        background-color: var(--white-navbar);
+    }
+}
+
+/* ===== EDIT SIDEBAR END =====*/
 
 /* === EDIT BOOTSTRAP END === */
 
@@ -262,13 +327,7 @@ h6{
 
 .blogImage{
     margin: 0 auto;
-}.asd{
-    border: 2px solid black;
 }
-
-/* Size Gambar Home Page */
-
-.home-picture{
-    width: 80rem;
-    height: 40rem;
+.asd{
+    border: 2px solid black;
 }

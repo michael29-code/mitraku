@@ -4,7 +4,7 @@
 @section('isHomeActive', 'active')
 
 @section('content')
-
+<i class="bi bi-0-circle-fill"></i>
     {{-- <div class="test-black-border">
         AAAAAAA
     </div> --}}
@@ -28,5 +28,7 @@
     <div class="darkkkk-blue">darkkkk-blue: &emsp; Lorem ipsum dolor sit amet consectetur </div>
 
 
-
+    <i class="bi bi-0-circle-fill"></i>aaaaaaaaa    
+    <h1></h1>
+    <div class="row"><div class="col"><i class="bi bi-0-circle-fill black w-100"></i></div></div>
 @endsection
