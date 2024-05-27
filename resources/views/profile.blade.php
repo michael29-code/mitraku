@@ -10,8 +10,8 @@
             </div>
             <br>
             <div class="col-auto">
-                <h4>Michael Smith</h4>
-                <h5>michaelsmith123@gmail.com</h5>
+                <h5>Michael Smith</h5>
+                <h6>michaelsmith123@gmail.com</h6>
             </div>
             <div class="row-auto">
                 <br>
