@@ -11,7 +11,27 @@
 
             <div class="table-user">
                 <table class="table table-bordered text-center">
-                    
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Status</th>
+                            <th>Email</th>
+                            <th>Block / Unblock</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @for($i=0; $i<20; $i++)
+                        <tr>
+                            <td class="body-medium-bold">Caroline Natalia Amran</td>
+                            <td class="body-medium-medium">Active</td>
+                            <td class="body-medium-medium">carolinenataliamran97@gmail.com</td>
+                            <td>
+                                <button class="btn btn-danger">Block</button>
+                            </td>
+                        </tr>
+                        @endfor
+                    </tbody>
                 </table>
             </div>
         </div>

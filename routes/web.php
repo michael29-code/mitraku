@@ -52,6 +52,7 @@ Route::get('/edit-blog', function () {
 
 
 
+<<<<<<< Updated upstream
 Route::get('/manage-blog', function () {
     return view('manageBlogPageAdmin');
 });
@@ -93,6 +94,8 @@ Route::get('/blog-detail', function () {
     return view('blogDetail');
 });
 
+=======
+>>>>>>> Stashed changes
 Route::get('/viewMitra', function () {
     return view('viewMitra');
 });
@@ -101,3 +104,6 @@ Route::get('/viewUser', function () {
     return view('viewUser');
 });
 
+Route::get('/userAdvertisement', function () {
+    return view('userAdvertisement');
+});
