@@ -85,3 +85,7 @@ Route::get('/viewUser', function () {
 Route::get('/userAdvertisement', function () {
     return view('userAdvertisement');
 });
+
+Route::get('/admin-advertise-view', function () {
+    return view('viewAdvertiseAdmin');
+});
