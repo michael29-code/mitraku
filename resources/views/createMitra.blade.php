@@ -1,8 +1,8 @@
 @extends('layouts.layout')
 
 @section('content')
-    <div class="container my-5">
-        <div class="row">
+    <div class="container my-5 full-height m-auto d-flex w-100 justify-content-center align-items-center">
+        <div class="row w-100">
             <div class="col bg-secondary">
                 {{-- <img src="..." class="img-fluid" alt="..."> --}}
 
@@ -16,20 +16,20 @@
                 <div class="row my-2">
                     <div class="col">
                         <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="100"
-                            aria-valuemin="0" aria-valuemax="100">
-                            <div class="progress-bar" style="width: 100%"></div>
+                            aria-valuemin="0" aria-valuemax="100" style="width: 100%; height: 0.8rem">
+                            <div class="progress-bar" style="width: 100%; height: 0.8rem"></div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="100"
-                            aria-valuemin="0" aria-valuemax="0">
-                            <div class="progress-bar" style="width: 100%"></div>
+                            aria-valuemin="0" aria-valuemax="0" style="width: 100%; height: 0.8rem">
+                            <div class="progress-bar" style="width: 100%; height: 0.8rem"></div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="100"
-                            aria-valuemin="0" aria-valuemax="0">
-                            <div class="progress-bar" style="width: 100%"></div>
+                            aria-valuemin="0" aria-valuemax="0" style="width: 100%; height: 0.8rem">
+                            <div class="progress-bar" style="width: 100%; height: 0.8rem"></div>
                         </div>
                     </div>
                 </div>
