@@ -17,7 +17,9 @@ Route::get('/sign-up', function () {
     return view('signUpPage');
 });
 
-
+Route::get('/profile', function () {
+    return view('profile');
+});
 
 Route::get('/create-mitra', function () {
     return view('createMitra');
