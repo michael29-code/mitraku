@@ -14,11 +14,14 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
     {{-- trix --}}
     {{-- <link rel="stylesheet" type="text/css" href="trix.css">
     <script type="text/javascript" src="trix.umd.min.js"></script> --}}
     {{-- <script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script> --}}
-    <script src="ckeditor5-build-classic/ckeditor.js"></script>
+    <script src="/ckeditor5-build-classic/ckeditor.js"></script>
 </head>
 
 <body>
@@ -40,7 +43,7 @@
         <div class="sidebar sidebar-rch test-black-border h6" id="side_nav">
             <div class="header-box px-2 pt-3 pb-4 d-flex justify-content-between">
                 <a class="navbar-brand me-auto" href="#">
-                    <img src="images/LogoMitraku.png" alt="Mitraku" class="logo-size-sm">
+                    <img src="/images/LogoMitraku.png" alt="Mitraku" class="logo-size-sm">
                 </a>
                 <button class="btn d-md-none d-block close-btn px-1 py-0">
                     {{-- TODO: Ganti jadi icon --}}

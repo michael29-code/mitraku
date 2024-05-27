@@ -1,21 +1,21 @@
 @font-face {
-    font-family: 'Satoshi-Regular';
-    src: url('../../public/fonts/Satoshi-Regular.woff2') format('woff2'),
-         url('../../public/fonts/Satoshi-Regular.woff') format('woff'),
-         url('../../public/fonts/Satoshi-Regular.ttf') format('truetype');
-         font-weight: 400;
-         font-display: swap;
-         font-style: normal;
-} 
+    font-family: "Satoshi-Regular";
+    src: url("../../public/fonts/Satoshi-Regular.woff2") format("woff2"),
+        url("../../public/fonts/Satoshi-Regular.woff") format("woff"),
+        url("../../public/fonts/Satoshi-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-display: swap;
+    font-style: normal;
+}
 
 @font-face {
-    font-family: 'Satoshi-Bold';
-    src: url('../../public/fonts/Satoshi-Bold.woff2') format('woff2'),
-         url('../../public/fonts/Satoshi-Bold.woff') format('woff'),
-         url('../../public/fonts/Satoshi-Bold.ttf') format('truetype');
-         font-weight: 700;
-         font-display: swap;
-         font-style: normal;
+    font-family: "Satoshi-Bold";
+    src: url("../../public/fonts/Satoshi-Bold.woff2") format("woff2"),
+        url("../../public/fonts/Satoshi-Bold.woff") format("woff"),
+        url("../../public/fonts/Satoshi-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-display: swap;
+    font-style: normal;
 }
 
 @media only screen and (max-width: 600px) {
@@ -38,180 +38,189 @@
     }
 }
 
-:root{
-    --blue: #4B7DF3;
+:root {
+    --blue: #4b7df3;
     --black: #111729;
-    --white-navbar: #FFFFFF;
-    --white-background: #F8FAFC;
-    --darkkkk-blue-banget: #192A51;
-    --darkkkk-bluedarkkkk: #2D68FE;
+    --white-navbar: #ffffff;
+    --white-background: #f8fafc;
+    --darkkkk-blue-banget: #192a51;
+    --darkkkk-bluedarkkkk: #2d68fe;
 }
 
 * {
-    font-family: 'Satoshi-Regular';
-    color: #111729
+    font-family: "Satoshi-Regular";
+    color: #111729;
 }
 
-body{
-    background-color: #F8FAFC;
+body {
+    background-color: #f8fafc;
 }
 
 /* === FONT START ===*/
 
-h1{
-    font-family: 'Satoshi-Bold';
+h1 {
+    font-family: "Satoshi-Bold";
     font-size: 4rem;
 }
 
-h2{
-    font-family: 'Satoshi-Bold';
+h2 {
+    font-family: "Satoshi-Bold";
     font-size: 3rem;
 }
 
-h3{
-    font-family: 'Satoshi-Bold';
+h3 {
+    font-family: "Satoshi-Bold";
     font-size: 2.5rem;
 }
 
-h4{
-    font-family: 'Satoshi-Bold';
+h4 {
+    font-family: "Satoshi-Bold";
     font-size: 2rem;
 }
 
-h5, .h5{
-    font-family: 'Satoshi-Bold';
+h5,
+.h5 {
+    font-family: "Satoshi-Bold";
     font-size: 1.5rem;
 }
 
-h6, .h6{
-    font-family: 'Satoshi-Bold';
+h6,
+.h6 {
+    font-family: "Satoshi-Bold";
     font-size: 1.25rem;
 }
 
-.body-large-bold{
-    font-family: 'Satoshi-Bold';
+.content {
+    width: 100%;
+    height: 100%;
+}
+
+.dashboard-content {
+    width: 100%;
+    height: 100%;
+}
+
+.body-large-bold {
+    font-family: "Satoshi-Bold";
     font-size: 1.125rem;
 }
 
-.body-large-medium{
-    font-family: 'Satoshi-Regular';
+.body-large-medium {
+    font-family: "Satoshi-Regular";
     font-size: 1.125rem;
 }
 
-.body-medium-bold{
-    font-family: 'Satoshi-Bold';
+.body-medium-bold {
+    font-family: "Satoshi-Bold";
     font-size: 1rem;
 }
 
-.body-medium-medium{
-    font-family: 'Satoshi-Regular';
+.body-medium-medium {
+    font-family: "Satoshi-Regular";
     font-size: 1rem;
 }
 
-.body-small-bold{
-    font-family: 'Satoshi-Bold';
+.body-small-bold {
+    font-family: "Satoshi-Bold";
     font-size: 0.875rem;
 }
 
-.body-small-small{
-    font-family: 'Satoshi-Regular';
+.body-small-small {
+    font-family: "Satoshi-Regular";
     font-size: 0.875rem;
 }
 
-.blue{
-    color: #4B7DF3;
+.blue {
+    color: #4b7df3;
 }
 
-.blue-bg{
-    background-color: #4B7DF3;
-    border: 0px solid #4B7DF3;
+.blue-bg {
+    background-color: #4b7df3;
+    border: 0px solid #4b7df3;
 }
 
-.black{
+.black {
     color: #111729;
 }
 
-.white-navbar{
-    color: #FFFFFF;
+.white-navbar {
+    color: #ffffff;
 }
 
-.white-navbar-bg{
-    background-color: #FFFFFF;
+.white-navbar-bg {
+    background-color: #ffffff;
 }
 
-.white-background{
-    background-color: #F8FAFC;
+.white-background {
+    background-color: #f8fafc;
 }
 
-.darkkkk-blue-banget{
-    color: #192A51
+.darkkkk-blue-banget {
+    color: #192a51;
 }
 
-.darkkkk-bluedarkkkk{
-    color: #2D68FE;
+.darkkkk-bluedarkkkk {
+    color: #2d68fe;
 }
 
 /* === FONT END === */
 
-.logo-size{
+.logo-size {
     width: 18.2rem;
     height: 4rem;
 }
 
-.logo-size-sm{
+.logo-size-sm {
     width: 11.375rem;
     height: 2.5rem;
 }
 
-
 /* === TOOL RICHIE START === */
-.test-black-border{
+.test-black-border {
     border: 2px black solid;
 }
-.test-red-border{
+.test-red-border {
     border: 2px red solid;
 }
-.test-green-border{
+.test-green-border {
     border: 2px green solid;
 }
-.test-blue-border{
+.test-blue-border {
     border: 2px blue solid;
 }
 /* === TOOL RICHIE END === */
 
-
-
 /* === EDIT BOOTSTRAP START === */
 
 /* ===== EDIT NAVBAR START ===== */
-.nav-item{
-    font-family: 'Satoshi-Bold';
+.nav-item {
+    font-family: "Satoshi-Bold";
     font-size: 1.5rem;
 }
 
-.btn{
-    border-radius: 18px;    
+.btn {
+    border-radius: 18px;
     --bs-btn-padding-y: 0.7rem;
     --bs-btn-padding-x: 2rem;
-    margin: 0rem .5rem;
+    margin: 0rem 0.5rem;
 }
 
-.navbar-toggler{
+.navbar-toggler {
     border: none;
     font-size: 1.25rem;
 }
 
-.navbar-toggler:focus, .btn-close:focus{
+.navbar-toggler:focus,
+.btn-close:focus {
     box-shadow: none;
     outline: none;
 }
 
 /* ===== EDIT NAVBAR END ===== */
 
-
 /* ===== EDIT SIDEBAR START =====*/
 
-#side_nav{
+#side_nav {
     width: 100%;
     min-width: 250px;
     max-width: 250px;
@@ -219,47 +228,45 @@ h6, .h6{
     transition: all 0.3s;
 }
 
-.sidebar li.active{
+.sidebar li.active {
     background: var(--black);
     border-radius: 8px;
 }
 
-.sidebar li.active a, .sidebar li.active a:hover {
-
-color: var(--white-background);
+.sidebar li.active a,
+.sidebar li.active a:hover {
+    color: var(--white-background);
 }
 
-.sidebar li a{
-color: var(--black);
+.sidebar li a {
+    color: var(--black);
 }
 
-@media(max-width: 767px){
-#side_nav{
-    margin-left: -250px;
-    position: absolute;
-    min-height: 100vh;
-    z-index: 1;
-
-}
-#side_nav.active{
-    margin-left: 0;
+@media (max-width: 767px) {
+    #side_nav {
+        margin-left: -250px;
+        position: absolute;
+        min-height: 100vh;
+        z-index: 1;
     }
-    .sidebar-rch{
+    #side_nav.active {
+        margin-left: 0;
+    }
+    .sidebar-rch {
         background-color: var(--white-navbar);
     }
 }
 
-@media(min-width: 768px){
-#side_nav{
-    margin-left: -250px;
-    min-height: 100vh;
-    z-index: 1;
-
-}
-#side_nav.active{
-    margin-left: 0;
+@media (min-width: 768px) {
+    #side_nav {
+        margin-left: -250px;
+        min-height: 100vh;
+        z-index: 1;
     }
-    .sidebar-rch{
+    #side_nav.active {
+        margin-left: 0;
+    }
+    .sidebar-rch {
         background-color: var(--white-navbar);
     }
 }
@@ -268,66 +275,66 @@ color: var(--black);
 
 /* === EDIT BOOTSTRAP END === */
 
-.rectangle{
+.rectangle {
     width: 100%;
     margin: 0 auto;
     height: 200px;
     /* background-image: url('path/to/your/image.jpg'); */
-    background-color: #4B7DF3;  
+    background-color: #4b7df3;
     /* background-image: url('{{ asset('images/cover.jpg') }}'); */
     border-radius: 8px;
 }
 
-.title{
+.title {
     font-size: 28px;
-    color: #F8FAFC;
+    color: #f8fafc;
     margin-left: 20px;
 }
 
-.author{
+.author {
     font-size: 15px;
     color: white;
     margin-left: 20px;
 }
 
-.date{
+.date {
     font-size: 15px;
     color: white;
     margin-left: -70px;
 }
 
-.category{
+.category {
     font-size: 15px;
-    color: #4B7DF3;
-    font-weight:bold;
+    color: #4b7df3;
+    font-weight: bold;
 }
 
-.rectangleSpace{
+.rectangleSpace {
     /* background-color: yellow; */
     width: 50%;
     height: 50px;
 }
 
-.miniRectangle{
+.miniRectangle {
     width: 100px;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     height: 20px;
     margin-left: 30px;
     border-radius: 5px;
 }
 
-.card-title{
+.card-title {
     font-size: 14px;
     color: #111729;
 }
 
-.blogTitle{
+.blogTitle {
     color: black;
 }
 
-.blogImage{
+.blogImage {
     margin: 0 auto;
 }
-.asd{
+.asd {
     border: 2px solid black;
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -36,21 +37,15 @@ Route::get('/blog', function () {
     return view('blog');
 });
 
-Route::get('/manage-blog', function () {
-    return view('manageBlogPageAdmin');
-});
-Route::get('/view-blog', function () {
-    return view('viewBlogPageAdmin');
-});
-Route::get('/view-blog-detail', function () {
-    return view('viewBlogPageDetailAdmin');
-});
-Route::get('/write-blog', function () {
-    return view('writeBlogPageAdmin');
-});
-Route::get('/edit-blog', function () {
-    return view('editBlogPageAdmin');
-});
+Route::get('/manage-blog',[BlogController::class,'manageBlog']);
+
+Route::get('/view-blog', [BlogController::class,'view']);
+
+Route::get('/view-blog-detail/{blog:slug}', [BlogController::class,'show']);
+Route::get('/write-blog', [BlogController::class,'writeBlog']);
+Route::post('/store-blog', [BlogController::class,'store']);
+
+Route::get('/edit-blog/{blog:slug}',[BlogController::class,'edit']);
 
 
 
