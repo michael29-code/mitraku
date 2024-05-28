@@ -52,11 +52,49 @@ class BlogController extends Controller
     }
 
     public function edit(Blog $blog): View{
-        return view('editBlogPageAdmin',["blog" => $blog]);
+        $categories = categoryModel::All();
+        return view('editBlogPageAdmin',["blog" => $blog, "categories" => $categories]);
+    }
+
+    public function update(Request $request, Blog $blog)
+    {
+        // dd($request);
+
+        $request['slug'] = Str::of($request['title'])->slug('-');
+        // dd( $request['slug']);
+        $validatedData = $request->validate([
+            'title' => '',
+            'writerId' => '',
+            'slug' => '',
+            'kategoriId' => '',
+            'image' => 'image|file|max:1024',
+            'body' => '',
+        ]);
+
+        if ($request->file('image')) {
+            if ($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['image'] = $request->file('image')->store('blog-images');
+        }
+        Blog::where('slug',$blog->slug)
+        ->update($validatedData);
+        return redirect('/manage-blog');
     }
 
     public function view(): View
     {
         return view('viewBlogPageAdmin',["blogs" => Blog::all()]);
+        // $blogs = Blog::with('writer')->get();
+        // return view('viewBlogPageAdmin', compact('blogs'));
+    }
+
+    public function destroy(Blog $blog)
+    {
+        if ($blog->image) {
+            Storage::delete($blog->image);
+        }
+        Blog::destroy($blog->id);
+        return redirect('/view-blog');
     }
 }

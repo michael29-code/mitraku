@@ -41,18 +41,26 @@
                                                 <h5 class="card-title my-1">{{ $blog->title }}</h5>
                                                 <div class="row my-3">
                                                     <div class="col-2">
-                                                        <img src="" class="rounded-circle img-fluid"
-                                                            alt="Avatar" />
-                                                        {{-- <img src="{{ asset('storage/' . $blog->image) }}"
-                                                            alt="{{ $blog->name }}"> --}}
-
+                                                        <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
+                                                            class="rounded-circle img-fluid" alt="Avatar" />
                                                     </div>
                                                     <div class="col">
-                                                        {{ $blog->writer }}
+                                                        {{ $blog->writerId }}
                                                     </div>
-                                                    <div class="col">{{ $blog->created_at }}</div>
+                                                    <div class="col">{{ $blog->created_at->diffForHumans() }}</div>
                                                 </div>
-                                                <a href="#" class="btn btn-danger w-100">Delete</a>
+                                                <div class="row w-100">
+                                                    <div class="col">
+                                                        <form action="/delete-blog/{{ $blog->slug }}" method="post"
+                                                            class="d-inline">
+                                                            @method('delete')
+                                                            @csrf
+                                                            <button class="btn btn-danger w-100"
+                                                                onclick="return confirm('Are You sure?')"><span
+                                                                    data-feather="x-circle"></span> Delete</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </a>
                                     </div>

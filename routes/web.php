@@ -48,7 +48,8 @@ Route::get('/write-blog', [BlogController::class,'writeBlog']);
 Route::post('/store-blog', [BlogController::class,'store']);
 
 Route::get('/edit-blog/{blog:slug}',[BlogController::class,'edit']);
-
+Route::put('/update-blog/{blog:slug}',[BlogController::class,'update']);
+Route::delete('/delete-blog/{blog:slug}',[BlogController::class,'destroy']);
 
 
 Route::get('/manage-category', function () {

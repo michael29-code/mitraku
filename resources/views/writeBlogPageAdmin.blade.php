@@ -45,7 +45,7 @@
                                                 <div class="col">
                                                     <select class="form-select" aria-label="Default select example"
                                                         name="kategoriId">
-                                                        <option selected>Open this select menu</option>
+                                                        <option>Open this select menu</option>
                                                         @foreach ($categories as $categori)
                                                             <option value="{{ $categori->id }}">
                                                                 {{ $categori->jenisKategori }}

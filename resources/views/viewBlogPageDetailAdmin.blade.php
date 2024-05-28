@@ -9,7 +9,10 @@
                         <div class="row my-3">
                             <div class="col-5">
                                 <div class="row">
-                                    <div class="col-1 text-end"><i class="fa-solid fa-arrow-left" style="font-size: 2rem"></i>
+                                    <div class="col-1 text-end">
+                                        <a href="/view-blog">
+                                            <i class="fa-solid fa-arrow-left" style="font-size: 2rem"></i>
+                                        </a>
                                     </div>
                                     <div class="col">
                                         <h4>View Blog</h4>
@@ -24,8 +27,7 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col">
-                                    <span class="badge text-bg-primary my-2">{{ $blog->kategori1 }}</span>
-                                    <span class="badge text-bg-primary my-2">{{ $blog->kategori2 }}</span>
+                                    <span class="badge text-bg-primary my-2">{{ $blog->kategoriId }}</span>
                                 </div>
                             </div>
                             <div class="row">
@@ -43,7 +45,7 @@
                             </div>
                             <div class="row my-3">
                                 <div class="col">
-                                    <img src="{{ $blog->image }}" class="rounded w-100" alt="..."
+                                    <img src="{{ asset('storage/' . $blog->image) }}" class="rounded w-100" alt="..."
                                         style="height: 50vh">
                                 </div>
                             </div>

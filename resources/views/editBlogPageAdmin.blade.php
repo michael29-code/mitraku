@@ -10,11 +10,11 @@
                             <div class="col-5">
                                 <div class="row">
                                     <div class="col-1 text-end">
-                                        <a href="/view-blog"><i class="fa-solid fa-arrow-left"
+                                        <a href="/manage-blog"><i class="fa-solid fa-arrow-left"
                                                 style="font-size: 2rem"></i></a>
                                     </div>
                                     <div class="col">
-                                        <h4>Edit Blog</h4>
+                                        <h4>Write Blog</h4>
                                     </div>
                                 </div>
                             </div>
@@ -22,7 +22,9 @@
                         </div>
                         <div class="row my-3">
                             <div class="col">
-                                <form action="/store-blog" method="POST" enctype="multipart/form-data">
+                                <form action="/update-blog/{{ $blog->slug }}" method="POST"
+                                    enctype="multipart/form-data">
+                                    @method('put')
                                     @csrf
                                     <div class="row my-3 mx-5">
                                         <div class="col">
@@ -30,25 +32,33 @@
                                             <div class="row">
                                                 <div class="col">
                                                     <input type="text" class="form-control" name="title"
-                                                        value="{{ $blog->title }}">
+                                                        value="{{ old('title', $blog->title) }}"">
                                                     <input type="text" class="form-control d-none" disabled
-                                                        name="slug">
+                                                        name="slug"value="{{ old('slug', $blog->slug) }}">
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <input type="text" class="form-control d-none" name="writer" value="1">
+                                    <input type="text" class="form-control d-none" name="writerId"
+                                        value="{{ Auth::check() ? Auth::id() : Auth::loginUsingId(1) }}">
                                     <div class="row my-3 mx-5">
                                         <div class="col">
                                             <h6><b>Category</b></h6>
                                             <div class="row mb-3">
                                                 <div class="col">
                                                     <select class="form-select" aria-label="Default select example"
-                                                        name="kategori">
+                                                        name="kategoriId">
                                                         <option selected>Open this select menu</option>
-                                                        <option value="1">Teknologi 1</option>
-                                                        <option value="2">Teknologi 2</option>
-                                                        <option value="3">Teknologi 3</option>
+                                                        @foreach ($categories as $categori)
+                                                            @if (old('categoryId', $blog->kategoriId) == $categori->id)
+                                                                <option value="{{ $categori->id }}" selected>
+                                                                    {{ $categori->jenisKategori }}</option>
+                                                            @else
+                                                                <option value="{{ $categori->id }}">
+                                                                    {{ $categori->jenisKategori }}
+                                                                </option>
+                                                            @endif
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                             </div>
@@ -61,7 +71,8 @@
                                                 <div class="col">
                                                     <div class="mb-3">
                                                         <input class="form-control form-control-sm" id="formFileSm"
-                                                            type="file" name="image" value="{{ $blog->image }}">
+                                                            type="file" name="image">
+                                                        <input type="hidden" name="oldImage" value="{{ $blog->image }}">
                                                     </div>
                                                 </div>
                                             </div>
@@ -76,7 +87,7 @@
                                                         <input id="x" type="hidden" name="content">
                                                         <trix-editor input="x"></trix-editor>
                                                     </form> --}}
-                                                    <textarea id="body" name="body" style="height: 100px">{{ $blog->body }}</textarea>
+                                                    <textarea id="body" name="body" style="height: 100px">{{ old('body', $blog->body) }}</textarea>
                                                     <script>
                                                         ClassicEditor
                                                             .create(document.querySelector('#body'))
@@ -90,7 +101,7 @@
                                     </div>
                                     <div class="row my-3 mx-5">
                                         <div class="col">
-                                            <button class="btn btn-primary" type="submit">update</button>
+                                            <button class="btn btn-primary" type="submit">save</button>
                                         </div>
                                     </div>
                                 </form>
