@@ -89,3 +89,7 @@ Route::get('/userAdvertisement', function () {
 Route::get('/admin-advertise-view', function () {
     return view('viewAdvertiseAdmin');
 });
+Route::get('/form-pengajuan', function () {
+    return view('viewFormPengajuan');
+});
+

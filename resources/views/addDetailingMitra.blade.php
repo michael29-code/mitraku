@@ -27,7 +27,6 @@
                             style="width: 100%; height: 0.8rem" aria-valuemin="0" aria-valuemax="0">
                             <div class="progress-bar" style="width: 100%; height: 0.8rem"></div>
                         </div>
-                        </di </div>
                     </div>
                 </div>
             </div>
