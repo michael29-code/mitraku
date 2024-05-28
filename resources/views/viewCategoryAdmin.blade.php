@@ -15,7 +15,15 @@
                                 <div class="col">
                                     <div class="card border border-0">
                                         <div class="card-body">
-                                            <div class="row">
+                                            @foreach ($data as $item)
+                                                <div class="row">
+                                                    <div class="col mx-5 my-2 py-2 border-bottom align-middle">
+                                                        {{ $item->jenisKategori }}
+                                                    </div>
+                                                </div>
+                                            @endforeach
+
+                                            {{-- <div class="row">
                                                 <div class="col mx-5 my-2 py-2 border-bottom align-middle">
                                                     Restoran & Makanan
                                                 </div>
@@ -54,7 +62,8 @@
                                                 <div class="col mx-5 my-2 py-2 border-bottom align-middle">
                                                     Tekstil
                                                 </div>
-                                            </div>
+                                            </div> --}}
+
                                         </div>
                                     </div>
                                 </div>
