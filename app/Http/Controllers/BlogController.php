@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Category as categoryModel;
 use Illuminate\View\View;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class BlogController extends Controller
@@ -16,7 +18,10 @@ class BlogController extends Controller
     }
     public function writeBlog(): View
     {
-        return view('writeBlogPageAdmin');
+
+        $categories = categoryModel::All();
+
+        return view('writeBlogPageAdmin',['categories' => $categories]);
     }
     public function store(Request $request)
     {
@@ -26,9 +31,9 @@ class BlogController extends Controller
         // dd( $request['slug']);
         $validatedData = $request->validate([
             'title' => '',
-            'writer' => '',
+            'writerId' => '',
             'slug' => '',
-            'kategori' => '',
+            'kategoriId' => '',
             'image' => 'image|file|max:1024',
             'body' => '',
         ]);

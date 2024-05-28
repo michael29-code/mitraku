@@ -36,18 +36,21 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <input type="text" class="form-control d-none" name="writer" value="1">
+                                    <input type="text" class="form-control d-none" name="writerId"
+                                        value="{{ Auth::check() ? Auth::id() : Auth::loginUsingId(1) }}">
                                     <div class="row my-3 mx-5">
                                         <div class="col">
                                             <h6><b>Category</b></h6>
                                             <div class="row mb-3">
                                                 <div class="col">
                                                     <select class="form-select" aria-label="Default select example"
-                                                        name="kategori">
+                                                        name="kategoriId">
                                                         <option selected>Open this select menu</option>
-                                                        <option value="1">Teknologi 1</option>
-                                                        <option value="2">Teknologi 2</option>
-                                                        <option value="3">Teknologi 3</option>
+                                                        @foreach ($categories as $categori)
+                                                            <option value="{{ $categori->id }}">
+                                                                {{ $categori->jenisKategori }}
+                                                            </option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                             </div>
