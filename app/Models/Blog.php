@@ -13,12 +13,12 @@ class Blog extends Model
     
     public function kategori(): BelongsTo
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class,'id');
     }
 
     public function writer(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'id');
     }
 
 }
