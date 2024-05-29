@@ -1,9 +1,11 @@
 <?php
 
-use App\Http\Controllers\BlogController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\AdvertisementController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -62,6 +64,17 @@ Route::get('/delete-category', [CategoryController::class, 'deleteCategoryAdmin'
 Route::get('/update-category', [CategoryController::class, 'updateCategoryAdmin'])->name('update_category');
 Route::post('/store-category', [CategoryController::class, 'store'])->name('store_category');
 
+
+Route::get('/manage-advertisement', function () {
+    return view('manageAdvertisementAdmin');
+});
+
+Route::get('/manage-advertisement-view', [AdvertisementController::class, 'viewAdvertisementAdmin'])->name('view_advertisement');
+Route::get('/manage-advertisement-add', [AdvertisementController::class, 'addAdvertisementAdmin'])->name('add_advertisement');
+Route::get('/manage-advertisement-delete', [AdvertisementController::class, 'deleteAdvertisementAdmin'])->name('delete_advertisement');
+Route::get('/manage-advertisement-update', [AdvertisementController::class, 'updateAdvertisementAdmin'])->name('update_advertisement');
+
+
 // Route::resource('/category', CategoryController::class);
 
 Route::get('/blog-detail', function () {
@@ -80,9 +93,6 @@ Route::get('/userAdvertisement', function () {
     return view('userAdvertisement');
 });
 
-Route::get('/admin-advertise-view', function () {
-    return view('viewAdvertiseAdmin');
-});
 Route::get('/form-pengajuan', function () {
     return view('viewFormPengajuan');
 });
