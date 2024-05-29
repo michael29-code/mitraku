@@ -27,7 +27,7 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col">
-                                    <span class="badge text-bg-primary my-2">{{ $blog->kategoriId }}</span>
+                                    <span class="badge text-bg-primary my-2">{{ $blog->kategori->jenisKategori }}</span>
                                 </div>
                             </div>
                             <div class="row">
@@ -39,7 +39,7 @@
                                 <div class="col-3 d-flex justify-content-evenly">
                                     <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
                                         class="rounded-circle img-fluid" alt="Avatar" style="width: 35px" />
-                                    <p>{{ $blog->writer }}</p>
+                                    <p>{{ $blog->writer->name }}</p>
                                     <p>{{ $blog->created_at }}</p>
                                 </div>
                             </div>
