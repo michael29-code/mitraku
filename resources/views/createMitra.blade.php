@@ -1,6 +1,8 @@
 @extends('layouts.layout')
 
-@section('content')
+@section('content') 
+<form action="/viewMitra" method="POST">
+    @csrf
     <div class="container my-5 full-height m-auto d-flex w-100 justify-content-center align-items-center">
         <div class="row w-100">
             <div class="col bg-secondary">
@@ -43,7 +45,7 @@
                         <p><b>Nama Mitra</b></p>
                         <div class="row">
                             <div class="col">
-                                <input type="text" class="form-control">
+                                <input type="text" name="namaMitra">
                             </div>
                         </div>
                     </div>
@@ -53,7 +55,17 @@
                         <p><b>Alamat Mitra</b></p>
                         <div class="row">
                             <div class="col">
-                                <input type="text" class="form-control">
+                                <input type="text" name="lokasiMitra">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row my-2">
+                    <div class="col">
+                        <p><b>Kategori Mitra</b></p>
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" name="kategoriMitra">
                             </div>
                         </div>
                     </div>
@@ -62,7 +74,9 @@
                     <div class="col">
                         <div class="row my-2">
                             <div class="col">
-                                <button type="button" class="btn btn-primary w-100">Save</button>
+                                {{-- <button type="submit" class="btn btn-primary w-100" onclick="{{ Redirect::to('viewMitra') }}">Save</button> --}}
+                                {{-- <a href="/viewMitra" class="btn btn-primary w-100">Save</a> --}}
+                                <input type="submit" class="btn btn-primary w-100" name="submit" value="Save">  
                             </div>
                             <div class="col"></div>
                         </div>
@@ -72,4 +86,5 @@
             </div>
         </div>
     </div>
+</form>
 @endsection

@@ -5,7 +5,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AdvertisementController;
-
+use App\Http\Controllers\MitraController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -97,3 +97,6 @@ Route::get('/form-pengajuan', function () {
     return view('viewFormPengajuan');
 });
 
+// Route::get('viewMitra', [MitraController::class, 'index']);  
+Route::get('create-mitra', [MitraController::class, 'create']);
+Route::post('viewMitra', [MitraController::class, 'store']);

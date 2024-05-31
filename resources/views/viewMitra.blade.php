@@ -18,22 +18,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @for($i=0; $i<15;$i++)
-                    <tr>
-                        <td class="body-medium-medium">
-                            <b>PT. Teknologi Maju Jaya</b>
-                        </td>
-
-                        <td>Jakarta, Jalan Hamengkubuwono No 15</td>
-                        <td>Teknologi, Bangunan</td>
-                        <td>
-                            <button class="btn btn-danger">Block</button>
-                        </td>
-                    </tr>
-                    @endfor
+                    @foreach ($mitra as $m)
+                        <tr>
+                            {{-- <td>{{ $m->id }}</td> --}}
+                            <td>{{ $m->namaMitra }}</td>
+                            <td>{{ $m->lokasiMitra }}</td>
+                            <td>{{ $m->kategoriMitra }}</td>
+                            <td><button class="btn btn-danger">Block</button></td>
+                            </td>
+                        </tr> 
+                    @endforeach
                 </tbody>
             </table>
         </div>
     </div>
 @endsection
-
