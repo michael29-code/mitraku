@@ -54,10 +54,7 @@ Route::put('/update-blog/{blog:slug}',[BlogController::class,'update']);
 Route::delete('/delete-blog/{blog:slug}',[BlogController::class,'destroy']);
 
 
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
 Route::get('/manage-category', function () {
     return view('manageCategoryAdmin');
 })->name('manage-category');
@@ -102,12 +99,9 @@ Route::get('/form-pengajuan', function () {
     return view('viewFormPengajuan');
 });
 
-<<<<<<< Updated upstream
 // Route::get('viewMitra', [MitraController::class, 'index']);  
 Route::get('create-mitra', [MitraController::class, 'create']);
 Route::post('viewMitra', [MitraController::class, 'store']);
-=======
 Route::get('/payment', function () {
     return view('paymentPage');
 });
->>>>>>> Stashed changes
