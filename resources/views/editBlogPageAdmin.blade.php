@@ -14,7 +14,7 @@
                                                 style="font-size: 2rem"></i></a>
                                     </div>
                                     <div class="col">
-                                        <h4>Write Blog</h4>
+                                        <h4>Edit Blog</h4>
                                     </div>
                                 </div>
                             </div>
@@ -31,10 +31,16 @@
                                             <h6><b>Title</b></h6>
                                             <div class="row">
                                                 <div class="col">
-                                                    <input type="text" class="form-control" name="title"
-                                                        value="{{ old('title', $blog->title) }}"">
+                                                    <input type="text"
+                                                        class="form-control @error('title') is-invalid @enderror"
+                                                        name="title" value="{{ old('title', $blog->title) }}">
                                                     <input type="text" class="form-control d-none" disabled
                                                         name="slug"value="{{ old('slug', $blog->slug) }}">
+                                                    @error('title')
+                                                        <div class="invalid-feedback m-1">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
                                                 </div>
                                             </div>
                                         </div>
@@ -46,11 +52,11 @@
                                             <h6><b>Category</b></h6>
                                             <div class="row mb-3">
                                                 <div class="col">
-                                                    <select class="form-select" aria-label="Default select example"
-                                                        name="kategoriId">
+                                                    <select class="form-select @error('kategoriId') is-invalid @enderror"
+                                                        aria-label="Default select example" name="kategoriId">
                                                         <option selected>Open this select menu</option>
                                                         @foreach ($categories as $categori)
-                                                            @if (old('categoryId', $blog->kategoriId) == $categori->id)
+                                                            @if (old('kategoriId', $blog->kategoriId) == $categori->id)
                                                                 <option value="{{ $categori->id }}" selected>
                                                                     {{ $categori->jenisKategori }}</option>
                                                             @else
@@ -60,6 +66,11 @@
                                                             @endif
                                                         @endforeach
                                                     </select>
+                                                    @error('kategoriId')
+                                                        <div class="invalid-feedback m-1">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
                                                 </div>
                                             </div>
                                         </div>
@@ -70,9 +81,23 @@
                                             <div class="row">
                                                 <div class="col">
                                                     <div class="mb-3">
-                                                        <input class="form-control form-control-sm" id="formFileSm"
-                                                            type="file" name="image">
+
+                                                        @if ($blog->image)
+                                                            <img class="img-preview img-fluid mb-3 col-sm-5 d-block"
+                                                                src="{{ asset('storage/' . $blog->image) }}">
+                                                        @else
+                                                            <img class="img-preview img-fluid mb-3 col-sm-5">
+                                                        @endif
+                                                        <input class="form-control @error('image') is-invalid @enderror "
+                                                            type="file" id="image" name="image"
+                                                            onchange="previewImage()"
+                                                            value="{{ old('image'), $blog->image }}">
                                                         <input type="hidden" name="oldImage" value="{{ $blog->image }}">
+                                                        @error('image')
+                                                            <div class="invalid-feedback m-1">
+                                                                {{ $message }}
+                                                            </div>
+                                                        @enderror
                                                     </div>
                                                 </div>
                                             </div>
@@ -87,7 +112,7 @@
                                                         <input id="x" type="hidden" name="content">
                                                         <trix-editor input="x"></trix-editor>
                                                     </form> --}}
-                                                    <textarea id="body" name="body" style="height: 100px">{{ old('body', $blog->body) }}</textarea>
+                                                    <textarea id="body" name="body" style="height: 100px" class="@error('body') is-invalid @enderror">{{ old('body', $blog->body) }}</textarea>
                                                     <script>
                                                         ClassicEditor
                                                             .create(document.querySelector('#body'))
@@ -95,6 +120,11 @@
                                                                 console.error(error);
                                                             });
                                                     </script>
+                                                    @error('body')
+                                                        <div class="invalid-feedback m-1">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
                                                 </div>
                                             </div>
                                         </div>
@@ -112,4 +142,19 @@
             </div>
         </div>
     </div>
+    <script>
+        function previewImage() {
+            const image = document.querySelector('#image');
+            const imgPreview = document.querySelector('.img-preview');
+
+            imgPreview.style.display = 'block';
+
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(image.files[0]);
+
+            oFReader.onload = function(oFREvent) {
+                imgPreview.src = oFREvent.target.result;
+            }
+        }
+    </script>
 @endsection

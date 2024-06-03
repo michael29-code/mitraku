@@ -25,17 +25,17 @@ class BlogController extends Controller
     }
     public function store(Request $request)
     {
-        // dd($request);
-
         $request['slug'] = Str::of($request['title'])->slug('-');
-        // dd( $request['slug']);
         $validatedData = $request->validate([
-            'title' => '',
-            'writerId' => '',
-            'slug' => '',
-            'kategoriId' => '',
-            'image' => 'image|file|max:1024',
-            'body' => '',
+            'title' => 'required|max:255',
+            'writerId' => 'required',
+            'slug' => 'required|unique:blogs',
+            'kategoriId' => 'required|exists:categories,id',
+            'image' => 'required|image|file|max:1024',
+            'body' => 'required',
+        ],[
+            'kategoriId.required' => 'The kategori field is empty',
+            'kategoriId.exist:categories,id' => 'The kategori field is invalid',
         ]);
 
         if ($request->file('image')) {
@@ -63,12 +63,12 @@ class BlogController extends Controller
         $request['slug'] = Str::of($request['title'])->slug('-');
         // dd( $request['slug']);
         $validatedData = $request->validate([
-            'title' => '',
-            'writerId' => '',
-            'slug' => '',
-            'kategoriId' => '',
-            'image' => 'image|file|max:1024',
-            'body' => '',
+            'title' => 'required|max:255',
+            'writerId' => 'required',
+            'slug' => 'required|unique:blogs',
+            'kategoriId' => 'required|exists:categories,id',
+            'image' => 'required|image|file|max:1024',
+            'body' => 'required',
         ]);
 
         if ($request->file('image')) {

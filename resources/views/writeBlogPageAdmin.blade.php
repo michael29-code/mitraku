@@ -29,9 +29,14 @@
                                             <h6><b>Title</b></h6>
                                             <div class="row">
                                                 <div class="col">
-                                                    <input type="text" class="form-control" name="title">
-                                                    <input type="text" class="form-control d-none" disabled
-                                                        name="slug">
+                                                    <input type="text"
+                                                        class="form-control @error('title') is-invalid @enderror"
+                                                        name="title" value="{{ old('title') }}">
+                                                    @error('title')
+                                                        <div class="invalid-feedback m-1">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
                                                 </div>
                                             </div>
                                         </div>
@@ -43,15 +48,26 @@
                                             <h6><b>Category</b></h6>
                                             <div class="row mb-3">
                                                 <div class="col">
-                                                    <select class="form-select" aria-label="Default select example"
-                                                        name="kategoriId">
-                                                        <option>Open this select menu</option>
+                                                    <select class="form-select @error('kategoriId') is-invalid @enderror"
+                                                        aria-label="Default select example" name="kategoriId">
+                                                        <option value="0">Open this select menu</option>
                                                         @foreach ($categories as $categori)
-                                                            <option value="{{ $categori->id }}">
-                                                                {{ $categori->jenisKategori }}
-                                                            </option>
+                                                            @if (old('kategoriId') == $categori->id)
+                                                                <option value="{{ $categori->id }}" selected>
+                                                                    {{ $categori->jenisKategori }}</option>
+                                                            @else
+                                                                <option value="{{ $categori->id }}">
+                                                                    {{ $categori->jenisKategori }}
+                                                                </option>
+                                                            @endif
                                                         @endforeach
+
                                                     </select>
+                                                    @error('kategoriId')
+                                                        <div class="invalid-feedback m-1">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
                                                 </div>
                                             </div>
                                         </div>
@@ -62,11 +78,21 @@
                                             <div class="row">
                                                 <div class="col">
                                                     <div class="mb-3">
-                                                        <input class="form-control form-control-sm" id="formFileSm"
-                                                            type="file" name="image">
+                                                        <input class="form-control @error('image') is-invalid @enderror"
+                                                            id="image" type="file" name="image"
+                                                            aria-label="file example" onchange="previewImage()">
+                                                        @error('image')
+                                                            <div class="invalid-feedback m-1">
+                                                                {{ $message }}
+                                                            </div>
+                                                        @enderror
+                                                        <div class="col">
+                                                            <img class="img-preview img-fluid col-sm-3">
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
+
                                         </div>
                                     </div>
                                     <div class="row my-3 mx-5">
@@ -78,7 +104,7 @@
                                                         <input id="x" type="hidden" name="content">
                                                         <trix-editor input="x"></trix-editor>
                                                     </form> --}}
-                                                    <textarea id="body" name="body" style="height: 100px"></textarea>
+                                                    <textarea id="body" name="body" style="height: 100px" class="@error('body') is-invalid @enderror">{{ old('body') }}</textarea>
                                                     <script>
                                                         ClassicEditor
                                                             .create(document.querySelector('#body'))
@@ -86,6 +112,11 @@
                                                                 console.error(error);
                                                             });
                                                     </script>
+                                                    @error('body')
+                                                        <div class="invalid-feedback m-1">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
                                                 </div>
                                             </div>
                                         </div>
@@ -103,4 +134,20 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function previewImage() {
+            const image = document.querySelector('#image');
+            const imgPreview = document.querySelector('.img-preview');
+
+            imgPreview.style.display = 'block';
+
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(image.files[0]);
+
+            oFReader.onload = function(oFREvent) {
+                imgPreview.src = oFREvent.target.result;
+            }
+        }
+    </script>
 @endsection
