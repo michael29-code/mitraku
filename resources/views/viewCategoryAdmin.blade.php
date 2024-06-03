@@ -1,71 +1,45 @@
 @extends('layouts.layoutAdmin')
 
 @section('content')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <div class="container my-5">
         <div class="row shadow bg-body-tertiary rounded">
             <div class="col">
                 <div class="card border border-0">
                     <div class="card-body py-5">
                         <div class="container">
-                            <div class="row">
-                                <div class="col">
-                                    <h4>View Category</h4>
-                                </div>
+                            <div class="col-md-12">
+                                <h4><a href="{{ route('manage-category') }}"><i class="fa-solid fa-arrow-left"></i></a> View
+                                    Category</h4>
                             </div>
-                                <div class="col">
-                                    <div class="card border border-0">
-                                        <div class="card-body">
-                                            @foreach ($data as $item)
-                                                <div class="row">
-                                                    <div class="col mx-5 my-2 py-2 border-bottom align-middle">
-                                                        {{ $item->jenisKategori }}
+                            <div class="col-md-12">
+                                <div class="card border border-0 gap-2">
+                                    @foreach ($data as $item)
+                                        <div class="border-bottom">
+                                            <div class="row d-flex align-items-center justify-content-center">
+                                                <div
+                                                    class="col-md-12 my-2 d-flex align-items-center justify-content-center">
+                                                    <div class="col-md-6">
+                                                        <h5>{{ $item->jenisKategori }}</h5>
                                                     </div>
-                                                </div>
-                                            @endforeach
+                                                    <div class="col-md-5 d-flex align-items-center justify-content-end ">
+                                                        <a href="{{ url('manage-category/' . $item->jenisKategori . '/edit') }}"
+                                                            class="btn btn-primary btn-sm">Update</a>
+                                                        <form onsubmit="return confirm('Yakin mau hapus data ?')"
+                                                            class="d-inline"
+                                                            action="{{ route('category.destroy', $jenisKategori = $item->jenisKategori) }}"
+                                                            method="post">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button class="btn btn-danger btn-sm"
+                                                                type="submit">Delete</button>
+                                                        </form>
+                                                    </div>
 
-                                            {{-- <div class="row">
-                                                <div class="col mx-5 my-2 py-2 border-bottom align-middle">
-                                                    Restoran & Makanan
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col mx-5 my-2 py-2">
-                                                    Kesehatan
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col mx-5 my-2 py-2 border-bottom align-middle">
-                                                    Pendidikan
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col mx-5 my-2 py-2 border-bottom align-middle">
-                                                    Teknologi dan Software
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col mx-5 my-2 py-2 border-bottom align-middle">
-                                                    Manajemen Properti
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col mx-5 my-2 py-2 border-bottom align-middle">
-                                                    Desain
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col mx-5 my-2 py-2 border-bottom align-middle">
-                                                    Pertanian & Perkebunan
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col mx-5 my-2 py-2 border-bottom align-middle">
-                                                    Tekstil
-                                                </div>
-                                            </div> --}}
-
                                         </div>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -73,5 +47,6 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 @endsection

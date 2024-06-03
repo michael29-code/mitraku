@@ -11,7 +11,7 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="col">
-                                        <h4>Add Category</h4>
+                                        <h4><a href="{{ route('manage-category') }}"><i class="fa-solid fa-arrow-left"></i></a>Add Category</h4>
                                         <br>
                                     </div>
                                 </div>

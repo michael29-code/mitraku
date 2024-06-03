@@ -19,11 +19,6 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col mx-5 my-2 py-2 border-bottom align-middle">
-                                <a href="{{ route('delete_category') }}">Delete Category</a>
-                            </div>
-                        </div>
-                        <div class="row">
                             <div class="col mx-5 my-2 py-2 ">
                                 <a href="{{ route('update_category') }}">Update Category</a>
                             </div>

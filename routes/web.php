@@ -54,13 +54,18 @@ Route::put('/update-blog/{blog:slug}',[BlogController::class,'update']);
 Route::delete('/delete-blog/{blog:slug}',[BlogController::class,'destroy']);
 
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 Route::get('/manage-category', function () {
     return view('manageCategoryAdmin');
-});
+})->name('manage-category');
 
 Route::get('/view-category', [CategoryController::class, 'viewCategoryAdmin'])->name('view_category');
 Route::get('/add-category', [CategoryController::class, 'addCategoryAdmin'])->name('add_category');
 Route::get('/delete-category', [CategoryController::class, 'deleteCategoryAdmin'])->name('delete_category');
+Route::delete('/view-category/{jenisKategori}', [CategoryController::class, 'destroy'])->name('category.destroy');
 Route::get('/update-category', [CategoryController::class, 'updateCategoryAdmin'])->name('update_category');
 Route::post('/store-category', [CategoryController::class, 'store'])->name('store_category');
 
@@ -97,6 +102,12 @@ Route::get('/form-pengajuan', function () {
     return view('viewFormPengajuan');
 });
 
+<<<<<<< Updated upstream
 // Route::get('viewMitra', [MitraController::class, 'index']);  
 Route::get('create-mitra', [MitraController::class, 'create']);
 Route::post('viewMitra', [MitraController::class, 'store']);
+=======
+Route::get('/payment', function () {
+    return view('paymentPage');
+});
+>>>>>>> Stashed changes

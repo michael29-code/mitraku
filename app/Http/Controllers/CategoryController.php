@@ -63,10 +63,13 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(string $jenisKategori)
     {
-        //
+        $data = Category::where('jenisKategori', $jenisKategori)->first();
+        return view('manage-category/update-category')->with('data', $data);
     }
+
+    
 
     /**
      * Update the specified resource in storage.
@@ -79,8 +82,10 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $jenisKategori)
     {
-        //
+        $data = Category::where('jenisKategori', $jenisKategori)->first();
+        Category::where('jenisKategori', $jenisKategori)->delete();
+        return redirect('/view-category')->with('success', 'Berhasil hapus data');
     }
 }
