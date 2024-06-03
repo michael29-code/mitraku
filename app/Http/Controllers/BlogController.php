@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use App\Models\Category as categoryModel;
+use App\Models\User;
+use Illuminate\Http\JsonResponse;
 use Illuminate\View\View;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -84,9 +86,8 @@ class BlogController extends Controller
 
     public function view(): View
     {
+
         return view('viewBlogPageAdmin',["blogs" => Blog::all()]);
-        // $blogs = Blog::with('writer')->get();
-        // return view('viewBlogPageAdmin', compact('blogs'));
     }
 
     public function destroy(Blog $blog)
@@ -96,5 +97,15 @@ class BlogController extends Controller
         }
         Blog::destroy($blog->id);
         return redirect('/view-blog');
+    }
+    public function search(Request $request){
+        $search = $request->input('search');
+    
+        $blogs = Blog::query()
+            ->where('title', 'LIKE', "%{$search}%")
+            ->orWhere('body', 'LIKE', "%{$search}%")
+            ->get();
+    
+        return view('viewBlogPageAdmin', ["blogs" => $blogs]);
     }
 }

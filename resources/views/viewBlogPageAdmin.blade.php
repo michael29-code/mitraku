@@ -19,53 +19,63 @@
                                 </div>
                             </div>
                             <div class="col">
-                                <div class="input-group mb-3">
-                                    <div class="border border-end-0 input-group-text bg-transparent">
-                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                <form action="{{ route('search') }}" method="GET"class="d-flex" required>
+
+                                    <div class="input-group">
+                                        <div class="border border-end-0 input-group-text bg-transparent">
+                                            <i class="fa-solid fa-magnifying-glass"></i>
+                                        </div>
+                                        <input type="text" class="form-control border border-start-0"
+                                            aria-label="Text input with checkbox" placeholder="search mitra" name="search">
                                     </div>
-                                    <input type="text" class="form-control border border-start-0"
-                                        aria-label="Text input with checkbox" placeholder="search mitra">
-                                </div>
+                                    <button class="btn btn-sm btn-danger" type="submit">Search</button>
+                                </form>
                             </div>
                         </div>
                         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 my-3">
-                            @foreach ($blogs as $blog)
-                                <div class="col my-3">
-                                    <div class="card mx-2 h-100">
-                                        <a href="/view-blog-detail/{{ $blog->slug }}">
-                                            <img src="{{ asset('storage/' . $blog->image) }}"class="card-img-top"
-                                                alt="...">
-                                            <div class="card-body">
-                                                <span
-                                                    class="badge text-bg-primary my-2">{{ $blog->kategori->jenisKategori }}</span>
-                                                <h5 class="card-title my-1">{{ $blog->title }}</h5>
-                                                <div class="row my-3">
-                                                    <div class="col-2">
-                                                        <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
-                                                            class="rounded-circle img-fluid" alt="Avatar" />
+                            @if ($blogs->isNotEmpty())
+                                @foreach ($blogs as $blog)
+                                    <div class="col my-3">
+                                        <div class="card mx-2 h-100">
+                                            <a href="/view-blog-detail/{{ $blog->slug }}">
+                                                <img src="{{ asset('storage/' . $blog->image) }}"class="card-img-top"
+                                                    alt="...">
+                                                <div class="card-body">
+                                                    <span
+                                                        class="badge text-bg-primary my-2">{{ $blog->kategori->jenisKategori }}</span>
+                                                    <h5 class="card-title my-1">{{ $blog->title }}</h5>
+                                                    <div class="row my-3">
+                                                        <div class="col-2">
+                                                            <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
+                                                                class="rounded-circle img-fluid" alt="Avatar" />
+                                                        </div>
+                                                        <div class="col">
+                                                            {{ $blog->writer->name }}
+                                                        </div>
+                                                        <div class="col">{{ $blog->created_at->diffForHumans() }}</div>
                                                     </div>
-                                                    <div class="col">
-                                                        {{ $blog->writer->name }}
+                                                    <div class="row w-100">
+                                                        <div class="col">
+                                                            <form action="/delete-blog/{{ $blog->slug }}" method="post"
+                                                                class="d-inline">
+                                                                @method('delete')
+                                                                @csrf
+                                                                <button class="btn btn-danger w-100"
+                                                                    onclick="return confirm('Are You sure?')"><span
+                                                                        data-feather="x-circle"></span> Delete</button>
+                                                            </form>
+                                                        </div>
                                                     </div>
-                                                    <div class="col">{{ $blog->created_at->diffForHumans() }}</div>
                                                 </div>
-                                                <div class="row w-100">
-                                                    <div class="col">
-                                                        <form action="/delete-blog/{{ $blog->slug }}" method="post"
-                                                            class="d-inline">
-                                                            @method('delete')
-                                                            @csrf
-                                                            <button class="btn btn-danger w-100"
-                                                                onclick="return confirm('Are You sure?')"><span
-                                                                    data-feather="x-circle"></span> Delete</button>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
+                                            </a>
+                                        </div>
                                     </div>
+                                @endforeach
+                            @else
+                                <div class="col my-3 text-center">
+                                    <h2>No posts found</h2>
                                 </div>
-                            @endforeach
+                            @endif
                         </div>
                         <div class="row">
                             <div class="col d-flex align-self-end">
