@@ -41,6 +41,7 @@ Route::get('/blog', function () {
     return view('blog');
 });
 
+
 Route::get('/manage-blog',[BlogController::class,'manageBlog']);
 
 Route::get('/view-blog', [BlogController::class,'view']);
