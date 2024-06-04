@@ -3,15 +3,14 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MitraController;
+use App\Http\Controllers\BlogUserController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AdvertisementController;
-use App\Http\Controllers\MitraController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'HomePage']);
+
+Route::get('/home', [HomeController::class, 'HomePage']);
 
 // Sign In 
 Route::get('/sign-in', function () {
@@ -37,9 +36,7 @@ Route::get('/add-detailing-mitra', function () {
     return view('addDetailingMitra');
 });
 
-Route::get('/blog', function () {
-    return view('blog');
-});
+Route::get('/blog', [BlogUserController::class, 'blog']);
 
 
 Route::get('/manage-blog',[BlogController::class,'manageBlog']);
