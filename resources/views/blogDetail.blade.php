@@ -7,9 +7,10 @@
                 <div class="card border border-0">
                     <div class="card-body py-5">
                         <div class="container">
+                            @foreach ($blogs as $blog)
                             <div class="row">
                                 <div class="col">
-                                    <span class="badge text-bg-primary my-2">Technology</span>
+                                    <span class="badge text-bg-primary my-2">{{ $blog['title'] }}</span>
                                 </div>
                             </div>
                             <div class="row">
@@ -75,7 +76,8 @@
                                 <button type="button" class="btn btn-primary">love</button>
                                 <button type="button" class="btn btn-primary">like</button>
                                 <button type="button" class="btn btn-primary">unlike</button>
-                              </div>
+                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>

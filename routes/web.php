@@ -7,7 +7,7 @@ use App\Http\Controllers\MitraController;
 use App\Http\Controllers\BlogUserController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AdvertisementController;
-
+use App\Http\Controllers\BlogDetailController;
 
 
 Route::get('/home', [HomeController::class, 'HomePage']);
@@ -37,6 +37,7 @@ Route::get('/add-detailing-mitra', function () {
 });
 
 Route::get('/blog', [BlogUserController::class, 'blog']);
+Route::get('/blog-detail', [BlogDetailController::class, 'blogDetail']);
 
 
 Route::get('/manage-blog',[BlogController::class,'manageBlog']);
@@ -76,9 +77,6 @@ Route::get('/manage-advertisement-update', [AdvertisementController::class, 'upd
 
 // Route::resource('/category', CategoryController::class);
 
-Route::get('/blog-detail', function () {
-    return view('blogDetail');
-});
 
 Route::get('/viewMitra', function () {
     return view('viewMitra');

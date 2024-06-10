@@ -8,9 +8,9 @@ use Illuminate\Http\Request;
 
 class BlogUserController extends Controller
 {
-    public function Blog(): View
+    public function blog(): View
     {
-        return view("Blog",["blogs" => Blog::all()]);
+        return view("blog",["blogs" => Blog::all()]);
     }
 
 
