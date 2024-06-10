@@ -69,7 +69,7 @@ Route::get('/manage-advertisement', function () {
     return view('manageAdvertisementAdmin');
 });
 
-Route::get('/manage-advertisement-view', [AdvertisementController::class, 'viewAdvertisementAdmin'])->name('view_advertisement');
+// Route::get('/manage-advertisement-view', [AdvertisementController::class, 'viewAdvertisementAdmin'])->name('view_advertisement');
 Route::get('/manage-advertisement-add', [AdvertisementController::class, 'addAdvertisementAdmin'])->name('add_advertisement');
 Route::get('/manage-advertisement-delete', [AdvertisementController::class, 'deleteAdvertisementAdmin'])->name('delete_advertisement');
 Route::get('/manage-advertisement-update', [AdvertisementController::class, 'updateAdvertisementAdmin'])->name('update_advertisement');
@@ -100,3 +100,21 @@ Route::post('viewMitra', [MitraController::class, 'store']);
 Route::get('/payment', function () {
     return view('paymentPage');
 });
+
+Route::get('manage-advertisement-add', [AdvertisementController::class, 'create']);
+Route::post('manage-advertisement-view', [MitraController::class, 'store']);
+
+Route::get('manage-advertisement-view', function () {
+    return view('viewAdvertisementAdmin');
+});
+
+Route::get('/advertisements/create', [AdvertisementController::class, 'create'])->name('advertisement.create');
+Route::post('/advertisements/store', [AdvertisementController::class, 'store'])->name('advertisement.store');
+Route::get('/advertisements', [AdvertisementController::class, 'index'])->name('advertisement.index');
+Route::delete('/advertisements/{id}', [AdvertisementController::class, 'destroy'])->name('advertisement.destroy');
+
+Route::get('/advertisements/{id}/edit', [AdvertisementController::class, 'edit'])->name('advertisement.edit');
+Route::put('/advertisements/{id}', [AdvertisementController::class, 'update'])->name('advertisement.update');
+
+
+
