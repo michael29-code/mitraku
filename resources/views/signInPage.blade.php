@@ -18,38 +18,49 @@
                         </span>
                     </div>
                 </div>
-                <div class="row mt-4">
-                    <div class="col">
-                        <label for="signInEmail" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="signInEmail" placeholder="ex: name@gmail.com">
-                        <div id="emailError" class="form-text ms-2 text-danger body-small-bold">Error Text</div>
-                    </div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col">
-                        <label for="signInPassword" class="form-label">Password </label>
-                        <input type="email" class="form-control" id="signInPassword" placeholder="at least 8 characters">
-                        <div id="passwordError" class="form-text ms-2 text-danger body-small-bold">Error Text</div>
-                    </div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                Remember me
-                            </label>
+                <form action="/sign-in" method="POST">
+                    @csrf
+                    <div class="row mt-4">
+                        <div class="col">
+                            <label for="signInEmail" class="form-label">Email address</label>
+                            <input name="email" type="email" class="form-control" id="signInEmail" placeholder="ex: name@gmail.com">
+                            <div id="emailError" class="form-text ms-2 text-danger body-small-bold">Error Text</div>
+                            {{-- <input type="email" class="form-control @error(signInEmail) is-invalid @enderror" id="signInEmail" placeholder="ex: name@gmail.com"> --}}
+                            {{-- @error('signInEmail')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror --}}
                         </div>
                     </div>
-                    <div class="col text-end" style="color: blue">
-                        Forgot password?
+                    <div class="row mt-3">
+                        <div class="col">
+                            <label for="signInPassword" class="form-label">Password </label>
+                            <input name="password" type="password" class="form-control" id="signInPassword"
+                                placeholder="at least 8 characters">
+                            <div id="passwordError" class="form-text ms-2 text-danger body-small-bold">Error Text</div>
+                        </div>
                     </div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col">
-                        <button type="submit" class="btn btn-primary" style="width: 100%">Sign In</button>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    id="flexRadioDefault1">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Remember me
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col text-end" style="color: blue">
+                            Forgot password?
+                        </div>
                     </div>
-                </div>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <button type="submit" class="btn btn-primary" style="width: 100%">Sign In</button>
+                        </div>
+                    </div>
+                </form>
                 <div class="row mt-3">
                     <div class="col">
                         <hr>

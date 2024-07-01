@@ -1,6 +1,12 @@
 @extends('layouts.layout')
 
 @section('content')
+    @if (session()->has('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    @endif
 
     <div class="row justify-content-center">
         <div class="mx-auto m-3 text-center" style="width: 50rem;">

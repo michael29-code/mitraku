@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomeController;
@@ -13,13 +14,12 @@ use App\Http\Controllers\BlogDetailController;
 Route::get('/home', [HomeController::class, 'HomePage']);
 
 // Sign In 
-Route::get('/sign-in', function () {
-    return view('signInPage');
-});
+Route::get('/sign-in', [RegisterController::class, 'signInPage']);
+Route::post('/sign-in', [RegisterController::class, 'signInStore']);
 // Sign Up
-Route::get('/sign-up', function () {
-    return view('signUpPage');
-});
+Route::get('/sign-up', [RegisterController::class, 'signUpPage']);
+Route::post('/sign-up', [RegisterController::class, 'signUpStore']);
+
 
 Route::get('/profile', function () {
     return view('profile');

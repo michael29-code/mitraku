@@ -14,40 +14,69 @@
                         Sign up to enjoy the features of MiKu
                     </div>
                 </div>
-                <div class="row mt-3">
-                    <div class="col">
-                        <label for="signUpUsername" class="form-label">Username </label>
-                        <input type="text" class="form-control" id="signUpUsername" placeholder="at least 5 characters">
-                        <div id="UsernameError" class="form-text ms-2 text-danger body-small-bold">Error Text</div>
+                <form action="/sign-up" method="POST">
+                    @csrf
+                    <div class="row mt-3">
+                        <div class="col">
+                            <label for="signUpUsername" class="form-label">Username </label>
+                            <input name="username" type="text"
+                                class="form-control @error('username') is-invalid @enderror" id="signUpUsername"
+                                placeholder="at least 5 characters" value="{{ old('username') }}">
+                            {{-- <div id="UsernameError" class="form-text ms-2 text-danger body-small-bold">Error Text</div> --}}
+                            @error('username')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
                     </div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col">
-                        <label for="signUpDateOfBirth" class="form-label">Date Of Birth </label>
-                        <input type="date" class="form-control" id="signUpDateOfBirth" placeholder="Ex: 8 June 1977">
-                        <div id="DateOfBirthError" class="form-text ms-2 text-danger body-small-bold">Error Text</div>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <label for="signUpDateOfBirth" class="form-label">Date Of Birth </label>
+                            <input name="dob" type="date" class="form-control @error('dob') is-invalid @enderror"
+                                id="signUpDateOfBirth" placeholder="Ex: 8 June 1977" value="{{ old('dob') }}">
+                            {{-- <div id="DateOfBirthError" class="form-text ms-2 text-danger body-small-bold">Error Text</div> --}}
+                            @error('dob')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
                     </div>
-                </div>
-                <div class="row mt-4">
-                    <div class="col">
-                        <label for="signUpEmail" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="signUpEmail" placeholder="ex: name@gmail.com">
-                        <div id="emailError" class="form-text ms-2 text-danger body-small-bold">Error Text</div>
+                    <div class="row mt-4">
+                        <div class="col">
+                            <label for="signUpEmail" class="form-label">Email address</label>
+                            <input name="email" type="email" class="form-control @error('email') is-invalid @enderror"
+                                id="signUpEmail" placeholder="ex: name@gmail.com" value="{{ old('email') }}">
+                            {{-- <div id="emailError" class="form-text ms-2 text-danger body-small-bold">Error Text</div> --}}
+                            @error('email')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
                     </div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col">
-                        <label for="signUpPassword" class="form-label">Password </label>
-                        <input type="email" class="form-control" id="signUpPassword" placeholder="at least 8 characters">
-                        <div id="passwordError" class="form-text ms-2 text-danger body-small-bold">Error Text</div>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <label for="signUpPassword" class="form-label">Password </label>
+                            <input name="password" type="password"
+                                class="form-control @error('password') is-invalid @enderror" id="signUpPassword"
+                                placeholder="at least 8 characters">
+                            {{-- <div id="passwordError" class="form-text ms-2 text-danger body-small-bold">Error Text</div> --}}
+                            @error('password')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
                     </div>
-                </div>
 
-                <div class="row mt-3">
-                    <div class="col">
-                        <button type="submit" class="btn btn-primary" style="width: 100%">Sign Up</button>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <button type="submit" class="btn btn-primary" style="width: 100%">Sign Up</button>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
             <div class="col-sm col-lg-6 bg-secondary">
                 {{-- <img src="" alt=""> --}}
