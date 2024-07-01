@@ -45,7 +45,7 @@
                         <p><b>Nama Mitra</b></p>
                         <div class="row">
                             <div class="col">
-                                <input type="text" name="namaMitra">
+                                <input type="text" name="namaMitra" style="width: 400px;">
                             </div>
                         </div>
                     </div>
@@ -55,7 +55,7 @@
                         <p><b>Alamat Mitra</b></p>
                         <div class="row">
                             <div class="col">
-                                <input type="text" name="lokasiMitra">
+                                <input type="text" name="lokasiMitra" style="width: 400px;">
                             </div>
                         </div>
                     </div>
@@ -65,7 +65,7 @@
                         <p><b>Kategori Mitra</b></p>
                         <div class="row">
                             <div class="col">
-                                <input type="text" name="kategoriMitra">
+                                <input type="text" name="kategoriMitra" style="width: 400px;">
                             </div>
                         </div>
                     </div>
