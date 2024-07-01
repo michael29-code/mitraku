@@ -1,24 +1,37 @@
 <?php
 
-use App\Http\Controllers\RegisterController;
+use App\Http\Middleware\CheckUser;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MitraController;
 use App\Http\Controllers\BlogUserController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\AdvertisementController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\BlogDetailController;
+use App\Http\Controllers\AdvertisementController;
 
 
+// === PUBLIC ===
+Route::get('/', [RegisterController::class, 'signInPage']);
+// Home
 Route::get('/home', [HomeController::class, 'HomePage']);
-
 // Sign In 
-Route::get('/sign-in', [RegisterController::class, 'signInPage']);
-Route::post('/sign-in', [RegisterController::class, 'signInStore']);
+Route::get('/sign-in', [RegisterController::class, 'signInPage'])->name('login');
+Route::post('/sign-in', [RegisterController::class, 'authentication']);
 // Sign Up
 Route::get('/sign-up', [RegisterController::class, 'signUpPage']);
 Route::post('/sign-up', [RegisterController::class, 'signUpStore']);
+
+// === MIDDLEWARE ===
+Route::group(['middlewareAdmin' => ['CheckUser:1']], function(){
+});
+
+Route::group(['middlewareUser' => ['CheckUser:2']], function(){
+    
+});
+
+
 
 
 Route::get('/profile', function () {

@@ -23,14 +23,12 @@
                     <div class="row mt-4">
                         <div class="col">
                             <label for="signInEmail" class="form-label">Email address</label>
-                            <input name="email" type="email" class="form-control" id="signInEmail" placeholder="ex: name@gmail.com">
-                            <div id="emailError" class="form-text ms-2 text-danger body-small-bold">Error Text</div>
-                            {{-- <input type="email" class="form-control @error(signInEmail) is-invalid @enderror" id="signInEmail" placeholder="ex: name@gmail.com"> --}}
-                            {{-- @error('signInEmail')
+                            <input name="email" type="email" class="form-control @error('email') is-invalid @enderror" id="signInEmail" placeholder="ex: name@gmail.com" value="{{ old('email') }}">
+                            @error('email')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
-                            @enderror --}}
+                            @enderror
                         </div>
                     </div>
                     <div class="row mt-3">
@@ -38,7 +36,7 @@
                             <label for="signInPassword" class="form-label">Password </label>
                             <input name="password" type="password" class="form-control" id="signInPassword"
                                 placeholder="at least 8 characters">
-                            <div id="passwordError" class="form-text ms-2 text-danger body-small-bold">Error Text</div>
+                            {{-- <div id="passwordError" kclass="form-text ms-2 text-danger body-small-bold">Error Text</div> --}}
                         </div>
                     </div>
                     <div class="row mt-3">
