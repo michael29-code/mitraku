@@ -51,16 +51,6 @@ class CategoryController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        // 
-        
-        
-    }
-
-    /**
      * Show the form for editing the specified resource.
      */
     public function edit(string $jenisKategori)
@@ -74,9 +64,20 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $jenisKategori)
     {
-        //
+        $request->validate([
+            'jenisKategori'=>"required"
+        ],[
+            'jenisKategori.required'=> 'Jenis Kategori Wajib diisi'
+        ]);
+
+        $data = [
+            'jenisKategori'=>$request->input('jenisKategori')
+        ];
+
+        Category::where('jenisKategori', $jenisKategori)-> update($data);
+        return redirect('/manage-category')->with('success', 'Berhasil Update');
     }
 
     /**

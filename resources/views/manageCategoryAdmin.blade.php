@@ -10,7 +10,9 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col mx-5 my-2 py-2 border-bottom align-middle">
-                                <a href="{{ route('view_category') }}">View Category</a>
+                                <a href="{{ route('view_category') }}">
+                                    View Category
+                                </a>
                             </div>
                         </div>
                         <div class="row">

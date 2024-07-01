@@ -66,6 +66,7 @@ Route::get('/edit-blog/{blog:slug}',[BlogController::class,'edit']);
 Route::put('/update-blog/{blog:slug}',[BlogController::class,'update']);
 Route::delete('/delete-blog/{blog:slug}',[BlogController::class,'destroy']);
 
+
 Route::get('/manage-category', function () {
     return view('manageCategoryAdmin');
 })->name('manage-category');
@@ -74,7 +75,7 @@ Route::get('/view-category', [CategoryController::class, 'viewCategoryAdmin'])->
 Route::get('/add-category', [CategoryController::class, 'addCategoryAdmin'])->name('add_category');
 Route::get('/delete-category', [CategoryController::class, 'deleteCategoryAdmin'])->name('delete_category');
 Route::delete('/view-category/{jenisKategori}', [CategoryController::class, 'destroy'])->name('category.destroy');
-Route::get('/update-category', [CategoryController::class, 'updateCategoryAdmin'])->name('update_category');
+Route::get('/update-category/{jenisKategori}', [CategoryController::class, 'updateCategoryAdmin'])->name('update_category');
 Route::post('/store-category', [CategoryController::class, 'store'])->name('store_category');
 
 
@@ -113,21 +114,3 @@ Route::post('viewMitra', [MitraController::class, 'store']);
 Route::get('/payment', function () {
     return view('paymentPage');
 });
-
-Route::get('manage-advertisement-add', [AdvertisementController::class, 'create']);
-Route::post('manage-advertisement-view', [MitraController::class, 'store']);
-
-Route::get('manage-advertisement-view', function () {
-    return view('viewAdvertisementAdmin');
-});
-
-Route::get('/advertisements/create', [AdvertisementController::class, 'create'])->name('advertisement.create');
-Route::post('/advertisements/store', [AdvertisementController::class, 'store'])->name('advertisement.store');
-Route::get('/advertisements', [AdvertisementController::class, 'index'])->name('advertisement.index');
-Route::delete('/advertisements/{id}', [AdvertisementController::class, 'destroy'])->name('advertisement.destroy');
-
-Route::get('/advertisements/{id}/edit', [AdvertisementController::class, 'edit'])->name('advertisement.edit');
-Route::put('/advertisements/{id}', [AdvertisementController::class, 'update'])->name('advertisement.update');
-
-
-

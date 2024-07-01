@@ -23,7 +23,7 @@
                                                         <h5>{{ $item->jenisKategori }}</h5>
                                                     </div>
                                                     <div class="col-md-5 d-flex align-items-center justify-content-end ">
-                                                        <a href="{{ url('manage-category/' . $item->jenisKategori . '/edit') }}"
+                                                        <a href="{{ url('manage-category/'. $item->jenisKategori. '/edit') }}"
                                                             class="btn btn-primary btn-sm">Update</a>
                                                         <form onsubmit="return confirm('Yakin mau hapus data ?')"
                                                             class="d-inline"
