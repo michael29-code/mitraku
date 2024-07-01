@@ -18,34 +18,39 @@
                             </div>
                             <div class="col"> </div>
                         </div>
-                        <div class="row my-3">
-                            <div class="col">
-                                <div class="row my-3 mx-5">
-                                    <div class="col">
-                                        <h6><b>Choose category's name</b></h6>
-                                        <div class="row">
-                                            <div class="col">
-                                                <input type="text" class="form-control">
-                                            </div>
+                        <form action="{{ 'update-category/'.$data->jenisKategori }}" method="POST">
+                            @csrf
+                            @method('PUT')
+                            <div class="row my-3 mx-5">
+                                <div class="col">
+                                    <h6><b>Current category's name</b></h6>
+                                    <div class="row">
+                                        <div class="col">
+                                            <input type="text" class="form-control" name="jenisKategori" value="{{ $data->jenisKategori }}">
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row my-3 mx-5">
-                                    <div class="col">
-                                        <h6><b>New category's name</b></h6>
-                                        <div class="row">
-                                            <div class="col">
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                    <button class="btn btn-secondary me-md-2" type="button">Cancel</button>
-                                    <button class="btn btn-primary" type="button">Add</button>
                                 </div>
                             </div>
-                        </div>
+                            <div class="row my-3 mx-5">
+                                <div class="col">
+                                    <h6><b>New category's name</b></h6>
+                                    <div class="row">
+                                        <div class="col">
+                                            <input type="text" class="form-control" name="jenisKategori" required>
+                                            @if($errors->has('jenisKategori'))
+                                                <div class="text-danger">
+                                                    {{ $errors->first('jenisKategori') }}
+                                                </div>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                <button class="btn btn-secondary me-md-2" type="button">Cancel</button>
+                                <button class="btn btn-primary" type="submit">Update</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
