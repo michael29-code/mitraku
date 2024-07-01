@@ -56,4 +56,19 @@ class RegisterController extends Controller
         }
         return back()->with('loginError', 'Login Failed');
     }
+
+    public function logout(Request $request)
+    {
+        // auth()->logout();
+        // return redirect('/');
+        Auth::logout();
+    
+        $request->session()->invalidate();
+    
+        $request->session()->regenerateToken();
+    
+        return redirect('/');
+
+    }
+
 }

@@ -23,15 +23,23 @@ Route::post('/sign-in', [RegisterController::class, 'authentication']);
 Route::get('/sign-up', [RegisterController::class, 'signUpPage']);
 Route::post('/sign-up', [RegisterController::class, 'signUpStore']);
 
+
 // === MIDDLEWARE ===
+// UNTUK USER YANG SUDAH LOGIN
+Route::group(['middleware' => ['auth']], function(){
+    // Logout
+    Route::post('/logout', [RegisterController::class, 'logout']); 
+});
+
+// UNTUK ADMIN
 Route::group(['middlewareAdmin' => ['CheckUser:1']], function(){
+
 });
 
+// UNTUK USER
 Route::group(['middlewareUser' => ['CheckUser:2']], function(){
-    
+
 });
-
-
 
 
 Route::get('/profile', function () {
