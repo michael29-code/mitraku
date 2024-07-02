@@ -2,6 +2,21 @@
 
 @section('content')
     <div class="container p-5">
+
+        @if (session()->has('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    @endif
+
+    @if (session()->has('loginError'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{ session('loginError') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    @endif
+
         <div class="row">
             <div class="px-5 py-1 col-sm col-lg-6">
                 <div class="row py-0">
@@ -71,14 +86,14 @@
                     </div>
                 </div>
                 <div class="row mt-3">
-                    <div class="col">
-                        GOOGLE
+                    <div class="col text-center" style="font-size: 2rem">
+                        <i class="bi bi-google"></i>
                     </div>
-                    <div class="col">
-                        Facebook
+                    <div class="col text-center" style="font-size: 2rem">
+                        <i class="bi bi-facebook"></i>
                     </div>
-                    <div class="col">
-                        Apple
+                    <div class="col text-center" style="font-size: 2rem">
+                        <i class="bi bi-apple"></i>
                     </div>
                 </div>
             </div>

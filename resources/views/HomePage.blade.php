@@ -1,5 +1,7 @@
 @extends('layouts.layout')
 
+@section('isHomeActive', 'active')
+
 @section('content')
     @if (session()->has('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -15,10 +17,7 @@
       </div>
     @endif
 
-    <form action="/logout" method="POST">
-        @csrf
-        <button>Log out</button>
-    </form>
+
     <div class="row justify-content-center">
         <div class="mx-auto m-3 text-center" style="width: 50rem;">
             <h1>We make it easy for tenants and landlords.</h1>

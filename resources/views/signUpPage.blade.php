@@ -33,10 +33,10 @@
                     <div class="row mt-3">
                         <div class="col">
                             <label for="signUpDateOfBirth" class="form-label">Date Of Birth </label>
-                            <input name="dob" type="date" class="form-control @error('dob') is-invalid @enderror"
-                                id="signUpDateOfBirth" placeholder="Ex: 8 June 1977" value="{{ old('dob') }}">
+                            <input name="date_of_birth" type="date" class="form-control @error('date_of_birth') is-invalid @enderror"
+                                id="signUpDateOfBirth" placeholder="Ex: 8 June 1977" value="{{ old('date_of_birth') }}">
                             {{-- <div id="DateOfBirthError" class="form-text ms-2 text-danger body-small-bold">Error Text</div> --}}
-                            @error('dob')
+                            @error('date_of_birth')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>

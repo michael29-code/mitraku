@@ -1,5 +1,7 @@
 @extends('layouts/layoutAdmin')
 
+@section('isHomeMitra', 'active')
+
 @section('content')
     <div class="col-lg-9">
         <div class="p-4">

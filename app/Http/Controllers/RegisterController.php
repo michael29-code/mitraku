@@ -19,7 +19,7 @@ class RegisterController extends Controller
         $incomingFields = $request->validate([
             'username' => ['required', 'min:5', 'max:255', 'unique:users'],
             // 'username' => ['required', 'min:5', 'max:255', Rule::unique('users', 'name')],
-            // 'dob' => ['required'],
+            'date_of_birth' => ['required', 'before: 5 years ago'],
             'email' => ['required', 'email:dns', 'unique:users'],
             // 'email' => ['required', 'email', Rule::unique('users', 'email')],
             'password' => ['required', 'min:8', 'max:255'],
@@ -30,7 +30,7 @@ class RegisterController extends Controller
         User::create($incomingFields);
         $request->session()->flash('success', 'Sign Up Successful!');
 
-        return redirect('/home');
+        return redirect('/');
     }
 
     public function signInPage()
@@ -59,16 +59,11 @@ class RegisterController extends Controller
 
     public function logout(Request $request)
     {
-        // auth()->logout();
-        // return redirect('/');
-        Auth::logout();
-    
+        Auth::guard('web')->logout();
         $request->session()->invalidate();
-    
         $request->session()->regenerateToken();
-    
-        return redirect('/');
 
+        return redirect('/');
     }
 
 }

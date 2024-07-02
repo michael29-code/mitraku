@@ -1,5 +1,7 @@
 @extends('layouts/layout')
 
+@section('isAdvertisementActive', 'active')
+
 @section('content')
 <div class=" header-advertisment col-lg-5 p-4">
     <h1 class="h1">Reach millions of early adopters</h1>

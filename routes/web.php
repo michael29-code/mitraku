@@ -15,12 +15,12 @@ use App\Http\Controllers\AdvertisementController;
 // === PUBLIC ===
 Route::get('/', [RegisterController::class, 'signInPage']);
 // Home
-Route::get('/home', [HomeController::class, 'HomePage']);
+Route::get('/home', [HomeController::class, 'HomePage'])->name('home');
 // Sign In 
 Route::get('/sign-in', [RegisterController::class, 'signInPage'])->name('login');
 Route::post('/sign-in', [RegisterController::class, 'authentication']);
 // Sign Up
-Route::get('/sign-up', [RegisterController::class, 'signUpPage']);
+Route::get('/sign-up', [RegisterController::class, 'signUpPage'])->name('register');
 Route::post('/sign-up', [RegisterController::class, 'signUpStore']);
 
 
@@ -28,7 +28,7 @@ Route::post('/sign-up', [RegisterController::class, 'signUpStore']);
 // UNTUK USER YANG SUDAH LOGIN
 Route::group(['middleware' => ['auth']], function(){
     // Logout
-    Route::post('/logout', [RegisterController::class, 'logout']); 
+    Route::post('/logout', [RegisterController::class, 'logout'])->name('logout');
 });
 
 // UNTUK ADMIN
@@ -57,7 +57,7 @@ Route::get('/add-detailing-mitra', function () {
     return view('addDetailingMitra');
 });
 
-Route::get('/blog', [BlogUserController::class, 'blog']);
+Route::get('/blog', [BlogUserController::class, 'blog'])->name('view_blog');
 Route::get('/blog-detail', [BlogDetailController::class, 'blogDetail']);
 
 
@@ -102,7 +102,7 @@ Route::get('/manage-advertisement-update', [AdvertisementController::class, 'upd
 
 Route::get('/viewMitra', function () {
     return view('viewMitra');
-});
+})->name('view_mitra');
 
 Route::get('/viewUser', function () {
     return view('viewUser');
@@ -110,7 +110,7 @@ Route::get('/viewUser', function () {
 
 Route::get('/userAdvertisement', function () {
     return view('userAdvertisement');
-});
+})->name('view_advertisement');
 
 Route::get('/form-pengajuan', function () {
     return view('viewFormPengajuan');

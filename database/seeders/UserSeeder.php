@@ -18,9 +18,20 @@ class UserSeeder extends Seeder
         User::create([
             'username' => 'ADMINNNN',
             'level' => 1,
+            'date_of_birth' => '1999-01-01',
             'email' => 'admin@admin.com',
             'password' => bcrypt('admin'),
-            'remember_token' => Str::random(60)
+            // 'remember_token' => Str::random(60)
         ]);
+
+        User::create([
+            'username' => 'User1',
+            'level' => 2,
+            'date_of_birth' => '2000-02-02',
+            'email' => 'user1@gmail.com',
+            'password' => bcrypt('useruser'),
+        ]);
+
+
     }
 }

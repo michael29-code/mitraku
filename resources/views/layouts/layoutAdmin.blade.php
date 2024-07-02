@@ -26,50 +26,61 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand navbar-light bg-light test-black-border">
+    <nav class="navbar navbar-expand navbar-light bg-light">
         <div class="container-fluid">
             <div class="d-flex justify-content-between">
-                <button class="btn px-1 py-0 open-btn me-2">
-                    OPEN
+                <button class="btn btn-light px-1 py-0 open-btn me-3">
+                    <i class="bi bi-list" style="font-size: 2rem"></i>
                 </button>
-                {{-- <a class="navbar-brand me-auto" href="#">
+                <a class="navbar-brand me-auto" href="#">
                     <img src="images/LogoMitraku.png" alt="Mitraku" class="logo-size-sm">
-                </a> --}}
-
+                </a>
             </div>
         </div>
     </nav>
 
     <div class="main-container d-flex">
-        <div class="sidebar sidebar-rch test-black-border h6" id="side_nav">
+        <div class="sidebar sidebar-rch shadow-sm h6" id="side_nav">
             <div class="header-box px-2 pt-3 pb-4 d-flex justify-content-between">
-                <a class="navbar-brand me-auto" href="#">
+                {{-- <a class="navbar-brand me-auto" href="#">
                     <img src="/images/LogoMitraku.png" alt="Mitraku" class="logo-size-sm">
-                </a>
+                </a> --}}
+                <div class="div"></div>
                 <button class="btn d-md-none d-block close-btn px-1 py-0">
-                    {{-- TODO: Ganti jadi icon --}}
-                    X
+                    <i class="bi bi-x" style="font-size: 2rem"></i>
                 </button>
             </div>
 
             <ul class="list-unstyled px-2">
-                <li class="active"><a href="#" class="text-decoration-none px-3 py-2 d-block">
-                        ICON User</a>
+                <li class="active my-2">
+                    <a href="#" class="text-decoration-none px-3 py-2 d-block">
+                        <i class="bi bi-person-circle me-2"></i>
+                        User
+                    </a>
                 </li>
-                <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block">
-                        ICON Projects</a>
+                <li class="my-2">
+                    <a href="#" class="text-decoration-none px-3 py-2 d-block">
+                        <i class="bi bi-building me-2"></i>
+                        Mitra
+                    </a>
                 </li>
-                <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block">
-                        ICON Mitra</a>
+                <li class="my-2">
+                    <a href="#" class="text-decoration-none px-3 py-2 d-block">
+                        <i class="bi bi-newspaper me-2"></i>
+                        Blog
+                    </a>
                 </li>
-                <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block">
-                        ICON Blog</a>
+                <li class="my-2">
+                    <a href="#" class="text-decoration-none px-3 py-2 d-block">
+                        <i class="bi bi-ui-checks-grid me-2"></i>
+                        Category
+                    </a>
                 </li>
-                <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block">
-                        ICON Category</a>
-                </li>
-                <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block">
-                        ICON Advertisement</a>
+                <li class="my-2">
+                    <a href="#" class="text-decoration-none px-3 py-2 d-block">
+                        <i class="bi bi-badge-ad-fill me-2"></i>
+                        Advertisement
+                    </a>
                 </li>
             </ul>
         </div>

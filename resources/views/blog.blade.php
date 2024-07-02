@@ -1,5 +1,7 @@
 @extends('layouts.layout')
 
+@section('isBlogActive', 'active')
+
 @section('content')
 <div class="rectangleSpace"></div>
     <div class="rectangle">

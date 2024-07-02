@@ -232,17 +232,22 @@ h6,
 }
 
 .sidebar li.active {
-    background: var(--black);
+    background: var(--blue);
     border-radius: 8px;
 }
 
 .sidebar li.active a,
-.sidebar li.active a:hover {
+.sidebar li.active a i,
+.sidebar li.active a:hover,
+.sidebar li.active a:hover i {
     color: var(--white-background);
+    color: var(--white-navbar);
 }
 
-.sidebar li a {
+.sidebar li a,
+.sidebar li a i {
     color: var(--black);
+    font-size: 1.5rem;
 }
 
 @media (max-width: 767px) {

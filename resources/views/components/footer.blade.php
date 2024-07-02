@@ -11,9 +11,9 @@
                 <div class="row p-1 ps-3 body-medium-bold">
                     One-Stop Shop For Any Data Real Estate related
                 </div>
-                <div class="row p-1 ps-3 body-medium-medium">
+                {{-- <div class="row p-1 ps-3 body-medium-medium">
                     ©2023 Mitraku.com - All right reserved
-                </div>
+                </div> --}}
                 <div class="row p-1 ps-3 body-medium-medium">
                     A Mitraku Software Group Project
                 </div>
@@ -36,21 +36,24 @@
         </div>
         <div class="row">
             <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
-                <p>&copy; 2024 Company, Inc. All rights reserved.</p>
-                {{-- TODO: ICON --}}
+                <p>©2023 Mitraku.com - All right reserved</p>
                 <ul class="list-unstyled d-flex">
-                    <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24"
-                                height="24">
-                                <use xlink:href="#twitter" />
-                            </svg>ICON</a></li>
-                    <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24"
-                                height="24">
-                                <use xlink:href="#instagram" />
-                            </svg>ICON</a></li>
-                    <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24"
-                                height="24">
-                                <use xlink:href="#facebook" />
-                            </svg>ICON</a></li>
+                    <li class="ms-5">
+                        <a class="link-body-emphasis" href="#">
+                            <i class="bi bi-twitter-x" style="font-size: 2rem;"></i>
+                        </a>
+                    </li>
+
+                    <li class="ms-5">
+                        <a class="link-body-emphasis" href="#">
+                            <i class="bi bi-facebook" style="font-size: 2rem;"></i>
+                        </a>
+                    </li>
+                    <li class="ms-5">
+                        <a class="link-body-emphasis" href="#">
+                            <i class="bi bi-linkedin" style="font-size: 2rem;"></i>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
