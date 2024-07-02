@@ -91,7 +91,7 @@ Route::get('/manage-advertisement', function () {
     return view('manageAdvertisementAdmin');
 });
 
-// Route::get('/manage-advertisement-view', [AdvertisementController::class, 'viewAdvertisementAdmin'])->name('view_advertisement');
+Route::get('/manage-advertisement-view', [AdvertisementController::class, 'viewAdvertisementAdmin'])->name('view_advertisement');
 Route::get('/manage-advertisement-add', [AdvertisementController::class, 'addAdvertisementAdmin'])->name('add_advertisement');
 Route::get('/manage-advertisement-delete', [AdvertisementController::class, 'deleteAdvertisementAdmin'])->name('delete_advertisement');
 Route::get('/manage-advertisement-update', [AdvertisementController::class, 'updateAdvertisementAdmin'])->name('update_advertisement');
