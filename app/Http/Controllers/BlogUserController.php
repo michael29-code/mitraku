@@ -13,5 +13,4 @@ class BlogUserController extends Controller
         return view("blog",["blogs" => Blog::all()]);
     }
 
-
 }

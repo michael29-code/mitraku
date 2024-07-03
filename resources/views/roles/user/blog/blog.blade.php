@@ -31,7 +31,7 @@
                                     <img src="storage/{{ $blog['image'] }}" class="card-img-top"
                                         alt="...">
                                     <div class="card-body">
-                                        <span class="badge text-bg-primary my-2">{{ $blog->kategori }}</span>
+                                        <span class="badge text-bg-primary my-2">{{ $blog->kategori->jenisKategori }}</span>
                                         <h5 class="card-title my-1">{{ $blog['title'] }}</h5>
                                         <div class="row my-3">
                                             <div class="col-2">

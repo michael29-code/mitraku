@@ -1,5 +1,6 @@
 @extends('layouts/layoutAdmin')
 
+{{-- INI SALAh, HARUSNYA DI PAGE USER --}}
 @section('isHomeMitra', 'active')
 
 @section('content')
