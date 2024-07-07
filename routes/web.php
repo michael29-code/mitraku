@@ -62,17 +62,14 @@ Route::get('/blog-detail', [BlogDetailController::class, 'blogDetail']);
 
 
 Route::get('/manage-blog',[BlogController::class,'manageBlog']);
-
 Route::get('/view-blog', [BlogController::class,'view']);
-Route::get('/search', [BlogController::class,'search'])->name('search');
-
-Route::get('/view-blog-detail/{blog:slug}', [BlogController::class,'show']);
 Route::get('/write-blog', [BlogController::class,'writeBlog']);
 Route::post('/store-blog', [BlogController::class,'store']);
-
 Route::get('/edit-blog/{blog:slug}',[BlogController::class,'edit']);
 Route::put('/update-blog/{blog:slug}',[BlogController::class,'update']);
 Route::delete('/delete-blog/{blog:slug}',[BlogController::class,'destroy']);
+Route::get('/view-blog-detail/{blog:slug}', [BlogController::class,'show']);
+Route::get('/search', [BlogController::class,'search'])->name('search');
 
 
 Route::get('/manage-category', function () {
@@ -81,16 +78,15 @@ Route::get('/manage-category', function () {
 
 Route::get('/view-category', [CategoryController::class, 'viewCategoryAdmin'])->name('view_category');
 Route::get('/add-category', [CategoryController::class, 'addCategoryAdmin'])->name('add_category');
-Route::get('/delete-category', [CategoryController::class, 'deleteCategoryAdmin'])->name('delete_category');
-Route::delete('/view-category/{jenisKategori}', [CategoryController::class, 'destroy'])->name('category.destroy');
-Route::get('/update-category/{jenisKategori}', [CategoryController::class, 'updateCategoryAdmin'])->name('update_category');
 Route::post('/store-category', [CategoryController::class, 'store'])->name('store_category');
+Route::get('/delete-category', [CategoryController::class, 'deleteCategoryAdmin'])->name('delete_category');
+Route::get('/update-category/{jenisKategori}', [CategoryController::class, 'updateCategoryAdmin'])->name('update_category');
+Route::delete('/view-category/{jenisKategori}', [CategoryController::class, 'destroy'])->name('category.destroy');
 
 
 Route::get('/manage-advertisement', function () {
     return view('manageAdvertisementAdmin');
 });
-
 Route::get('/manage-advertisement-view', [AdvertisementController::class, 'viewAdvertisementAdmin'])->name('view_advertisement');
 Route::get('/manage-advertisement-add', [AdvertisementController::class, 'addAdvertisementAdmin'])->name('add_advertisement');
 Route::get('/manage-advertisement-delete', [AdvertisementController::class, 'deleteAdvertisementAdmin'])->name('delete_advertisement');

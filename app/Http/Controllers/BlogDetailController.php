@@ -10,6 +10,6 @@ class BlogDetailController extends Controller
 {
     public function blogDetail(): View
     {
-        return view("blogDetail",["blogs" => Blog::all()]);
+        return view("roles.user.blog.blogDetail",["blogs" => Blog::all()]);
     }
 }

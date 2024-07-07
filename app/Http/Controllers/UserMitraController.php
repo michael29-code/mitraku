@@ -10,7 +10,7 @@ class UserMitraController extends Controller
     public function index()
     {
         $mitras = UserMitra::all();
-        return view('indexMitra', ['mitras' => $mitras]);
+        return view('viewMitra', ['mitras' => $mitras]);
     }
 
     // Display the specified resource.

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function HomePage(){
-        return view('HomePage');
+        return view('roles.general.HomePage');
     }
 
 }

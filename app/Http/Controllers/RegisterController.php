@@ -11,7 +11,7 @@ class RegisterController extends Controller
 {
     public function signUpPage()
     {
-        return view('signUpPage');
+        return view('roles.general.signinpage');
     }
 
     public function signUpStore(Request $request)

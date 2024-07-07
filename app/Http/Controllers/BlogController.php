@@ -18,14 +18,14 @@ class BlogController extends Controller
 {
     public function manageBlog(): View
     {
-        return view('manageBlogPageAdmin');
+        return view('roles.admin.blog.manageBlogPageAdmin');
     }
     public function writeBlog(): View
     {
 
         $categories = categoryModel::All();
 
-        return view('writeBlogPageAdmin',['categories' => $categories]);
+        return view('roles.admin.blog.writeBlogPageAdmin',['categories' => $categories]);
     }
     public function store(Request $request)
     {
@@ -52,12 +52,12 @@ class BlogController extends Controller
 
     public function show(Blog $blog)
     {
-        return view('viewBlogPageDetailAdmin',["blog" => $blog]);
+        return view('roles.admin.blog.viewBlogPageDetailAdmin',["blog" => $blog]);
     }
 
     public function edit(Blog $blog): View{
         $categories = categoryModel::All();
-        return view('editBlogPageAdmin',["blog" => $blog, "categories" => $categories]);
+        return view('roles.admin.blog.editBlogPageAdmin',["blog" => $blog, "categories" => $categories]);
     }
 
     public function update(Request $request, Blog $blog)
@@ -89,7 +89,7 @@ class BlogController extends Controller
     public function view(): View
     {
 
-        return view('viewBlogPageAdmin',["blogs" => Blog::all()]);
+        return view('roles.admin.blog.viewBlogPageAdmin',["blogs" => Blog::all()]);
     }
 
     public function destroy(Blog $blog)
@@ -100,6 +100,7 @@ class BlogController extends Controller
         Blog::destroy($blog->id);
         return redirect('/view-blog');
     }
+    
     public function search(Request $request){
         $search = $request->input('search');
     
@@ -108,6 +109,6 @@ class BlogController extends Controller
             ->orWhere('body', 'LIKE', "%{$search}%")
             ->get();
     
-        return view('viewBlogPageAdmin', ["blogs" => $blogs]);
+        return view('roles.admin.blog.viewBlogPageAdmin', ["blogs" => $blogs]);
     }
 }

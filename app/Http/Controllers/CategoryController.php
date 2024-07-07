@@ -15,19 +15,20 @@ class CategoryController extends Controller
 
     public function viewCategoryAdmin() {
         $data = Category::all();
-        return view('viewCategoryAdmin')->with('data', $data);
+        return view('roles.admin.category.viewCategoryAdmin')->with('data', $data);
     }
     
     public function addCategoryAdmin() {
-        return view('addCategoryAdmin');
+        return view('roles.admin.category.addCategoryAdmin');
     }
     
     public function deleteCategoryAdmin() {
-        return view('deleteCategoryAdmin');
+        return view('roles.admin.category.deleteCategoryAdmin');
     }
     
-    public function updateCategoryAdmin() {
-        return view('updateCategoryAdmin');
+    public function updateCategoryAdmin($jenisKategori) {
+        $data = Category::where('jenisKategori', $jenisKategori)->first();
+        return view('roles.admin.category.updateCategoryAdmin')->with('data', $data);
     }
     
 
@@ -50,16 +51,6 @@ class CategoryController extends Controller
         return redirect()->route('view_category')->with('success', 'Berhasil menambah kategori');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $jenisKategori)
-    {
-        $data = Category::where('jenisKategori', $jenisKategori)->first();
-        return view('manage-category/update-category')->with('data', $data);
-    }
-
-    
 
     /**
      * Update the specified resource in storage.
@@ -83,10 +74,12 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $jenisKategori)
+    public function destroy($jenisKategori)
     {
-        $data = Category::where('jenisKategori', $jenisKategori)->first();
-        Category::where('jenisKategori', $jenisKategori)->delete();
-        return redirect('/view-category')->with('success', 'Berhasil hapus data');
+        $category = Category::where('jenisKategori', $jenisKategori)->first();
+        if ($category) {
+            $category->delete();
+        }
+        return redirect()->route('view_category')->with('success', 'Berhasil hapus data');
     }
 }

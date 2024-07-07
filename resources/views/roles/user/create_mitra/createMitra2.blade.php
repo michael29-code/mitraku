@@ -27,7 +27,6 @@
                             aria-valuemin="0" aria-valuemax="0">
                             <div class="progress-bar" style=""></div>
                         </div>
-                        </di </div>
                     </div>
                 </div>
             </div>
