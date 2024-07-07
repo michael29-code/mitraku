@@ -20,12 +20,13 @@ class BlogController extends Controller
     {
         return view('manageBlogPageAdmin');
     }
+
     public function writeBlog(): View
     {
 
         $categories = categoryModel::All();
 
-        return view('writeBlogPageAdmin',['categories' => $categories]);
+        return view('roles.admin.blog.writeBlogPageAdmin',['categories' => $categories]);
     }
     public function store(Request $request)
     {

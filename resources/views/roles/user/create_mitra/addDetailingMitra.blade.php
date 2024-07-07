@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
-    <div class="container my-5 full-height m-auto d-flex w-100 justify-content-center align-items-center flex-column">
+    <div class="container my-5 m-auto d-flex w-100 justify-content-center align-items-center flex-column">
         <div class="row">
             <div class="col text-center">
                 <h2>Detail Mitra</h2>

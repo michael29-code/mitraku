@@ -13,7 +13,7 @@
                         <a class="nav-link @yield('isHomeActive') mx-lg-2" aria-current="page" href="{{ route('home') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link @yield('isMitraActive') mx-lg-2" href="{{ route('view_mitra') }}">Mitra</a>
+                        <a class="nav-link @yield('isMitraActive') mx-lg-2" href="{{ route('view-mitra') }}">Mitra</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link @yield('isBlogActive') mx-lg-2" href="{{ route('view_blog') }}">Blog</a>

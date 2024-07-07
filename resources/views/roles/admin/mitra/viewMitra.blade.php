@@ -21,6 +21,11 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @if($mitra->isEmpty())
+                    <tr>
+                        <td colspan="4" class="text-center">No mitra available</td>
+                    </tr>
+                    @else
                     @foreach ($mitra as $m)
                         <tr>
                             {{-- <td>{{ $m->id }}</td> --}}
@@ -28,9 +33,10 @@
                             <td>{{ $m->lokasiMitra }}</td>
                             <td>{{ $m->kategoriMitra }}</td>
                             <td><button class="btn btn-danger">Block</button></td>
-                            </td>
                         </tr> 
                     @endforeach
+                @endif
+                
                 </tbody>
             </table>
         </div>
