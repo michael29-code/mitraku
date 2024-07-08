@@ -20,6 +20,7 @@ class BlogController extends Controller
     {
         return view('roles.admin.blog.manageBlogPageAdmin');
     }
+
     public function writeBlog(): View
     {
 

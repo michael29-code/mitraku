@@ -14,6 +14,7 @@ use App\Http\Controllers\AdvertisementController;
 
 // === PUBLIC ===
 Route::get('/', [RegisterController::class, 'signInPage']);
+// Route::get('/createMitra', [MitraController::class, 'createMitra']);
 // Home
 Route::get('/home', [HomeController::class, 'HomePage'])->name('home');
 // Sign In 
@@ -46,18 +47,20 @@ Route::get('/profile', function () {
     return view('profile');
 });
 
-Route::get('/create-mitra', function () {
-    return view('createMitra');
+// Route::get('/create-mitra', function () {
+//     return view('createMitra');
+// });
+
+
+Route::get('/add-detail-mitra', [MitraController::class, 'addDetailMitra']);
+Route::get('/add-detailing-mitra', [MitraController::class, 'addDetailingMitra']);
+
+Route::get('/mitra', function () {
+    return view('roles.user.mitra.mitra');
 });
 
-Route::get('/add-detail-mitra', function () {
-    return view('addDetailMitra');
-});
-Route::get('/add-detailing-mitra', function () {
-    return view('addDetailingMitra');
-});
-
-Route::get('/blog', [BlogUserController::class, 'blog'])->name('view_blog');
+Route::get('/blog', [BlogUserController::class, 'blog']);
+Route::get('/mitra', [MitraController::class, 'mitra']);      
 Route::get('/blog-detail', [BlogDetailController::class, 'blogDetail']);
 
 
@@ -95,10 +98,11 @@ Route::get('/manage-advertisement-update', [AdvertisementController::class, 'upd
 
 // Route::resource('/category', CategoryController::class);
 
+Route::get('/viewMitra', [MitraController::class, 'storeMitra'])->name('view-mitra');
 
-Route::get('/viewMitra', function () {
-    return view('viewMitra');
-})->name('view_mitra');
+// Route::get('/viewMitra', function () {
+//     return view('viewMitra');
+// })->name('view_mitra');
 
 Route::get('/viewUser', function () {
     return view('viewUser');
@@ -112,9 +116,18 @@ Route::get('/form-pengajuan', function () {
     return view('viewFormPengajuan');
 });
 
-// Route::get('viewMitra', [MitraController::class, 'index']);  
 Route::get('create-mitra', [MitraController::class, 'create']);
 Route::post('viewMitra', [MitraController::class, 'store']);
 Route::get('/payment', function () {
     return view('paymentPage');
 });
+
+Route::get('/createMitra', function () {
+    return view('roles.user.create_mitra.createMitra');
+});
+
+Route::get('detailMitra', function () {
+    return view('roles.user.mitra.detailMitra');
+})->name('detailMitra');
+
+

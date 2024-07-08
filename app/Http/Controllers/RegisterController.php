@@ -35,7 +35,7 @@ class RegisterController extends Controller
 
     public function signInPage()
     {
-        return view('signInPage');
+        return view('roles.general.signInPage');
     }
 
     public function authentication(Request $request)
