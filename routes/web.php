@@ -97,10 +97,6 @@ Route::get('/mitra', function () {
     return view('roles.user.mitra.mitra');
 });
 
-Route::get('/blog', [BlogUserController::class, 'blog'])->name('view-blog');
-Route::get('/mitra', [MitraController::class, 'mitra']);      
-Route::get('/blog-detail', [BlogDetailController::class, 'blogDetail']);
-
 
 Route::get('/manage-blog',[BlogController::class,'manageBlog']);
 Route::get('/view-blog', [BlogController::class,'view']);
