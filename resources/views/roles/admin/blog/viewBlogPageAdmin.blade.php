@@ -20,7 +20,6 @@
                             </div>
                             <div class="col">
                                 <form action="{{ route('search') }}" method="GET"class="d-flex" required>
-
                                     <div class="input-group">
                                         <div class="border border-end-0 input-group-text bg-transparent">
                                             <i class="fa-solid fa-magnifying-glass"></i>

@@ -10,13 +10,12 @@
             <input class="form-control me-4 rounded-pill" type="text" placeholder="3146 W 88th Stret, Cleveland OH 44102">
             <button class="btn btn-primary" type='button'>Search</button>
         </div>
-        <p class="mb-0">103 Results for Search</p> <!-- Remove bottom margin -->
+        <p class="mb-0">103 Results for Search</p>
     </div>
-    <div class="container p-5 h-100" style="margin-top: 0;"> <!-- Remove top margin -->
-        <div class="row shadow bg-body-tertiary rounded gx-4 gy-4"> <!-- Added gx-4 and gy-4 for spacing -->
+    <div class="container p-5 h-100" style="margin-top: 0;"> 
+        <div class="row shadow bg-body-tertiary rounded gx-4 gy-4">
             @foreach ($mitras->chunk(2) as $chunk)
-                <!-- Chunk the results into groups of 2 -->
-                <div class="col-6 mb-4"> <!-- Added mb-4 for bottom margin -->
+                <div class="col-6 mb-4"> 
                     @foreach ($chunk as $mitra)
                         <a href="{{ route('detailMitra') }}">
                             <div class="card mx-2 mb-4">

@@ -1,34 +1,53 @@
 @extends('layouts.layoutAdmin')
 
 @section('content')
-<div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded">
-    <div class="row justify-content-center p-3">
-        <div class="row col" style="height: 3rem">
-            <button type="button" class="btn btn-dark" style="width: 7rem; height: 3rem">Dark</button>
-            <h2 class="col" style="width: 10rem; height 3rem">View Advertisement</h2>
-        </div>
-        <form class="d-flex col" role="search" style="width: 20rem; height: 3rem">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        </form>
-    </div>
-    <div class="row row-cols-2 p-3 justify-content-center">
-        @foreach ($advertise as $a)
-        <div class="row col shadow p-2 m-3 bg-body-tertiary rounded" style="width: 37rem; height:13rem">
-            <div class="col">
-                <h5>{{ $a->price }}</h5>
-                <h4>{{ $a->title }}</h4>
-                <p>{{ $a->description }}</p>
-                <form action="{{ route('delete-advertisement', $a->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this advertisement?');">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                </form>       
-                <a href="{{ route('edit-advertisement', ['id' => $a->id]) }}" class="btn btn-primary">Edit Advertisement</a>
+<div class="container my-5 p-5 h-100">
+    <div class="row shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+        <div class="row w-100 align-items-center">
+            <div class="col-md-6 d-flex align-items-center">
+                <div class="me-3 mx-3 my-3">
+                    <a href="{{ route('manage-advertisement') }}"><i class="fa-solid fa-arrow-left" style="font-size: 2rem"></i></a>
+                </div>
+                <div>
+                    <h4 class="mb-0">View Advertisement</h4>
+                </div>
             </div>
-            <div class="col bg-info"></div>
-        </div>   
-        @endforeach
+            <div class="col-md-6">
+                <form action="{{ route('search') }}" method="GET" class="d-flex" required>
+                    <div class="input-group">
+                        <div class="border border-end-0 input-group-text bg-transparent">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                        <input type="text" class="form-control border border-start-0"
+                            aria-label="Text input with checkbox" placeholder="Search Advertisement" name="search" style="font-size: 14px;">
+                    </div>
+                </form>
+            </div>
+        </div>    
+        <div class="row mx-5 my-5">
+            @foreach ($advertise as $a)
+            <div class="explaination col-lg-5 mb-4">
+                <div class="col d-flex justify-content-center shadow bg-body-tertiary rounded mx-auto p-3">
+                    <div class="text p-4">
+                        <h1 class="body-large-bold blue mb-4 mt-2">Starting at ${{ $a->price }}</h1>
+                        <h1 class="h3 mb-4">{{ $a->title }}</h1>
+                        <div class="body-large-medium mb-3">{{ $a->description }}</div>
+                        <div class="d-flex justify-content-between">
+                            <form action="{{ route('delete-advertisement', $a->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this advertisement?');">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-xs btn-danger me-2 mx-0">Delete</button>
+                            </form>
+                            <a href="{{ route('edit-advertisement', ['id' => $a->id]) }}" class="btn btn-xs btn-primary">Edit Advertisement</a>
+                        </div>
+                    </div>
+                    <div class="col image p-2 mx-1">
+                        <img class="img-thumbnail" style="width: auto; height: auto; max-width: 100%;" src="images/AdvertisementPage.png" alt="">
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
     </div>
 </div>
 @endsection

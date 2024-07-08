@@ -27,7 +27,7 @@
                 <div class="row">
                     <div class="col">
                         Don't have account? <span style="color: blue">
-                            <a href="#" style="text-decoration: none">
+                            <a href="{{ route('register') }}" style="text-decoration: none">
                                 Sign Up
                             </a>
                         </span>

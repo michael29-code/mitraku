@@ -120,13 +120,16 @@ Route::get('/delete-category', [CategoryController::class, 'deleteCategoryAdmin'
 Route::get('/update-category/{jenisKategori}', [CategoryController::class, 'updateCategoryAdmin'])->name('update-category');
 Route::delete('/view-category/{jenisKategori}', [CategoryController::class, 'destroy'])->name('category.destroy');
 
+
 Route::get('/manage-advertisement', function () {
     return view('roles.admin.advertise.manageAdvertisementAdmin');
-});
-Route::get('/manage-advertisement-view', [AdvertisementController::class, ''])->name('view_advertisement');
-Route::get('/manage-advertisement-add', [AdvertisementController::class, ''])->name('add_advertisement');
-Route::get('/manage-advertisement-delete', [AdvertisementController::class, ''])->name('delete_advertisement');
-Route::get('/manage-advertisement-update', [AdvertisementController::class, ''])->name('update_advertisement');
+})->name('manage-advertisement');
+Route::get('/manage-advertisement-view', [AdvertisementController::class, 'index'])->name('view-advertisement-admin');
+Route::get('/manage-advertisement-add', [AdvertisementController::class, 'create'])->name('add-advertisement');
+Route::post('/manage-advertisement-store', [AdvertisementController::class, 'store'])->name('store-advertisement');
+Route::delete('/advertisements/{id}', [AdvertisementController::class, 'destroy'])->name('delete-advertisement');
+Route::get('/advertisements/{id}/edit', [AdvertisementController::class, 'edit'])->name('edit-advertisement');
+Route::put('/advertisements/{id}', [AdvertisementController::class, 'update'])->name('update-advertisement');
 // PUNYA NIAAAAAAAAAAA END
 
 
