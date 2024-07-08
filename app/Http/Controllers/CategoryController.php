@@ -22,16 +22,11 @@ class CategoryController extends Controller
         return view('roles.admin.category.addCategoryAdmin');
     }
     
-    public function deleteCategoryAdmin() {
-        return view('roles.admin.category.deleteCategoryAdmin');
-    }
-    
     public function updateCategoryAdmin($jenisKategori) {
         $data = Category::where('jenisKategori', $jenisKategori)->first();
-        return view('roles.admin.category.updateCategoryAdmin')->with('data', $data);
+        return view('roles.admin.category.updateCategoryAdmin', ['data' => $data]);
     }
     
-
     public function store(Request $request)
     {
         Session::flash('jenisKategori', $request->jenisKategori);
@@ -48,9 +43,8 @@ class CategoryController extends Controller
 
         Category::create($data);
 
-        return redirect()->route('view_category')->with('success', 'Berhasil menambah kategori');
+        return redirect()->route('view-category')->with('success', 'Berhasil menambah kategori');
     }
-
 
     /**
      * Update the specified resource in storage.
@@ -67,8 +61,8 @@ class CategoryController extends Controller
             'jenisKategori'=>$request->input('jenisKategori')
         ];
 
-        Category::where('jenisKategori', $jenisKategori)-> update($data);
-        return redirect('/manage-category')->with('success', 'Berhasil Update');
+        $category = Category::where('jenisKategori', $jenisKategori)-> update($data);
+        return redirect('/view-category')->with('success', 'Berhasil Update');
     }
 
     /**
@@ -80,6 +74,6 @@ class CategoryController extends Controller
         if ($category) {
             $category->delete();
         }
-        return redirect()->route('view_category')->with('success', 'Berhasil hapus data');
+        return redirect()->route('view-category')->with('success', 'Berhasil hapus data');
     }
 }

@@ -1,7 +1,7 @@
 @extends('layouts.layoutAdmin')
 
 @section('content')
-    <form enctype="multipart/form-data" method="post" action="{{ route('store_category') }}">
+    <form enctype="multipart/form-data" method="post" action="{{ route('store-category') }}">
         @csrf
         <div class="container my-5">
             <div class="row shadow bg-body-tertiary rounded">

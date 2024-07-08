@@ -16,6 +16,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class BlogController extends Controller
 {
+
+    // === ADMIN BLOG START ===
     public function manageBlog(): View
     {
         return view('roles.admin.blog.manageBlogPageAdmin');
@@ -28,6 +30,7 @@ class BlogController extends Controller
 
         return view('roles.admin.blog.writeBlogPageAdmin',['categories' => $categories]);
     }
+
     public function store(Request $request)
     {
         $request['slug'] = Str::of($request['title'])->slug('-');
@@ -89,7 +92,6 @@ class BlogController extends Controller
 
     public function view(): View
     {
-
         return view('roles.admin.blog.viewBlogPageAdmin',["blogs" => Blog::all()]);
     }
 
@@ -112,4 +114,23 @@ class BlogController extends Controller
     
         return view('roles.admin.blog.viewBlogPageAdmin', ["blogs" => $blogs]);
     }
+
+    // === ADMIN BLOG END ===
+    
+    
+    // === USER BLOG START ===
+
+    public function viewBlogUser(): View
+    {
+        return view("roles.user.blog.blog",["blogs" => Blog::all()]);
+    }
+
+    public function blogDetailUser(): View
+    {
+        return view("roles.user.blog.blogDetail",["blogs" => Blog::all()]);
+    }
+
+    // === USER BLOG END ===
+
+    
 }

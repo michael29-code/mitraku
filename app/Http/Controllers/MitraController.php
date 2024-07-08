@@ -7,16 +7,16 @@ use Illuminate\View\View;
 
 class MitraController extends Controller
 {
-    public function createMitra(){
-        return view('roles.user.create_mitra.createMitra');
+    public function createMitra1(){
+        return view('roles.user.create_mitra.createMitra1');
     }
 
-    public function addDetailMitra(){
-        return view('roles.user.create_mitra.addDetailMitra');
+    public function createMitra2(){
+        return view('roles.user.create_mitra.createMitra2');
     }    
 
-    public function addDetailingMitra(){
-        return view('roles.user.create_mitra.addDetailingMitra');
+    public function createMitra3(){
+        return view('roles.user.create_mitra.createMitra3');
     }   
 
     public function storeMitra(Request $request)

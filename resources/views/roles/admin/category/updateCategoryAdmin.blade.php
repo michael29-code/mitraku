@@ -18,7 +18,7 @@
                             </div>
                             <div class="col"> </div>
                         </div>
-                        <form action="{{ 'update-category/'.$data->jenisKategori }}" method="POST">
+                        <form action="{{ route('update-category.submit',  ['jenisKategori' => $data->jenisKategori]) }}" method="POST">
                             @csrf
                             @method('PUT')
                             <div class="row my-3 mx-5">
@@ -26,7 +26,7 @@
                                     <h6><b>Current category's name</b></h6>
                                     <div class="row">
                                         <div class="col">
-                                            <input type="text" class="form-control" name="jenisKategori" value="{{ $data->jenisKategori }}">
+                                            <input type="text" class="form-control" name="jenisKategori" value="{{ $data->jenisKategori }}" disabled>
                                         </div>
                                     </div>
                                 </div>
@@ -47,7 +47,7 @@
                                 </div>
                             </div>
                             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                <button class="btn btn-secondary me-md-2" type="button">Cancel</button>
+                                <a href="{{ route('view-category') }}" class="btn btn-secondary me-md-2">Cancel</a>
                                 <button class="btn btn-primary" type="submit">Update</button>
                             </div>
                         </form>

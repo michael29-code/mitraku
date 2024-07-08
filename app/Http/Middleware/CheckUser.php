@@ -15,8 +15,10 @@ class CheckUser
      */
     public function handle(Request $request, Closure $next, ...$levels): Response
     {
-        if(in_array($request->user()->level, $levels)){
-            return $next($request);
+        if($request->user()){
+            if(in_array($request->user()->level, $levels)){
+                return $next($request);
+            }
         }
         return redirect('/');
     }

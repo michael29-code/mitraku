@@ -3,6 +3,12 @@
 @section('content')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <div class="container my-5">
+        @if (session()->has('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
         <div class="row shadow bg-body-tertiary rounded">
             <div class="col">
                 <div class="card border border-0">
@@ -23,11 +29,11 @@
                                                         <h5>{{ $item->jenisKategori }}</h5>
                                                     </div>
                                                     <div class="col-md-5 d-flex align-items-center justify-content-end ">
-                                                        <a href="{{ url('manage-category/'. $item->jenisKategori. '/edit') }}"
+                                                        <a href="{{ route('update-category', ['jenisKategori' => $item->jenisKategori]) }}"
                                                             class="btn btn-primary btn-sm">Update</a>
                                                         <form onsubmit="return confirm('Yakin mau hapus data ?')"
                                                             class="d-inline"
-                                                            action="{{ route('category.destroy', $jenisKategori = $item->jenisKategori) }}"
+                                                            action="{{ route('destroy-category', $jenisKategori = $item->jenisKategori) }}"
                                                             method="post">
                                                             @csrf
                                                             @method('DELETE')

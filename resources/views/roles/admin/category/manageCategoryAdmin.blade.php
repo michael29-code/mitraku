@@ -9,20 +9,25 @@
                 <div class="col">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col mx-5 my-2 py-2 border-bottom align-middle">
-                                <a href="{{ route('view_category') }}">
-                                    View Category
+                            <div class="col mx-3 my-2 p-2 border-bottom align-middle">
+                                <a href="{{ route('view-category') }}" class="text-decoration-none black h4">
+                                    <div class="d-flex">
+                                        <i class="bi bi-eye-fill"></i>
+                                        <div class="mx-2"></div>
+                                        View Category
+                                    </div>
                                 </a>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col mx-5 my-2 py-2 border-bottom align-middle">
-                                <a href="{{ route('add_category') }}">Add Category</a>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col mx-5 my-2 py-2 ">
-                                <a href="{{ route('update_category') }}">Update Category</a>
+                            <div class="col mx-3 my-2 p-2 align-middle">
+                                <a href="{{ route('add-category') }}" class="text-decoration-none black h4">
+                                    <div class="d-flex">
+                                        <i class="bi bi-plus-square-fill"></i>
+                                        <div class="mx-2"></div>
+                                        Add Category
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>
