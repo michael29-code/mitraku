@@ -7,7 +7,7 @@
     <h2 class="col" style="width: 10rem; height 3rem">Update Advertisement</h2>
 </div>
 
-<form action="{{ route('advertisement.update', $advertisement->id) }}" method="POST">
+<form action="{{ route('update-advertisement', $advertisement->id) }}" method="POST">
     @csrf
     @method('PUT')
     <div class="mb-3">

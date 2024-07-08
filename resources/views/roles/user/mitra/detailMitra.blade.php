@@ -8,7 +8,7 @@
                 <div class="col-auto">
                     <a href="/manage-blog" class="text-decoration-none d-flex align-items-center">
                         <i class="fa-solid fa-arrow-left" style="font-size: 2rem;"></i>
-                        <span class="ms-4" style="font-size: 1.5rem;">Back</span>
+                        <a href="#" class="ms-4" style="font-size: 1.5rem;">Back</a>
                     </a>
                 </div>
                 <div class="col text-center">

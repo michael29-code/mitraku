@@ -1,7 +1,6 @@
 @extends('layouts.layoutAdmin')
 
 @section('content')
-
 <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded">
     <div class="row justify-content-center p-3">
         <div class="row col" style="height: 3rem">
@@ -20,17 +19,16 @@
                 <h5>{{ $a->price }}</h5>
                 <h4>{{ $a->title }}</h4>
                 <p>{{ $a->description }}</p>
-                <form action="{{ route('advertisement.destroy', $a->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this advertisement?');">
+                <form action="{{ route('delete-advertisement', $a->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this advertisement?');">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-danger">Delete</button>
-                </form>
-                <a href="{{ route('advertisement.edit', $a->id) }}" class="btn btn-warning">Edit</a>
+                </form>       
+                <a href="{{ route('edit-advertisement', ['id' => $a->id]) }}" class="btn btn-primary">Edit Advertisement</a>
             </div>
             <div class="col bg-info"></div>
         </div>   
         @endforeach
     </div>
 </div>
-
 @endsection

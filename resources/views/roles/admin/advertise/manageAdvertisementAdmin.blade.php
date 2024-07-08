@@ -10,22 +10,12 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col mx-5 my-2 py-2 border-bottom align-middle">
-                            <a href="{{ route('viewAdvertisementAdmin') }}">View Advertisement</a>
+                            <a href="{{ route('view-advertisement-admin') }}">View Advertisement</a>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col mx-5 my-2 py-2 border-bottom align-middle">
-                            <a href="{{ route('addAdvertisementAdmin') }}">Add Advertisement</a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col mx-5 my-2 py-2 border-bottom align-middle">
-                            <a href="{{ route('deleteAdvertisementAdmin') }}">Delete Advertisement</a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col mx-5 my-2 py-2 ">
-                            <a href="{{ route('update_advertisement') }}">Update Advertisement</a>
+                            <a href="{{ route('add-advertisement') }}">Add Advertisement</a>
                         </div>
                     </div>
                 </div>
