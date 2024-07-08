@@ -7,7 +7,7 @@
     <h2 class="col" style="width: 10rem; height 3rem">Create Advertisement</h2>
 </div>
 
-<form action="{{ route('advertisement.store') }}" method="POST">
+<form action="{{ route('store-advertisement') }}" method="POST">
     @csrf
     <div class="mb-3">
         <label for="exampleInputTitle" class="form-label">Title</label>
