@@ -103,9 +103,9 @@ Route::get('/view-mitra', [MitraController::class, 'mitra'])->name('view-mitra')
 //     return view('viewMitra');
 // })->name('view_mitra');
 
-Route::get('/viewUser', function () {
-    return view('viewUser');
-});
+Route::get('/viewUsers', [UserController::class, 'index'])->name('users-index');
+Route::get('/viewUsers/{id}', [UserController::class, 'show'])->name('users-show');
+Route::patch('/viewUsers/{id}/toggle-block', [UserController::class, 'toggleBlock'])->name('users-toggleBlock');
 
 Route::get('/userAdvertisement', function () {
     return view('roles.user.advertise.userAdvertisement');
