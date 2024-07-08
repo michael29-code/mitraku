@@ -90,10 +90,10 @@ Route::delete('/view-category/{jenisKategori}', [CategoryController::class, 'des
 Route::get('/manage-advertisement', function () {
     return view('manageAdvertisementAdmin');
 });
-Route::get('/manage-advertisement-view', [AdvertisementController::class, 'viewAdvertisementAdmin'])->name('view_advertisement');
-Route::get('/manage-advertisement-add', [AdvertisementController::class, 'addAdvertisementAdmin'])->name('add_advertisement');
-Route::get('/manage-advertisement-delete', [AdvertisementController::class, 'deleteAdvertisementAdmin'])->name('delete_advertisement');
-Route::get('/manage-advertisement-update', [AdvertisementController::class, 'updateAdvertisementAdmin'])->name('update_advertisement');
+Route::get('/manage-advertisement-view', [AdvertisementController::class, ''])->name('view_advertisement');
+Route::get('/manage-advertisement-add', [AdvertisementController::class, ''])->name('add_advertisement');
+Route::get('/manage-advertisement-delete', [AdvertisementController::class, ''])->name('delete_advertisement');
+Route::get('/manage-advertisement-update', [AdvertisementController::class, ''])->name('update_advertisement');
 
 
 // Route::resource('/category', CategoryController::class);
@@ -110,7 +110,7 @@ Route::get('/viewUser', function () {
 });
 
 Route::get('/userAdvertisement', function () {
-    return view('userAdvertisement');
+    return view('roles.user.advertise.userAdvertisement');
 })->name('view_advertisement');
 
 Route::get('/form-pengajuan', function () {

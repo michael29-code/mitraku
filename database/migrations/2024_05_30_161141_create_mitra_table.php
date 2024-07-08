@@ -13,9 +13,29 @@ return new class extends Migration
     {
         Schema::create('mitras', function (Blueprint $table) {
             $table->id();
-            $table->string('namaMitra');
-            $table->string('lokasiMitra');
-            $table->string('kategoriMitra');
+            $table->foreignId('user_id')->constrained('users', 'id')->onDelete('cascade')->onUpdate('cascade');
+            $table->string('mitraName');
+            $table->text('mitraOverview');
+            $table->integer('mitraYear');
+            $table->string('mitraWebsite');
+            $table->string('mitraCategory');
+            $table->string('image_cover')->nullable();
+
+            $table->string('contactName');
+            $table->string('contactEmail');
+            $table->string('contactPhoneNumber');
+
+            $table->text('mitra_details');
+
+            $table->json('galeri')->nullable();
+
+            $table->json('latest_rating_and_certificate')->nullable();
+
+            $table->json('awards')->nullable();
+
+            $table->string('image_map')->nullable();
+            $table->string('address')->nullable();
+            $table->timestamps();
         });
     }
 

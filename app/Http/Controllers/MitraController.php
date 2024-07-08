@@ -39,8 +39,23 @@ class MitraController extends Controller
         return view('roles.admin.mitra.viewMitra', compact('mitra'));
     }
 
-    public function mitra(): View
+    // public function mitra(): View
+    // {
+    //     return view("roles.user.mitra.mitra",["mitras" => Mitra::all()]);
+    // }
+
+    public function mitra()
     {
-        return view("roles.user.mitra.mitra",["mitras" => Mitra::all()]);
+        $mitras = Mitra::all();
+        return view('roles.user.mitra.mitra', ['mitras' => $mitras]);
     }
+
+    // Display the specified resource.
+    public function show($id)
+    {
+        $mitra = Mitra::find($id);
+        return view('roles.user.mitra.mitra', ['mitra'=>$mitra]);
+    }
+
+    
 }
