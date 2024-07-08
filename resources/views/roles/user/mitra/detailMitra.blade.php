@@ -51,7 +51,7 @@
                             <button type="button" class="btn btn-primary">Contact</button>
                         </div>
                         <div class="btn-group me-2" role="group" aria-label="Second button">
-                            <button type="button" class="btn btn-outline-primary">Send Form</button>
+                            <a href="form-pengajuan" class="btn btn-outline-primary">Send Form</a>
                         </div>
                     </div>
                     <div class="row my-5">

@@ -114,8 +114,8 @@ Route::get('/userAdvertisement', function () {
 })->name('view_advertisement');
 
 Route::get('/form-pengajuan', function () {
-    return view('viewFormPengajuan');
-});
+    return view('roles.user.mitra.viewFormPengajuan');
+})->name('form-pengajuan');
 
 Route::get('create-mitra', [MitraController::class, 'create']);
 Route::post('viewMitra', [MitraController::class, 'store']);
