@@ -78,6 +78,52 @@ Route::group(['middleware' => ['CheckUser:2']], function () {
 
 
 // PUNYA NIAAAAAAAAAAA
+Route::group(['middlewareUser' => ['CheckUser:2']], function(){
+
+});
+
+
+Route::get('/profile/{id}', [UserController::class,'show']);
+
+// Route::get('/create-mitra', function () {
+//     return view('createMitra');
+// });
+
+
+Route::get('/add-detail-mitra', [MitraController::class, 'addDetailMitra']);
+Route::get('/add-detailing-mitra', [MitraController::class, 'addDetailingMitra']);
+
+Route::get('/mitra', function () {
+    return view('roles.user.mitra.mitra');
+});
+
+Route::get('/blog', [BlogUserController::class, 'blog'])->name('view-blog');
+Route::get('/mitra', [MitraController::class, 'mitra']);      
+Route::get('/blog-detail', [BlogDetailController::class, 'blogDetail']);
+
+
+Route::get('/manage-blog',[BlogController::class,'manageBlog']);
+Route::get('/view-blog', [BlogController::class,'view']);
+Route::get('/write-blog', [BlogController::class,'writeBlog']);
+Route::post('/store-blog', [BlogController::class,'store']);
+Route::get('/edit-blog/{blog:slug}',[BlogController::class,'edit']);
+Route::put('/update-blog/{blog:slug}',[BlogController::class,'update']);
+Route::delete('/delete-blog/{blog:slug}',[BlogController::class,'destroy']);
+Route::get('/view-blog-detail/{blog:slug}', [BlogController::class,'show']);
+Route::get('/search', [BlogController::class,'search'])->name('search');
+
+
+Route::get('/manage-category', function () {
+    return view('roles.admin.category.manageCategoryAdmin');
+})->name('manage-category');
+
+Route::get('/view-category', [CategoryController::class, 'viewCategoryAdmin'])->name('view-category');
+Route::get('/add-category', [CategoryController::class, 'addCategoryAdmin'])->name('add-category');
+Route::post('/store-category', [CategoryController::class, 'store'])->name('store-category');
+Route::get('/delete-category', [CategoryController::class, 'deleteCategoryAdmin'])->name('delete-category');
+Route::get('/update-category/{jenisKategori}', [CategoryController::class, 'updateCategoryAdmin'])->name('update-category');
+Route::delete('/view-category/{jenisKategori}', [CategoryController::class, 'destroy'])->name('category.destroy');
+
 Route::get('/manage-advertisement', function () {
     return view('roles.admin.advertise.manageAdvertisementAdmin');
 });

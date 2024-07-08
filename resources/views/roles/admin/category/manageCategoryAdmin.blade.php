@@ -9,27 +9,25 @@
                 <div class="col">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col mx-3 my-2 p-2 border-bottom align-middle">
-                                <a href="{{ route('view-category') }}" class="text-decoration-none black h4">
-                                    <div class="d-flex">
-                                        <i class="bi bi-eye-fill"></i>
-                                        <div class="mx-2"></div>
-                                        View Category
-                                    </div>
+                            <div class="col mx-2 my-2 py-2 border-bottom d-flex align-items-center">
+                                <i class="bi bi-eye-fill fs-4 me-3"></i>
+                                <a href="{{ route('view-category') }}" class="text-decoration-none text-black" style="font-size: 20px;">
+                                    View Category
                                 </a>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col mx-3 my-2 p-2 align-middle">
-                                <a href="{{ route('add-category') }}" class="text-decoration-none black h4">
-                                    <div class="d-flex">
-                                        <i class="bi bi-plus-square-fill"></i>
-                                        <div class="mx-2"></div>
-                                        Add Category
-                                    </div>
-                                </a>
+                            <div class="col mx-2 my-2 py-2 border-bottom d-flex align-items-center">
+                                <a href="{{ route('add-category') }}">Add Category</a>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col mx-5 my-2 py-2 ">
+                                <i class="fa-solid fa-pen-to-square fs-4 me-3"></i>
+                                <a href="{{ route('update-category') }}" class="text-decoration-none text-black" style="font-size: 20px;">Update Category</a>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
             </div>
