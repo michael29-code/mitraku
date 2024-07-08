@@ -98,7 +98,8 @@ Route::get('/manage-advertisement-update', [AdvertisementController::class, 'upd
 
 // Route::resource('/category', CategoryController::class);
 
-Route::get('/viewMitra', [MitraController::class, 'storeMitra'])->name('view-mitra');
+// Route::get('/viewMitra', [MitraController::class, 'storeMitra'])->name('view-mitra');
+Route::get('/view-mitra', [MitraController::class, 'mitra'])->name('view-mitra');
 
 // Route::get('/viewMitra', function () {
 //     return view('viewMitra');
@@ -123,11 +124,13 @@ Route::get('/payment', function () {
 });
 
 Route::get('/createMitra', function () {
-    return view('roles.user.create_mitra.createMitra');
+    return view('roles.user.create_mitra.createMitra1');
 });
 
 Route::get('detailMitra', function () {
     return view('roles.user.mitra.detailMitra');
 })->name('detailMitra');
 
-
+// Route::get('mitraaa', function () {
+//     return view('roles.user.mitra.mitra');
+// });
