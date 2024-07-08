@@ -16,10 +16,10 @@
                         <a class="nav-link @yield('isMitraActive') mx-lg-2" href="{{ route('view-mitra') }}">Mitra</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link @yield('isBlogActive') mx-lg-2" href="{{ route('view_blog') }}">Blog</a>
+                        <a class="nav-link @yield('isBlogActive') mx-lg-2" href="{{ route('view-blog') }}">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link @yield('isAdvertiseActive') mx-lg-2" href="{{ route('view_advertisement') }}">Advertise</a>
+                        <a class="nav-link @yield('isAdvertiseActive') mx-lg-2" href="{{ route('view-advertisement') }}">Advertise</a>
                     </li>
                 </ul>
             </div>

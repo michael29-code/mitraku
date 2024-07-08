@@ -12,30 +12,22 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    public function show()
+    public function index(Request $request)
+    {
+        $search = $request->input('search');
+        
+        if ($search) {
+            $users = User::where('name', 'LIKE', "%{$search}%")->get();
+        } else {
+            $users = User::all();
+        }
+
+        return view('roles.admin.block.viewUser', compact('users'));
+    }
+
+    public function show($id)
     {
         $user = Auth::user();
         return view('roles.user.profile.profile', compact('user'));
-    }
-
-    public function change_password(Request $request)
-    {
-        // $user = User::find($request->id);
-        // $user->password = bcrypt($request->password);
-        // $user->save();
-        // return redirect()->back()->with('success','');
-        
-        
-        // Update the password
-        $inFil = $request->validate([
-            'password'=> ['required', 'min:8'],
-        ]);
-        // $inFil = bcrypt($inFil);
-
-        $user = Auth::user();
-        $user->update($inFil);
-
-        auth()->logout();
-        return redirect('/');
     }
 }
