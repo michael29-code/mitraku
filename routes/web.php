@@ -43,7 +43,8 @@ Route::group(['middlewareUser' => ['CheckUser:2']], function(){
 });
 
 
-Route::get('/profile/{id}', [UserController::class,'show']);
+Route::put('/profile', [UserController::class, 'change_password'])->name('change-password');
+Route::get('/profile', [UserController::class, 'show'])->name('profile-page');
 
 // Route::get('/create-mitra', function () {
 //     return view('createMitra');
