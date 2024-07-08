@@ -2,18 +2,19 @@
 
 namespace Database\Seeders;
 
-use App\Models\UserMitra;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Mitra;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-class UserMitraSeeder extends Seeder
+class MitraSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        UserMitra::create([
+        Mitra::create([
+            'user_id' => '2',
             'mitraName' => 'PT Teknologi Maju Jaya',
             'mitraOverview' => 'PT Teknologi Maju Jaya adalah perusahaan teknologi yang fokus pada pengembangan solusi perangkat lunak untuk bisnis.',
             'mitraYear' => 2010,

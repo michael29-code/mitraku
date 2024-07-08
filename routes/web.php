@@ -88,10 +88,10 @@ Route::delete('/view-category/{jenisKategori}', [CategoryController::class, 'des
 Route::get('/manage-advertisement', function () {
     return view('manageAdvertisementAdmin');
 });
-Route::get('/manage-advertisement-view', [AdvertisementController::class, 'viewAdvertisementAdmin'])->name('view_advertisement');
-Route::get('/manage-advertisement-add', [AdvertisementController::class, 'addAdvertisementAdmin'])->name('add_advertisement');
-Route::get('/manage-advertisement-delete', [AdvertisementController::class, 'deleteAdvertisementAdmin'])->name('delete_advertisement');
-Route::get('/manage-advertisement-update', [AdvertisementController::class, 'updateAdvertisementAdmin'])->name('update_advertisement');
+Route::get('/manage-advertisement-view', [AdvertisementController::class, ''])->name('view_advertisement');
+Route::get('/manage-advertisement-add', [AdvertisementController::class, ''])->name('add_advertisement');
+Route::get('/manage-advertisement-delete', [AdvertisementController::class, ''])->name('delete_advertisement');
+Route::get('/manage-advertisement-update', [AdvertisementController::class, ''])->name('update_advertisement');
 
 
 // Route::resource('/category', CategoryController::class);
@@ -113,7 +113,7 @@ Route::get('/userAdvertisement', function () {
 
 Route::get('/form-pengajuan', function () {
     return view('roles.user.mitra.viewFormPengajuan');
-});
+})->name('form-pengajuan');
 
 Route::get('create-mitra', [MitraController::class, 'create']);
 Route::post('viewMitra', [MitraController::class, 'store']);
