@@ -10,7 +10,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\BlogDetailController;
 use App\Http\Controllers\AdvertisementController;
-
+use App\Http\Controllers\UserController;
 
 // === PUBLIC ===
 Route::get('/', [RegisterController::class, 'signInPage']);
@@ -43,9 +43,7 @@ Route::group(['middlewareUser' => ['CheckUser:2']], function(){
 });
 
 
-Route::get('/profile', function () {
-    return view('profile');
-});
+Route::get('/profile/{id}', [UserController::class,'show']);
 
 // Route::get('/create-mitra', function () {
 //     return view('createMitra');
@@ -110,11 +108,11 @@ Route::get('/viewUser', function () {
 });
 
 Route::get('/userAdvertisement', function () {
-    return view('userAdvertisement');
+    return view('roles.user.advertise.userAdvertisement');
 })->name('view_advertisement');
 
 Route::get('/form-pengajuan', function () {
-    return view('viewFormPengajuan');
+    return view('roles.user.mitra.viewFormPengajuan');
 });
 
 Route::get('create-mitra', [MitraController::class, 'create']);
