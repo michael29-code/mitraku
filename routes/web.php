@@ -65,7 +65,7 @@ Route::get('/blog-detail', [BlogDetailController::class, 'blogDetail']);
 
 
 Route::get('/manage-blog',[BlogController::class,'manageBlog']);
-Route::get('/view-blog', [BlogController::class,'view']);
+Route::get('/view-blog', [BlogController::class,'view'])->name('view_blog');
 Route::get('/write-blog', [BlogController::class,'writeBlog']);
 Route::post('/store-blog', [BlogController::class,'store']);
 Route::get('/edit-blog/{blog:slug}',[BlogController::class,'edit']);

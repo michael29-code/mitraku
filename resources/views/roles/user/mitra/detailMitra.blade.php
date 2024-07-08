@@ -3,25 +3,27 @@
 @section('content')
 <div class="container my-5 mx-auto">
     <div class="row align-items-center">
-        <div class="col-auto">
-            <a href="/manage-blog" class="text-decoration-none d-flex align-items-center">
-                <i class="fa-solid fa-arrow-left" style="font-size: 2rem;"></i>
-                <span class="ms-4" style="font-size: 1.5rem;">Back</span>
-            </a>
-        </div>
-        <div class="col text-center">
-            <h2 class="mb-0">PT Teknologi Maju Jaya</h2>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-auto">
+                    <a href="/manage-blog" class="text-decoration-none d-flex align-items-center">
+                        <i class="fa-solid fa-arrow-left" style="font-size: 2rem;"></i>
+                        <span class="ms-4" style="font-size: 1.5rem;">Back</span>
+                    </a>
+                </div>
+                <div class="col text-center">
+                    <h2 class="mb-0">PT Teknologi Maju Jaya</h2>
+                </div>
+            </div>
             <div class="row my-5">
-                <div class="col">
-                    <p>PT Teknologi Maju Jaya adalah perusahaan teknologi yang fokus pada pengembangan solusi perangkat lunak untuk bisnis. </p>
-                    <div class="col">
-                        <h6>Since 2010 | www.teknologimajujaya.co.id</h6>
-                    </div>
+                <div class="col text-center">
+                    <p>PT Teknologi Maju Jaya adalah perusahaan teknologi yang fokus pada pengembangan solusi perangkat lunak untuk bisnis.</p>
+                    <h6>Since 2010 | www.teknologimajujaya.co.id</h6>
                     <span class="badge text-bg-primary rounded-pill" style="font-size: 1rem; padding: 0.5em 1em;">Teknologi</span>
-                    </div>
                 </div>
             </div>
         </div>
+        
         <div class="container my-5 m-auto d-flex w-100 justify-content-center align-items-center flex-column">
             <div class="row w-100">
                 <div class="col bg-secondary rounded-5">
@@ -88,9 +90,9 @@
         </div>
     </div>
     <div class="container my-5 m-auto d-flex w-100 justify-content-center align-items-center flex-column">
-            <div class="col p-5">
+            <div class="col">
                 <div class="row">
-                    <div class="col">
+                    <div class="col-6">
                         <div class="rating">
                             <h4>Latest Ratings & Certificates</h4>
                             <p>PEFINDO Credit Rating Agency (December 2021): (id)BBB+/outlook stable
@@ -98,7 +100,7 @@
                                 Social Performance (Planet Rating 2014): 4-
                                 Client Protection Certificate (Cerise and SPTF Team, April 2022): Certification level: Gold</p>
                         </div>
-                        <div class="row">
+                        <div class="col my-5">
                             <h4>Award</h4>
                             <h6>MIX Market Ranking (CGAP / World Bank)</h6>
                              <p>2009 : #1 out of 1,600 MFIs in the world
@@ -110,8 +112,10 @@
                                 2007 : Ernst & Young Finalist, Social Entrepreneur Indonesi</p>
                         </div>
                     </div>
-                    <div class="col">
-                          
+                    <div class="col w-100">
+                        <div class="col">
+                            <h4>Location</h4>
+                            <div class="card bg-secondary rounded-5 w-100"  style="height: 200px;">
                     </div>
                 </div>
             </div>
