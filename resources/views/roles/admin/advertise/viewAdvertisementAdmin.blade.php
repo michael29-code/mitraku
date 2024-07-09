@@ -24,10 +24,10 @@
                 </form>
             </div>
         </div>    
-        <div class="row mx-5 my-5">
+        <div class="row mx-3 my-5 bg-body-tertiary rounded">
             @foreach ($advertise as $a)
-            <div class="explaination col-lg-5 mb-4">
-                <div class="col d-flex justify-content-center shadow bg-body-tertiary rounded mx-auto p-3">
+            <div class="explaination col-lg-6 mb-3">
+                <div class="d-flex justify-content-center shadow bg-body-tertiary rounded mx-auto p-3" style="width: 100%; max-width: 550px; min-height: 100px;">
                     <div class="text p-4">
                         <h1 class="body-large-bold blue mb-4 mt-2">Starting at ${{ $a->price }}</h1>
                         <h1 class="h3 mb-4">{{ $a->title }}</h1>
@@ -41,13 +41,15 @@
                             <a href="{{ route('edit-advertisement', ['id' => $a->id]) }}" class="btn btn-xs btn-primary">Edit Advertisement</a>
                         </div>
                     </div>
+                    @if(strlen($a->description) <= 100)
                     <div class="col image p-2 mx-1">
                         <img class="img-thumbnail" style="width: auto; height: auto; max-width: 100%;" src="images/AdvertisementPage.png" alt="">
                     </div>
+                    @endif
                 </div>
             </div>
             @endforeach
-        </div>
+        </div>        
     </div>
 </div>
 @endsection
