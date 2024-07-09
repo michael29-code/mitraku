@@ -11,7 +11,8 @@
         "php": "^8.2",
         "dompdf/dompdf": "^3.0",
         "laravel/framework": "^11.0",
-        "laravel/tinker": "^2.9"
+        "laravel/tinker": "^2.9",
+        "midtrans/midtrans-php": "^2.5"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

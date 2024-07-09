@@ -11,4 +11,17 @@ class Advertisement extends Model
     protected $table = 'advertise';
     protected $guarded = [];
     public $timestamps = false;
+
+    protected $fillable = [
+        'title',
+        'price',
+        'subscriptionDate',
+        'period',
+        'description',
+    ];
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
+    }
 }

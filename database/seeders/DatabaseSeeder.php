@@ -22,6 +22,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class, 
             MitraSeeder::class,
             PengajuanSeeder::class,
+            AdvertiseSeeder::class,
+            // TransactionSeeder::class,
         ]);
         
 

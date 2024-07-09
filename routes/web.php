@@ -8,9 +8,8 @@ use App\Http\Controllers\MitraController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AdvertisementController;
-use App\Http\Controllers\DownloadPDFController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\PengajuanController;
 
 // === PUBLIC ===
 Route::get('/', [RegisterController::class, 'signInPage']);
@@ -106,9 +105,11 @@ Route::group(['middleware' => ['CheckUser:2']], function () {
 
 
     //PAYMENT
-    Route::get('/payment', function () {
-        return view('paymentPage');
-    });    
+    Route::get('/transactions', [PaymentController::class, 'index']);
+    Route::get('/payment',[PaymentController::class, 'show']);    
+    Route::post('/pay/store', [PaymentController::class, 'pay']);
+    Route::get('/checkout/{transaction}', [PaymentController::class, 'checkout']);
+    Route::get('/checkout/success/{transaction}', [PaymentController::class, 'success'])->name('checkout-success');
 });
 
 Route::get('/profile/{id}', [UserController::class, 'show']);
