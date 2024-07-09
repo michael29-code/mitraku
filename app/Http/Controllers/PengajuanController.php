@@ -6,7 +6,6 @@ use App\Models\Pengajuan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
-use function Spatie\LaravelPdf\Support\pdf;
 
 class PengajuanController extends Controller
 {
@@ -31,15 +30,6 @@ class PengajuanController extends Controller
         // $pdf = FacadePdf::loadview('pdfTemplate2', $validatedData);
         // return $pdf->download('test.pdf');
         return redirect('/view-pengajuan');
-    }
-    public function download($id)
-    {
-        $pengajuan = Pengajuan::findOrFail($id);
-        
-        return pdf()
-            ->view('pdfTemplate', compact('pengajuan'))
-            ->name('yourinvoice.pdf')
-            ->download();
     }
 
     public function edit(Pengajuan $id){
