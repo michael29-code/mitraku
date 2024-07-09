@@ -57,9 +57,7 @@ Route::group(['middleware' => ['CheckUser:1']], function () {
     Route::put('/update-category/{jenisKategori}', [CategoryController::class, 'update'])->name('update-category.submit');
 
     //ADVERTISMENT
-    Route::get('/manage-advertisement', function () {
-        return view('roles.admin.advertise.manageAdvertisementAdmin');
-    });
+    Route::get('/manage-advertisement', [AdvertisementController::class, 'manage'])->name('manage-advertisement');    
     Route::get('/manage-advertisement-view', [AdvertisementController::class, ''])->name('view_advertisement');
     Route::get('/manage-advertisement-add', [AdvertisementController::class, ''])->name('add_advertisement');
     Route::get('/manage-advertisement-delete', [AdvertisementController::class, ''])->name('delete_advertisement');

@@ -38,4 +38,8 @@ class AdvertisementController extends Controller
         $advertisement->update($request->all());
         return redirect()->route('view-advertisement-admin')->with('success', 'Advertisement updated successfully.');
     }
+
+    public function manage() {
+        return view('roles.admin.advertise.manageAdvertisementAdmin');
+    }
 }
