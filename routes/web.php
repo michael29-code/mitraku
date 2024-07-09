@@ -14,7 +14,6 @@ use App\Http\Controllers\PengajuanController;
 
 // === PUBLIC ===
 Route::get('/', [RegisterController::class, 'signInPage']);
-// Route::get('/createMitra', [MitraController::class, 'createMitra']);
 // Home
 Route::get('/home', [HomeController::class, 'HomePage'])->name('home');
 // Sign In 
@@ -78,9 +77,6 @@ Route::group(['middleware' => ['CheckUser:2']], function () {
 
 
 // PUNYA NIAAAAAAAAAAA
-Route::group(['middlewareUser' => ['CheckUser:2']], function(){
-
-});
 
 
 Route::get('/profile/{id}', [UserController::class,'show']);
