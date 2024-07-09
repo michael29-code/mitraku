@@ -12,6 +12,7 @@
         "vite": "^5.0"
     },
     "dependencies": {
-        "bootstrap": "^5.3.3"
+        "bootstrap": "^5.3.3",
+        "puppeteer": "^22.12.1"
     }
 }

@@ -18,7 +18,7 @@
                                 {{ $pengajuan->kategori }} - {{ $pengajuan->start_time }}
                             </div>
                             <a href="/pengajuan/edit/{{ $pengajuan->id }}" class="btn btn-warning">Edit</a>
-                            <a href="/pengajuan/pdf/{{ $pengajuan->id }}" class="btn btn-primary">Download PDF</a>
+                            <a href="/download/{{ $pengajuan->id }}" class="btn btn-primary">Download PDF</a>
                             <form action="/pengajuan/delete/{{ $pengajuan->id }}" method="POST" class="d-inline">
                                 @method('delete')
                                 @csrf

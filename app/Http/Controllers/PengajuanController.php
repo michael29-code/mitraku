@@ -6,6 +6,7 @@ use App\Models\Pengajuan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use function Spatie\LaravelPdf\Support\pdf;
 
 class PengajuanController extends Controller
 {
@@ -15,7 +16,7 @@ class PengajuanController extends Controller
     }
     public function store(Request $request){
         $validatedData = $request->validate([
-            'userId' => 'required',
+            'user_id' => 'required',
             'name' => 'required|string|max:255',
             'address' => 'required|string|max:255',
             'kategori' => 'required',
@@ -27,36 +28,47 @@ class PengajuanController extends Controller
 
         Pengajuan::create($validatedData);
 
-        $pdf = FacadePdf::loadview('pdfTemplate2', $validatedData);
-        return $pdf->download('test.pdf');
+        // $pdf = FacadePdf::loadview('pdfTemplate2', $validatedData);
+        // return $pdf->download('test.pdf');
+        return redirect('/view-pengajuan');
     }
     public function download($id)
     {
         $pengajuan = Pengajuan::findOrFail($id);
-        // dd($pengajuan);
-        $pdf = FacadePdf::loadView('pdfTemplate', compact('pengajuan'));
-        return $pdf->download('pengajuan-details.pdf');
+        
+        return pdf()
+            ->view('pdfTemplate', compact('pengajuan'))
+            ->name('yourinvoice.pdf')
+            ->download();
     }
 
     public function edit(Pengajuan $id){
         return view('roles.user.mitra.editFormPengajuan',["pengajuan" => $id]);
     }
 
-    public function update(Request $request, Pengajuan $pengajuan)
+    public function update(Request $request, $id)
     {
-
-        $rules = [
-            'name' => 'required',
-            'address' => 'required',
+        $validatedData = $request->validate([
+            'user_id' => 'required',
+            'name' => 'required|string|max:255',
+            'address' => 'required|string|max:255',
             'kategori' => 'required',
             'contact_number' => 'required',
-            'mitra_details' => 'required',
-            'start_time' => 'required',
+            'mitra_details' => 'required|string|max:1000',
+            'start_time' => 'required|date',
             'duration' => 'required',
-        ];
-        
-        $validatedData = $request->validate($rules);
-        Pengajuan::where('id', $pengajuan->id)->update($validatedData);
+        ]);
+
+        $item = Pengajuan::findOrFail($id);
+        $item->name = $request->input('name');
+        $item->address = $request->input('address');
+        $item->kategori = $request->input('kategori');
+        $item->contact_number = $request->input('contact_number');
+        $item->mitra_details = $request->input('mitra_details');
+        $item->start_time = $request->input('start_time');
+        $item->duration = $request->input('duration');
+        $item->save();
+
         return redirect('/view-pengajuan');
     }
     public function view(): View
@@ -66,9 +78,9 @@ class PengajuanController extends Controller
         return view('roles.user.mitra.viewPengajuan', compact('pengajuans'));
     }
 
-    public function destroy(Pengajuan $pengajuan)
+    public function destroy($id)
     {
-        Pengajuan::destroy($pengajuan->id);
+        Pengajuan::destroy($id);
         return redirect('/view-pengajuan');
     }
 }
