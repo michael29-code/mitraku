@@ -14,7 +14,7 @@
                         <div class="row">
                             <div class="col mx-2 my-2 py-2 border-bottom d-flex align-items-center">
                                 <i class="bi bi-eye-fill fs-4 me-3"></i>
-                                <a href="{{ route('view-advertisement-admin') }}" class="text-decoration-none text-black" style="font-size: 20px;">View Advertisement</a>
+                                <a href="{{ route('view-advertisement') }}" class="text-decoration-none text-black" style="font-size: 20px;">View Advertisement</a>
                             </div>
                         </div>                        
                         <div class="row">
