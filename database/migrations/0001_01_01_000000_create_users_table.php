@@ -22,6 +22,8 @@ return new class extends Migration
             $table->string('password');
             $table->string('address');
             $table->string('image');
+            // 0 = not blocked, 1 = blocked
+            $table->tinyInteger('isBlocked');
             $table->rememberToken();
             $table->timestamps();
         });

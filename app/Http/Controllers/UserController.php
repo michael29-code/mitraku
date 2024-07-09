@@ -12,7 +12,12 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    public function index(Request $request)
+
+    public function index(){
+        $users = User::where('level', 2)->get();
+        return view('roles.admin.block.viewUser', compact('users'));
+    }
+    public function search(Request $request)
     {
         $search = $request->input('search');
         
@@ -29,5 +34,18 @@ class UserController extends Controller
     {
         $user = Auth::user();
         return view('roles.user.profile.profile', compact('user'));
+    }
+
+    public function toggleBlock($id){
+        $user = User::find($id);
+        // $user->isBlocked = 1;
+        // dd($user);
+        if($user->isBlocked == 0){
+            $user->isBlocked = 1;
+        } else {
+            $user->isBlocked = 0;
+        }
+        $user->save();
+        return redirect()->back();
     }
 }

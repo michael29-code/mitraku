@@ -64,9 +64,10 @@ Route::group(['middleware' => ['CheckUser:1']], function () {
     Route::get('/manage-advertisement-update', [AdvertisementController::class, ''])->name('update_advertisement');
 
     //VIEW USER
-    Route::get('/viewUser', function () {
-        return view('roles.admin.block.viewUser');
-    });
+    Route::get('/view-user', [UserController::class,'index'])->name('view-user');
+    Route::patch('/toggle-user-blocked/{id}', [UserController::class, 'toggleBlock'])->name('toggle-blocked');
+    Route::get('/user-search', [UserController::class,'index'])->name('user-search');
+    
 });
 
 // UNTUK USER

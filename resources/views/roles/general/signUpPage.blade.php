@@ -11,7 +11,12 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        Sign up to enjoy the features of MiKu
+                        {{-- Sign up to enjoy the features of MiKu --}}
+                        Already have an account? <span style="color: blue">
+                            <a href="{{ route('login') }}" style="text-decoration: none">
+                                Sign In!
+                            </a>
+                        </span>
                     </div>
                 </div>
                 <form action="/sign-up" method="POST">

@@ -4,18 +4,18 @@
     <div class="container p-5">
 
         @if (session()->has('success'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-        {{ session('success') }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-    @endif
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
 
-    @if (session()->has('loginError'))
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        {{ session('loginError') }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-    @endif
+        @if (session()->has('loginError'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{ session('loginError') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
 
         <div class="row">
             <div class="px-5 py-1 col-sm col-lg-6">
@@ -38,7 +38,8 @@
                     <div class="row mt-4">
                         <div class="col">
                             <label for="signInEmail" class="form-label">Email address</label>
-                            <input name="email" type="email" class="form-control @error('email') is-invalid @enderror" id="signInEmail" placeholder="ex: name@gmail.com" value="{{ old('email') }}">
+                            <input name="email" type="email" class="form-control @error('email') is-invalid @enderror"
+                                id="signInEmail" placeholder="ex: name@gmail.com" value="{{ old('email') }}">
                             @error('email')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -49,9 +50,14 @@
                     <div class="row mt-3">
                         <div class="col">
                             <label for="signInPassword" class="form-label">Password </label>
-                            <input name="password" type="password" class="form-control" id="signInPassword"
+                            <input name="password" type="password"
+                                class="form-control @error('password') is-invalid @enderror" id="signInPassword"
                                 placeholder="at least 8 characters">
-                            {{-- <div id="passwordError" kclass="form-text ms-2 text-danger body-small-bold">Error Text</div> --}}
+                            @error('password')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                     </div>
                     <div class="row mt-3">

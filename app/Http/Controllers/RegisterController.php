@@ -11,7 +11,7 @@ class RegisterController extends Controller
 {
     public function signUpPage()
     {
-        return view('roles.general.signinpage');
+        return view('roles.general.signuppage');
     }
 
     public function signUpStore(Request $request)
@@ -41,20 +41,19 @@ class RegisterController extends Controller
     public function authentication(Request $request)
     {
         $incomingFields = $request->validate([
-            //     'username' => ['required', 'min:5'],
             'email' => ['required', 'email:dns'],
-            'password' => ['required'],
+            'password' => ['required', 'min:8'],
         ]);
 
-        // if (auth()->attempt(['email' => $incomingFields['loginemail'], 'password' => $incomingFields['loginpassword']])) {
-        //     $request->session()->regenerate();
-        // }
-        
-        if(Auth::attempt($incomingFields)){
-                $request->session()->regenerate();
-                return redirect()->intended('/home');
+        if (Auth::attempt($incomingFields)) {
+            // dd(Auth::user()->level);
+            $request->session()->regenerate();
+            if (Auth::user()->level == 1) {
+                return redirect()->intended(route('view-user'));
+            }
+            return redirect()->intended(route('home'));
         }
-        return back()->with('loginError', 'Login Failed');
+        return redirect()->back()->withInput()->with('loginError', 'Login Failed');
     }
 
     public function logout(Request $request)
