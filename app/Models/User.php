@@ -60,4 +60,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Mitra::class, 'id');
     }
+    public function pengajuans(): HasMany
+    {
+        return $this->hasMany(Pengajuan::class,'userId');
+    }
+
 }

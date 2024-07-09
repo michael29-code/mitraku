@@ -70,11 +70,6 @@
                                         </div>
                                     </div>
                                 @endforeach
-                            @else
-                                <div class="col my-3 text-center">
-                                    <h2>No posts found</h2>
-                                </div>
-                            @endif
                         </div>
                         <div class="row">
                             <div class="col d-flex align-self-end">

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Models\Mitra;
+use App\Models\Pengajuan;
+use PDF;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -50,7 +52,6 @@ class MitraController extends Controller
         return view('roles.user.mitra.mitra', ['mitras' => $mitras]);
     }
 
-    // Display the specified resource.
     public function show($id)
     {
         $mitra = Mitra::find($id);

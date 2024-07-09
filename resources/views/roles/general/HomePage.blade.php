@@ -5,16 +5,16 @@
 @section('content')
     @if (session()->has('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
-        {{ session('success') }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
     @endif
 
     @if (session()->has('loginError'))
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        {{ session('loginError') }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
+            {{ session('loginError') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
     @endif
 
 
@@ -23,7 +23,8 @@
             <h1>We make it easy for tenants and landlords.</h1>
         </div>
         <div class="mx-auto m-0 text-center" style="width: 50rem;">
-            <p class="body-large-bold">Whether it's selling your current home, getting financing, or buying a new home, we make it easy and efficient. The best part? you'll save a bunch of money and time with our services.</p>
+            <p class="body-large-bold">Whether it's selling your current home, getting financing, or buying a new home, we
+                make it easy and efficient. The best part? you'll save a bunch of money and time with our services.</p>
         </div>
         <div class="mx-auto m-3 row justify-content-center">
             <button type="button" class="btn btn-primary btn-sm" style="width:13rem;">Button</button>
@@ -34,7 +35,7 @@
         <img src="/images/RumahNekoya.png" class="img-fluid home-picture" alt="rumah-nekoya">
     </div>
 
-    <div class="border m-5 row justify-content-center text-center">        
+    <div class="border m-5 row justify-content-center text-center">
         <h2>Trusted by over a lot of companies.</h2>
         <div class="justify-content-center text-center row row-cols-5" style="">
             <div class="border rounded-3 m-2 p-3 col" style="width: 13rem;">Sponsor</div>
@@ -50,10 +51,11 @@
     </div>
 
     <div class="text-center row row-cols-2 m-3">
-        <img src="/images/Dinding.png"  alt="dinding">
+        <img src="/images/Dinding.png" alt="dinding">
         <div class="align-self-center col body-medium-bold">
             <h2>Multi Curency Increase Update</h2>
-            <p>Whether it's selling your current home, getting financing, or buying a new home, we make it easy and efficient. The best part? you'll save a bunch of money and time with our services.</p>
+            <p>Whether it's selling your current home, getting financing, or buying a new home, we make it easy and
+                efficient. The best part? you'll save a bunch of money and time with our services.</p>
             <button type="button" class="btn btn-primary btn-sm">Button</button>
         </div>
     </div>
@@ -116,17 +118,19 @@
     <div class="text-center row row-cols-2 m-3">
         <div class="align-self-center col body-medium-bold">
             <h2>Multi Curency Increase Update</h2>
-            <p>Whether it's selling your current home, getting financing, or buying a new home, we make it easy and efficient. The best part? you'll save a bunch of money and time with our services.</p>
+            <p>Whether it's selling your current home, getting financing, or buying a new home, we make it easy and
+                efficient. The best part? you'll save a bunch of money and time with our services.</p>
             <button type="button" class="btn btn-primary btn-sm">Button</button>
         </div>
-        <img src="/images/Dinding.png"  alt="dinding">
+        <img src="/images/Dinding.png" alt="dinding">
     </div>
 
     <div class="text-center row row-cols-2 m-3">
         <div class="col align-self-center">
             <h2>Multi Curency Increase Update</h2>
             <div class="body-medium-bold align-self-center">
-                Whether it's selling your current home, getting financing, or buying a new home, we make it easy and efficient. The best part? you'll save a bunch of money and time with our services.
+                Whether it's selling your current home, getting financing, or buying a new home, we make it easy and
+                efficient. The best part? you'll save a bunch of money and time with our services.
             </div>
             <div class="text-center row row-cols-3 m-3">
                 <div class="text-center">
@@ -149,7 +153,7 @@
                 </div>
             </div>
         </div>
-        <img src="/images/DenahRumah.png"  alt="denah-rumah">
+        <img src="/images/DenahRumah.png" alt="denah-rumah">
     </div>
 
 @endsection

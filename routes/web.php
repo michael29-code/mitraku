@@ -5,12 +5,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MitraController;
-use App\Http\Controllers\BlogUserController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\BlogDetailController;
 use App\Http\Controllers\AdvertisementController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PengajuanController;
 
 // === PUBLIC ===
 Route::get('/', [RegisterController::class, 'signInPage']);
@@ -142,12 +141,18 @@ Route::get('/userAdvertisement', function () {
     return view('roles.user.advertise.userAdvertisement');
 })->name('view-advertisement');
 
-Route::get('/form-pengajuan', function () {
-    return view('roles.user.mitra.viewFormPengajuan');
-})->name('form-pengajuan');
+Route::get('/view-pengajuan', [PengajuanController::class, 'view']);
+Route::get('/form-pengajuan', [PengajuanController::class, 'create']);
+Route::post('/add-pengajuan', [PengajuanController::class, 'store']);
+Route::get('/pengajuan/pdf/{id}', [PengajuanController::class, 'download']);
+Route::get('/pengajuan/edit/{id}', [PengajuanController::class, 'edit']);
+Route::put('/pengajuan/update/{id}', [PengajuanController::class, 'update']);
+Route::delete('/pengajuan/delete/{id}',[PengajuanController::class,'destroy']);
 
 Route::get('create-mitra', [MitraController::class, 'create']);
-Route::post('viewMitra', [MitraController::class, 'store']);
+Route::post('viewMitra', [MitraController::class, 'store']);  #ini kayaknya harus di benerin pathnyaa, ambigu
+
+
 Route::get('/payment', function () {
     return view('paymentPage');
 });

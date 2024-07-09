@@ -22,8 +22,7 @@ class UserSeeder extends Seeder
             'email' => 'admin@admin.com',
             'password' => bcrypt('admin'),
             'address' => 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit, nemo!',
-            'image' => '/images/profile_admin.jpg',
-            'status' => 'Active' 
+            'image' => '/images/profile_admin.jpg'
             // 'remember_token' => Str::random(60)
         ]);
 
@@ -34,8 +33,7 @@ class UserSeeder extends Seeder
             'email' => 'user1@gmail.com',
             'password' => bcrypt('useruser'),
             'address' => 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit, nemo!',
-            'image' => '/images/profile_user.jpg',
-            'status' => 'Active'
+            'image' => '/images/profile_user.jpg'
         ]);
 
 

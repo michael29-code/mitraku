@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg sticky-top white-background mb-1">
-    <div class="container-fluid">
+    <div class="container">
         <a class="navbar-brand me-auto" href="{{ route('home') }}">
             <img src="images/LogoMitraku.png" alt="Mitraku" class="logo-size">
         </a>
@@ -10,7 +10,8 @@
             <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
                     <li class="nav-item">
-                        <a class="nav-link @yield('isHomeActive') mx-lg-2" aria-current="page" href="{{ route('home') }}">Home</a>
+                        <a class="nav-link @yield('isHomeActive') mx-lg-2" aria-current="page"
+                            href="{{ route('home') }}">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link @yield('isMitraActive') mx-lg-2" href="{{ route('view-mitra') }}">Mitra</a>
@@ -19,7 +20,11 @@
                         <a class="nav-link @yield('isBlogActive') mx-lg-2" href="{{ route('view-blog') }}">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link @yield('isAdvertiseActive') mx-lg-2" href="{{ route('view-advertisement') }}">Advertise</a>
+                        <a class="nav-link @yield('isAdvertiseActive') mx-lg-2"
+                            href="{{ route('view-advertisement') }}">Advertise</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @yield('isPengajuanActive') mx-lg-2" href="/view-pengajuan">Pengajuan</a>
                     </li>
                 </ul>
             </div>
