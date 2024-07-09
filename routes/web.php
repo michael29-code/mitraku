@@ -57,11 +57,12 @@ Route::group(['middleware' => ['CheckUser:1']], function () {
     Route::put('/update-category/{jenisKategori}', [CategoryController::class, 'update'])->name('update-category.submit');
 
     //ADVERTISMENT
-    Route::get('/manage-advertisement', [AdvertisementController::class, 'manage'])->name('manage-advertisement');    
-    Route::get('/manage-advertisement-view', [AdvertisementController::class, ''])->name('view_advertisement');
-    Route::get('/manage-advertisement-add', [AdvertisementController::class, ''])->name('add_advertisement');
-    Route::get('/manage-advertisement-delete', [AdvertisementController::class, ''])->name('delete_advertisement');
-    Route::get('/manage-advertisement-update', [AdvertisementController::class, ''])->name('update_advertisement');
+    // Route::get('/manage-advertisement', [AdvertisementController::class, 'manage'])->name('manage-advertisement');    
+    // Route::get('/manage-advertisement-view', [AdvertisementController::class, 'index'])->name('view-advertisement');
+    // Route::get('/manage-advertisement-add', [AdvertisementController::class, 'store'])->name('store-advertisement');
+    // Route::delete('/manage-advertisements/{id}/delete', [AdvertisementController::class, 'destroy'])->name('delete-advertisement');
+    // Route::get('/manage-advertisements/{id}/edit', [AdvertisementController::class, 'edit'])->name('edit-advertisement');
+    // Route::put('/manage-advertisements/{id}/update', [AdvertisementController::class, 'update'])->name('update-advertisement');
 
     //VIEW USER
     Route::get('/view-user', [UserController::class,'index'])->name('view-user');
@@ -111,3 +112,15 @@ Route::group(['middleware' => ['CheckUser:2']], function () {
 });
 
 Route::get('/profile/{id}', [UserController::class, 'show']);
+
+
+
+
+// WOI INGET DELETE INIIIIIIIIIIIIIII
+Route::get('/manage-advertisement', [AdvertisementController::class, 'manage'])->name('manage-advertisement');    
+Route::get('/manage-advertisement-view', [AdvertisementController::class, 'index'])->name('view-advertisement');
+Route::get('/manage-advertisement-add', [AdvertisementController::class, 'create'])->name('add-advertisement');
+Route::post('/manage-advertisement-store', [AdvertisementController::class, 'store'])->name('store-advertisement');
+Route::delete('/manage-advertisements/{id}/delete', [AdvertisementController::class, 'destroy'])->name('delete-advertisement');
+Route::get('/manage-advertisements/{id}/edit', [AdvertisementController::class, 'edit'])->name('edit-advertisement');
+Route::put('/manage-advertisements/{id}/update', [AdvertisementController::class, 'update'])->name('update-advertisement');
