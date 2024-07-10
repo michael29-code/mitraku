@@ -38,8 +38,9 @@
                     <div class="row mt-3">
                         <div class="col">
                             <label for="signUpDateOfBirth" class="form-label">Date Of Birth </label>
-                            <input name="date_of_birth" type="date" class="form-control @error('date_of_birth') is-invalid @enderror"
-                                id="signUpDateOfBirth" placeholder="Ex: 8 June 1977" value="{{ old('date_of_birth') }}">
+                            <input name="date_of_birth" type="date"
+                                class="form-control @error('date_of_birth') is-invalid @enderror" id="signUpDateOfBirth"
+                                placeholder="Ex: 8 June 1977" value="{{ old('date_of_birth') }}">
                             {{-- <div id="DateOfBirthError" class="form-text ms-2 text-danger body-small-bold">Error Text</div> --}}
                             @error('date_of_birth')
                                 <div class="invalid-feedback">
@@ -62,12 +63,13 @@
                         </div>
                     </div>
                     <div class="row mt-3">
-                        <div class="col">
-                            <label for="signUpPassword" class="form-label">Password </label>
+                        <label for="signUpPassword" class="form-label">Password </label>
+                        <div class="col passs">
                             <input name="password" type="password"
-                                class="form-control @error('password') is-invalid @enderror" id="signUpPassword"
+                                class="form-control @error('password') is-invalid @enderror passwordInputPlace" id="signUpPassword"
                                 placeholder="at least 8 characters">
                             {{-- <div id="passwordError" class="form-text ms-2 text-danger body-small-bold">Error Text</div> --}}
+                            <i class="bi bi-eye-slash-fill opacity-75 passwordIconPlace" id="togglePassword" style="cursor: pointer;"></i>
                             @error('password')
                                 <div class="invalid-feedback">
                                     {{ $message }}

@@ -48,11 +48,13 @@
                         </div>
                     </div>
                     <div class="row mt-3">
-                        <div class="col">
-                            <label for="signInPassword" class="form-label">Password </label>
+                        <label for="signInPassword" class="form-label">Password </label>
+                        <div class="col passs">
                             <input name="password" type="password"
-                                class="form-control @error('password') is-invalid @enderror" id="signInPassword"
+                                class="form-control @error('password') is-invalid @enderror passwordInputPlace" id="signInPassword"
                                 placeholder="at least 8 characters">
+                            <i class="bi bi-eye-slash-fill opacity-75 passwordIconPlace" id="togglePassword" style="cursor: pointer;"></i>
+
                             @error('password')
                                 <div class="invalid-feedback">
                                     {{ $message }}

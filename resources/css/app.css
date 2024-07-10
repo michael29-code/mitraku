@@ -281,6 +281,16 @@ h6,
 
 /* ===== EDIT SIDEBAR END =====*/
 
+.passs{
+    position: relative;
+}
+
+.passs i{
+    position: absolute;
+    top: 0.7rem;
+    right: 2rem;
+}
+
 /* === EDIT BOOTSTRAP END === */
 
 .rectangle {
