@@ -1,5 +1,7 @@
 @extends('layouts/layoutAdmin')
 
+@section('isViewUserActive', 'active')
+
 @section('content')
     <div class="container d-flex justify-content-center">
         <div class="col-lg-10">

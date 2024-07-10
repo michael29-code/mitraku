@@ -1,10 +1,12 @@
 @extends('layouts/layoutAdmin')
 
+@section('isViewMitraActive', 'active')
+
 @section('content')
     <div class="container d-flex justify-content-center">
         <div class="col-lg-10">
             <div class="p-4">
-                <h1 class="h2">View Admin</h1>
+                <h1 class="h2">View Mitra</h1>
                 <form method="GET" action="{{ route('user-search') }}" class="d-flex flex-row mb-3">
                     <input class="form-control me-4 rounded-pill" type="text" name="search" placeholder="Search User"
                         value="{{ request('search') }}">

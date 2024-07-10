@@ -40,57 +40,66 @@
     </nav>
 
     <div class="main-container d-flex">
-        <div class="sidebar sidebar-rch shadow-sm h6" id="side_nav">
-            <div class="header-box px-2 pt-3 pb-4 d-flex justify-content-between">
-                {{-- <a class="navbar-brand me-auto" href="#">
-                    <img src="/images/LogoMitraku.png" alt="Mitraku" class="logo-size-sm">
-                </a> --}}
-                <div class="div"></div>
-                <button class="btn d-md-none d-block close-btn px-1 py-0">
-                    <i class="bi bi-x" style="font-size: 2rem"></i>
-                </button>
-            </div>
+        <div class="sidebar sidebar-rch shadow-sm h6 d-flex flex-column justify-content-between" id="side_nav">
+            <div class="">
+                <div class="header-box px-2 pt-3 pb-4 d-flex justify-content-between">
+                    <div class="div"></div>
+                    <button class="btn d-md-none d-block close-btn px-1 py-0">
+                        <i class="bi bi-x" style="font-size: 2rem"></i>
+                    </button>
+                </div>
 
-            <ul class="list-unstyled px-2">
-                <li class="active my-2">
-                    <a href="{{ route('view-user-admin') }}" class="text-decoration-none px-3 py-2 d-block">
-                        <i class="bi bi-person-circle me-2"></i>
-                        User
-                    </a>
-                </li>
-                <li class="my-2">
-                    <a href="{{ route('view-mitra-admin') }}" class="text-decoration-none px-3 py-2 d-block">
-                        <i class="bi bi-building me-2"></i>
-                        Mitra
-                    </a>
-                </li>
-                <li class="my-2">
-                    <a href="{{ route('view-blog-admin') }}" class="text-decoration-none px-3 py-2 d-block">
-                        <i class="bi bi-newspaper me-2"></i>
-                        Blog
-                    </a>
-                </li>
-                <li class="my-2">
-                    <a href="{{ route('view-category-admin') }}" class="text-decoration-none px-3 py-2 d-block">
-                        <i class="bi bi-ui-checks-grid me-2"></i>
-                        Category
-                    </a>
-                </li>
-                <li class="my-2">
-                    <a href="{{ route('view-advertisement-admin') }}" class="text-decoration-none px-3 py-2 d-block">
-                        <i class="bi bi-badge-ad-fill me-2"></i>
-                        Advertisement
-                    </a>
-                </li>
-            </ul>
+                <ul class="list-unstyled px-2">
+                    <li class="@yield('isViewUserActive') my-2">
+                        <a href="{{ route('view-user-admin') }}" class="text-decoration-none px-3 py-2 d-block">
+                            <i class="bi bi-person-circle me-2"></i>
+                            User
+                        </a>
+                    </li>
+                    <li class="@yield('isViewMitraActive') my-2">
+                        <a href="{{ route('view-mitra-admin') }}" class="text-decoration-none px-3 py-2 d-block">
+                            <i class="bi bi-building me-2"></i>
+                            Mitra
+                        </a>
+                    </li>
+                    <li class="@yield('isViewBlogActive') my-2">
+                        <a href="{{ route('view-blog-admin') }}" class="text-decoration-none px-3 py-2 d-block">
+                            <i class="bi bi-newspaper me-2"></i>
+                            Blog
+                        </a>
+                    </li>
+                    <li class="@yield('isViewCategoryActive') my-2">
+                        <a href="{{ route('view-category-admin') }}" class="text-decoration-none px-3 py-2 d-block">
+                            <i class="bi bi-ui-checks-grid me-2"></i>
+                            Category
+                        </a>
+                    </li>
+                    <li class="@yield('isViewAdvertisementActive') my-2">
+                        <a href="{{ route('view-advertisement-admin') }}"
+                            class="text-decoration-none px-3 py-2 d-block">
+                            <i class="bi bi-badge-ad-fill me-2"></i>
+                            Advertisement
+                        </a>
+                    </li>
+                </ul>
+            </div>
             @auth
-                <form action="{{ route('logout') }}" method="POST">
+                <form action="{{ route('logout') }}" method="POST" class="mb-5">
                     @csrf
-                    <button class="btn btn-lg btn-primary shadow" style="font-size: 1.5rem">
-                        <i class="bi bi-box-arrow-right" style="color: white"></i>
+                    <hr class="my-0">
+                    <button class="btn btn-light text-base border-0 my-0"
+                        style="font-size: 1.5rem; color: red; width: 98%; text-align: start;border-radius: 0">
+                        <i class="bi bi-box-arrow-right" style="color: red"></i>
                         Log out
                     </button>
                 </form>
+                {{-- <form class="dropdown-item" action="{{ route('logout') }}" method="POST" style="color: red">
+                    @csrf
+                    <button class="btn p-0 m-0">
+                        <i class="bi bi-box-arrow-right" style="color: red"></i>
+                        Log out
+                    </button>
+                </form> --}}
             @endauth
         </div>
         <div class="content">

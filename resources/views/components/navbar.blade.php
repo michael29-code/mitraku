@@ -20,7 +20,7 @@
                         <a class="nav-link @yield('isBlogActive') mx-lg-2" href="{{ route('view-blog') }}">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link @yield('isAdvertiseActive') mx-lg-2"
+                        <a class="nav-link @yield('isAdvertisementActive') mx-lg-2"
                             href="{{ route('view-advertisement') }}">Advertise</a>
                     </li>
                     <li class="nav-item">
@@ -31,13 +31,33 @@
         </div>
         <div class="d-flex">
             @auth
-                <form action="{{ route('logout') }}" method="POST">
+                <div class="dropstart">
+                    <img src="/images/profile_user.jpg" class="dropdown-toggle rounded-circle" id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown" aria-expanded="false" style="width: 4rem">
+                    </img>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <form class="dropdown-item" action="{{ route('logout') }}" method="POST" style="color: red">
+                                @csrf
+                                <button class="btn p-0 m-0">
+                                    <i class="bi bi-box-arrow-right" style="color: red"></i>
+                                    Log out
+                                </button>
+                            </form>
+                            {{-- <a class="dropdown-item" href="#">Something else here</a> --}}
+                        </li>
+                    </ul>
+                </div>
+                {{-- <form action="{{ route('logout') }}" method="POST">
                     @csrf
                     <button class="btn btn-lg btn-primary shadow" style="font-size: 1.5rem">
                         <i class="bi bi-box-arrow-right" style="color: white"></i>
                         Log out
                     </button>
-                </form>
+                </form> --}}
             @else
                 <a href="{{ route('register') }}" class="btn btn-lg btn-primary shadow">Sign Up</a>
                 <a href="{{ route('login') }}" class="btn btn-lg btn-light shadow">Sign In</a>
