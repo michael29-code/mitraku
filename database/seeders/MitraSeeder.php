@@ -14,7 +14,7 @@ class MitraSeeder extends Seeder
     public function run(): void
     {
         Mitra::create([
-            'user_id' => '2',
+            'user_id' => '3',
             'mitraName' => 'PT Teknologi Maju Jaya',
             'mitraOverview' => 'PT Teknologi Maju Jaya adalah perusahaan teknologi yang fokus pada pengembangan solusi perangkat lunak untuk bisnis.',
             'mitraYear' => 2010,

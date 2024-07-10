@@ -38,6 +38,17 @@ class UserSeeder extends Seeder
             'isBlocked' => '0'
         ]);
 
+        User::create([
+            'username' => 'UserWMitra',
+            'level' => 3,
+            'date_of_birth' => '2001-03-03',
+            'email' => 'user2@gmail.com',
+            'password' => bcrypt('useruser'),
+            'address' => 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit, nemo!',
+            'image' => '/images/profile_user.jpg',
+            'isBlocked' => '0'
+        ]);
+
 
     }
 }

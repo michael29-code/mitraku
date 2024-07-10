@@ -56,13 +56,14 @@ Route::group(['middleware' => ['CheckUser:1']], function () {
     Route::put('/update-category/{jenisKategori}', [CategoryController::class, 'update'])->name('update-category.submit');
 
     //ADVERTISMENT
-    // Route::get('/manage-advertisement', [AdvertisementController::class, 'manage'])->name('manage-advertisement');    
-    // Route::get('/manage-advertisement-view', [AdvertisementController::class, 'index'])->name('view-advertisement');
-    // Route::get('/manage-advertisement-add', [AdvertisementController::class, 'store'])->name('store-advertisement');
-    // Route::delete('/manage-advertisements/{id}/delete', [AdvertisementController::class, 'destroy'])->name('delete-advertisement');
-    // Route::get('/manage-advertisements/{id}/edit', [AdvertisementController::class, 'edit'])->name('edit-advertisement');
-    // Route::put('/manage-advertisements/{id}/update', [AdvertisementController::class, 'update'])->name('update-advertisement');
-
+    // Route::get('/manage-advertisement', [AdvertisementController::class, 'manage'])->name('manage-advertisement-admin');    
+    // Route::get('/manage-advertisement-view', [AdvertisementController::class, 'index'])->name('view-advertisement-admin');
+    // Route::get('/manage-advertisement-add', [AdvertisementController::class, 'create'])->name('add-advertisement-admin');
+    // Route::post('/manage-advertisement-store', [AdvertisementController::class, 'store'])->name('store-advertisement-admin');
+    // Route::delete('/manage-advertisements/{id}/delete', [AdvertisementController::class, 'destroy'])->name('delete-advertisement-admin');
+    // Route::get('/manage-advertisements/{id}/edit', [AdvertisementController::class, 'edit'])->name('edit-advertisement-admin');
+    // Route::put('/manage-advertisements/{id}/update', [AdvertisementController::class, 'update'])->name('update-advertisement-admin');
+    
     //VIEW USER
     Route::get('/view-user-admin', [UserController::class,'index'])->name('view-user-admin');
     Route::patch('/toggle-user-blocked/{id}', [UserController::class, 'toggleBlock'])->name('toggle-blocked-user');
@@ -75,8 +76,8 @@ Route::group(['middleware' => ['CheckUser:1']], function () {
     Route::get('/mitra-search', [MitraController::class,'index'])->name('mitra-search');
 });
 
-// UNTUK USER
-Route::group(['middleware' => ['CheckUser:2']], function () {
+// UNTUK USER DAN MITRA
+Route::group(['middleware' => ['CheckUser:2,3']], function () {
     //MITRA
     Route::get('/view-mitra', [MitraController::class, 'mitra'])->name('view-mitra');
     Route::get('detailMitra', function () {

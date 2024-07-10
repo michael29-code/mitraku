@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('username');
-            // 1 = admin, 2 = user;
+            // 1 = admin, 2 = user, 3 = mitra;
             $table->tinyInteger('level');
             $table->date('date_of_birth');
             $table->string('email')->unique();

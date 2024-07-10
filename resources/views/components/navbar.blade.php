@@ -31,14 +31,25 @@
         </div>
         <div class="d-flex">
             @auth
-                <div class="dropstart">
-                    <img src="/images/profile_user.jpg" class="dropdown-toggle rounded-circle" id="dropdownMenuButton1"
-                        data-bs-toggle="dropdown" aria-expanded="false" style="width: 4rem">
-                    </img>
+                <div class="dropdown-center">
+                    <div class="dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="me-2 h6">
+                            Welcome, {{ Auth::user()->username }}!
+                        </span>
+                        <img src="/images/profile_user.jpg" class="rounded-circle"style="width: 4rem">
+                        </img>
+                    </div>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Profile</a></li>
+
+                        @if (Auth::user()->level == 2)
+                            <li><a class="dropdown-item" href="#">Create Mitra</a></li>
+                        @else
+                            <li><a class="dropdown-item" href="#">Mitra Profile</a></li>
+                        @endif
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
                         <li>
                             <form class="dropdown-item" action="{{ route('logout') }}" method="POST" style="color: red">
                                 @csrf
