@@ -91,6 +91,7 @@ class MitraSeeder extends Seeder
             ]),
             'image_map' => 'url/to/map/image.png',
             'address' => 'Jl. Teknologi No. 1, Jakarta, Indonesia',
+            'isBlocked' => '0'
         ]);
     }
 }

@@ -32,7 +32,7 @@
                 <button class="btn btn-light px-1 py-0 open-btn me-3">
                     <i class="bi bi-list" style="font-size: 2rem"></i>
                 </button>
-                <a class="navbar-brand me-auto" href="#">
+                <a class="navbar-brand me-auto" href="{{ route('view-user-admin') }}">
                     <img src="images/LogoMitraku.png" alt="Mitraku" class="logo-size-sm">
                 </a>
             </div>
@@ -53,36 +53,45 @@
 
             <ul class="list-unstyled px-2">
                 <li class="active my-2">
-                    <a href="#" class="text-decoration-none px-3 py-2 d-block">
+                    <a href="{{ route('view-user-admin') }}" class="text-decoration-none px-3 py-2 d-block">
                         <i class="bi bi-person-circle me-2"></i>
                         User
                     </a>
                 </li>
                 <li class="my-2">
-                    <a href="#" class="text-decoration-none px-3 py-2 d-block">
+                    <a href="{{ route('view-mitra-admin') }}" class="text-decoration-none px-3 py-2 d-block">
                         <i class="bi bi-building me-2"></i>
                         Mitra
                     </a>
                 </li>
                 <li class="my-2">
-                    <a href="#" class="text-decoration-none px-3 py-2 d-block">
+                    <a href="{{ route('view-blog-admin') }}" class="text-decoration-none px-3 py-2 d-block">
                         <i class="bi bi-newspaper me-2"></i>
                         Blog
                     </a>
                 </li>
                 <li class="my-2">
-                    <a href="#" class="text-decoration-none px-3 py-2 d-block">
+                    <a href="{{ route('view-category-admin') }}" class="text-decoration-none px-3 py-2 d-block">
                         <i class="bi bi-ui-checks-grid me-2"></i>
                         Category
                     </a>
                 </li>
                 <li class="my-2">
-                    <a href="#" class="text-decoration-none px-3 py-2 d-block">
+                    <a href="{{ route('view-advertisement-admin') }}" class="text-decoration-none px-3 py-2 d-block">
                         <i class="bi bi-badge-ad-fill me-2"></i>
                         Advertisement
                     </a>
                 </li>
             </ul>
+            @auth
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button class="btn btn-lg btn-primary shadow" style="font-size: 1.5rem">
+                        <i class="bi bi-box-arrow-right" style="color: white"></i>
+                        Log out
+                    </button>
+                </form>
+            @endauth
         </div>
         <div class="content">
             <div class="dashboard-content px-3 pt-4">

@@ -6,14 +6,14 @@
         <div class="row w-100 align-items-center">
             <div class="col-md-6 d-flex align-items-center">
                 <div class="me-3 mx-3 my-3">
-                    <a href="{{ route('manage-advertisement') }}"><i class="fa-solid fa-arrow-left" style="font-size: 2rem"></i></a>
+                    <a href="{{ route('manage-advertisement-admin') }}"><i class="fa-solid fa-arrow-left" style="font-size: 2rem"></i></a>
                 </div>
                 <div>
                     <h4 class="mb-0">View Advertisement</h4>
                 </div>
             </div>
             <div class="col-md-6">
-                <form action="{{ route('search') }}" method="GET" class="d-flex" required>
+                <form action="{{ route('search-admin') }}" method="GET" class="d-flex" required>
                     <div class="input-group">
                         <div class="border border-end-0 input-group-text bg-transparent">
                             <i class="fa-solid fa-magnifying-glass"></i>

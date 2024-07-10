@@ -47,7 +47,7 @@
                                 </div>
                             </div>
                             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                <a href="{{ route('view-category') }}" class="btn btn-secondary me-md-2">Cancel</a>
+                                <a href="{{ route('view-category-admin') }}" class="btn btn-secondary me-md-2">Cancel</a>
                                 <button class="btn btn-primary" type="submit">Update</button>
                             </div>
                         </form>

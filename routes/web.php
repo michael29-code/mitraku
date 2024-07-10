@@ -33,22 +33,22 @@ Route::group(['middleware' => ['auth']], function () {
 // UNTUK ADMIN
 Route::group(['middleware' => ['CheckUser:1']], function () {
     //BLOG
-    Route::get('/manage-blog', [BlogController::class, 'manageBlog'])->name('manage-blog');
-    Route::get('/view-blog', [BlogController::class, 'view']);
+    Route::get('/view-blog', [BlogController::class, 'view'])->name('view-blog-admin');
+    Route::get('/manage-blog', [BlogController::class, 'manageBlog'])->name('manage-blog-admin');
     Route::get('/write-blog', [BlogController::class, 'writeBlog']);
     Route::post('/store-blog', [BlogController::class, 'store']);
     Route::get('/edit-blog/{blog:slug}', [BlogController::class, 'edit']);
     Route::put('/update-blog/{blog:slug}', [BlogController::class, 'update']);
     Route::delete('/delete-blog/{blog:slug}', [BlogController::class, 'destroy']);
     Route::get('/view-blog-detail/{blog:slug}', [BlogController::class, 'show']);
-    Route::get('/search', [BlogController::class, 'search'])->name('search');
+    Route::get('/search', [BlogController::class, 'search'])->name('search-blog-admin');
 
     //CATEGORY
     Route::get('/manage-category', function () {
         return view('roles.admin.category.manageCategoryAdmin');
     })->name('manage-category');
-    Route::get('/view-category', [CategoryController::class, 'viewCategoryAdmin'])->name('view-category');
-    Route::get('/add-category', [CategoryController::class, 'addCategoryAdmin'])->name('add-category');
+    Route::get('/view-category', [CategoryController::class, 'viewCategoryAdmin'])->name('view-category-admin');
+    Route::get('/add-category', [CategoryController::class, 'addCategoryAdmin'])->name('add-category-admin');
     Route::post('/store-category', [CategoryController::class, 'store'])->name('store-category');
     Route::get('/delete-category', [CategoryController::class, 'deleteCategoryAdmin'])->name('delete-category');
     Route::get('/update-category/{jenisKategori}', [CategoryController::class, 'updateCategoryAdmin'])->name('update-category');
@@ -64,10 +64,15 @@ Route::group(['middleware' => ['CheckUser:1']], function () {
     // Route::put('/manage-advertisements/{id}/update', [AdvertisementController::class, 'update'])->name('update-advertisement');
 
     //VIEW USER
-    Route::get('/view-user', [UserController::class,'index'])->name('view-user');
-    Route::patch('/toggle-user-blocked/{id}', [UserController::class, 'toggleBlock'])->name('toggle-blocked');
+    Route::get('/view-user-admin', [UserController::class,'index'])->name('view-user-admin');
+    Route::patch('/toggle-user-blocked/{id}', [UserController::class, 'toggleBlock'])->name('toggle-blocked-user');
     Route::get('/user-search', [UserController::class,'index'])->name('user-search');
     
+    //VIEW MITRA
+    Route::get('/view-mitra-admin', [MitraController::class,'index'])->name('view-mitra-admin');
+    // Route::get('/view-mitra')
+    Route::patch('/toggle-mitra-blocked/{id}', [MitraController::class, 'toggleBlock'])->name('toggle-blocked-mitra');
+    Route::get('/mitra-search', [MitraController::class,'index'])->name('mitra-search');
 });
 
 // UNTUK USER
@@ -118,10 +123,10 @@ Route::get('/profile/{id}', [UserController::class, 'show']);
 
 
 // WOI INGET DELETE INIIIIIIIIIIIIIII
-Route::get('/manage-advertisement', [AdvertisementController::class, 'manage'])->name('manage-advertisement');    
-Route::get('/manage-advertisement-view', [AdvertisementController::class, 'index'])->name('view-advertisement');
-Route::get('/manage-advertisement-add', [AdvertisementController::class, 'create'])->name('add-advertisement');
-Route::post('/manage-advertisement-store', [AdvertisementController::class, 'store'])->name('store-advertisement');
-Route::delete('/manage-advertisements/{id}/delete', [AdvertisementController::class, 'destroy'])->name('delete-advertisement');
-Route::get('/manage-advertisements/{id}/edit', [AdvertisementController::class, 'edit'])->name('edit-advertisement');
-Route::put('/manage-advertisements/{id}/update', [AdvertisementController::class, 'update'])->name('update-advertisement');
+Route::get('/manage-advertisement', [AdvertisementController::class, 'manage'])->name('manage-advertisement-admin');    
+Route::get('/manage-advertisement-view', [AdvertisementController::class, 'index'])->name('view-advertisement-admin');
+Route::get('/manage-advertisement-add', [AdvertisementController::class, 'create'])->name('add-advertisement-admin');
+Route::post('/manage-advertisement-store', [AdvertisementController::class, 'store'])->name('store-advertisement-admin');
+Route::delete('/manage-advertisements/{id}/delete', [AdvertisementController::class, 'destroy'])->name('delete-advertisement-admin');
+Route::get('/manage-advertisements/{id}/edit', [AdvertisementController::class, 'edit'])->name('edit-advertisement-admin');
+Route::put('/manage-advertisements/{id}/update', [AdvertisementController::class, 'update'])->name('update-advertisement-admin');

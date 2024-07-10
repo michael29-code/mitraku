@@ -24,17 +24,17 @@ return new class extends Migration
             $table->string('contactName');
             $table->string('contactEmail');
             $table->string('contactPhoneNumber');
-
             $table->text('mitra_details');
 
             $table->json('galeri')->nullable();
 
             $table->json('latest_rating_and_certificate')->nullable();
-
             $table->json('awards')->nullable();
 
             $table->string('image_map')->nullable();
             $table->string('address')->nullable();
+            $table->tinyInteger('isBlocked');
+            $table->rememberToken();
             $table->timestamps();
         });
     }

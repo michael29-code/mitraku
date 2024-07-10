@@ -43,7 +43,7 @@ class CategoryController extends Controller
 
         Category::create($data);
 
-        return redirect()->route('view-category')->with('success', 'Berhasil menambah kategori');
+        return redirect()->route('view-category-admin')->with('success', 'Berhasil menambah kategori');
     }
 
     /**
@@ -74,6 +74,6 @@ class CategoryController extends Controller
         if ($category) {
             $category->delete();
         }
-        return redirect()->route('view-category')->with('success', 'Berhasil hapus data');
+        return redirect()->route('view-category-admin')->with('success', 'Berhasil hapus data');
     }
 }

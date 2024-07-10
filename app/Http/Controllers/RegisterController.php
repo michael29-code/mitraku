@@ -49,7 +49,7 @@ class RegisterController extends Controller
             // dd(Auth::user()->level);
             $request->session()->regenerate();
             if (Auth::user()->level == 1) {
-                return redirect()->intended(route('view-user'));
+                return redirect()->intended(route('view-user-admin'));
             }
             return redirect()->intended(route('home'));
         }

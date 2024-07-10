@@ -19,7 +19,7 @@
                                 </div>
                             </div>
                             <div class="col">
-                                <form action="{{ route('search') }}" method="GET"class="d-flex" required>
+                                <form action="{{ route('search-blog-admin') }}" method="GET"class="d-flex" required>
                                     <div class="input-group">
                                         <div class="border border-end-0 input-group-text bg-transparent">
                                             <i class="fa-solid fa-magnifying-glass"></i>
@@ -32,7 +32,7 @@
                             </div>
                         </div>
                         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 my-3">
-                            @if ($blogs->isNotEmpty())
+                            {{-- @if ($blogs->isNotEmpty()) --}}
                                 @foreach ($blogs as $blog)
                                     <div class="col my-3">
                                         <div class="card mx-2 h-100">
@@ -70,6 +70,7 @@
                                         </div>
                                     </div>
                                 @endforeach
+                            {{-- @endif --}}
                         </div>
                         <div class="row">
                             <div class="col d-flex align-self-end">

@@ -9,6 +9,7 @@ use Illuminate\View\View;
 
 class MitraController extends Controller
 {
+    //USER
     public function createMitra1(){
         return view('roles.user.create_mitra.createMitra1');
     }
@@ -58,5 +59,32 @@ class MitraController extends Controller
         return view('roles.user.mitra.mitra', ['mitra'=>$mitra]);
     }
 
+    //ADMIN
+    public function index(){
+        $mitras = Mitra::all();
+        return view('roles.admin.mitra.viewMitra', compact('mitras'));
+    }
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+        
+        if ($search) {
+            $mitras = Mitra::where('name', 'LIKE', "%{$search}%")->get();
+        } else {
+            $mitras = Mitra::all();
+        }
+
+        return view('roles.admin.mitra.viewMitra', compact('mitras'));
+    }
     
+    public function toggleBlock($id){
+        $mitra = Mitra::find($id);
+        if($mitra->isBlocked == 0){
+            $mitra->isBlocked = 1;
+        } else {
+            $mitra->isBlocked = 0;
+        }
+        $mitra->save();
+        return redirect()->back();
+    }
 }
