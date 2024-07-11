@@ -11,7 +11,7 @@
                         <div class="row">
                             <div class="col mx-2 my-2 py-2 border-bottom d-flex align-items-center">
                                 <i class="bi bi-eye-fill fs-4 me-3"></i>
-                                <a href="{{ route('view-category-admin') }}" class="text-decoration-none text-black" style="font-size: 20px;">
+                                <a href="{{ route('view-category') }}" class="text-decoration-none text-black" style="font-size: 15px;">
                                     View Category
                                 </a>
                             </div>
@@ -19,7 +19,7 @@
                         <div class="row">
                             <div class="col mx-2 my-2 py-2 border-bottom d-flex align-items-center">
                                 <i class="bi bi-plus-square-fill"></i>
-                                <a href="{{ route('add-category-admin') }}" class="text-decoration-none text-black mx-4" style="font-size: 20px;" >Add Category</a>
+                                <a href="{{ route('add-category') }}" class="text-decoration-none text-black mx-4" style="font-size: 15px;" >Add Category</a>
                             </div>
                         </div>
                     </div>
