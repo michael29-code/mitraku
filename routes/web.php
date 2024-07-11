@@ -94,9 +94,9 @@ Route::group(['middleware' => ['CheckUser:2,3']], function () {
     Route::get('/blog-detail', [BlogController::class, 'blogDetailUser'])->name('view-blog-detail');
 
     //PROFILE
-    Route::get('/profile', function () {
-        return view('profile');
-    });
+    // Route::get('/profile', function () {
+    //     return view('profile');
+    // });
 
     //ADVERTISMENT
     Route::get('/userAdvertisement', function () {
@@ -118,7 +118,10 @@ Route::group(['middleware' => ['CheckUser:2,3']], function () {
     Route::get('/checkout/success/{transaction}', [PaymentController::class, 'success'])->name('checkout-success');
 });
 
-Route::get('/profile/{id}', [UserController::class, 'show']);
+
+//PROFILE USER
+Route::get('/profile-user', [UserController::class, 'show'])->name('profile-user');
+Route::put('/profile-user', [UserController::class, 'change_password'])->name('change-password');
 
 
 

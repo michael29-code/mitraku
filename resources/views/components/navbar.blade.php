@@ -40,7 +40,7 @@
                         </img>
                     </div>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li><a class="dropdown-item" href="{{ route('profile-user') }}">Profile</a></li>
 
                         @if (Auth::user()->level == 2)
                             <li><a class="dropdown-item" href="#">Create Mitra</a></li>

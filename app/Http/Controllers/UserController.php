@@ -9,14 +9,14 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 
 
-
 class UserController extends Controller
 {
-
+    // View User Admin
     public function index(){
         $users = User::where('level', 2)->get();
         return view('roles.admin.block.viewUser', compact('users'));
     }
+
     public function search(Request $request)
     {
         $search = $request->input('search');
@@ -29,13 +29,7 @@ class UserController extends Controller
 
         return view('roles.admin.block.viewUser', compact('users'));
     }
-
-    public function show($id)
-    {
-        $user = Auth::user();
-        return view('roles.user.profile.profile', compact('user'));
-    }
-
+    
     public function toggleBlock($id){
         $user = User::find($id);
         // $user->isBlocked = 1;
@@ -47,5 +41,28 @@ class UserController extends Controller
         }
         $user->save();
         return redirect()->back();
+    }
+
+
+    // Profile User
+    public function show(Request $request)
+    {
+        $user = Auth::user();
+        return view('roles.user.profile.profile', compact('user'));
+    }
+
+    public function change_password(Request $request)
+    {
+        // Validation
+        $request->validate([
+            'new_password' => 'required|Min:8'
+        ]);
+
+        //Update Password
+        User::whereId(auth()->user()->id)->update([
+            'password' => Hash::make($request->new_password)
+        ]);
+
+        return view('roles.user.profile.profile', compact('user'));
     }
 }

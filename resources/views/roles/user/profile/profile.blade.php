@@ -43,7 +43,7 @@
                         @endif>
                         <div class="modal-dialog">
                             <div class="modal-content">
-                                <form action="/profile" method="POST">
+                                <form action="{{ route('change-password') }}" method="POST">
                                     @csrf
                                     @method('PUT')
                                     <div class="modal-header">
