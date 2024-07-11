@@ -22,10 +22,12 @@ class RegisterController extends Controller
             'date_of_birth' => ['required', 'before: 5 years ago'],
             'email' => ['required', 'email:dns', 'unique:users'],
             // 'email' => ['required', 'email', Rule::unique('users', 'email')],
+            // 'email' => ['required', 'email', Rule::unique('users', 'email')],
             'password' => ['required', 'min:8', 'max:255'],
         ]);
         $incomingFields['password'] = bcrypt($incomingFields['password']);
         $incomingFields['level'] = 2;
+        $incomingFields['address'] = ' ';
 
         User::create($incomingFields);
         $request->session()->flash('success', 'Sign Up Successful!');

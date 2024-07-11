@@ -56,24 +56,25 @@ Route::group(['middleware' => ['CheckUser:1']], function () {
     Route::put('/update-category/{jenisKategori}', [CategoryController::class, 'update'])->name('update-category.submit');
 
     //ADVERTISMENT
-    // Route::get('/manage-advertisement', [AdvertisementController::class, 'manage'])->name('manage-advertisement-admin');    
-    // Route::get('/manage-advertisement-view', [AdvertisementController::class, 'index'])->name('view-advertisement-admin');
-    // Route::get('/manage-advertisement-add', [AdvertisementController::class, 'create'])->name('add-advertisement-admin');
-    // Route::post('/manage-advertisement-store', [AdvertisementController::class, 'store'])->name('store-advertisement-admin');
-    // Route::delete('/manage-advertisements/{id}/delete', [AdvertisementController::class, 'destroy'])->name('delete-advertisement-admin');
-    // Route::get('/manage-advertisements/{id}/edit', [AdvertisementController::class, 'edit'])->name('edit-advertisement-admin');
-    // Route::put('/manage-advertisements/{id}/update', [AdvertisementController::class, 'update'])->name('update-advertisement-admin');
-    
+    Route::get('/manage-advertisement', [AdvertisementController::class, 'manage'])->name('manage-advertisement-admin');
+    Route::get('/manage-advertisement-view', [AdvertisementController::class, 'index'])->name('view-advertisement-admin');
+    Route::get('/manage-advertisement-add', [AdvertisementController::class, 'create'])->name('add-advertisement-admin');
+    Route::post('/manage-advertisement-store', [AdvertisementController::class, 'store'])->name('store-advertisement-admin');
+    Route::delete('/manage-advertisements/{id}/delete', [AdvertisementController::class, 'destroy'])->name('delete-advertisement-admin');
+    Route::get('/manage-advertisements/{id}/edit', [AdvertisementController::class, 'edit'])->name('edit-advertisement-admin');
+    Route::put('/manage-advertisements/{id}/update', [AdvertisementController::class, 'update'])->name('update-advertisement-admin');
+
+
     //VIEW USER
-    Route::get('/view-user-admin', [UserController::class,'index'])->name('view-user-admin');
+    Route::get('/view-user-admin', [UserController::class, 'index'])->name('view-user-admin');
     Route::patch('/toggle-user-blocked/{id}', [UserController::class, 'toggleBlock'])->name('toggle-blocked-user');
-    Route::get('/user-search', [UserController::class,'index'])->name('user-search');
-    
+    Route::get('/user-search', [UserController::class, 'index'])->name('user-search');
+
     //VIEW MITRA
-    Route::get('/view-mitra-admin', [MitraController::class,'index'])->name('view-mitra-admin');
+    Route::get('/view-mitra-admin', [MitraController::class, 'index'])->name('view-mitra-admin');
     // Route::get('/view-mitra')
     Route::patch('/toggle-mitra-blocked/{id}', [MitraController::class, 'toggleBlock'])->name('toggle-blocked-mitra');
-    Route::get('/mitra-search', [MitraController::class,'index'])->name('mitra-search');
+    Route::get('/mitra-search', [MitraController::class, 'index'])->name('mitra-search');
 });
 
 // UNTUK USER DAN MITRA
@@ -83,7 +84,7 @@ Route::group(['middleware' => ['CheckUser:2,3']], function () {
     Route::get('detailMitra', function () {
         return view('roles.user.mitra.detailMitra');
     })->name('detailMitra');
-    
+
     // CREATE MITRA
     Route::get('/create-mitra-step-1', [MitraController::class, 'createMitra1']);
     Route::get('/create-mitra-step-2', [MitraController::class, 'createMitra2']);
@@ -112,7 +113,7 @@ Route::group(['middleware' => ['CheckUser:2,3']], function () {
 
     //PAYMENT
     Route::get('/transactions', [PaymentController::class, 'index']);
-    Route::get('/payment',[PaymentController::class, 'show']);    
+    Route::get('/payment', [PaymentController::class, 'show']);
     Route::post('/pay/store', [PaymentController::class, 'pay']);
     Route::get('/checkout/{transaction}', [PaymentController::class, 'checkout']);
     Route::get('/checkout/success/{transaction}', [PaymentController::class, 'success'])->name('checkout-success');
@@ -125,12 +126,3 @@ Route::put('/profile-user', [UserController::class, 'change_password'])->name('c
 
 
 
-
-// WOI INGET DELETE INIIIIIIIIIIIIIII
-Route::get('/manage-advertisement', [AdvertisementController::class, 'manage'])->name('manage-advertisement-admin');    
-Route::get('/manage-advertisement-view', [AdvertisementController::class, 'index'])->name('view-advertisement-admin');
-Route::get('/manage-advertisement-add', [AdvertisementController::class, 'create'])->name('add-advertisement-admin');
-Route::post('/manage-advertisement-store', [AdvertisementController::class, 'store'])->name('store-advertisement-admin');
-Route::delete('/manage-advertisements/{id}/delete', [AdvertisementController::class, 'destroy'])->name('delete-advertisement-admin');
-Route::get('/manage-advertisements/{id}/edit', [AdvertisementController::class, 'edit'])->name('edit-advertisement-admin');
-Route::put('/manage-advertisements/{id}/update', [AdvertisementController::class, 'update'])->name('update-advertisement-admin');

@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg sticky-top white-background mb-1">
     <div class="container">
         <a class="navbar-brand me-auto" href="{{ route('home') }}">
-            <img src="images/LogoMitraku.png" alt="Mitraku" class="logo-size">
+            <img src="images/LogoMitraku.png" alt="Mitraku" class="logo-size-sm">
         </a>
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header">
@@ -24,7 +24,7 @@
                             href="{{ route('view-advertisement') }}">Advertise</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link @yield('isPengajuanActive') mx-lg-2" href="/view-pengajuan">Pengajuan</a>
+                        <a class="nav-link @yield('isPengajuanActive') mx-lg-2" href="/form-pengajuan">Pengajuan</a>
                     </li>
                 </ul>
             </div>
@@ -33,9 +33,9 @@
             @auth
                 <div class="dropdown-center">
                     <div class="dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                        <span class="me-2 h6">
+                        {{-- <span class="me-2 h6">
                             Welcome, {{ Auth::user()->username }}!
-                        </span>
+                        </span> --}}
                         <img src="/images/profile_user.jpg" class="rounded-circle"style="width: 4rem">
                         </img>
                     </div>
@@ -70,8 +70,8 @@
                     </button>
                 </form> --}}
             @else
-                <a href="{{ route('register') }}" class="btn btn-lg btn-primary shadow">Sign Up</a>
-                <a href="{{ route('login') }}" class="btn btn-lg btn-light shadow">Sign In</a>
+                <a href="{{ route('register') }}" class="btn btn-primary shadow">Sign Up</a>
+                <a href="{{ route('login') }}" class="btn btn-light shadow">Sign In</a>
             @endauth
         </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"

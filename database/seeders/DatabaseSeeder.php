@@ -31,6 +31,6 @@ class DatabaseSeeder extends Seeder
         // $this->call([
         //     CategorySeeder::class
         // ]);
-        // Blog::factory(10)->create();
+        Blog::factory(10)->create();
     }
 }
