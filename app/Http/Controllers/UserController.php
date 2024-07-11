@@ -53,16 +53,19 @@ class UserController extends Controller
 
     public function change_password(Request $request)
     {
-        // Validation
-        $request->validate([
-            'new_password' => 'required|Min:8'
+
+
+        //Validate Password
+        $inFil = $request->validate([
+            'password'=> 'required|Min:8',
         ]);
 
-        //Update Password
-        User::whereId(auth()->user()->id)->update([
-            'password' => Hash::make($request->new_password)
-        ]);
 
-        return view('roles.user.profile.profile', compact('user'));
+        // Update Password
+        $user = Auth::user();
+        $user->update($inFil);
+
+        auth()->logout();
+        return redirect('/');
     }
 }
