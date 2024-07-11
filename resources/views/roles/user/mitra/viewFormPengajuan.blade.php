@@ -1,5 +1,7 @@
 @extends('layouts.layout')
 
+@section('isPengajuanActive', 'active')
+
 @section('content')
     <div class="container my-5 full-height m-auto d-flex w-100 justify-content-center align-items-center flex-column">
         <div class="row my-5">
