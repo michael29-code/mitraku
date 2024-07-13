@@ -27,25 +27,26 @@ class BlogController extends Controller
 
     public function store(Request $request)
     {
+
         $request['slug'] = Str::of($request['title'])->slug('-');
         $validatedData = $request->validate([
             'title' => 'required|max:255',
             'writerId' => 'required',
             'slug' => 'required|unique:blogs',
-            'categoryId' => 'required|exists:categories,id',
-            'image' => 'required|image|file|max:1024',
+            'kategoriId' => 'required|exists:categories,id',
+            'image' => 'required',
             'body' => 'required',
         ],[
-            'categoryId.required' => 'The category field is empty',
-            'categoryId.exist:categories,id' => 'The category field is invalid',
+            'kategoriId.required' => 'The category field is empty',
+            'kategoriId.exist:categories,id' => 'The category field is invalid',
         ]);
-
+        
         if ($request->file('image')) {
             $validatedData['image'] = $request->file('image')->store('blog-images');
         }
         Blog::create($validatedData);
 
-        return redirect('/manage-blog-admin');
+        return redirect('/manage-blog')->with('success', 'Blog has been posted');
     }
 
     public function show(Blog $blog)
@@ -68,7 +69,7 @@ class BlogController extends Controller
             'title' => 'required|max:255',
             'writerId' => 'required',
             'slug' => 'required|unique:blogs',
-            'categoryId' => 'required|exists:categories,id',
+            'kategoriId' => 'required|exists:categories,id',
             'image' => 'required|image|file|max:1024',
             'body' => 'required',
         ]);
@@ -81,22 +82,22 @@ class BlogController extends Controller
         }
         Blog::where('slug',$blog->slug)
         ->update($validatedData);
-        return redirect('/manage-blog');
+        return redirect('/manage-blog')->with('success', 'Blog has been updated');
     }
 
     public function view(): View
     {
         $blogs = Blog::paginate(10); // Mengambil 10 data per halaman
-        return view('roles.admin.blog.viewBlogPageAdmin',["blogs"=>$blogs]);
+        return view('roles.admin.blog.viewBlogPageAdmin',["blogs"=> $blogs]);
     }
 
     public function destroy(Blog $blog)
     {
-        if ($blog->image) {
+        if ($blog->image != 'default.png' && $blog->image) {
             Storage::delete($blog->image);
         }
         Blog::destroy($blog->id);
-        return redirect('/view-blog');
+        return redirect('/view-blog')->with('success', 'Blog has been deleted');
     }
     
     public function search(Request $request){

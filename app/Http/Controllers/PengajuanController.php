@@ -29,7 +29,7 @@ class PengajuanController extends Controller
 
         // $pdf = FacadePdf::loadview('pdfTemplate2', $validatedData);
         // return $pdf->download('test.pdf');
-        return redirect('/view-pengajuan');
+        return redirect('/view-pengajuan')->with('success', 'Pengajuan has been submited');
     }
 
     public function edit(Pengajuan $id){
@@ -59,7 +59,7 @@ class PengajuanController extends Controller
         $item->duration = $request->input('duration');
         $item->save();
 
-        return redirect('/view-pengajuan');
+        return redirect('/view-pengajuan')->with('success', 'Pengajuan has been succesfully edited');
     }
     public function view(): View
     {
@@ -71,6 +71,6 @@ class PengajuanController extends Controller
     public function destroy($id)
     {
         Pengajuan::destroy($id);
-        return redirect('/view-pengajuan');
+        return redirect('/view-pengajuan')->with('success', 'Pengajuan has been deleted');
     }
 }

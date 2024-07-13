@@ -35,6 +35,13 @@
                                 </form>
                             </div>
                         </div>
+                        @if (session()->has('success'))
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                {{ session('success') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
+                            </div>
+                        @endif
                         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 my-3">
                             @foreach ($blogs as $blog)
                                 <div class="col my-3">
@@ -81,8 +88,7 @@
                         </div>
                         <div class="row">
                             <div class="col d-flex justify-content-center"> {{-- Center the pagination links --}}
-                                {{ $blogs->links() }}
-                            </div>
+                                {{ $blogs->links() }} </div>
                         </div>
                     </div>
                 </div>

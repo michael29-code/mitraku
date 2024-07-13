@@ -3,7 +3,7 @@
 @section('isBlogActive', 'active')
 
 @section('content')
-<div class="rectangleSpace"></div>
+    <div class="rectangleSpace"></div>
     <div class="rectangle">
         <div class="rectangleSpace"></div>
         <div class="row row-cols-6">
@@ -19,17 +19,16 @@
             <h3 class="date">August 20, 2022</h3>
         </div>
     </div>
- 
+
     <div class="container my-5 p-5 h-100">
         <div class="row shadow bg-body-tertiary rounded">
             <div class="col">
-                <div class="card border border-0">
-                        <div class="row my-5">
-                            @foreach ($blogs as $blog)
+                <div class="card border-0">
+                    <div class="row my-5">
+                        @foreach ($blogs as $blog)
                             <div class="col">
                                 <div class="card mx-2">
-                                    <img src="storage/{{ $blog['image'] }}" class="card-img-top"
-                                        alt="...">
+                                    <img src="{{ asset('storage/' . $blog->image) }}" class="card-img-top" alt="...">
                                     <div class="card-body">
                                         {{-- <span class="badge text-bg-primary my-2">{{ $blog->kategori->jenisKategori }}</span> --}}
                                         <h5 class="card-title my-1">{{ $blog['title'] }}</h5>
@@ -46,14 +45,14 @@
                                         <a href="#" class="btn btn-danger w-100">Delete</a>
                                     </div>
                                 </div>
-                            </div>       
-                            @endforeach
-                         
-                        </div>
+                            </div>
+                        @endforeach
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    </div>
 
-    @endsection
+@endsection
