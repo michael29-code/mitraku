@@ -9,11 +9,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Blog extends Model
 {
     use HasFactory;
-    protected $fillable = ['title','slug','writerId','categoryiId','image','body'];
+    protected $fillable = ['title','slug','writerId','kategoriId','image','body'];
     
     public function kategori(): BelongsTo
     {
-        return $this->belongsTo(Category::class,'categoryId');
+        return $this->belongsTo(Category::class , 'kategoriId');
     }
 
     public function writer(): BelongsTo

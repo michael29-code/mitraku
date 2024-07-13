@@ -104,7 +104,7 @@ class BlogController extends Controller
         $blogs = Blog::query()
             ->where('title', 'LIKE', "%{$search}%")
             ->orWhere('body', 'LIKE', "%{$search}%")
-            ->get();
+            ->paginate();
     
         return view('roles.admin.blog.viewBlogPageAdmin', ["blogs" => $blogs]);
     }

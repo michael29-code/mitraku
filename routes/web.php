@@ -8,7 +8,9 @@ use App\Http\Controllers\MitraController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AdvertisementController;
+use App\Http\Controllers\DownloadPDFController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\PengajuanController;
 use App\Http\Controllers\UserController;
 
 // === PUBLIC ===
@@ -106,12 +108,13 @@ Route::group(['middleware' => ['CheckUser:2,3']], function () {
     })->name('view-advertisement');
 
 
-    // FORM PENGAJUAN
-    Route::get('/form-pengajuan', function () {
-        return view('roles.user.mitra.viewFormPengajuan');
-    })->name('form-pengajuan');
-
-
+    Route::get('/view-pengajuan', [PengajuanController::class, 'view']);
+    Route::get('/form-pengajuan', [PengajuanController::class, 'create']);
+    Route::post('/add-pengajuan', [PengajuanController::class, 'store']);
+    Route::get('/download/{pengajuan}', DownloadPDFController::class);
+    Route::get('/pengajuan/edit/{id}', [PengajuanController::class, 'edit']);
+    Route::put('/pengajuan/update/{id}', [PengajuanController::class, 'update']);
+    Route::delete('/pengajuan/delete/{id}',[PengajuanController::class,'destroy']);
     //PAYMENT
     Route::get('/transactions', [PaymentController::class, 'index']);
     Route::get('/payment', [PaymentController::class, 'show']);

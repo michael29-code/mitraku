@@ -63,9 +63,9 @@ class PengajuanController extends Controller
     }
     public function view(): View
     {
-        $pengajuans = Pengajuan::where('user_id', Auth::id())->get();
+        $pengajuans = Pengajuan::where('user_id', Auth::id())->paginate(10);
 
-        return view('roles.user.mitra.viewPengajuan', compact('pengajuans'));
+        return view('roles.user.mitra.viewPengajuan', ["pengajuans"=>$pengajuans]);
     }
 
     public function destroy($id)

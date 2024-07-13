@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug');
             $table->unsignedBigInteger('writerId');
-            $table->unsignedBigInteger('categoriId');
+            $table->unsignedBigInteger('kategoriId');
             $table->string('image')->nullable();
             $table->longText('body');
             $table->timestamps();

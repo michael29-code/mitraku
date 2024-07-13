@@ -3,7 +3,7 @@
 @section('isPengajuanActive', 'active')
 
 @section('content')
-    <div class="container my-5 full-height m-auto d-flex w-100 justify-content-center align-items-center flex-column">
+    <div class="container mb-5 full-height m-auto d-flex w-100 justify-content-start align-items-center flex-column">
         <div class="row my-5">
             <div class="col text-center">
                 <h2>Form Pengajuan Penawaran</h2>

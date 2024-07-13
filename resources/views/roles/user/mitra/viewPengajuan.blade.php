@@ -2,7 +2,7 @@
 @section('isPengajuanActive', 'active')
 
 @section('content')
-    <div class="container my-5 full-height m-auto d-flex w-100 justify-content-center align-items-center flex-column">
+    <div class="container my-5 full-height m-auto d-flex w-100 justify-content-start align-items-center flex-column">
         <div class="row w-100 my-5">
             <div class="col text-center">
                 <h2>History Pengajuan</h2>
@@ -30,5 +30,7 @@
                 @endforeach
             </div>
         </div>
+        {{ $pengajuans->links() }}
+
     </div>
 @endsection
