@@ -5,11 +5,11 @@
         <div class="row shadow bg-body-tertiary rounded">
             <div class="col">
                 <div class="card border border-0">
-                    <div class="card-body py-5">
+                    <div class="card-body">
                         <div class="row my-3">
                             <div class="col-5">
                                 <div class="row">
-                                    <div class="col-1 text-end">
+                                    <div class="col-1 d-flex justify-content-center align-items-center">
                                         <a href="/manage-blog"><i class="fa-solid fa-arrow-left"
                                                 style="font-size: 2rem"></i></a>
                                     </div>
@@ -77,7 +77,7 @@
                                             <h6><b>Header Image</b></h6>
                                             <div class="row">
                                                 <div class="col">
-                                                    <div class="mb-3">
+                                                    <div class="mb-1">
                                                         <input class="form-control @error('image') is-invalid @enderror"
                                                             id="image" type="file" name="image"
                                                             aria-label="file example" onchange="previewImage()">
@@ -95,7 +95,7 @@
 
                                         </div>
                                     </div>
-                                    <div class="row my-3 mx-5">
+                                    <div class="row mx-5">
                                         <div class="col">
                                             <h6><b>Body</b></h6>
                                             <div class="row">

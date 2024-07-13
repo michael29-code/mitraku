@@ -35,20 +35,20 @@ Route::group(['middleware' => ['CheckUser:1']], function () {
     //BLOG
     Route::get('/view-blog', [BlogController::class, 'view'])->name('view-blog-admin');
     Route::get('/manage-blog', [BlogController::class, 'manageBlog'])->name('manage-blog-admin');
-    Route::get('/write-blog', [BlogController::class, 'writeBlog']);
-    Route::post('/store-blog', [BlogController::class, 'store']);
-    Route::get('/edit-blog/{blog:slug}', [BlogController::class, 'edit']);
-    Route::put('/update-blog/{blog:slug}', [BlogController::class, 'update']);
-    Route::delete('/delete-blog/{blog:slug}', [BlogController::class, 'destroy']);
-    Route::get('/view-blog-detail/{blog:slug}', [BlogController::class, 'show']);
+    Route::get('/write-blog', [BlogController::class, 'writeBlog'])->name('write-blog-admin');
+    Route::post('/store-blog', [BlogController::class, 'store'])->name('store-blog-admin');
+    Route::get('/edit-blog/{blog:slug}', [BlogController::class, 'edit'])->name('edit-blog-admin');
+    Route::put('/update-blog/{blog:slug}', [BlogController::class, 'update'])->name('update-blog-admin');
+    Route::delete('/delete-blog/{blog:slug}', [BlogController::class, 'destroy'])->name('destroy-blog-admin');
+    Route::get('/view-blog-detail/{blog:slug}', [BlogController::class, 'show'])->name('show-blog-admin');
     Route::get('/search', [BlogController::class, 'search'])->name('search-blog-admin');
 
     //CATEGORY
     Route::get('/manage-category', function () {
         return view('roles.admin.category.manageCategoryAdmin');
-    })->name('manage-category');
+    })->name('manage-category-admin');
     Route::get('/view-category', [CategoryController::class, 'viewCategoryAdmin'])->name('view-category-admin');
-    Route::get('/add-category', [CategoryController::class, 'addCategoryAdmin'])->name('add-category-admin');
+    Route::get('/add-category', [CategoryController::class, 'addCategoryAdmin'])->name('add-category');
     Route::post('/store-category', [CategoryController::class, 'store'])->name('store-category');
     Route::get('/delete-category', [CategoryController::class, 'deleteCategoryAdmin'])->name('delete-category');
     Route::get('/update-category/{jenisKategori}', [CategoryController::class, 'updateCategoryAdmin'])->name('update-category');
@@ -63,18 +63,19 @@ Route::group(['middleware' => ['CheckUser:1']], function () {
     Route::delete('/manage-advertisements/{id}/delete', [AdvertisementController::class, 'destroy'])->name('delete-advertisement-admin');
     Route::get('/manage-advertisements/{id}/edit', [AdvertisementController::class, 'edit'])->name('edit-advertisement-admin');
     Route::put('/manage-advertisements/{id}/update', [AdvertisementController::class, 'update'])->name('update-advertisement-admin');
+    Route::get('/advertisement-search', [AdvertisementController::class, 'search'])->name('search-advertisement-admin');
 
 
     //VIEW USER
     Route::get('/view-user-admin', [UserController::class, 'index'])->name('view-user-admin');
     Route::patch('/toggle-user-blocked/{id}', [UserController::class, 'toggleBlock'])->name('toggle-blocked-user');
-    Route::get('/user-search', [UserController::class, 'index'])->name('user-search');
+    Route::get('/user-search', [UserController::class, 'search'])->name('user-search-admin');
 
     //VIEW MITRA
     Route::get('/view-mitra-admin', [MitraController::class, 'index'])->name('view-mitra-admin');
     // Route::get('/view-mitra')
     Route::patch('/toggle-mitra-blocked/{id}', [MitraController::class, 'toggleBlock'])->name('toggle-blocked-mitra');
-    Route::get('/mitra-search', [MitraController::class, 'index'])->name('mitra-search');
+    Route::get('/mitra-search', [MitraController::class, 'index'])->name('mitra-search-admin');
 });
 
 // UNTUK USER DAN MITRA

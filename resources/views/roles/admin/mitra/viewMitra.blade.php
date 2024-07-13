@@ -7,15 +7,16 @@
         <div class="col-lg-10">
             <div class="p-4">
                 <h1 class="h2">View Mitra</h1>
-                <form method="GET" action="{{ route('user-search') }}" class="d-flex flex-row mb-3">
-                    <input class="form-control me-4 rounded-pill" type="text" name="search" placeholder="Search User"
-                        value="{{ request('search') }}">
-                    <button class="btn btn-primary" type="submit">Search</button>
+                <form method="GET" action="{{ route('mitra-search-admin') }}" class="d-flex flex-row mb-3" required>
+                    <div class="input-group">
+                        <div class="border border-end-0 input-group-text bg-transparent">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                        <input type="text" class="form-control border border-start-0"
+                            aria-label="Text input with checkbox" placeholder="search mitra" name="search">
+                    </div>
+                    <button class="btn btn-sm btn-primary" type="submit">Search</button>
                 </form>
-                {{-- <div class="d-flex flex-row mb-3">
-                <input class="form-control me-4 rounded-pill" type="text" placeholder="Search User">
-                <button class="btn btn-primary" type="button">Search</button>
-            </div> --}}
 
                 <div class="table-user">
                     <table class="table table-bordered text-center">

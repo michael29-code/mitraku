@@ -63,13 +63,13 @@
                         </a>
                     </li>
                     <li class="@yield('isViewBlogActive') my-2">
-                        <a href="{{ route('view-blog-admin') }}" class="text-decoration-none px-3 py-2 d-block">
+                        <a href="{{ route('manage-blog-admin') }}" class="text-decoration-none px-3 py-2 d-block">
                             <i class="bi bi-newspaper me-2"></i>
                             Blog
                         </a>
                     </li>
                     <li class="@yield('isViewCategoryActive') my-2">
-                        <a href="{{ route('view-category-admin') }}" class="text-decoration-none px-3 py-2 d-block">
+                        <a href="{{ route('manage-category-admin') }}" class="text-decoration-none px-3 py-2 d-block">
                             <i class="bi bi-ui-checks-grid me-2"></i>
                             Category
                         </a>

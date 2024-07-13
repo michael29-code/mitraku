@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Mitra;
 use App\Models\Pengajuan;
 use PDF;
@@ -10,17 +11,20 @@ use Illuminate\View\View;
 class MitraController extends Controller
 {
     //USER
-    public function createMitra1(){
+    public function createMitra1()
+    {
         return view('roles.user.create_mitra.createMitra1');
     }
 
-    public function createMitra2(){
+    public function createMitra2()
+    {
         return view('roles.user.create_mitra.createMitra2');
-    }    
+    }
 
-    public function createMitra3(){
+    public function createMitra3()
+    {
         return view('roles.user.create_mitra.createMitra3');
-    }   
+    }
 
     public function storeMitra(Request $request)
     {
@@ -56,30 +60,31 @@ class MitraController extends Controller
     public function show($id)
     {
         $mitra = Mitra::find($id);
-        return view('roles.user.mitra.mitra', ['mitra'=>$mitra]);
+        return view('roles.user.mitra.mitra', ['mitra' => $mitra]);
     }
 
     //ADMIN
-    public function index(){
+    public function index()
+    {
         $mitras = Mitra::all();
         return view('roles.admin.mitra.viewMitra', compact('mitras'));
     }
+
     public function search(Request $request)
     {
         $search = $request->input('search');
-        
-        if ($search) {
-            $mitras = Mitra::where('name', 'LIKE', "%{$search}%")->get();
-        } else {
-            $mitras = Mitra::all();
-        }
+
+        $mitras = Mitra::query()
+            ->where('mitraName', 'LIKE', "%{$search}%")
+            ->get();
 
         return view('roles.admin.mitra.viewMitra', compact('mitras'));
     }
-    
-    public function toggleBlock($id){
+
+    public function toggleBlock($id)
+    {
         $mitra = Mitra::find($id);
-        if($mitra->isBlocked == 0){
+        if ($mitra->isBlocked == 0) {
             $mitra->isBlocked = 1;
         } else {
             $mitra->isBlocked = 0;

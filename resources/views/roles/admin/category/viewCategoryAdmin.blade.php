@@ -14,11 +14,13 @@
         <div class="row shadow bg-body-tertiary rounded">
             <div class="col">
                 <div class="card border border-0">
-                    <div class="card-body py-5">
+                    <div class="card-body py-4">
                         <div class="container">
                             <div class="col-md-12">
-                                <h4><a href="{{ route('manage-category') }}"><i class="fa-solid fa-arrow-left"></i></a> View
-                                    Category</h4>
+                                <h4>
+                                    <a href="{{ route('manage-category-admin') }}"><i class="fa-solid fa-arrow-left mx-3"></i></a> 
+                                    View  Category
+                                </h4>
                             </div>
                             <div class="col-md-12">
                                 <div class="card border border-0 gap-2">
@@ -28,7 +30,7 @@
                                                 <div
                                                     class="col-md-12 my-2 d-flex align-items-center justify-content-center">
                                                     <div class="col-md-6">
-                                                        <h5>{{ $item->jenisKategori }}</h5>
+                                                        <h6>{{ $item->jenisKategori }}</h6>
                                                     </div>
                                                     <div class="col-md-5 d-flex align-items-center justify-content-end ">
                                                         <a href="{{ route('update-category', ['jenisKategori' => $item->jenisKategori]) }}"

@@ -18,7 +18,7 @@ class AdvertisementController extends Controller
 
     public function index() {
         $advertisements = Advertisement::all();
-        return view('roles.admin.advertise.viewAdvertisementAdmin', ['advertise' => $advertisements]);
+        return view('roles.admin.advertise.viewAdvertisementAdmin', ['advertisements' => $advertisements]);
     }
 
     public function destroy($id) {
@@ -41,5 +41,15 @@ class AdvertisementController extends Controller
 
     public function manage() {
         return view('roles.admin.advertise.manageAdvertisementAdmin');
+    }
+
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+        $advertisements = Advertisement::query()
+            ->where('title', 'LIKE', "%{$search}%")
+            ->get();
+
+        return view('roles.admin.advertise.viewAdvertisementAdmin', compact('advertisements'));
     }
 }

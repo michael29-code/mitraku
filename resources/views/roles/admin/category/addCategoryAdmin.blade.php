@@ -7,11 +7,11 @@
             <div class="row shadow bg-body-tertiary rounded">
                 <div class="col">
                     <div class="card border border-0">
-                        <div class="card-body py-5">
+                        <div class="card-body py-4">
                             <div class="container">
                                 <div class="row">
                                     <div class="col">
-                                        <h4><a href="{{ route('manage-category') }}"><i class="fa-solid fa-arrow-left"></i></a>Add Category</h4>
+                                        <h4><a href="{{ route('manage-category-admin') }}"><i class="fa-solid fa-arrow-left mx-3"></i></a>Add Category</h4>
                                         <br>
                                     </div>
                                 </div>

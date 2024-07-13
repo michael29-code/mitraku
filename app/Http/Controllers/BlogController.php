@@ -4,15 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use App\Models\Category as categoryModel;
-use App\Models\User;
-use Database\Seeders\CategorySeeder;
-use Illuminate\Http\JsonResponse;
 use Illuminate\View\View;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class BlogController extends Controller
 {
@@ -27,7 +22,6 @@ class BlogController extends Controller
     {
 
         $categories = categoryModel::All();
-
         return view('roles.admin.blog.writeBlogPageAdmin',['categories' => $categories]);
     }
 
@@ -38,12 +32,12 @@ class BlogController extends Controller
             'title' => 'required|max:255',
             'writerId' => 'required',
             'slug' => 'required|unique:blogs',
-            'kategoriId' => 'required|exists:categories,id',
+            'categoryId' => 'required|exists:categories,id',
             'image' => 'required|image|file|max:1024',
             'body' => 'required',
         ],[
-            'kategoriId.required' => 'The kategori field is empty',
-            'kategoriId.exist:categories,id' => 'The kategori field is invalid',
+            'categoryId.required' => 'The category field is empty',
+            'categoryId.exist:categories,id' => 'The category field is invalid',
         ]);
 
         if ($request->file('image')) {
@@ -51,7 +45,7 @@ class BlogController extends Controller
         }
         Blog::create($validatedData);
 
-        return redirect('/manage-blog');
+        return redirect('/manage-blog-admin');
     }
 
     public function show(Blog $blog)
@@ -74,7 +68,7 @@ class BlogController extends Controller
             'title' => 'required|max:255',
             'writerId' => 'required',
             'slug' => 'required|unique:blogs',
-            'kategoriId' => 'required|exists:categories,id',
+            'categoryId' => 'required|exists:categories,id',
             'image' => 'required|image|file|max:1024',
             'body' => 'required',
         ]);
@@ -92,7 +86,8 @@ class BlogController extends Controller
 
     public function view(): View
     {
-        return view('roles.admin.blog.viewBlogPageAdmin',["blogs" => Blog::all()]);
+        $blogs = Blog::paginate(10); // Mengambil 10 data per halaman
+        return view('roles.admin.blog.viewBlogPageAdmin',["blogs"=>$blogs]);
     }
 
     public function destroy(Blog $blog)
@@ -106,7 +101,6 @@ class BlogController extends Controller
     
     public function search(Request $request){
         $search = $request->input('search');
-    
         $blogs = Blog::query()
             ->where('title', 'LIKE', "%{$search}%")
             ->orWhere('body', 'LIKE', "%{$search}%")

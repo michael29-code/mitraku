@@ -20,12 +20,10 @@ class UserController extends Controller
     public function search(Request $request)
     {
         $search = $request->input('search');
-        
-        if ($search) {
-            $users = User::where('name', 'LIKE', "%{$search}%")->get();
-        } else {
-            $users = User::all();
-        }
+        $users = User::query()
+            ->where('level', 2)
+            ->where('username', 'LIKE', "%{$search}%")
+            ->get();
 
         return view('roles.admin.block.viewUser', compact('users'));
     }

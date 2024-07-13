@@ -14,6 +14,6 @@ class Category extends Model
     
     public function blogs(): HasMany
     {
-        return $this->hasMany(Blog::class,'kategoriId');
+        return $this->hasMany(Blog::class,'categoryId');
     }
 }
