@@ -41,7 +41,7 @@ Route::group(['middleware' => ['CheckUser:1']], function () {
     Route::put('/update-blog/{blog:slug}', [BlogController::class, 'update'])->name('update-blog-admin');
     Route::delete('/delete-blog/{blog:slug}', [BlogController::class, 'destroy'])->name('destroy-blog-admin');
     Route::get('/view-blog-detail/{blog:slug}', [BlogController::class, 'show'])->name('show-blog-admin');
-    Route::get('/search', [BlogController::class, 'search'])->name('search-blog-admin');
+    Route::get('/search-blog', [BlogController::class, 'search'])->name('search-blog-admin');
 
     //CATEGORY
     Route::get('/manage-category', function () {
@@ -63,7 +63,7 @@ Route::group(['middleware' => ['CheckUser:1']], function () {
     Route::delete('/manage-advertisements/{id}/delete', [AdvertisementController::class, 'destroy'])->name('delete-advertisement-admin');
     Route::get('/manage-advertisements/{id}/edit', [AdvertisementController::class, 'edit'])->name('edit-advertisement-admin');
     Route::put('/manage-advertisements/{id}/update', [AdvertisementController::class, 'update'])->name('update-advertisement-admin');
-    Route::get('/advertisement-search', [AdvertisementController::class, 'search'])->name('search-advertisement-admin');
+    Route::get('/search-advertisement', [AdvertisementController::class, 'search'])->name('search-advertisement-admin');
 
 
     //VIEW USER
