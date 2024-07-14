@@ -46,7 +46,8 @@
                         {{-- <span class="me-2 h6">
                             Welcome, {{ Auth::user()->username }}!
                         </span> --}}
-                        <img src="/images/profile_user.jpg" class="rounded-circle"style="width: 4rem">
+                        
+                        <img src="{{ Auth::user()->getImageURL() }}" class="rounded-circle" style="width: 4rem">
                         </img>
                     </div>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">

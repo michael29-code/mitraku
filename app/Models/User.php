@@ -70,4 +70,11 @@ class User extends Authenticatable
         return $this->hasMany(Transaction::class,'id');
     }
 
+    public function getImageURL(){
+        if($this->image){
+            return url('storage/'. $this->image);
+        }
+
+        return "profile_admin.jpg";
+    }
 }

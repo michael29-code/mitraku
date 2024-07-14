@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 
 class UserController extends Controller
@@ -65,5 +66,24 @@ class UserController extends Controller
 
         auth()->logout();
         return redirect('/');
+    }
+
+    public function uploud_image(Request $request)
+    {   
+        $user = Auth::user();
+
+        $validate = $request->validate([
+            'image' => 'image|max:1024|',
+        ]);
+
+        if($request->has('image')){
+            $imagePath = $request->file('image')->store('profile-images', 'public');
+            $validate ['image'] = $imagePath;
+
+            Storage::disk('public')->delete($user->image);
+        }
+        $user->update($validate);
+
+        return redirect('/profile-user');
     }
 }

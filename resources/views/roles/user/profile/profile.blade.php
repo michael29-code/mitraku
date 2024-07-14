@@ -4,11 +4,20 @@
     <div class="row">
         <div class="col-4">
             <div class="container">
-                <img style="width: 20rem; height: 20rem;" src="{{ $user->image }}" alt="profile_image">
+                <img style="width: 20rem; height: 20rem;" src="{{ $user->getImageURL() }}" alt="profile_image">
             </div>
             <div class="mb-3">
-                <label for="formFile" class="form-label">Pilih Foto</label>
-                <input class="form-control" type="file" id="new-image">
+                <form action="{{ route('uploud-image') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <label for="formFile" class="form-label">Pilih Foto</label>
+                    <input class="form-control" type="file" id="image" name="image" @error('image') is-invalid @enderror>
+                    @error('image')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                    <button type="submit" class="btn btn-primary">Uploud Image</button>
+                </form>
             </div>
         </div>
         <div class="col-8 mt-5">

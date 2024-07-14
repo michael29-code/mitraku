@@ -127,6 +127,6 @@ Route::group(['middleware' => ['CheckUser:2,3']], function () {
 //PROFILE USER
 Route::get('/profile-user', [UserController::class, 'show'])->name('profile-user');
 Route::put('/profile-user', [UserController::class, 'change_password'])->name('change-password');
-
+Route::post('/profile-user', [UserController::class, 'uploud_image'])->name('uploud-image');
 
 
