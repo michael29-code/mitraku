@@ -23,16 +23,18 @@ class RegisterController extends Controller
             'email' => ['required', 'email:dns', 'unique:users'],
             // 'email' => ['required', 'email', Rule::unique('users', 'email')],
             // 'email' => ['required', 'email', Rule::unique('users', 'email')],
-            'password' => ['required', 'min:8', 'max:255'],
+            'password' => ['required', 'min:8', 'max:255', 'confirmed'],
         ]);
         $incomingFields['password'] = bcrypt($incomingFields['password']);
         $incomingFields['level'] = 2;
         $incomingFields['address'] = ' ';
+        $incomingFields['image'] = ' ';
+        $incomingFields['isBlocked'] = 0;
 
         User::create($incomingFields);
         $request->session()->flash('success', 'Sign Up Successful!');
 
-        return redirect('/');
+        return redirect('/sign-in');
     }
 
     public function signInPage()
@@ -64,7 +66,7 @@ class RegisterController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('sign-in');
     }
 
 }

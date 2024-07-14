@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg sticky-top white-background mb-1">
-    <div class="container">
+    <div class="container mt-2">
         <a class="navbar-brand me-auto" href="{{ route('home') }}">
             <img src="images/LogoMitraku.png" alt="Mitraku" class="logo-size-sm">
         </a>
@@ -40,21 +40,41 @@
             </div>
         </div>
         <div class="d-flex">
+            {{-- <img src="/images/profile_user.jpg" class="rounded-circle" style="width: 3rem">
+
+            <div class="submenu-wrap">
+                <div class="submenu">
+                    <div class="user-info">
+                        <img src="/images/profile_user.jpg" class="rounded-circle" style="width: 3rem">
+                        name
+                    </div>
+                </div>
+            </div> --}}
+            {{-- here --}}
             @auth
+                {{-- <img src="/images/profile_user.jpg" class="rounded-circle" style="width: 3rem"> --}}
                 <div class="dropdown-center">
-                    <div class="dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                        {{-- <span class="me-2 h6">
-                            Welcome, {{ Auth::user()->username }}!
-                        </span> --}}
-                        
-                        <img src="{{ Auth::user()->getImageURL() }}" class="rounded-circle" style="width: 4rem">
+                    <div class="dropdown-toggle d-flex justify-content-center align-items-center" id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class="" style="width: 6rem; height: .01rem"></div>
+                        <img src="/images/profile_user.jpg" class="rounded-circle" style="width: 3rem">
                         </img>
                     </div>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="{{ route('profile-user') }}">Profile</a></li>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="width: 15rem">
+
+                        {{-- <li><a class="dropdown-item" href="{{ route('profile-user') }}">Profile</a></li> --}}
+                        <li>
+                            <a class="dropdown-item" href="{{ route('profile-user') }}">
+                                <img src="/images/profile_user.jpg" class="rounded-circle" style="width: 3rem">
+                                {{ Auth::user()->username }}
+                            </a>
+                        </li>
 
                         @if (Auth::user()->level == 2)
-                            <li><a class="dropdown-item" href="#">Create Mitra</a></li>
+                            <li class="d-flex justify-content-center align-items-center ps-3 py-2">
+                                <i class="bi bi-building-fill-add p-0"></i>
+                                <a class="dropdown-item" href="{{ route('create-mitra-1') }}">Create Mitra</a>
+                            </li>
                         @else
                             <li><a class="dropdown-item" href="#">Mitra Profile</a></li>
                         @endif

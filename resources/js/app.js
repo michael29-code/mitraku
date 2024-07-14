@@ -48,6 +48,19 @@ if (sideBarOpenBtn) {
             togglePassword.classList.toggle('opacity-100');
         });
     }
+    const togglePassword2 = document.querySelector('.passwordIconPlace2');
+    const password2 = document.querySelector('.passwordInputPlace2');
+    if (togglePassword2 &&password2) {
+        
+        togglePassword2.addEventListener('click', () => {
+            const type = password2.getAttribute('type') === 'password' ? 'text' : 'password';
+            password2.setAttribute('type', type);
+            togglePassword2.classList.toggle('bi-eye-fill');
+            togglePassword2.classList.toggle('bi-eye-slash-fill');
+            togglePassword2.classList.toggle('opacity-75');
+            togglePassword2.classList.toggle('opacity-100');
+        });
+    }
 // });
 
 // === PASSWORD END ===

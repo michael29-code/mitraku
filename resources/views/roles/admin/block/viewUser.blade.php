@@ -46,8 +46,8 @@
                                         <form action="{{ route('toggle-blocked-user', $user->id) }}" method="POST">
                                             @csrf
                                             @method('PATCH')
-                                            <button class="btn btn-{{ $user->isBlocked == 0 ? 'primary' : 'danger' }}">
-                                                {{ $user->isBlocked == 0 ? 'Unblock' : 'Block' }}
+                                            <button class="btn btn-{{ $user->isBlocked == 1 ? 'primary' : 'danger' }}">
+                                                {{ $user->isBlocked == 1 ? 'Unblock' : 'Block' }}
                                             </button>
                                         </form>
                                     </td>

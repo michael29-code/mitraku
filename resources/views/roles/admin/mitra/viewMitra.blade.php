@@ -51,8 +51,8 @@
                                         <form action="{{ route('toggle-blocked-mitra', $mitra->id) }}" method="POST">
                                             @csrf
                                             @method('PATCH')
-                                            <button class="btn btn-{{ $mitra->isBlocked == 0 ? 'primary' : 'danger' }}">
-                                                {{ $mitra->isBlocked == 0 ? 'Unblock' : 'Block' }}
+                                            <button class="btn btn-{{ $mitra->isBlocked == 1 ? 'primary' : 'danger' }}">
+                                                {{ $mitra->isBlocked == 1 ? 'Unblock' : 'Block' }}
                                             </button>
                                         </form>
                                     </td>

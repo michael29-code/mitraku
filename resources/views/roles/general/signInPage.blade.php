@@ -1,7 +1,7 @@
-@extends('layouts.layout')
+@extends('layouts.layoutRegister')
 
 @section('content')
-    <div class="container p-5">
+    <div class="container p-5" style="height: 90%;width: 100%">
 
         @if (session()->has('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -17,14 +17,14 @@
             </div>
         @endif
 
-        <div class="row">
-            <div class="px-5 py-1 col-sm col-lg-6">
-                <div class="row py-0">
+        <div class="row" style="height: 100%">
+            <div class="px-5 py-1 col-sm col-lg-6 d-flex flex-column justify-content-center align-items-center">
+                <div class="row py-0 w-100">
                     <div class="col">
                         <h4>Sign In</h4>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row w-100">
                     <div class="col">
                         Don't have account? <span style="color: blue">
                             <a href="{{ route('register') }}" style="text-decoration: none">
@@ -33,7 +33,7 @@
                         </span>
                     </div>
                 </div>
-                <form action="/sign-in" method="POST">
+                <form action="/sign-in" method="POST" class="w-100">
                     @csrf
                     <div class="row mt-4">
                         <div class="col">
@@ -82,7 +82,7 @@
                         </div>
                     </div>
                 </form>
-                <div class="row mt-3">
+                {{-- <div class="row mt-3">
                     <div class="col">
                         <hr>
                     </div>
@@ -103,7 +103,7 @@
                     <div class="col text-center" style="font-size: 2rem">
                         <i class="bi bi-apple"></i>
                     </div>
-                </div>
+                </div> --}}
             </div>
             <div class="col-sm col-lg-6 bg-secondary">
                 {{-- <img src="" alt=""> --}}

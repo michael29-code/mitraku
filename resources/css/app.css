@@ -179,16 +179,16 @@ h6,
 }
 
 /* === TOOL RICHIE START === */
-.test-black-border {
+.tst-1 {
     border: 2px black solid;
 }
-.test-red-border {
+.tst-2 {
     border: 2px red solid;
 }
-.test-green-border {
+.tst-3 {
     border: 2px green solid;
 }
-.test-blue-border {
+.tst-4 {
     border: 2px blue solid;
 }
 /* === TOOL RICHIE END === */
@@ -287,11 +287,29 @@ h6,
 
 .passs i{
     position: absolute;
-    top: 0.7rem;
-    right: 2rem;
+    top: 0.5rem;
+    right: 1.65rem;
+}
+
+.passs .is-invalid + i {
+    right: 3.2rem;
 }
 
 /* === EDIT BOOTSTRAP END === */
+
+
+
+/* ===== EDIT DROPDOWN END =====*/
+
+.submenu-wrap{
+    position: absolute;
+    top: 100%;
+    right: 10%;
+}
+
+/* ===== EDIT DROPDOWN END =====*/
+
+
 
 .rectangle {
     width: 100%;
