@@ -54,7 +54,7 @@ class UserController extends Controller
     {
         //Validate Password
         $inFil = $request->validate([
-            'password'=> 'required|Min:8',
+            'password'=> 'required|Min:8|confirmed',
         ]);
 
 

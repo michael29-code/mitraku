@@ -87,16 +87,30 @@
                                         aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <div class="mb-3">
+                                    <div class="mb-1">
                                         <label for="recipient-name" class="col-form-label">New Password</label>
-                                        <input type="password" name="password"
-                                            class="form-control @error('password') is-invalid @enderror" id="password"
-                                            required>
-                                        @error('password')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
+                                        <div class="col passs">
+                                            <input type="password" name="password"
+                                                class="form-control @error('password') is-invalid @enderror passwordInputPlace"
+                                                id="password" required placeholder="at least 8 characters">
+                                            <i class="bi bi-eye-slash-fill opacity-75 passwordIconPlace" id="togglePassword"
+                                                style="cursor: pointer;"></i>
+                                            @error('password')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="confirmNewPassword" class="col-form-label">Confirm New Password</label>
+                                        <div class="col passs">
+                                            <input name="password_confirmation" type="password"
+                                                class="form-control @error('password_conformation') is-invalid @enderror passwordInputPlace2"
+                                                id="password_conformation" required placeholder="confirm your new password">
+                                            <i class="bi bi-eye-slash-fill opacity-75 passwordIconPlace2" id="togglePassword"
+                                                style="cursor: pointer;"></i>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
