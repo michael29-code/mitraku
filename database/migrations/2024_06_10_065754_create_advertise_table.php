@@ -17,7 +17,7 @@ return new class extends Migration
             $table->double('price');
             $table->string('subscriptionDate');
             $table->integer('period');
-            $table->string('description');
+            $table->longText('description');
             $table->timestamps();
         });
     }

@@ -61,62 +61,24 @@
     </div>
 </div>
 
-
-                
 <div class="row justify-content-center mt-5">
-    <div class="explaination col-lg-10">
-        <div class="col d-flex justify-content-center shadow bg-body-tertiary rounded mx-auto p-3">
-            <div class="text p-3">
-                <h1 class="body-large-bold blue mb-4 mt-2">Starting at $5,000</h1>
-                <h1 class="h3 mb-4">Basic display campaign</h1>
-                <div class="body-large-medium mb-3">
-                    Test the response of our community to your product, event or service with a simple, self-serve campaign.
+    @foreach ($advertisements as $advertisement)
+        <div class="explanation col-lg-10 mt-5">
+            <div class="col d-flex justify-content-center shadow bg-body-tertiary rounded mx-auto p-3">
+                <div class="text p-3">
+                    <h1 class="body-large-bold blue mb-4 mt-2">Starting at ${{ $advertisement->price }}</h1>
+                    <h1 class="h3 mb-4">{{ $advertisement->title }}</h1>
+                    <div class="body-large-medium mb-3">
+                        {{ $advertisement->description }}
+                    </div>
+                    <button class="btn btn-primary">Get Started</button>
                 </div>
-                <button class="btn btn-primary">
-                Get Started
-                </button>
-            </div>
-
-        <div class="col image mx-3">
-            <img class="img-thumbnail" style="width: 213.5px; height: 171.105px" src="images/AdvertisementPage.png" alt="">
-        </div>
-    </div>
-
-    <div class="explaination col mt-5">
-        <div class="col d-flex justify-content-center shadow bg-body-tertiary rounded mx-auto p-3">
-            <div class="text p-3">
-                <h1 class="body-large-bold blue mb-4 mt-2">Starting at $5,000</h1>
-                <h1 class="h3 mb-4">Momentum display campaign</h1>
-                <div class="body-large-medium mb-3">
-                    Test the response of our community to your product, event or service with a simple, self-serve campaign.
+                <div class="col image mx-3">
+                    <img class="img-thumbnail" style="max-width: 213.5px; height: 171.105px" src="images/AdvertisementPage.png" alt="">
                 </div>
-                <button class="btn btn-primary">
-                Get Started
-                </button>
             </div>
-
-        <div class="col image mx-3">
-            <img class="img-thumbnail" style="width: 213.5px; height: 171.105px" src="images/AdvertisementPage.png" alt="">
         </div>
-    </div>
-
-    <div class="explaination col mt-5">
-        <div class="col d-flex justify-content-center shadow bg-body-tertiary rounded mx-auto p-3">
-            <div class="text p-3">
-                <h1 class="body-large-bold blue mb-4 mt-2">Starting at $5,000</h1>
-                <h1 class="h3 mb-4">Managed campaigns</h1>
-                <div class="body-large-medium mb-3">
-                    Test the response of our community to your product, event or service with a simple, self-serve campaign.
-                </div>
-                <button class="btn btn-primary">
-                Get Started
-                </button>
-            </div>
-
-        <div class="col image mx-3">
-            <img class="img-thumbnail" style="width: 213.5px; height: 171.105px" src="images/AdvertisementPage.png" alt="">
-        </div>
-    </div>
+    @endforeach
 </div>
 
 @endsection

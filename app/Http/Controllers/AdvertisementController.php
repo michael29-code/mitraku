@@ -7,6 +7,14 @@ use App\Models\Advertisement;
 
 class AdvertisementController extends Controller
 {
+    //USER
+    public function userIndex()
+    {
+        $advertisements = Advertisement::all();
+        return view('roles.user.advertise.userAdvertisement', compact('advertisements'));
+    }
+
+    //ADMIN
     public function create() {
         return view('roles.admin.advertise.addAdvertisementAdmin');
     }

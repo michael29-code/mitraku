@@ -21,7 +21,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link @yield('isAdvertisementActive') mx-lg-2"
-                            href="{{ route('view-advertisement') }}">Advertise</a>
+                            href="{{ route('view-advertisement-user') }}">Advertise</a>
                     </li>
                     {{-- <li class="nav-item">
                         <a class="nav-link @yield('isPengajuanActive') mx-lg-2" href="/form-pengajuan">Pengajuan</a>

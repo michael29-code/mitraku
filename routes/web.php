@@ -117,9 +117,8 @@ Route::group(['middleware' => ['CheckBlockUser:0']], function () {
             // });
 
             //ADVERTISMENT
-            Route::get('/userAdvertisement', function () {
-                return view('roles.user.advertise.userAdvertisement');
-            })->name('view-advertisement');
+           Route::get('/userAdvertisement', [AdvertisementController::class, 'userIndex'])->name('view-advertisement-user');
+
 
             // FORM PENGAJUAN
             Route::get('/view-pengajuan', [PengajuanController::class, 'view']);
