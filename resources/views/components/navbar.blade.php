@@ -1,13 +1,16 @@
 <nav class="navbar navbar-expand-lg sticky-top white-background mb-1">
     <div class="container mt-2">
+        {{-- LOGO --}}
         <a class="navbar-brand me-auto" href="{{ route('home') }}">
             <img src="images/LogoMitraku.png" alt="Mitraku" class="logo-size-sm">
         </a>
+        {{-- BUAT OFFCANVAS (CONTENT TENGAH) --}}
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header">
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
+                {{-- CONTENT TENGAH --}}
                 <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
                     <li class="nav-item">
                         <a class="nav-link @yield('isHomeActive') mx-lg-2" aria-current="page"
@@ -39,68 +42,57 @@
                 </ul>
             </div>
         </div>
-        <div class="d-flex">
-            {{-- <img src="/images/profile_user.jpg" class="rounded-circle" style="width: 3rem">
-
-            <div class="submenu-wrap">
-                <div class="submenu">
-                    <div class="user-info">
-                        <img src="/images/profile_user.jpg" class="rounded-circle" style="width: 3rem">
-                        name
-                    </div>
-                </div>
-            </div> --}}
-            {{-- here --}}
+        {{-- PROFILE PICTURE / SIGN IN OR SIGN UP BUTTON --}}
+        <div class="profilePictureGemink">
             @auth
-                {{-- <img src="/images/profile_user.jpg" class="rounded-circle" style="width: 3rem"> --}}
-                <div class="dropdown-center">
-                    <div class="dropdown-toggle d-flex justify-content-center align-items-center" id="dropdownMenuButton1"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        {{-- <div class="" style="width: 6rem; height: .01rem"></div> --}}
-                        <img src="/images/profile_user.jpg" class="rounded-circle" style="width: 3rem">
-                        {{-- <img src="{{ $user->getImageURL() }}" class="rounded-circle" style="width: 3rem"> --}}
-                        </img>
-                    </div>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="width: 15rem">
+                @if (Auth::user()->image == 'default')
+                    <img src="images/default_user_profile.jpg" class="rounded-circle user-profpic" id="profileImage"
+                        style="width: 3.5rem">
+                @else
+                    <img src="{{ Auth::user()->getImageURL() }}" class="rounded-circle user-profpic" id="profileImage"
+                        style="width: 3.5rem">
+                @endif
 
-                        {{-- <li><a class="dropdown-item" href="{{ route('profile-user') }}">Profile</a></li> --}}
-                        <li>
-                            <a class="dropdown-item" href="{{ route('profile-user') }}">
-                                <img src="/images/profile_user.jpg" class="rounded-circle" style="width: 3rem">
+                <div class="submenu-wrap" id="subMenu">
+                    <div class="submenu">
+                        <a href="{{ route('profile-user') }}" class="user-info text-decoration-none black">
+                            @if (Auth::user()->image == 'default')
+                                <img src="images/default_user_profile.jpg" class="rounded-circle user-profpic"
+                                    id="profileImage">
+                            @else
+                                <img src="{{ Auth::user()->getImageURL() }}" class="rounded-circle user-profpic"
+                                    id="profileImage">
+                            @endif
+                            <p class="body-large-medium">
                                 {{ Auth::user()->username }}
-                            </a>
-                        </li>
+                            </p>
+                        </a>
+
+                        <hr>
 
                         @if (Auth::user()->level == 2)
-                            <li class="d-flex justify-content-center align-items-center ps-3 py-2">
-                                <i class="bi bi-building-fill-add p-0"></i>
-                                <a class="dropdown-item" href="{{ route('create-mitra-1') }}">Create Mitra</a>
-                            </li>
+                            <a href="{{ route('create-mitra-1') }}" class="sub-menu-link">
+                                <i class="bi bi-building-fill-add"></i>
+                                <p class="body-large-medium">Create Mitra</p>
+                                <i class="bi bi-caret-right p-0 m-0"></i>
+                            </a>
                         @else
-                            <li><a class="dropdown-item" href="#">Mitra Profile</a></li>
+                            <a href="#" class="sub-menu-link">
+                                <i class="bi bi-building-fill-gear"></i>
+                                <p class="body-large-medium">Mitra Profile</p>
+                                <i class="bi bi-caret-right p-0 m-0"></i>
+                            </a>
                         @endif
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li>
-                            <form class="dropdown-item" action="{{ route('logout') }}" method="POST" style="color: red">
-                                @csrf
-                                <button class="btn p-0 m-0">
-                                    <i class="bi bi-box-arrow-right" style="color: red"></i>
-                                    Log out
-                                </button>
-                            </form>
-                            {{-- <a class="dropdown-item" href="#">Something else here</a> --}}
-                        </li>
-                    </ul>
+
+                        <form action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <button class="sub-menu-link w-100" style="padding: 0; border:0; background: none;">
+                                <i class="bi bi-box-arrow-right ms-1" style="color: red;"></i>
+                                <p style="color: red; text-align: left">Log out</p>
+                            </button>
+                        </form>
+                    </div>
                 </div>
-                {{-- <form action="{{ route('logout') }}" method="POST">
-                    @csrf
-                    <button class="btn btn-lg btn-primary shadow" style="font-size: 1.5rem">
-                        <i class="bi bi-box-arrow-right" style="color: white"></i>
-                        Log out
-                    </button>
-                </form> --}}
             @else
                 <a href="{{ route('register') }}" class="btn btn-primary shadow">Sign Up</a>
                 <a href="{{ route('login') }}" class="btn btn-light shadow">Sign In</a>

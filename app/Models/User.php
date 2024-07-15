@@ -71,6 +71,7 @@ class User extends Authenticatable
     }
 
     public function getImageURL(){
+        // dd($this->image);
         if($this->image){
             return url('storage/'. $this->image);
         }

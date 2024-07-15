@@ -28,7 +28,23 @@ class RegisterController extends Controller
         $incomingFields['password'] = bcrypt($incomingFields['password']);
         $incomingFields['level'] = 2;
         $incomingFields['address'] = ' ';
-        $incomingFields['image'] = ' ';
+
+
+        $imagePath = $request->file('image')->store('profile-images', 'public');
+        $incomingFields['image'] = Storage::url();
+        // $validate = $request->validate([
+        //     'image' => 'image|max:1024|',
+        // ]);
+
+        // if ($request->has('image')) {
+        //     $imagePath = $request->file('image')->store('profile-images', 'public');
+        //     $validate['image'] = $imagePath;
+
+        //     Storage::disk('public')->delete($user->image);
+        // }
+        // $user->update($validate);
+
+        // $incomingFields['image'] = 'default';
         $incomingFields['isBlocked'] = 0;
 
         User::create($incomingFields);

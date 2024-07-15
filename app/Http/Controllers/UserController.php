@@ -52,8 +52,6 @@ class UserController extends Controller
 
     public function change_password(Request $request)
     {
-
-
         //Validate Password
         $inFil = $request->validate([
             'password'=> 'required|Min:8',
@@ -65,7 +63,7 @@ class UserController extends Controller
         $user->update($inFil);
 
         auth()->logout();
-        return redirect('/');
+        return redirect('sign-in');
     }
 
     public function uploud_image(Request $request)

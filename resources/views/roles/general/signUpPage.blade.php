@@ -22,7 +22,7 @@
                 </div>
                 <form action="/sign-up" method="POST" class="w-100">
                     @csrf
-                    <div class="row mt-3">
+                    <div class="row mt-3 w-100">
                         <div class="col">
                             <label for="signUpUsername" class="form-label">Username </label>
                             <input name="username" type="text"
