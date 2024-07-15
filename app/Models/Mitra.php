@@ -12,11 +12,23 @@ class Mitra extends Model
     protected $guarded = [];
     public $timestamps = true;  // Enable timestamps
 
-    // protected $casts = [
-    //     'galeri' => 'array',
-    //     'latest_rating_and_certificate' => 'array',
-    //     'awards' => 'array',
-    // ];
+    protected $fillable = [
+        'mitraName',
+        'mitraOverview',
+        'mitraYear',
+        'mitraWebsite',
+        'mitraCategory',
+        'image_cover',
+        'contactName',
+        'contactEmail',
+        'contactPhoneNumber',
+        'mitra_details',
+        'galeri',
+        'latest_rating_and_Certificate',
+        'awards',
+        'image_map',
+        'address',
+    ];
 
     public function user(): BelongsTo
     {

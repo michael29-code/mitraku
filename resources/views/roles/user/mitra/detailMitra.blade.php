@@ -6,20 +6,20 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-auto">
-                    <a href="/manage-blog" class="text-decoration-none d-flex align-items-center">
+                    <a href="{{ route('view-mitra') }}" class="text-decoration-none d-flex align-items-center">
                         <i class="fa-solid fa-arrow-left" style="font-size: 2rem;"></i>
-                        <a href="#" class="ms-4" style="font-size: 1.5rem;">Back</a>
+                        <span class="ms-4" style="font-size: 1.5rem;">Back</span>
                     </a>
                 </div>
                 <div class="col text-center">
-                    <h2 class="mb-0">PT Teknologi Maju Jaya</h2>
+                    <h2 class="mb-0">{{ $mitra->mitraName }}</h2>
                 </div>
             </div>
             <div class="row my-5">
                 <div class="col text-center">
-                    <p>PT Teknologi Maju Jaya adalah perusahaan teknologi yang fokus pada pengembangan solusi perangkat lunak untuk bisnis.</p>
-                    <h6>Since 2010 | www.teknologimajujaya.co.id</h6>
-                    <span class="badge text-bg-primary rounded-pill" style="font-size: 1rem; padding: 0.5em 1em;">Teknologi</span>
+                    <p style="font-size: 1.3rem; margin-bottom: 0;">{{ $mitra->mitraOverview }}</p>
+                    <h6 style="margin-bottom: 2rem;">Since {{ $mitra->mitraYear }} | {{ $mitra->mitraWebsite }}</h6>
+                    <span class="badge text-bg-primary rounded-pill" style="font-size: 1rem; padding: 0.5em 1em;">{{ $mitra->mitraCategory }}</span>
                 </div>
             </div>
         </div>
@@ -27,23 +27,23 @@
         <div class="container my-5 m-auto d-flex w-100 justify-content-center align-items-center flex-column">
             <div class="row w-100">
                 <div class="col bg-secondary rounded-5">
-                    {{-- <img src="..." class="img-fluid" alt="..."> --}}
+                    <img src="" class="img-fluid" alt="...">
                 </div>
                 <div class="col p-5">
                     <div class="row">
                         <div class="col">
-                            <h4>Contacts</h4>
+                            <h5>Contacts</h5>
                         </div>
                     </div>
                     <div class="row my-3">
                         <div class="col-2">
-                            <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
+                            <img src="{{ asset('images/profile_user.jpg') }}"
                                 class="rounded-circle img-fluid" alt="Avatar" />
                         </div>
                         <div class="col-5">
-                            <h5>David Rodloy</h5>
-                            <span>Email: davidrodloy@teknologimajujaya.com</span>
-                            <span>Phone no: +62 123 456 789</span>
+                            <p style="font-size: 1.5rem; margin-bottom: 0;">{{ $mitra->contactName }}</p>
+                            <span>Email: {{ $mitra->contactEmail }}</span>
+                            <span>Phone no: {{ $mitra->contactPhoneNumber }}</span>
                         </div>
                     </div>
                     <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
@@ -56,8 +56,8 @@
                     </div>
                     <div class="row my-5">
                         <div class="col">
-                            <p><b>Mitra Details</b></p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.</p>
+                            <p style="font-size: 1.3rem; margin-bottom: 0;"><b>Mitra Details</b></p>
+                            <p style="font-size: 1.2rem; margin-bottom: 0;">{{ $mitra->mitraOverview }}</p>
                         </div>
                     </div>
                 </div>
@@ -90,34 +90,23 @@
         </div>
     </div>
     <div class="container my-5 m-auto d-flex w-100 justify-content-center align-items-center flex-column">
-            <div class="col">
-                <div class="row">
-                    <div class="col-6">
-                        <div class="rating">
-                            <h4>Latest Ratings & Certificates</h4>
-                            <p>PEFINDO Credit Rating Agency (December 2021): (id)BBB+/outlook stable
-                                Fitch Rating (May 2018): BBB+ (idn)/outlook stable
-                                Social Performance (Planet Rating 2014): 4-
-                                Client Protection Certificate (Cerise and SPTF Team, April 2022): Certification level: Gold</p>
-                        </div>
-                        <div class="col my-5">
-                            <h4>Award</h4>
-                            <h6>MIX Market Ranking (CGAP / World Bank)</h6>
-                             <p>2009 : #1 out of 1,600 MFIs in the world
-                                2008 : #1 out of 1,300 MFIs in the world
-                                2007 : #25 out of 1,100 MFIs in the world</p>
-                            <h6>Other</h6>
-                            <p>2008 : Grameen Foundation Excellence Award
-                                2008 : Unitus Inc. Achievement Award
-                                2007 : Ernst & Young Finalist, Social Entrepreneur Indonesi</p>
-                        </div>
-                    </div>
-                    <div class="col w-100">
-                        <div class="col">
-                            <h4>Location</h4>
-                            <div class="card bg-secondary rounded-5 w-100"  style="height: 200px;">
-                    </div>
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="rating">
+                    <h4 class="txt-no-underline">Latest Ratings & Certificates</h4>
+                    <p>{{ $mitra->latest_rating_and_certificate }}</p>
+                </div>
+                <div class="col my-5">
+                    <h4>Award</h4>
+                    <h6>{{ $mitra->awards }}</h6>
                 </div>
             </div>
-</div>
+            <div class="col-md-6 mb-4">
+                <div class="col">
+                    <h4>Location</h4>
+                    <div class="card bg-secondary rounded-5" style="height: 200px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>    
 @endsection

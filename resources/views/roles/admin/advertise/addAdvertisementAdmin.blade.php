@@ -4,7 +4,6 @@
 <div class="container w-100 h-100">
     <div class="row shadow bg-body-tertiary rounded">
         <div class="row m-3" style="height: 3rem">
-            <button type="button" class="btn btn-dark" style="width: 7rem; height: 3rem">Dark</button>
             <h2 class="col" style="width: 10rem; height 3rem">Create Advertisement</h2>
         </div>
 

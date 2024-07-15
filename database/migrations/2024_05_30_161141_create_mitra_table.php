@@ -19,18 +19,14 @@ return new class extends Migration
             $table->integer('mitraYear');
             $table->string('mitraWebsite');
             $table->string('mitraCategory');
-            $table->string('image_cover')->nullable();
-
+            $table->string('image_cover')->nullable(); 
             $table->string('contactName');
             $table->string('contactEmail');
             $table->string('contactPhoneNumber');
             $table->text('mitra_details');
-
             $table->json('galeri')->nullable();
-
             $table->json('latest_rating_and_certificate')->nullable();
             $table->json('awards')->nullable();
-
             $table->string('image_map')->nullable();
             $table->string('address')->nullable();
             $table->tinyInteger('isBlocked');

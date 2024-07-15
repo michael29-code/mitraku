@@ -80,6 +80,10 @@ Route::group(['middleware' => ['CheckUser:1']], function () {
     // Route::get('/view-mitra')
     Route::patch('/toggle-mitra-blocked/{id}', [MitraController::class, 'toggleBlock'])->name('toggle-blocked-mitra');
     Route::get('/mitra-search', [MitraController::class, 'index'])->name('mitra-search-admin');
+    // Route::get('/view-mitra-admin', [MitraController::class, 'index'])->name('view-mitra-admin');
+    // // Route::get('/view-mitra')
+    // Route::patch('/toggle-mitra-blocked/{id}', [MitraController::class, 'toggleBlock'])->name('toggle-blocked-mitra');
+    // Route::get('/mitra-search', [MitraController::class, 'index'])->name('mitra-search');
 });
 
 Route::group(['middleware' => ['CheckBlockUser:0']], function () {
@@ -90,11 +94,22 @@ Route::group(['middleware' => ['CheckBlockUser:0']], function () {
         Route::get('detailMitra', function () {
             return view('roles.user.mitra.detailMitra');
         })->name('detailMitra');
+// UNTUK USER DAN MITRA
+Route::group(['middleware' => ['CheckUser:2,3']], function () {
+    //MITRA
+    // Route::get('/view-mitra', [MitraController::class, 'mitra'])->name('view-mitra');
+    // Route::get('detailMitra', function () {
+    //     return view('roles.user.mitra.detailMitra');
+    // })->name('detailMitra');
 
         // CREATE MITRA
         Route::get('/create-mitra-step-1', [MitraController::class, 'createMitra1'])->name('create-mitra-1');
         Route::get('/create-mitra-step-2', [MitraController::class, 'createMitra2'])->name('create-mitra-2');
         Route::get('/create-mitra-step-3', [MitraController::class, 'createMitra3'])->name('create-mitra-3');
+    // CREATE MITRA
+    // Route::get('/create-mitra-step-1', [MitraController::class, 'createMitra1']);
+    // Route::get('/create-mitra-step-2', [MitraController::class, 'createMitra2']);
+    // Route::get('/create-mitra-step-3', [MitraController::class, 'createMitra3']);
 
         //BLOG
         Route::get('/blog', [BlogController::class, 'viewBlogUser'])->name('view-blog');
@@ -126,10 +141,47 @@ Route::group(['middleware' => ['CheckBlockUser:0']], function () {
         Route::get('/checkout/success/{transaction}', [PaymentController::class, 'success'])->name('checkout-success');
     });
 });
+    // FORM PENGAJUAN
+    Route::get('/form-pengajuan', function () {
+        return view('roles.user.mitra.viewFormPengajuan');
+    })->name('form-pengajuan');
+    
+
+
+    //PAYMENT
+    Route::get('/transactions', [PaymentController::class, 'index']);
+    Route::get('/payment', [PaymentController::class, 'show']);
+    Route::post('/pay/store', [PaymentController::class, 'pay']);
+    Route::get('/checkout/{transaction}', [PaymentController::class, 'checkout']);
+    Route::get('/checkout/success/{transaction}', [PaymentController::class, 'success'])->name('checkout-success');
+});
+
 
 //PROFILE USER
 Route::get('/profile-user', [UserController::class, 'show'])->name('profile-user');
 Route::put('/profile-user', [UserController::class, 'change_password'])->name('change-password');
 Route::post('/profile-user', [UserController::class, 'uploud_image'])->name('uploud-image');
 
+
+Route::get('success-page', function () {
+    return view('success-page');
+})->name('success-page');
+
+Route::get('/create-mitra/step-1', [MitraController::class, 'createStep1'])->name('create-mitra-1');
+Route::post('/create-mitra/store-step-1', [MitraController::class, 'storeStep1'])->name('store-mitra-1');
+
+Route::get('/create-mitra/step-2', [MitraController::class, 'createStep2'])->name('create-mitra-2');
+Route::post('/create-mitra/store-step-2', [MitraController::class, 'storeStep2'])->name('store-mitra-2');
+
+Route::get('/create-mitra/step-3', [MitraController::class, 'createStep3'])->name('create-mitra-3');
+Route::post('/create-mitra/store-step-3', [MitraController::class, 'storeStep3'])->name('store-mitra-3');
+    // Route::get('/view-mitra')
+Route::patch('/toggle-mitra-blocked/{id}', [MitraController::class, 'toggleBlock'])->name('toggle-blocked-mitra');
+Route::get('/mitra-search', [MitraController::class, 'index'])->name('mitra-search');
+
+Route::get('/view-mitra', [MitraController::class, 'mitra'])->name('view-mitra');
+Route::get('/mitraDetail/{id}', [MitraController::class, 'show'])->name('detail-mitra');
+
+Route::get('/view-mitra-admin', [MitraController::class, 'viewMitra'])->name('view-mitra-admin');
+Route::patch('/toggle-blocked-mitra/{id}', [MitraController::class, 'toggleBlockedStatus'])->name('toggle-blocked-mitra');
 

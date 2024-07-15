@@ -27,7 +27,6 @@ class DatabaseSeeder extends Seeder
             // TransactionSeeder::class,
         ]);
         
-
         // $this->call([
         //     CategorySeeder::class
         // ]);
