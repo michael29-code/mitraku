@@ -28,6 +28,7 @@
                         @foreach ($blogs as $blog)
                             <div class="col">
                                 <div class="card mx-2">
+                                    {{-- <img src="{{ asset('storage/' . $blog->image) }}" class="card-img-top" alt="..."> --}}
                                     <img src="{{ asset('storage/' . $blog->image) }}" class="card-img-top" alt="...">
                                     <div class="card-body">
                                         {{-- <span class="badge text-bg-primary my-2">{{ $blog->kategori->jenisKategori }}</span> --}}

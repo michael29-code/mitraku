@@ -1,5 +1,7 @@
 @extends('layouts.layout')
 
+@section('isMitraActive', 'active')
+
 @section('content')
 <div class="container my-5 mx-auto">
     <div class="row align-items-center">
@@ -27,7 +29,7 @@
         <div class="container my-5 m-auto d-flex w-100 justify-content-center align-items-center flex-column">
             <div class="row w-100">
                 <div class="col bg-secondary rounded-5">
-                    <img src="" class="img-fluid" alt="...">
+                    {{-- <img src="" class="img-fluid" alt="..."> --}}
                 </div>
                 <div class="col p-5">
                     <div class="row">

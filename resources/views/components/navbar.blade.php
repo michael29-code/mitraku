@@ -56,7 +56,7 @@
                 <div class="dropdown-center">
                     <div class="dropdown-toggle d-flex justify-content-center align-items-center" id="dropdownMenuButton1"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        <div class="" style="width: 6rem; height: .01rem"></div>
+                        {{-- <div class="" style="width: 6rem; height: .01rem"></div> --}}
                         <img src="/images/profile_user.jpg" class="rounded-circle" style="width: 3rem">
                         </img>
                     </div>

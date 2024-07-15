@@ -1,44 +1,21 @@
 <?php
 
 namespace App\Http\Controllers;
-<<<<<<< Updated upstream
 
+use PDF;
 use App\Models\Mitra;
 use App\Models\Pengajuan;
-use PDF;
-=======
-use Illuminate\Support\Facades\Auth;
->>>>>>> Stashed changes
 use Illuminate\Http\Request;
-use App\Models\Mitra;
+use Illuminate\Support\Facades\Auth;
 
 class MitraController extends Controller
 {
-<<<<<<< Updated upstream
-    //USER
-    public function createMitra1()
-=======
     public function createStep1()
->>>>>>> Stashed changes
     {
         return view('roles.user.create_mitra.createMitra1');
     }
 
-<<<<<<< Updated upstream
-    public function createMitra2()
-    {
-        return view('roles.user.create_mitra.createMitra2');
-    }
-
-    public function createMitra3()
-    {
-        return view('roles.user.create_mitra.createMitra3');
-    }
-
-    public function storeMitra(Request $request)
-=======
     public function storeStep1(Request $request)
->>>>>>> Stashed changes
     {
         $validatedData = $request->validate([
             'mitraName' => 'required|string|max:255',
@@ -55,6 +32,7 @@ class MitraController extends Controller
             $image->move(public_path('images'), $imageName);
             $validatedData['image_cover'] = $imageName;
         }
+
         $request->session()->put('step1Data', $validatedData);
         return redirect()->route('create-mitra-2')
         ->withInput($validatedData)
@@ -104,6 +82,7 @@ class MitraController extends Controller
 
     public function storeStep3(Request $request)
     {
+        dd($request->session()->get('step1Data'));
         $user = Auth::user();
         $step1Data = $request->session()->get('step1Data');
         $step2Data = $request->session()->get('step2Data');
@@ -173,7 +152,8 @@ class MitraController extends Controller
     public function show($id)
     {
         $mitra = Mitra::find($id);
-        return view('roles.user.mitra.mitra', ['mitra' => $mitra]);
+        // dd($mitra);
+        return view('roles.user.mitra.detailMitra', ['mitra' => $mitra]);
     }
 
     //ADMIN

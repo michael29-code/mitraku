@@ -94,59 +94,49 @@ Route::group(['middleware' => ['CheckBlockUser:0']], function () {
         Route::get('detailMitra', function () {
             return view('roles.user.mitra.detailMitra');
         })->name('detailMitra');
-// UNTUK USER DAN MITRA
-Route::group(['middleware' => ['CheckUser:2,3']], function () {
-    //MITRA
-    // Route::get('/view-mitra', [MitraController::class, 'mitra'])->name('view-mitra');
-    // Route::get('detailMitra', function () {
-    //     return view('roles.user.mitra.detailMitra');
-    // })->name('detailMitra');
+        // UNTUK USER DAN MITRA
+        Route::group(['middleware' => ['CheckUser:2,3']], function () {
+            //MITRA
+            // Route::get('/view-mitra', [MitraController::class, 'mitra'])->name('view-mitra');
+            // Route::get('detailMitra', function () {
+            //     return view('roles.user.mitra.detailMitra');
+            // })->name('detailMitra');
 
-        // CREATE MITRA
-        Route::get('/create-mitra-step-1', [MitraController::class, 'createMitra1'])->name('create-mitra-1');
-        Route::get('/create-mitra-step-2', [MitraController::class, 'createMitra2'])->name('create-mitra-2');
-        Route::get('/create-mitra-step-3', [MitraController::class, 'createMitra3'])->name('create-mitra-3');
-    // CREATE MITRA
-    // Route::get('/create-mitra-step-1', [MitraController::class, 'createMitra1']);
-    // Route::get('/create-mitra-step-2', [MitraController::class, 'createMitra2']);
-    // Route::get('/create-mitra-step-3', [MitraController::class, 'createMitra3']);
+            // CREATE MITRA
+            // Route::get('/create-mitra-step-1', [MitraController::class, 'createMitra1'])->name('create-mitra-1');
+            // Route::get('/create-mitra-step-2', [MitraController::class, 'createMitra2'])->name('create-mitra-2');
+            // Route::get('/create-mitra-step-3', [MitraController::class, 'createMitra3'])->name('create-mitra-3');
 
-        //BLOG
-        Route::get('/blog', [BlogController::class, 'viewBlogUser'])->name('view-blog');
-        Route::get('/blog-detail', [BlogController::class, 'blogDetailUser'])->name('view-blog-detail');
+            //BLOG
+            Route::get('/blog', [BlogController::class, 'viewBlogUser'])->name('view-blog');
+            Route::get('/blog-detail', [BlogController::class, 'blogDetailUser'])->name('view-blog-detail');
 
-        //PROFILE
-        // Route::get('/profile', function () {
-        //     return view('profile');
-        // });
+            //PROFILE
+            // Route::get('/profile', function () {
+            //     return view('profile');
+            // });
 
-        //ADVERTISMENT
-        Route::get('/userAdvertisement', function () {
-            return view('roles.user.advertise.userAdvertisement');
-        })->name('view-advertisement');
+            //ADVERTISMENT
+            Route::get('/userAdvertisement', function () {
+                return view('roles.user.advertise.userAdvertisement');
+            })->name('view-advertisement');
 
-
-        Route::get('/view-pengajuan', [PengajuanController::class, 'view']);
-        Route::get('/form-pengajuan', [PengajuanController::class, 'create']);
-        Route::post('/add-pengajuan', [PengajuanController::class, 'store']);
-        Route::get('/download/{pengajuan}', DownloadPDFController::class);
-        Route::get('/pengajuan/edit/{id}', [PengajuanController::class, 'edit']);
-        Route::put('/pengajuan/update/{id}', [PengajuanController::class, 'update']);
-        Route::delete('/pengajuan/delete/{id}', [PengajuanController::class, 'destroy']);
-        //PAYMENT
-        Route::get('/transactions', [PaymentController::class, 'index']);
-        Route::get('/payment', [PaymentController::class, 'show']);
-        Route::post('/pay/store', [PaymentController::class, 'pay']);
-        Route::get('/checkout/{transaction}', [PaymentController::class, 'checkout']);
-        Route::get('/checkout/success/{transaction}', [PaymentController::class, 'success'])->name('checkout-success');
+            // FORM PENGAJUAN
+            Route::get('/view-pengajuan', [PengajuanController::class, 'view']);
+            Route::get('/form-pengajuan', [PengajuanController::class, 'create'])->name('form-pengajuan');
+            Route::post('/add-pengajuan', [PengajuanController::class, 'store']);
+            Route::get('/download/{pengajuan}', DownloadPDFController::class);
+            Route::get('/pengajuan/edit/{id}', [PengajuanController::class, 'edit']);
+            Route::put('/pengajuan/update/{id}', [PengajuanController::class, 'update']);
+            Route::delete('/pengajuan/delete/{id}', [PengajuanController::class, 'destroy']);
+            //PAYMENT
+            Route::get('/transactions', [PaymentController::class, 'index']);
+            Route::get('/payment', [PaymentController::class, 'show']);
+            Route::post('/pay/store', [PaymentController::class, 'pay']);
+            Route::get('/checkout/{transaction}', [PaymentController::class, 'checkout']);
+            Route::get('/checkout/success/{transaction}', [PaymentController::class, 'success'])->name('checkout-success');
+        });
     });
-});
-    // FORM PENGAJUAN
-    Route::get('/form-pengajuan', function () {
-        return view('roles.user.mitra.viewFormPengajuan');
-    })->name('form-pengajuan');
-    
-
 
     //PAYMENT
     Route::get('/transactions', [PaymentController::class, 'index']);
@@ -175,7 +165,7 @@ Route::post('/create-mitra/store-step-2', [MitraController::class, 'storeStep2']
 
 Route::get('/create-mitra/step-3', [MitraController::class, 'createStep3'])->name('create-mitra-3');
 Route::post('/create-mitra/store-step-3', [MitraController::class, 'storeStep3'])->name('store-mitra-3');
-    // Route::get('/view-mitra')
+// Route::get('/view-mitra')
 Route::patch('/toggle-mitra-blocked/{id}', [MitraController::class, 'toggleBlock'])->name('toggle-blocked-mitra');
 Route::get('/mitra-search', [MitraController::class, 'index'])->name('mitra-search');
 
