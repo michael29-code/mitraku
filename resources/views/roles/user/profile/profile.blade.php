@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
-    <div class="row" style="height: 33rem">
+    <div class="row" style="height: 80vh">
         <div class="col-4 g-5">
             <div class="container col-8">
                 <img class="rounded-circle" style="width: 15rem; height: 15rem;" src="{{ $user->getImageURL() }}"

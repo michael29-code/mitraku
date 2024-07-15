@@ -73,9 +73,10 @@ class User extends Authenticatable
     public function getImageURL(){
         // dd($this->image);
         if($this->image){
+            // dd($this->image);
             return url('storage/'. $this->image);
         }
 
-        return "profile_admin.jpg";
+        return "images/default_user_profile.jpg";
     }
 }

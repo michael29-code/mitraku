@@ -62,21 +62,21 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="row mt-3">
-                        <div class="col">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                    id="flexRadioDefault1">
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                    Remember me
-                                </label>
+                        {{-- <div class="row mt-3">
+                            <div class="col">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                        Remember me
+                                    </label>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col text-end" style="color: blue">
-                            Forgot password?
-                        </div>
-                    </div>
-                    <div class="row mt-3">
+                            <div class="col text-end" style="color: blue">
+                                Forgot password?
+                            </div>
+                        </div> --}}
+                    <div class="row mt-5">
                         <div class="col">
                             <button type="submit" class="btn btn-primary" style="width: 100%">Sign In</button>
                         </div>

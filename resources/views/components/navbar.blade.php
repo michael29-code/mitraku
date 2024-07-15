@@ -56,13 +56,8 @@
                 <div class="submenu-wrap" id="subMenu">
                     <div class="submenu">
                         <a href="{{ route('profile-user') }}" class="user-info text-decoration-none black">
-                            @if (Auth::user()->image == 'default')
-                                <img src="images/default_user_profile.jpg" class="rounded-circle user-profpic"
-                                    id="profileImage">
-                            @else
-                                <img src="{{ Auth::user()->getImageURL() }}" class="rounded-circle user-profpic"
-                                    id="profileImage">
-                            @endif
+                            <img src="{{ Auth::user()->getImageURL() }}" class="rounded-circle user-profpic"
+                                id="profileImage">
                             <p class="body-large-medium">
                                 {{ Auth::user()->username }}
                             </p>
