@@ -58,6 +58,7 @@
                         data-bs-toggle="dropdown" aria-expanded="false">
                         {{-- <div class="" style="width: 6rem; height: .01rem"></div> --}}
                         <img src="/images/profile_user.jpg" class="rounded-circle" style="width: 3rem">
+                        {{-- <img src="{{ $user->getImageURL() }}" class="rounded-circle" style="width: 3rem"> --}}
                         </img>
                     </div>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="width: 15rem">
