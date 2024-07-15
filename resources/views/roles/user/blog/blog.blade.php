@@ -3,57 +3,76 @@
 @section('isBlogActive', 'active')
 
 @section('content')
-    <div class="rectangleSpace"></div>
-    <div class="rectangle">
-        <div class="rectangleSpace"></div>
-        <div class="row row-cols-6">
-            <div class="miniRectangle">
+
+    <div class="container">
+
+        <div class="rectangleSpace" style="height: 3rem"></div>
+
+        <div class="rectangle" style="">
+            <div class="rectangleSpace" style="height: 2rem"></div>
+            <div class="miniRectangle text-center" style="">
                 <h1 class="category">Technology</h1>
             </div>
-        </div>
-        <div class="col row-cols-2">
-            <h1 class="title">The Impact of Technology on the Workplace: How Technology is Changing</h1>
-        </div>
-        <div class="row row-cols-6">
-            <h3 class="author">Tracey Wilson</h3>
-            <h3 class="date">August 20, 2022</h3>
-        </div>
-    </div>
-
-    <div class="container my-5 p-5 h-100">
-        <div class="row shadow bg-body-tertiary rounded">
-            <div class="col">
-                <div class="card border-0">
-                    <div class="row my-5">
-                        @foreach ($blogs as $blog)
-                            <div class="col">
-                                <div class="card mx-2">
-                                    {{-- <img src="{{ asset('storage/' . $blog->image) }}" class="card-img-top" alt="..."> --}}
-                                    <img src="{{ asset('storage/' . $blog->image) }}" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        {{-- <span class="badge text-bg-primary my-2">{{ $blog->kategori->jenisKategori }}</span> --}}
-                                        <h5 class="card-title my-1">{{ $blog['title'] }}</h5>
-                                        <div class="row my-3">
-                                            <div class="col-2">
-                                                <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
-                                                    class="rounded-circle img-fluid" alt="Avatar" />
-                                            </div>
-                                            <div class="col">
-                                                {{ $blog['writerID'] }}
-                                            </div>
-                                            <div class="col">{{ $blog['created_at'] }}</div>
-                                        </div>
-                                        <a href="#" class="btn btn-danger w-100">Delete</a>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-
-                    </div>
+            <div class="row align-items-center p-3" style="width: 55rem">
+                <h1 class="title">The Impact of Technology on the Workplace: How Technology is Changing</h1>
+            </div>
+            <div class="row row-cols-6 align-item-center g-3">
+                <div class="rectangleSpace align-item-center" style="width: 2.5rem"></div>
+                <div class="col" style="width: 3rem">
+                    <img class="rounded-circle" src="/images/profile_admin.jpg" alt=""
+                        style="height: 3rem; width: 3rem">
+                </div>
+                <div class="col p-3">
+                    <h3 class="author">Tracey Wilson</h3>
+                </div>
+                <div class="rectangleSpace align-item-center" style="width: 2.5rem"></div>
+                <div class="col p-3">
+                    <h3 class="date">August 20, 2022</h3>
                 </div>
             </div>
         </div>
-    </div>
+
+        <div class="rectangleSpace" style="height: 7rem"></div>
+
+
+        <div class="container row row-cols-4">
+            @foreach ($blogs as $blog)
+                <div>
+                    <a class="text-decoration-none" href="{{ route('view-blog-detail') }}">
+                        <div class="rectangle col" style="width: 20rem; height: 30rem">
+                            <img class="rounded p-3" src="{{ $blog->image }}" alt="bnr1"
+                                style="height: 15rem; width: 20rem">
+                            <div class="rectangleSpace" style="height: 1rem"></div>
+                            <div class="miniRectangle text-center" style="">
+                                <h4 class="category">{{ $blog->kategori->jenisKategori }}</h4>
+                            </div>
+                            <div class="rectangleSpace" style="height: 1rem"></div>
+                            <div class="row" style="width: 19rem; height: 5rem;">
+                                <h4 class="author">{{ $blog->title }}</h4>
+                            </div>
+                            <div class="rectangleSpace" style="height: 1rem"></div>
+                            <div class="row row-cols-3 align-item-center g-3">
+                                <div class="rectangleSpace" style="width: 1rem"></div>
+                                <div class="col" style="width: 3rem">
+                                    <img class="rounded-circle" src="/images/profile_admin.jpg" alt=""
+                                        style="height: 3rem; width: 3rem">
+                                </div>
+                                <div class="col" style="width: 15rem">
+                                    <h3 class="author">{{ $blog->writer->username }}</h3>
+                                    <h4 class="author">{{ $blog->created_at->diffForHumans() }}</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="rectangleSpace" style="height: 3rem"></div>
+                </div>
+            @endforeach
+        </div>
+
+        <div class="row">
+            <div class="col d-flex justify-content-center"> {{-- Center the pagination links --}}
+                {{ $blogs->links() }} </div>
+        </div>
     </div>
 
 @endsection

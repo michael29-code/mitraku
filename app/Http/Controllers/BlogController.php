@@ -117,7 +117,7 @@ class BlogController extends Controller
 
     public function viewBlogUser(): View
     {
-        return view("roles.user.blog.blog",["blogs" => Blog::all()]);
+        return view("roles.user.blog.blog",["blogs" => Blog::paginate(10)]);
     }
 
     public function blogDetailUser(): View

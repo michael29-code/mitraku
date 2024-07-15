@@ -173,4 +173,3 @@ Route::get('/mitraDetail/{id}', [MitraController::class, 'show'])->name('detail-
 
 Route::get('/view-mitra-admin', [MitraController::class, 'viewMitra'])->name('view-mitra-admin');
 Route::patch('/toggle-blocked-mitra/{id}', [MitraController::class, 'toggleBlockedStatus'])->name('toggle-blocked-mitra');
-
