@@ -164,7 +164,7 @@
                     efficient. The best part? you'll save a bunch of money and time with our services.</p>
             </div>
             <div class="p-2">
-                <a href="{{ route('view-advertisement') }}" type="button" class="btn btn-primary btn-sm">View Advertise</a>
+                <a href="{{ route('view-advertisement-user') }}" type="button" class="btn btn-primary btn-sm">View Advertise</a>
             </div>
         </div>
         <img class="" src="/images/Dinding.png" alt="dinding" height="300rem">
