@@ -120,9 +120,11 @@ class BlogController extends Controller
         return view("roles.user.blog.blog",["blogs" => Blog::paginate(10)]);
     }
 
-    public function blogDetailUser(): View
+    public function blogDetailUser($id): View
     {
-        return view("roles.user.blog.blogDetail",["blogs" => Blog::all()]);
+        $blog = Blog::find($id);
+
+        return view("roles.user.blog.blogDetail",["blog" => $blog]);
     }
 
     // === USER BLOG END ===

@@ -13,43 +13,16 @@
 </div>
 
 
-<div class="sponsor-advertisement row mt-3">
-    <div class="col">
+<div class="sponsor-advertisement row mt-3 d-flex justify-content-center
+">
+    <div class="col-md-4">
         <h1 class="d-flex justify-content-center h2 mb-4">Trusted By</h1>
-    
         <div class="d-flex justify-content-center flex-wrap gap-3">
-            <span class="border d-flex p-2 bd-highlight border-dark rounded-pill mb-2 mr-2">
-                <b class="body-medium-bold">Sponsor</b>
-            </span>
-            <span class="border d-flex p-2 bd-highlight border-dark rounded-pill mb-2 mr-2">
-                <b class="body-medium-bold">Sponsor</b>
-            </span>
-            <span class="border d-flex p-2 bd-highlight border-dark rounded-pill mb-2 mr-2">
-                <b class="body-medium-bold">Sponsor</b>
-            </span>
-            <span class="border d-flex p-2 bd-highlight border-dark rounded-pill mb-2 mr-2">
-                <b class="body-medium-bold">Sponsor</b>
-            </span>
-            <span class="border d-flex p-2 bd-highlight border-dark rounded-pill mb-2 mr-2">
-                <b class="body-medium-bold">Sponsor</b>
-            </span>
-        </div>
-
-
-        <div class="d-flex justify-content-center flex-wrap mt-2 gap-3">
-            <span class="border d-flex p-2 bd-highlight border-dark rounded-pill mb-2 mr-2">
-                <b class="body-medium-bold">Sponsor</b>
-            </span>
-            <span class="border d-flex p-2 bd-highlight border-dark rounded-pill mb-2 mr-2">
-                <b class="body-medium-bold">Sponsor</b>
-            </span>
-            <span class="border d-flex p-2 bd-highlight border-dark rounded-pill mb-2 mr-2">
-                <b class="body-medium-bold">Sponsor</b>
-            </span>
-            <span class="border d-flex p-2 bd-highlight border-dark rounded-pill mb-2 mr-2">
-                <b class="body-medium-bold">Sponsor</b>
-            </span>
-            
+            @foreach ($sponsors as $sponsor)
+                <span class="border d-flex p-2 bd-highlight border-dark rounded-pill mb-2 mr-2">
+                    <b class="body-medium-bold">{{ $sponsor->name }}</b>
+                </span>
+            @endforeach
         </div>
     </div>
 </div>
@@ -71,7 +44,7 @@
                     <div class="body-large-medium mb-3">
                         {{ $advertisement->description }}
                     </div>
-                    <button class="btn btn-primary">Get Started</button>
+                    <a href="{{ route('payment') }}" class="btn btn-primary">Get Started</a>
                 </div>
                 <div class="col image mx-3">
                     <img class="img-thumbnail" style="max-width: 213.5px; height: 171.105px" src="images/AdvertisementPage.png" alt="">

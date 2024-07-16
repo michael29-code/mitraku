@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Advertisement;
+use App\Models\Sponsor;
 
 class AdvertisementController extends Controller
 {
@@ -11,7 +12,8 @@ class AdvertisementController extends Controller
     public function userIndex()
     {
         $advertisements = Advertisement::all();
-        return view('roles.user.advertise.userAdvertisement', compact('advertisements'));
+        $sponsors = Sponsor::all(); // Ambil data sponsor
+        return view('roles.user.advertise.userAdvertisement', compact('advertisements', 'sponsors'));
     }
 
     //ADMIN

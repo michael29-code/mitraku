@@ -21,7 +21,7 @@ class BlogFactory extends Factory
             'slug' => $this->faker->slug(),
             'image' => 'images/banner1.jpeg',
             'body' => collect($this->faker->paragraphs(mt_rand(5,10)))
-                     ->map(fn($p) => "<p>$p</p>")
+                     ->map(fn($p) => "$p")
                      ->implode(''),
             'writerId' => mt_rand(1,1),
             'kategoriId' => mt_rand(1,1),

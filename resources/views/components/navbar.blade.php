@@ -2,7 +2,7 @@
     <div class="container mt-2">
         {{-- LOGO --}}
         <a class="navbar-brand me-auto" href="{{ route('home') }}">
-            <img src="images/LogoMitraku.png" alt="Mitraku" class="logo-size-sm">
+            <img src="/images/LogoMitraku.png" alt="Mitraku" class="logo-size-sm">
         </a>
         {{-- BUAT OFFCANVAS (CONTENT TENGAH) --}}
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
@@ -46,7 +46,7 @@
         <div class="profilePictureGemink">
             @auth
                 @if (Auth::user()->image == 'default')
-                    <img src="images/default_user_profile.jpg" class="rounded-circle user-profpic" id="profileImage"
+                    <img src="/images/default_user_profile.jpg" class="rounded-circle user-profpic" id="profileImage"
                         style="width: 3.5rem">
                 @else
                     <img src="{{ Auth::user()->getImageURL() }}" class="rounded-circle user-profpic" id="profileImage"

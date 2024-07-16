@@ -63,7 +63,7 @@ class UserController extends Controller
         $user->update($inFil);
 
         auth()->logout();
-        return redirect('sign-in');
+        return redirect('sign-in')->with('success', 'Password Changed Successfully');
     }
 
     public function uploud_image(Request $request)
@@ -71,7 +71,7 @@ class UserController extends Controller
         $user = Auth::user();
 
         $validate = $request->validate([
-            'image' => 'image|max:1024|',
+            'image' => '|required|mimes: jpg,jpeg,png|max:2046',
         ]);
 
         if($request->has('image')){
@@ -80,6 +80,7 @@ class UserController extends Controller
 
             Storage::disk('public')->delete($user->image);
         }
+
         $user->update($validate);
 
         return redirect('/profile-user');

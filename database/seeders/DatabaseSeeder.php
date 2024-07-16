@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             PengajuanSeeder::class,
             CategorySeeder::class,
             AdvertiseSeeder::class,
+            SponsorSeeder::class,
             // TransactionSeeder::class,
         ]);
         

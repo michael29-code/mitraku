@@ -98,7 +98,7 @@ Route::group(['middleware' => ['CheckBlockUser:0']], function () {
 
         //BLOG
         Route::get('/blog', [BlogController::class, 'viewBlogUser'])->name('view-blog');
-        Route::get('/blog-detail', [BlogController::class, 'blogDetailUser'])->name('view-blog-detail');
+        Route::get('/blog-detail/{id}', [BlogController::class, 'blogDetailUser'])->name('view-blog-detail');
 
         //PROFILE
         // Route::get('/profile', function () {
@@ -118,10 +118,10 @@ Route::group(['middleware' => ['CheckBlockUser:0']], function () {
         Route::delete('/pengajuan/delete/{id}', [PengajuanController::class, 'destroy']);
 
         //PAYMENT
-        Route::get('/transactions', [PaymentController::class, 'index']);
-        Route::get('/payment', [PaymentController::class, 'show']);
-        Route::post('/pay/store', [PaymentController::class, 'pay']);
-        Route::get('/checkout/{transaction}', [PaymentController::class, 'checkout']);
+        Route::get('/transactions', [PaymentController::class, 'index'])->name('transaction');
+        Route::get('/payment', [PaymentController::class, 'show'])->name('payment');
+        Route::post('/pay/store', [PaymentController::class, 'pay'])->name('pay');
+        Route::get('/checkout/{transaction}', [PaymentController::class, 'checkout'])->name('checkout');
         Route::get('/checkout/success/{transaction}', [PaymentController::class, 'success'])->name('checkout-success');
     });
 
