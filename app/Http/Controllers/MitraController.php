@@ -32,12 +32,24 @@ class MitraController extends Controller
             $image->move(public_path('images'), $imageName);
             $validatedData['image_cover'] = $imageName;
         }
-
-        $request->session()->put('step1Data', $validatedData);
+        $mitra = new Mitra($validatedData);
+        $mitra->user_id = Auth::id();
+        $mitra->contactName = 'a';
+        $mitra->contactEmail = 'a@gmail.com';
+        $mitra->contactPhoneNumber = '081234567';
+        $mitra->mitra_details = 'lorem';
+        $mitra->galeri = isset($mitra['galeri']) ? json_encode($mitra['galeri']) : null;
+        $mitra->latest_rating_and_certificate = $mitra['latest_rating_and_certificate'] ?? null;
+        $mitra->awards = $mitra['awards'] ?? null;
+        $mitra->address = $mitra['address'] ?? null;
+        $mitra->image_map = $mitra['image_map'] ?? null;
+        // dd($mitra);
+        $mitra->save();
+        $request->session()->put('mitra_id', $mitra->id);
         return redirect()->route('create-mitra-2')
-        ->withInput($validatedData)
-        ->with('success', 'Step 1 completed successfully');
+            ->with('success', 'Step 1 completed successfully');
     }
+
 
     public function createStep2()
     {
@@ -46,7 +58,9 @@ class MitraController extends Controller
 
     public function storeStep2(Request $request)
     {
-        $step1Data = $request->session()->get('step1Data');
+        $mitraId = $request->session()->get('mitra_id');
+        $mitra = Mitra::find($mitraId);
+
         $validatedData = $request->validate([
             'mitra_details' => 'required|string',
             'galeri.*' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
@@ -64,16 +78,13 @@ class MitraController extends Controller
             }
         }
 
-        $validatedData['galeri'] = $galleryImages;
-        // dd($validatedData);
-
-        $request->session()->put('step2Data', $validatedData);
+        $validatedData['galeri'] = json_encode($galleryImages);
+        $mitra->update($validatedData);
 
         return redirect()->route('create-mitra-3')
-            ->withInput($validatedData)
-            ->with('step1Data', $step1Data)
             ->with('success', 'Step 2 completed successfully');
     }
+
 
     public function createStep3()
     {
@@ -82,13 +93,11 @@ class MitraController extends Controller
 
     public function storeStep3(Request $request)
     {
-        dd($request->session()->get('step1Data'));
-        $user = Auth::user();
-        $step1Data = $request->session()->get('step1Data');
-        $step2Data = $request->session()->get('step2Data');
+        $mitraId = $request->session()->get('mitra_id');
+        $mitra = Mitra::find($mitraId);
 
         $validatedData = $request->validate([
-            'latest_rating_and_certificate' => 'nullable|string', 
+            'latest_rating_and_certificate' => 'nullable|string',
             'awards' => 'nullable|string',
             'address' => 'required|string|max:255',
             'image_map' => 'nullable|file|mimes:jpeg,png,jpg,gif,pdf|max:2048',
@@ -101,58 +110,21 @@ class MitraController extends Controller
             $validatedData['image_map'] = $locationMapName;
         }
 
-        $finalData = array_merge($step1Data, $step2Data, $validatedData);
-        $mitra = new Mitra();
-        $mitra->user_id = $user->id;
-        $mitra->mitraName = $finalData['mitraName'];
-        $mitra->mitraOverview = $finalData['mitraOverview'];
-        $mitra->mitraYear = $finalData['mitraYear'];
-        $mitra->mitraWebsite = $finalData['mitraWebsite'];
-        $mitra->mitraCategory = $finalData['mitraCategory'];
-        $mitra->image_cover = $finalData['image_cover'];
-        $mitra->contactName = $finalData['contactName'];
-        $mitra->contactEmail = $finalData['contactEmail'];
-        $mitra->contactPhoneNumber = $finalData['contactPhoneNumber'];
-        $mitra->mitra_details = $finalData['mitra_details'];
-
-        if (isset($finalData['galeri'])) {
-            $mitra->galeri = json_encode($finalData['galeri']);
-        }
-
-        if (isset($finalData['latest_rating_and_certificate'])) {
-            $mitra->latest_rating_and_Certificate = $finalData['latest_rating_and_certificate'];
-        }
-
-        if (isset($finalData['awards'])) {
-            $mitra->awards = $finalData['awards'];
-        }
-        if (isset($finalData['address'])) {
-            $mitra->address = $finalData['address'];
-        }        
-        if (isset($finalData['image_map'])) {
-            $mitra->image_map = $finalData['image_map'];
-        }
-        $mitra->save();
-        dd($mitra);
-        $request->session()->forget('step1Data');
-        $request->session()->forget('step2Data');
-
+        $mitra->update($validatedData);
+        $request->session()->forget('mitra_id');
         return redirect()->route('home')->with('success', 'Mitra created successfully!');
     }
 
     public function mitra()
     {
-        // Fetch all Mitra records
-        $mitras = Mitra::all();
-
-        // Pass the Mitra records to the view
+        $mitras = Mitra::paginate(6);
         return view('roles.user.mitra.mitra', compact('mitras'));
     }
+
 
     public function show($id)
     {
         $mitra = Mitra::find($id);
-        // dd($mitra);
         return view('roles.user.mitra.detailMitra', ['mitra' => $mitra]);
     }
 
@@ -165,23 +137,46 @@ class MitraController extends Controller
 
     public function search(Request $request)
     {
-        $search = $request->input('search');
+        $searchTerm = $request->input('search');
+        $mitras = Mitra::where('mitraName', 'like', '%'.$searchTerm.'%')->paginate(10);
+        return view('roles.user.mitra.mitra', compact('mitras', 'searchTerm'));
+    }
+    
 
-        $mitras = Mitra::query()
-            ->where('mitraName', 'LIKE', "%{$search}%")
-            ->get();
+    // public function search(Request $request)
+    // {
+    //     $search = $request->input('search');
 
-        return view('roles.admin.mitra.viewMitra', compact('mitras'));
+    //     $mitras = Mitra::query()
+    //         ->where('mitraName', 'LIKE', "%{$search}%")
+    //         ->get();
+
+    //     return view('roles.admin.mitra.viewMitra', compact('mitras'));
+    // }
+    
+    // public function search(Request $request)
+    // {
+    //     $search = $request->input('search');
+    //     $mitras = Mitra::query()
+    //         ->where('mitraName', 'LIKE', "%{$search}%")
+    //         ->get();
+
+    //     return view('roles.admin.viewAdmin', compact('mitras'));
+    // }
+
+    public function toggleBlock($id){
+        $mitra = Mitra::find($id);
+        // $user->isBlocked = 1;
+        // dd($user);
+        if($mitra->isBlocked == 0){
+            $mitra->isBlocked = 1;
+        } else {
+            $mitra->isBlocked = 0;
+        }
+        $mitra->save();
+        return redirect()->back();
     }
 
-    // public function toggleBlock($id)
-    // {
-    //     // Fetch the specific Mitra record by ID
-    //     $mitra = Mitra::findOrFail($id);
-
-    //     // Pass the Mitra record to the view
-    //     return view('roles.user.mitra.detailMitra', compact('mitra'));
-    // }
 
     public function viewMitra()
     {

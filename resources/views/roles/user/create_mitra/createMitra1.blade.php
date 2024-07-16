@@ -1,15 +1,14 @@
 @extends('layouts.layout')
 
 @section('content')
-    <div class="container my-5 m-auto d-flex w-100 justify-content-center align-items-center flex-column">
+    <div class="container my-5">
+        <div class="text-center mb-4">
+            <h2>Create Mitra - Step 1</h2>
+        </div>
+
         <form id="step1Form" action="{{ route('store-mitra-1') }}" method="POST" enctype="multipart/form-data">
             @csrf
-            <div class="row">
-                <div class="col text-center">
-                    <h2>Create Mitra - Step 1</h2>
-                </div>
-            </div>
-            <div class="row my-3 w-60 mx-auto">
+            <div class="row my-3 w-60 mb-5">
                 <div class="col">
                     <div class="row my-2 mx-5">
                         <div class="col">
@@ -33,80 +32,60 @@
                     </div>
                 </div>
             </div>
-            <div class="row w-100">
-                <div class="col-6">
-                    <div class="row">
-                        <div class="col">
-                            <h3>Mitra Information</h3>
-                        </div>
+
+            <div class="row">
+                <div class="col-md-5">
+                    <h4>Mitra Information</h4>
+                    <div class="mb-3">
+                        <label for="mitraName" class="form-label"><b>Mitra Name</b></label>
+                        <input type="text" name="mitraName" id="mitraName" class="form-control" required>
                     </div>
-                    <div class="row my-2">
-                        <div class="col">
-                            <p><b>Mitra Name</b></p>
-                            <div class="row">
-                                <div class="col">
-                                    <input type="text" name="mitraName" class="form-control" required>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="mb-3">
+                        <label for="mitraOverview" class="form-label"><b>Mitra Overview</b></label>
+                        <textarea name="mitraOverview" id="mitraOverview" class="form-control" style="height: 100px" required></textarea>
                     </div>
-                    <div class="row my-2">
-                        <div class="col">
-                            <p><b>Mitra Overview</b></p>
-                            <div class="row">
-                                <div class="col">
-                                    <textarea name="mitraOverview" class="form-control" placeholder="" id="floatingTextarea2" style="height: 100px" required></textarea>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row my-2">
-                        <div class="col">
-                            <p><b>Establishment Year</b></p>
-                            <div class="row">
-                                <div class="col">
-                                    <input type="number" name="mitraYear" class="form-control" required>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="mb-3">
+                        <label for="mitraYear" class="form-label"><b>Establishment Year</b></label>
+                        <input type="number" name="mitraYear" id="mitraYear" class="form-control" required>
                     </div>
                 </div>
-                <div class="col-6">
-                    <div class="row my-2">
-                        <div class="col">
-                            <p><b>Website</b></p>
-                            <div class="row">
-                                <div class="col">
-                                    <input type="text" name="mitraWebsite" class="form-control">
-                                </div>
-                            </div>
-                        </div>
+
+                <div class="col-md-1 d-flex justify-content-center align-items-center">
+                    <div class="vr" style="height: 100%;"></div>
+                </div>
+
+                <div class="col-md-5 my-5">
+                    <div class="mb-3">
+                        <label for="mitraWebsite" class="form-label"><b>Website</b></label>
+                        <input type="text" name="mitraWebsite" id="mitraWebsite" class="form-control">
                     </div>
-                    <div class="row my-2">
-                        <div class="col">
-                            <p><b>Category</b></p>
-                            <div class="row">
-                                <div class="col">
-                                    <input type="text" name="mitraCategory" class="form-control">
-                                </div>
+                    <div class="mb-3">
+                        <label for="mitraCategory" class="form-label"><b>Category</b></label>
+                        <select class="form-select @error('mitraCategory') is-invalid @enderror" id="mitraCategory" name="mitraCategory">
+                            <option value="">Open this select menu</option>
+                            <option value="Teknologi" {{ old('mitraCategory') == 'Teknologi' ? 'selected' : '' }}>Teknologi</option>
+                            <option value="Restoran" {{ old('mitraCategory') == 'Restoran' ? 'selected' : '' }}>Restoran</option>
+                            <option value="Real Estate" {{ old('mitraCategory') == 'Real Estate' ? 'selected' : '' }}>Real Estate</option>
+                            <option value="Catering" {{ old('mitraCategory') == 'Catering' ? 'selected' : '' }}>Catering</option>
+                            <option value="Event Organizer" {{ old('mitraCategory') == 'Event Organizer' ? 'selected' : '' }}>Event Organizer</option>
+                            <option value="Arsitektur" {{ old('mitraCategory') == 'Arsitektur' ? 'selected' : '' }}>Arsitektur</option>
+                        </select>
+                        @error('mitraCategory')
+                            <div class="invalid-feedback">
+                                {{ $message }}
                             </div>
-                        </div>
+                        @enderror
                     </div>
-                    <div class="row my-2">
-                        <div class="col">
-                            <p><b>Image Cover</b></p>
-                            <div class="row">
-                                <div class="col">
-                                    <input type="file" name="image_cover" class="form-control">
-                                </div>
-                            </div>
-                        </div>
+                    <div class="mb-3">
+                        <label for="image_cover" class="form-label"><b>Image Cover</b></label>
+                        <input type="file" name="image_cover" id="image_cover" class="form-control">
                     </div>
                 </div>
-                <div class="row d-flex justify-content-end align-items-end">
-                    <div class="col d-flex justify-content-end">
-                        <button type="submit" form="step1Form" class="btn btn-primary w-20">Next</button>
-                    </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col text-end">
+                    <button type="submit" form="step1Form" class="btn btn-primary">Next</button>
                 </div>
             </div>
         </form>

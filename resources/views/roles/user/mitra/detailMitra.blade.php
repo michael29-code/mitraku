@@ -50,7 +50,7 @@
                     </div>
                     <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                         <div class="btn-group me-1" role="group" aria-label="First button">
-                            <button type="button" class="btn btn-primary">Contact</button>
+                            <a href="https://api.whatsapp.com/send?phone={{ $mitra->contactPhoneNumber }}" target="_blank" class="btn btn-primary">Contact</a>
                         </div>
                         <div class="btn-group me-2" role="group" aria-label="Second button">
                             <a href="form-pengajuan" class="btn btn-outline-primary">Send Form</a>

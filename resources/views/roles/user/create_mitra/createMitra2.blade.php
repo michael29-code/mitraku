@@ -1,17 +1,16 @@
 @extends('layouts.layout')
 
 @section('content')
-    <div class="container my-5 m-auto d-flex w-100 justify-content-center align-items-center flex-column">
+    <div class="container my-5">
+        <div class="text-center mb-4">
+            <h2>Create Mitra - Step 2</h2>
+        </div>
+
         <form id="step2Form" action="{{ route('store-mitra-2') }}" method="POST" enctype="multipart/form-data">
             @csrf
-            <div class="row">
-                <div class="col text-center">
-                    <h2>Create Mitra - Step 2</h2>
-                </div>
-            </div>
-            <div class="row my-3 w-60 mx-auto">
+            <div class="row my-3 w-60 mb-5">
                 <div class="col">
-                    <div class="row my-2 mx-10">
+                    <div class="row my-2 mx-5">
                         <div class="col">
                             <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="100"
                                 aria-valuemin="0" aria-valuemax="100">
@@ -33,86 +32,46 @@
                     </div>
                 </div>
             </div>
-            <div class="row w-100">
-                <div class="col-6">
-                    <div class="row">
-                        <div class="col">
-                            <h3>Mitra Details</h3>
-                        </div>
+
+            <div class="row mb-5">
+                <div class="col-md-5">
+                    <h4>Mitra Details</h4>
+                    <p>Ensure your mitra information is valid.</p>
+                    <div class="mb-3">
+                        <label for="mitra_details" class="form-label"><b>Mitra Details</b></label>
+                        <textarea name="mitra_details" id="mitra_details" class="form-control" style="height: 100px" required></textarea>
                     </div>
-                    <div class="row">
-                        <div class="col">
-                            <p>Ensure your mitra information is valid.</p>
-                        </div>
-                    </div>
-                    <div class="row my-2">
-                        <div class="col">
-                            <p><b>Mitra Details</b></p>
-                            <div class="row">
-                                <div class="col">
-                                    <textarea name="mitra_details" class="form-control" placeholder="" id="floatingTextarea2" style="height: 100px"
-                                        required></textarea>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row my-2">
-                        <div class="col">
-                            <p><b>Gallery</b></p>
-                            <div class="row">
-                                <div class="col">
-                                    <input type="file" name="galeri[]" class="form-control" multiple required>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="mb-3">
+                        <label for="galeri" class="form-label"><b>Gallery</b></label>
+                        <input type="file" name="galeri[]" id="galeri" class="form-control" multiple required>
                     </div>
                 </div>
-                <div class="col-6 mx-0">
-                    <div class="row">
-                        <div class="col">
-                            <h3>Mitra Contact</h3>
-                        </div>
+
+                <div class="col-md-1 d-flex justify-content-center align-items-center">
+                    <div class="vr" style="height: 100%;"></div>
+                </div>
+
+                <div class="col-md-5">
+                    <h4>Mitra Contact</h4>
+                    <p>Ensure your contact information is valid.</p>
+                    <div class="mb-3">
+                        <label for="contactName" class="form-label"><b>Contact Name</b></label>
+                        <input type="text" name="contactName" id="contactName" class="form-control" required>
                     </div>
-                    <div class="row">
-                        <div class="col">
-                            <p>Ensure your contact information is valid.</p>
-                        </div>
+                    <div class="mb-3">
+                        <label for="contactEmail" class="form-label"><b>Contact Email</b></label>
+                        <input type="email" name="contactEmail" id="contactEmail" class="form-control" required>
                     </div>
-                    <div class="row my-2">
-                        <div class="col">
-                            <p><b>Contact Name</b></p>
-                            <div class="row">
-                                <div class="col">
-                                    <input type="text" name="contactName" class="form-control" required>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="mb-3">
+                        <label for="contactPhoneNumber" class="form-label"><b>Contact Phone Number</b></label>
+                        <input type="text" name="contactPhoneNumber" id="contactPhoneNumber" class="form-control" required>
                     </div>
-                    <div class="row my-2">
-                        <div class="col">
-                            <p><b>Contact Email</b></p>
-                            <div class="row">
-                                <div class="col">
-                                    <input type="email" name="contactEmail" class="form-control" required>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row my-2">
-                        <div class="col">
-                            <p><b>Contact Phone Number</b></p>
-                            <div class="row">
-                                <div class="col">
-                                    <input type="text" name="contactPhoneNumber" class="form-control" required>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row my-5 d-flex justify-content-end align-items-end">
-                        <div class="col d-flex justify-content-end">
-                            <button type="submit" form="step2Form" class="btn btn-primary w-20">Next</button>
-                        </div>
-                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col text-end">
+                    <button type="submit" form="step2Form" class="btn btn-primary">Next</button>
                 </div>
             </div>
         </form>
