@@ -13,7 +13,8 @@
 </div>
 
 
-<div class="sponsor-advertisement row mt-3 d-flex justify-content-center">
+<div class="sponsor-advertisement row mt-3 d-flex justify-content-center
+">
     <div class="col-md-4">
         <h1 class="d-flex justify-content-center h2 mb-4">Trusted By</h1>
         <div class="d-flex justify-content-center flex-wrap gap-3">
