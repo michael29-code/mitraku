@@ -38,7 +38,7 @@
         <div class="container row row-cols-4">
             @foreach ($blogs as $blog)
                 <div>
-                    <a class="text-decoration-none" href="{{ route('view-blog-detail') }}">
+                    <a class="text-decoration-none" href="{{ route('view-blog-detail', $blog->id) }}">
                         <div class="rectangle col" style="width: 20rem; height: 30rem">
                             <img class="rounded p-3" src="{{ $blog->image }}" alt="bnr1"
                                 style="height: 15rem; width: 20rem">

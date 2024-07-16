@@ -5,7 +5,7 @@
             <div class="col">
                 <div class="row p-1">
                     <a class="navbar-brand me-auto" href="#">
-                        <img src="images/LogoMitraku.png" alt="Mitraku" class="logo-size-sm">
+                        <img src="/images/LogoMitraku.png" alt="Mitraku" class="logo-size-sm">
                     </a>
                 </div>
                 <div class="row p-1 ps-3 body-medium-bold">

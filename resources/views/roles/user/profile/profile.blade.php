@@ -11,8 +11,7 @@
                 <form action="{{ route('uploud-image') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <label for="formFile" class="form-label">Pilih Foto</label>
-                    <input class="form-control" type="file" id="image" name="image"
-                        @error('image') is-invalid @enderror>
+                    <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image" required>
                     @error('image')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -71,11 +70,6 @@
 
                 <div class="modal fade" id="change-password" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
-                    {{-- <div class="modal fade @if ($errors->any()) show @endif" id="change-password"
-                        tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" --}}
-                    @if ($errors->any())
-                        style="display: block;"
-                    @endif>
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <form action="{{ route('change-password') }}" method="POST">
@@ -108,8 +102,8 @@
                                             <input name="password_confirmation" type="password"
                                                 class="form-control @error('password_conformation') is-invalid @enderror passwordInputPlace2"
                                                 id="password_conformation" required placeholder="confirm your new password">
-                                            <i class="bi bi-eye-slash-fill opacity-75 passwordIconPlace2" id="togglePassword"
-                                                style="cursor: pointer;"></i>
+                                            <i class="bi bi-eye-slash-fill opacity-75 passwordIconPlace2"
+                                                id="togglePassword" style="cursor: pointer;"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -117,9 +111,6 @@
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                     <button type="submit" class="btn btn-primary">Save changes</button>
                                 </div>
-                                {{-- <label for="recipient-name" class="col-form-label">New Password</label>
-                                    <input type="text" name="password" class="form-control" id="password" required>
-                                    <button class="btn btn-primary">Save changes</button> --}}
                             </form>
                         </div>
                     </div>
@@ -134,7 +125,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 
-    @if ($errors->any())
+    @if ($errors->has('password'))
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 var myModal = new bootstrap.Modal(document.getElementById('change-password'));

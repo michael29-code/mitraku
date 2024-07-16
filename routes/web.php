@@ -98,7 +98,7 @@ Route::group(['middleware' => ['CheckBlockUser:0']], function () {
 
         //BLOG
         Route::get('/blog', [BlogController::class, 'viewBlogUser'])->name('view-blog');
-        Route::get('/blog-detail', [BlogController::class, 'blogDetailUser'])->name('view-blog-detail');
+        Route::get('/blog-detail/{id}', [BlogController::class, 'blogDetailUser'])->name('view-blog-detail');
 
         //PROFILE
         // Route::get('/profile', function () {
