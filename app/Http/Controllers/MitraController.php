@@ -142,6 +142,12 @@ class MitraController extends Controller
         return view('roles.user.mitra.mitra', compact('mitras', 'searchTerm'));
     }
     
+    public function searchAdmin(Request $request)
+    {
+        $searchTerm = $request->input('search');
+        $mitras = Mitra::where('mitraName', 'like', '%'.$searchTerm.'%');
+        return view('roles.user.mitra.viewFormPengajuan', compact('mitras', 'searchTerm'));
+    }
 
     // public function search(Request $request)
     // {

@@ -18,11 +18,11 @@
         @endif
         
         @if(isset($mitras))
-        <ul>
+        {{-- <ul>
             @foreach($mitras as $mitra)
             <li>{{ $mitra->mitraName }}</li>
             @endforeach
-        </ul>
+        </ul> --}}
         <p class="mb-0">{{ $mitras->total() }} Results for Search</p>
         @endif
         <div class="container p-5 h-100" style="margin-top: 0;">

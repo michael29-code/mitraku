@@ -11,9 +11,6 @@ use Illuminate\Support\Facades\Auth;
 
 class PaymentController extends Controller
 {
-
-
-
     public function index()
     {
         $userId = Auth::user()->id;

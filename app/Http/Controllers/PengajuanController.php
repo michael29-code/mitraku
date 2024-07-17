@@ -10,9 +10,10 @@ use Illuminate\View\View;
 class PengajuanController extends Controller
 {
         
-    public function create(){
+    public function create(Request $request){
         return view('roles.user.mitra.viewFormPengajuan');
     }
+
     public function store(Request $request){
         $validatedData = $request->validate([
             'user_id' => 'required',

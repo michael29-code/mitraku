@@ -10,12 +10,13 @@
                 <div class="col-auto">
                     <a href="{{ route('view-mitra') }}" class="text-decoration-none d-flex align-items-center">
                         <i class="fa-solid fa-arrow-left" style="font-size: 2rem;"></i>
-                        <span class="ms-4" style="font-size: 1.5rem;">Back</span>
+                        <span class="ms-4" style="font-size: 1.5rem;">Back</span>   
                     </a>
                 </div>
                 <div class="col text-center">
                     <h2 class="mb-0">{{ $mitra->mitraName }}</h2>
                 </div>
+                <div class="col-1"></div>
             </div>
             <div class="row my-5">
                 <div class="col text-center">
@@ -28,8 +29,8 @@
         
         <div class="container my-5 m-auto d-flex w-100 justify-content-center align-items-center flex-column">
             <div class="row w-100">
-                <div class="col bg-secondary rounded-5">
-                    {{-- <img src="" class="img-fluid" alt="..."> --}}
+                <div class="col">
+                    <img src="{{ asset('images/' . $mitra->image_cover) }}" class="img-fluid rounded" alt="Image Cover">
                 </div>
                 <div class="col p-5">
                     <div class="row">
@@ -69,26 +70,17 @@
     <div class="container my-5">
         <h4 class="mb-4">Gallery</h4>
         <div class="row">
-            <div class="col-md-3 mb-4">
-                <div class="card bg-secondary rounded-5"  style="height: 200px;">
-                    
-                </div>
-            </div>
-            <div class="col-md-3 mb-4">
-                <div class="card bg-secondary rounded-5"  style="height: 200px;">
-                    
-                </div>
-            </div>
-            <div class="col-md-3 mb-4">
-                <div class="card bg-secondary rounded-5"  style="height: 200px;">
-                    
-                </div>
-            </div>
-            <div class="col-md-3 mb-4">
-                <div class="card bg-secondary rounded-5"  style="height: 200px;">
-                    
-                </div>
-            </div>
+            @if(!empty($mitra->galeri))
+                @foreach(json_decode($mitra->galeri) as $galleryImage)
+                    <div class="col-md-3 mb-4">
+                        <div class="card rounded-5" style="height: 200px;">
+                            <img src="{{ asset('images/' . $galleryImage) }}" class="img-fluid rounded" alt="Gallery Image">
+                        </div>
+                    </div>
+                @endforeach
+            @else
+                <p>No images in the gallery.</p>
+            @endif
         </div>
     </div>
     <div class="container my-5 m-auto d-flex w-100 justify-content-center align-items-center flex-column">
@@ -106,7 +98,11 @@
             <div class="col-md-6 mb-4">
                 <div class="col">
                     <h4>Location</h4>
-                    <div class="card bg-secondary rounded-5" style="height: 200px;"></div>
+                    <div class="card rounded-5 w-50">
+                        <div class="col">
+                            <img src="{{ asset('images/' . $mitra->image_map) }}" class="img-fluid rounded" alt="Image Cover">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
