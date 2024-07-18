@@ -32,9 +32,10 @@
                         <a href="{{ route('detail-mitra', $mitra->id) }}" class="text-decoration-none">
                             <div class="card mx-2 mb-4">
                                 <div class="card-img-top position-relative" style="height: 50%;">
-                                    <img src="https://www.hargatiket.net/wp-content/uploads/2018/07/Harga-Tiket-Citra-Raya-Water-World.jpg"
-                                        class="img-fluid w-100 h-100" alt="Avatar"
+                                    <img src="{{ asset('images/' . $mitra->image_cover) }}"
+                                        class="img-fluid w-100" alt="Avatar"
                                         style="object-fit: cover;">
+                                        {{-- <img src="{{ asset('images/' . $mitra->image_cover) }}" class="img-fluid rounded" alt="Image Cover"> --}}
                                     <span class="badge text-bg-primary rounded-pill position-absolute top-0 end-0 m-2"
                                         style="font-size: 1.25rem; padding: 0.5em 1em;">EKSKLUSIF</span>
                                 </div>

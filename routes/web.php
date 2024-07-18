@@ -165,3 +165,5 @@ Route::delete('/manage-advertisements/{id}/delete', [AdvertisementController::cl
 Route::get('/manage-advertisements/{id}/edit', [AdvertisementController::class, 'edit'])->name('edit-advertisement-admin');
 Route::put('/manage-advertisements/{id}/update', [AdvertisementController::class, 'update'])->name('update-advertisement-admin');
 Route::get('/search-advertisement', [AdvertisementController::class, 'search'])->name('search-advertisement-admin');
+// Route::get('/mitra-search', [MitraController::class, 'index'])->name('mitra-search-admin');
+Route::get('/mitra-search-admin', [MitraController::class, 'searchAdmin'])->name('mitra-search-admin');

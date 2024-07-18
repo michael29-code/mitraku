@@ -7,7 +7,7 @@
         <div class="col-lg-10">
             <div class="p-4">
                 <h1 class="h2">View Mitra</h1>
-                <form action="{{ route('mitra-admin-search') }}" method="GET">
+                <form action="{{ route('mitra-search-admin') }}" method="GET">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="Search Mitra by Name" name="search">
                         <button class="btn btn-outline-primary" type="submit">Search</button>
