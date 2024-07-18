@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use PDF;
 use App\Models\Mitra;
 use App\Models\Pengajuan;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -43,6 +44,7 @@ class MitraController extends Controller
         $mitra->awards = $mitra['awards'] ?? null;
         $mitra->address = $mitra['address'] ?? null;
         $mitra->image_map = $mitra['image_map'] ?? null;
+        $mitra->isBlocked = 0;
         // dd($mitra);
         $mitra->save();
         $request->session()->put('mitra_id', $mitra->id);
@@ -175,14 +177,21 @@ class MitraController extends Controller
 
     public function toggleBlock($id){
         $mitra = Mitra::find($id);
-        // $user->isBlocked = 1;
+        $user = User::find($mitra->user_id);
         // dd($user);
+        // dd($mitra);
         if($mitra->isBlocked == 0){
             $mitra->isBlocked = 1;
+            $user->isBlocked = 1;
+            // dd($user);
         } else {
             $mitra->isBlocked = 0;
+            $user->isBlocked = 0;
         }
+        $user->save();
         $mitra->save();
+
+        // dd($user);
         return redirect()->back();
     }
 

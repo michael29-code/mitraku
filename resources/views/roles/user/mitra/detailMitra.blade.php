@@ -54,7 +54,7 @@
                             <a href="https://api.whatsapp.com/send?phone={{ $mitra->contactPhoneNumber }}" target="_blank" class="btn btn-primary">Contact</a>
                         </div>
                         <div class="btn-group me-2" role="group" aria-label="Second button">
-                            <a href="form-pengajuan" class="btn btn-outline-primary">Send Form</a>
+                            <a href="/form-pengajuan/{{ $mitra->id }}" class="btn btn-outline-primary">Send Form</a>
                         </div>
                     </div>
                     <div class="row my-5">

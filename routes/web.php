@@ -110,7 +110,7 @@ Route::group(['middleware' => ['CheckBlockUser:0']], function () {
 
         // FORM PENGAJUAN
         Route::get('/view-pengajuan', [PengajuanController::class, 'view']);
-        Route::get('/form-pengajuan', [PengajuanController::class, 'create'])->name('form-pengajuan');
+        Route::get('/form-pengajuan/{pengajuan}', [PengajuanController::class, 'create'])->name('form-pengajuan');
         Route::post('/add-pengajuan', [PengajuanController::class, 'store']);
         Route::get('/download/{pengajuan}', DownloadPDFController::class);
         Route::get('/pengajuan/edit/{id}', [PengajuanController::class, 'edit']);

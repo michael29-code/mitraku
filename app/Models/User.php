@@ -58,7 +58,7 @@ class User extends Authenticatable
 
     public function mitra(): HasOne
     {
-        return $this->hasOne(Mitra::class, 'id');
+        return $this->hasOne(Mitra::class);
     }
     public function pengajuans(): HasMany
     {
@@ -77,6 +77,6 @@ class User extends Authenticatable
             return url('storage/'. $this->image);
         }
 
-        return "images/default_user_profile.jpg";
+        return "/images/default_user_profile.jpg";
     }
 }

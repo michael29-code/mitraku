@@ -39,7 +39,7 @@ class UserSeeder extends Seeder
         ]);
 
         User::create([
-            'username' => 'UserWMitra',
+            'username' => 'User2',
             'level' => 3,
             'date_of_birth' => '2001-03-03',
             'email' => 'user2@gmail.com',
@@ -48,7 +48,56 @@ class UserSeeder extends Seeder
             'image' => '',
             'isBlocked' => '0'
         ]);
+        User::create([
+            'username' => 'User3',
+            'level' => 3,
+            'date_of_birth' => '2001-03-03',
+            'email' => 'user3@gmail.com',
+            'password' => bcrypt('useruser'),
+            'address' => 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit, nemo!',
+            'image' => '',
+            'isBlocked' => '0'
+        ]);
+        User::create([
+            'username' => 'User4',
+            'level' => 3,
+            'date_of_birth' => '2001-03-03',
+            'email' => 'user4@gmail.com',
+            'password' => bcrypt('useruser'),
+            'address' => 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit, nemo!',
+            'image' => '',
+            'isBlocked' => '0'
+        ]);
+        User::create([
+            'username' => 'User5',
+            'level' => 3,
+            'date_of_birth' => '2001-03-03',
+            'email' => 'user5@gmail.com',
+            'password' => bcrypt('useruser'),
+            'address' => 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit, nemo!',
+            'image' => '',
+            'isBlocked' => '0'
+        ]);
+        User::create([
+            'username' => 'User6',
+            'level' => 3,
+            'date_of_birth' => '2001-03-03',
+            'email' => 'user6@gmail.com',
+            'password' => bcrypt('useruser'),
+            'address' => 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit, nemo!',
+            'image' => '',
+            'isBlocked' => '0'
+        ]);
 
-
+        User::create([
+            'username' => 'User7',
+            'level' => 3,
+            'date_of_birth' => '2001-03-03',
+            'email' => 'user7@gmail.com',
+            'password' => bcrypt('useruser'),
+            'address' => 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit, nemo!',
+            'image' => '',
+            'isBlocked' => '0'
+        ]);
     }
 }
