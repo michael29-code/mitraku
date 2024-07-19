@@ -16,8 +16,8 @@
                 </div>
             @endif
             <div class="col">
-                @foreach ($pengajuans as $pengajuan)
-                    <ol class="list-group list-group-numbered">
+                <ol class="list-group list-group-numbered">
+                    @foreach ($pengajuans as $pengajuan)
                         <li class="list-group-item d-flex justify-content-between align-items-start">
                             <div class="ms-2 me-auto">
                                 <div class="fw-bold">{{ $pengajuan->name }}</div>
@@ -32,8 +32,8 @@
                                         data-feather="x-circle"></span> Delete</button>
                             </form>
                         </li>
-                    </ol>
-                @endforeach
+                    @endforeach
+                </ol>
             </div>
         </div>
         {{ $pengajuans->links() }}

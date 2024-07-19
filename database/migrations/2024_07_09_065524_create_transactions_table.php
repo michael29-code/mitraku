@@ -16,7 +16,9 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('advertise_id');
             $table->integer('gross_amount');
-            $table->string('status');
+            $table->date('starts_at');
+            $table->date('ends_at');
+            $table->string('status')->default('pending'); // pending, active, expired, cancel?
             $table->string('snap_token')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

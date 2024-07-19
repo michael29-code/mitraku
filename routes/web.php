@@ -118,8 +118,8 @@ Route::group(['middleware' => ['CheckBlockUser:0']], function () {
         Route::delete('/pengajuan/delete/{id}', [PengajuanController::class, 'destroy']);
 
         //PAYMENT
-        Route::get('/transactions', [PaymentController::class, 'index'])->name('transaction');
-        Route::get('/payment', [PaymentController::class, 'show'])->name('payment');
+        Route::get('/transactions', [PaymentController::class, 'index'])->name('transactions');
+        Route::get('/payment/{transaction}', [PaymentController::class, 'show'])->name('payment');
         Route::post('/pay/store', [PaymentController::class, 'pay'])->name('pay');
         Route::get('/checkout/{transaction}', [PaymentController::class, 'checkout'])->name('checkout');
         Route::get('/checkout/success/{transaction}', [PaymentController::class, 'success'])->name('checkout-success');

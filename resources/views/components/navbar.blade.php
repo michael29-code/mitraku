@@ -35,7 +35,6 @@
                             Pengajuan
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/form-pengajuan">Form Pengajuan</a></li>
                             <li><a class="dropdown-item" href="/view-pengajuan">History Pengajuan</a></li>
                         </ul>
                     </li>
@@ -75,6 +74,11 @@
                             <a href="#" class="sub-menu-link">
                                 <i class="bi bi-building-fill-gear"></i>
                                 <p class="body-large-medium">Mitra Profile</p>
+                                <i class="bi bi-caret-right p-0 m-0"></i>
+                            </a>
+                            <a href="{{ route('transactions') }}" class="sub-menu-link">
+                                <i class="bi bi-building-fill-add"></i>
+                                <p class="body-large-medium">Transactions</p>
                                 <i class="bi bi-caret-right p-0 m-0"></i>
                             </a>
                         @endif
