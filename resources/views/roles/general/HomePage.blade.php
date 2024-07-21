@@ -72,9 +72,9 @@
 
     <div class="text-center row row-cols-2 m-3 g-3 p-5">
         <img class="" src="/images/Dinding.png" alt="dinding" height="300rem">
-        <div class="row align-items-center col body-medium-bold p-2">
-            <div class="row p-2" style="width:25rem">
-                <h3>Multi Curency Increase Update</h3>
+        <div class="align-self-center col body-medium-bold p-2">
+            <div class="row p-2">
+                <h2>Multi Curency Increase Update</h2>
             </div>
             <div class="p-2">
                 <p>Whether it's selling your current home, getting financing, or buying a new home, we make it easy and

@@ -395,26 +395,28 @@ h6,
     margin: 0 auto;
     height: 200px;
     /* background-image: url('path/to/your/image.jpg'); */
-    background-color: #4b7df3;
+    background-color: #FFFFFF;
     /* background-image: url('{{ asset('images/cover.jpg') }}'); */
     border-radius: 8px;
+
+    box-shadow: 1px 1px lightgrey;
 }
 
 .title {
     font-size: 28px;
-    color: #f8fafc;
+    color: black;
     margin-left: 20px;
 }
 
 .author {
     font-size: 15px;
-    color: white;
+    color: black;
     margin-left: 20px;
 }
 
 .date {
     font-size: 15px;
-    color: white;
+    color: grey;
     margin-left: -70px;
 }
 
@@ -432,7 +434,7 @@ h6,
 
 .miniRectangle {
     width: 100px;
-    background-color: #ffffff;
+    background-color: lightblue;
     height: 20px;
     margin-left: 30px;
     border-radius: 5px;
@@ -440,7 +442,8 @@ h6,
 
 .card-title {
     font-size: 14px;
-    color: #111729;
+    color: black;
+    margin-left: 20px;;
 }
 
 .blogTitle {

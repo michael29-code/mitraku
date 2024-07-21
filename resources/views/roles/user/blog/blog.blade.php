@@ -39,16 +39,16 @@
             @foreach ($blogs as $blog)
                 <div>
                     <a class="text-decoration-none" href="{{ route('view-blog-detail', $blog->id) }}">
-                        <div class="rectangle col" style="width: 20rem; height: 30rem">
+                        <div class="rectangle col" style="width: 21rem; height: 30rem">
                             <img class="rounded p-3" src="{{ $blog->image }}" alt="bnr1"
-                                style="height: 15rem; width: 20rem">
+                                style="height: 15rem; width: 21rem">
                             <div class="rectangleSpace" style="height: 1rem"></div>
                             <div class="miniRectangle text-center" style="">
                                 <h4 class="category">{{ $blog->kategori->jenisKategori }}</h4>
                             </div>
                             <div class="rectangleSpace" style="height: 1rem"></div>
-                            <div class="row" style="width: 19rem; height: 5rem;">
-                                <h4 class="author">{{ $blog->title }}</h4>
+                            <div class="row" style="width: 21rem; height: 5rem;">
+                                <h4 class="card-title">{{ $blog->title }}</h4>
                             </div>
                             <div class="rectangleSpace" style="height: 1rem"></div>
                             <div class="row row-cols-3 align-item-center g-3">
@@ -64,7 +64,7 @@
                             </div>
                         </div>
                     </a>
-                    <div class="rectangleSpace" style="height: 3rem"></div>
+                    <div class="rectangleSpace" style="height: 1.5rem"></div>
                 </div>
             @endforeach
         </div>
