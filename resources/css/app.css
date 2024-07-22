@@ -409,7 +409,13 @@ h6,
 }
 
 .author {
-    font-size: 15px;
+    font-size: 13px;
+    color: black;
+    margin-left: 20px;
+}
+
+.created_at {
+    font-size: 13px;
     color: black;
     margin-left: 20px;
 }
@@ -421,7 +427,7 @@ h6,
 }
 
 .category {
-    font-size: 15px;
+    font-size: 13px;
     color: #4b7df3;
     font-weight: bold;
 }
@@ -434,9 +440,9 @@ h6,
 
 .miniRectangle {
     width: 100px;
-    background-color: lightblue;
+    background-color: rgb(218, 235, 241);
     height: 20px;
-    margin-left: 30px;
+    margin-left: 20px;
     border-radius: 5px;
 }
 

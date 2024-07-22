@@ -40,15 +40,15 @@
                 <div>
                     <a class="text-decoration-none" href="{{ route('view-blog-detail', $blog->id) }}">
                         <div class="rectangle col" style="width: 21rem; height: 30rem">
-                            <img class="rounded p-3" src="{{ $blog->image }}" alt="bnr1"
+                            <img class="rounded p-2" src="{{ $blog->image }}" alt="bnr1"
                                 style="height: 15rem; width: 21rem">
                             <div class="rectangleSpace" style="height: 1rem"></div>
-                            <div class="miniRectangle text-center" style="">
-                                <h4 class="category">{{ $blog->kategori->jenisKategori }}</h4>
+                            <div class="miniRectangle text-center">
+                                <div class="category">{{ $blog->kategori->jenisKategori }}</div>
                             </div>
                             <div class="rectangleSpace" style="height: 1rem"></div>
-                            <div class="row" style="width: 21rem; height: 5rem;">
-                                <h4 class="card-title">{{ $blog->title }}</h4>
+                            <div class="row" style="width: 20rem; height: 5rem;">
+                                <h5 class="card-title">{{ $blog->title }}</h5>
                             </div>
                             <div class="rectangleSpace" style="height: 1rem"></div>
                             <div class="row row-cols-3 align-item-center g-3">
@@ -57,9 +57,15 @@
                                     <img class="rounded-circle" src="/images/profile_admin.jpg" alt=""
                                         style="height: 3rem; width: 3rem">
                                 </div>
-                                <div class="col" style="width: 15rem">
-                                    <h3 class="author">{{ $blog->writer->username }}</h3>
-                                    <h4 class="author">{{ $blog->created_at->diffForHumans() }}</h4>
+                                <div class="column" style="width: 15rem">
+                                    <div class="author">
+                                        {{ $blog->writer->username }}
+                                    </div>
+
+                                    <div class="created_at">
+                                        {{ $blog->created_at->diffForHumans() }}
+                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
