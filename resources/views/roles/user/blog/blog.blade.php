@@ -8,10 +8,10 @@
 
         <div class="rectangleSpace" style="height: 3rem"></div>
 
-        <div class="rectangle" style="">
-            <div class="rectangleSpace" style="height: 2rem"></div>
-            <div class="miniRectangle text-center" style="">
-                <h1 class="category">Technology</h1>
+        <div class="rectangle mt-4" style="">
+            {{-- <div class="rectangleSpace" style="height: 2rem"></div> --}}
+            <div class="miniRectangleHeader text-center d-flex justify-content-center align-items-center">
+                <h1 class="category m-0 p-0">Technology</h1>
             </div>
             <div class="row align-items-center p-3" style="width: 55rem">
                 <h1 class="title">The Impact of Technology on the Workplace: How Technology is Changing</h1>
@@ -25,7 +25,7 @@
                 <div class="col p-3">
                     <h3 class="author">Tracey Wilson</h3>
                 </div>
-                <div class="rectangleSpace align-item-center" style="width: 2.5rem"></div>
+                <div class="align-item-center" style="width: 2.5rem"></div>
                 <div class="col p-3">
                     <h3 class="date">August 20, 2022</h3>
                 </div>
