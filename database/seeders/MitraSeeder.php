@@ -25,12 +25,6 @@ class MitraSeeder extends Seeder
             'contactEmail' => 'davidrodloy@teknologimajujaya.com',
             'contactPhoneNumber' => '0123456789',
             'mitra_details' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.',
-            'galeri' => json_encode([
-                'url/to/image1.png', 
-                'url/to/image2.png',
-                'url/to/image3.png',
-                'url/to/image4.png'
-            ]),
             'latest_rating_and_certificate' => json_encode([
                 [
                     'nama_pemberi' => 'PEFINDO Credit Rating Agency',
@@ -92,7 +86,6 @@ class MitraSeeder extends Seeder
             'image_map' => 'url/to/map/image.png',
             'address' => 'Jl. Teknologi No. 1, Jakarta, Indonesia',
             'isBlocked' => 0,
-
         ]);
 
         Mitra::create([
@@ -107,12 +100,6 @@ class MitraSeeder extends Seeder
             'contactEmail' => 'davidrodloy@teknologimajujaya.com',
             'contactPhoneNumber' => '0123456789',
             'mitra_details' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.',
-            'galeri' => json_encode([
-                'url/to/image1.png', 
-                'url/to/image2.png',
-                'url/to/image3.png',
-                'url/to/image4.png'
-            ]),
             'latest_rating_and_certificate' => json_encode([
                 [
                     'nama_pemberi' => 'PEFINDO Credit Rating Agency',
@@ -189,12 +176,6 @@ class MitraSeeder extends Seeder
             'contactEmail' => 'davidrodloy@teknologimajujaya.com',
             'contactPhoneNumber' => '0123456789',
             'mitra_details' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.',
-            'galeri' => json_encode([
-                'url/to/image1.png', 
-                'url/to/image2.png',
-                'url/to/image3.png',
-                'url/to/image4.png'
-            ]),
             'latest_rating_and_certificate' => json_encode([
                 [
                     'nama_pemberi' => 'PEFINDO Credit Rating Agency',
@@ -271,12 +252,6 @@ class MitraSeeder extends Seeder
             'contactEmail' => 'davidrodloy@teknologimajujaya.com',
             'contactPhoneNumber' => '0123456789',
             'mitra_details' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.',
-            'galeri' => json_encode([
-                'url/to/image1.png', 
-                'url/to/image2.png',
-                'url/to/image3.png',
-                'url/to/image4.png'
-            ]),
             'latest_rating_and_certificate' => json_encode([
                 [
                     'nama_pemberi' => 'PEFINDO Credit Rating Agency',
@@ -352,12 +327,6 @@ class MitraSeeder extends Seeder
             'contactEmail' => 'davidrodloy@teknologimajujaya.com',
             'contactPhoneNumber' => '0123456789',
             'mitra_details' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.',
-            'galeri' => json_encode([
-                'url/to/image1.png', 
-                'url/to/image2.png',
-                'url/to/image3.png',
-                'url/to/image4.png'
-            ]),
             'latest_rating_and_certificate' => json_encode([
                 [
                     'nama_pemberi' => 'PEFINDO Credit Rating Agency',

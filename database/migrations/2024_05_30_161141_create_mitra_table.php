@@ -24,9 +24,6 @@ return new class extends Migration
             $table->string('contactEmail');
             $table->string('contactPhoneNumber');
             $table->text('mitra_details');
-            $table->json('galeri')->nullable();
-            $table->json('latest_rating_and_certificate')->nullable();
-            $table->json('awards')->nullable();
             $table->string('image_map')->nullable();
             $table->string('address')->nullable();
             $table->tinyInteger('isBlocked');
@@ -35,9 +32,6 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('mitras');

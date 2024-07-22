@@ -5,7 +5,6 @@
         <div class="text-center mb-4">
             <h2>Create Mitra - Step 1</h2>
         </div>
-
         <form id="step1Form" action="{{ route('store-mitra-1') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row my-3 w-60 mb-5">
@@ -65,10 +64,7 @@
                             <option value="">Open this select menu</option>
                             <option value="Teknologi" {{ old('mitraCategory') == 'Teknologi' ? 'selected' : '' }}>Teknologi</option>
                             <option value="Restoran" {{ old('mitraCategory') == 'Restoran' ? 'selected' : '' }}>Restoran</option>
-                            <option value="Real Estate" {{ old('mitraCategory') == 'Real Estate' ? 'selected' : '' }}>Real Estate</option>
-                            <option value="Catering" {{ old('mitraCategory') == 'Catering' ? 'selected' : '' }}>Catering</option>
-                            <option value="Event Organizer" {{ old('mitraCategory') == 'Event Organizer' ? 'selected' : '' }}>Event Organizer</option>
-                            <option value="Arsitektur" {{ old('mitraCategory') == 'Arsitektur' ? 'selected' : '' }}>Arsitektur</option>
+                            <option value="Bangunan" {{ old('mitraCategory') == 'Bangunan' ? 'selected' : '' }}>Bangunan</option>
                         </select>
                         @error('mitraCategory')
                             <div class="invalid-feedback">

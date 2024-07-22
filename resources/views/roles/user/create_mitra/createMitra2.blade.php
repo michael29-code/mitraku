@@ -39,11 +39,7 @@
                     <p>Ensure your mitra information is valid.</p>
                     <div class="mb-3">
                         <label for="mitra_details" class="form-label"><b>Mitra Details</b></label>
-                        <textarea name="mitra_details" id="mitra_details" class="form-control" style="height: 100px" required></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label for="galeri" class="form-label"><b>Gallery</b></label>
-                        <input type="file" name="galeri[]" id="galeri" class="form-control" multiple required>
+                        <textarea name="mitra_details" id="mitra_details" class="form-control" style="height: 160px" required></textarea>
                     </div>
                 </div>
 

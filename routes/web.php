@@ -147,6 +147,8 @@ Route::post('/create-mitra/store-step-2', [MitraController::class, 'storeStep2']
 
 Route::get('/create-mitra/step-3', [MitraController::class, 'createStep3'])->name('create-mitra-3');
 Route::post('/create-mitra/store-step-3', [MitraController::class, 'storeStep3'])->name('store-mitra-3');
+
+Route::post('/create-mitra/storeMitra', [MitraController::class, 'storeMitra'])->name('store-mitra');
 // Route::get('/view-mitra')
 Route::get('/mitra-search', [MitraController::class, 'search'])->name('mitra-search');
 
