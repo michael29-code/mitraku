@@ -4,7 +4,7 @@
     <div class="row" style="height: 80vh">
         <div class="col-4 g-5">
             <div class="container col-8">
-                <img class="rounded-circle" style="width: 15rem; height: 15rem;" src="{{ $user->getImageURL() }}"
+                <img class="rounded-circle ms-4" style="width: 15rem; height: 15rem;" src="{{ $user->getImageURL() }}"
                     alt="profile_image">
             </div>
             <div class="mb-3 p-5">
@@ -17,7 +17,7 @@
                             {{ $message }}
                         </div>
                     @enderror
-                    <div class="p-3">
+                    <div class="d-flex justify-content-center mt-3">
                         <button type="submit" class="btn btn-primary">Upload Image</button>
                     </div>
                 </form>
@@ -25,7 +25,7 @@
         </div>
 
         <div class="col-8 mt-5">
-            <div class="">
+            <div class="mb-4">
                 <h2>Biodata Diri</h5>
             </div>
 
