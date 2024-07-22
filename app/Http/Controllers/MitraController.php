@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Certificate;
 use App\Models\Penghargaan;
 use PDF;
@@ -16,7 +17,8 @@ class MitraController extends Controller
 {
     public function createStep1()
     {
-        return view('roles.user.create_mitra.createMitra1');
+        $categories = Category::all();
+        return view('roles.user.create_mitra.createMitra1', compact('categories'));
     }
 
     public function storeStep1(Request $request)
@@ -26,19 +28,23 @@ class MitraController extends Controller
             'mitraOverview' => 'required|string',
             'mitraYear' => 'required|integer',
             'mitraWebsite' => 'nullable|string',
-            'mitraCategory' => 'nullable|string',
+            'mitraCategory' => 'required|string|not_in:',
             'image_cover' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ], [
+            'mitraName.min' => 'Mitra Name must be at least 8 characters.',
+            'mitraName.unique' => 'Mitra Name must be unique.',
+            'mitraCategory.required' => 'Please select a category.',
+            'mitraCategory.not_in' => 'Please select a valid category.',
         ]);
 
         if ($request->hasFile('image_cover')) {
             $image = $request->file('image_cover');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('images'), $imageName);
+            $image->storeAs('public/mitra-images', $imageName);
             $validatedData['image_cover'] = $imageName;
         }
 
         $request->session()->put('step1Data', $validatedData);
-        // dd($validatedData);
         return redirect()->route('create-mitra-2')
             ->with('success', 'Step 1 completed successfully');
     }

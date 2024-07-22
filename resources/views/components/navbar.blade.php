@@ -16,9 +16,18 @@
                         <a class="nav-link @yield('isHomeActive') mx-lg-2" aria-current="page"
                             href="{{ route('home') }}">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link @yield('isMitraActive') mx-lg-2" href="{{ route('view-mitra') }}">Mitra</a>
-                    </li>
+                    @auth
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle @yield('isMitraActive')" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Mitra
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/view-mitra">View Mitra</a></li>
+                                <li><a class="dropdown-item" href="/create-mitra-1">Create Mitra</a></li>
+                            </ul>
+                        </li>
+                    @endauth
                     <li class="nav-item">
                         <a class="nav-link @yield('isBlogActive') mx-lg-2" href="{{ route('view-blog') }}">Blog</a>
                     </li>

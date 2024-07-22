@@ -40,13 +40,27 @@
             <div class="row">
                 <div class="col-md-5">
                     <h4>Mitra Information</h4>
-                    <div class="mb-3">
-                        <label for="mitraName" class="form-label"><b>Mitra Name</b></label>
-                        <input type="text" name="mitraName" id="mitraName" class="form-control" required value="{{ session()->has('step1Data') ?  session('step1Data')['mitraName'] : ''}}">
-                    </div>                    
-                    <div class="mb-3">
+                    <div class="row mt-4">
+                        <div class="col">
+                            <label for="mitraName" class="form-label"><b>Mitra Name</b></label>
+                            <input type="text" name="mitraName" id="mitraName" class="form-control @error('mitraName') is-invalid @enderror"
+                                   required value="{{ old('mitraName', session()->has('step1Data') ? session('step1Data')['mitraName'] : '') }}">
+                            @error('mitraName')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                    </div>
+                                                                 
+                    <div class="form-group">
                         <label for="mitraOverview" class="form-label"><b>Mitra Overview</b></label>
-                        <textarea name="mitraOverview" id="mitraOverview" class="form-control" style="height: 100px" required value="{{ session()->has('step1Data') ?  session('step1Data')['mitraOverview'] : ''}}"></textarea>
+                        <textarea name="mitraOverview" id="mitraOverview" class="form-control" style="height: 100px" required>{{ session()->has('step1Data') ? session('step1Data')['mitraOverview'] : old('mitraOverview') }}</textarea>
+                        @error('mitraOverview')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                     <div class="mb-3">
                         <label for="mitraYear" class="form-label"><b>Establishment Year</b></label>
@@ -65,21 +79,34 @@
                     </div>
                     <div class="mb-3">
                         <label for="mitraCategory" class="form-label"><b>Category</b></label>
-                        <select class="form-select @error('mitraCategory') is-invalid @enderror" id="mitraCategory" name="mitraCategory">
+                        <select class="form-select @error('mitraCategory') is-invalid @enderror" id="mitraCategory" name="mitraCategory" required>
                             <option value="">Open this select menu</option>
-                            <option value="Teknologi" {{ old('mitraCategory') == 'Teknologi' ? 'selected' : '' }}>Teknologi</option>
-                            <option value="Restoran" {{ old('mitraCategory') == 'Restoran' ? 'selected' : '' }}>Restoran</option>
-                            <option value="Bangunan" {{ old('mitraCategory') == 'Bangunan' ? 'selected' : '' }}>Bangunan</option>
+                            @foreach($categories as $category)
+                                <option value="{{ $category->jenisKategori }}" 
+                                    {{ session()->has('step1Data') && session('step1Data')['mitraCategory'] == $category->jenisKategori ? 'selected' : (old('mitraCategory') == $category->jenisKategori ? 'selected' : '') }}>
+                                    {{ $category->jenisKategori }}
+                                </option>
+                            @endforeach
                         </select>
                         @error('mitraCategory')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
+                        @enderror                        
+                    </div>                    
+                    <div class="form-group">
+                        <label for="image_cover">Image Cover</label>
+                        <input type="file" class="form-control @error('image_cover') is-invalid @enderror" id="image_cover" name="image_cover">
+                        @if(session()->has('step1Data.image_cover'))
+                            <div>
+                                <img src="{{ asset('images/' . session('step1Data.image_cover')) }}" alt="Image Cover" style="max-width: 200px; margin-top: 10px;">
+                            </div>
+                        @endif
+                        @error('image_cover')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
                         @enderror
-                    </div>
-                    <div class="mb-3">
-                        <label for="image_cover" class="form-label"><b>Image Cover</b></label>
-                        <input type="file" name="image_cover" id="image_cover" class="form-control">
                     </div>
                 </div>
             </div>
