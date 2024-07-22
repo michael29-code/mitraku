@@ -3,13 +3,17 @@
 @section('isAdvertisementActive', 'active')
 
 @section('content')
-    <div class=" header-advertisment col-lg-5 p-4">
-        <h1 class="h1">Reach millions of early adopters</h1>
-        <div class="body-medium-medium">Our advertising options will help you build traction with the most influential early
-            adopters on the web. Campaigns start at just $5,000.</div>
-        <button class="btn btn-primary mt-3 mb-3">ads@mitraku.com</button>
-        <div class="body-medium-medium">
-            Or get started with <u>self-service ads</u>
+    <div class="row justify-content-center mt-5">
+        <div class="header-advertisment col-lg-5 p-4 text-center">
+            <h1 class="h1">Reach millions of early adopters</h1>
+            <div class="body-medium-medium">
+                Our advertising options will help you build traction with the most influential early adopters on the web.
+                Campaigns start at just $5,000.
+            </div>
+            <button class="btn btn-primary mt-3 mb-3">ads@mitraku.com</button>
+            <div class="body-medium-medium">
+                Or get started with <u>self-service ads</u>
+            </div>
         </div>
     </div>
 
@@ -17,7 +21,7 @@
     <div class="sponsor-advertisement row mt-3 d-flex justify-content-center
 ">
         <div class="col-md-4">
-            <h1 class="d-flex justify-content-center h2 mb-4">Trusted By</h1>
+            <h1 class="d-flex justify-content-center h1 mb-4">Trusted By</h1>
             <div class="d-flex justify-content-center flex-wrap gap-3">
                 @foreach ($sponsors as $sponsor)
                     <span class="border d-flex p-2 bd-highlight border-dark rounded-pill mb-2 mr-2">
