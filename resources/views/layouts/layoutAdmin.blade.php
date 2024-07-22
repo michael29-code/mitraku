@@ -33,7 +33,7 @@
                     <i class="bi bi-list" style="font-size: 2rem"></i>
                 </button>
                 <a class="navbar-brand me-auto" href="{{ route('view-user-admin') }}">
-                    <img src="images/LogoMitraku.png" alt="Mitraku" class="logo-size-sm">
+                    <img src="/images/LogoMitraku.png" alt="Mitraku" class="logo-size-sm">
                 </a>
             </div>
         </div>

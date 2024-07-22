@@ -5,7 +5,7 @@
 @section('content')
     <div class="row justify-content-center mt-5">
         <div class="header-advertisment col-lg-5 p-4 text-center">
-            <h1 class="h1">Reach millions of early adopters</h1>
+        <h1 class="h1">Reach millions of early adopters</h1>
             <div class="body-large">
                 Our advertising options will help you build traction with the most influential early adopters on the web.
                 Campaigns start at just $5,000.

@@ -29,15 +29,17 @@
                     {{-- <li class="nav-item">
                         <a class="nav-link @yield('isPengajuanActive') mx-lg-2" href="/form-pengajuan">Pengajuan</a>
                     </li> --}}
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle @yield('isPengajuanActive')" href="/form-pengajuan" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Pengajuan
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/view-pengajuan">History Pengajuan</a></li>
-                        </ul>
-                    </li>
+                    @auth
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle @yield('isPengajuanActive')" href="/form-pengajuan" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Pengajuan
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/view-pengajuan">History Pengajuan</a></li>
+                            </ul>
+                        </li>
+                    @endauth
                 </ul>
             </div>
         </div>

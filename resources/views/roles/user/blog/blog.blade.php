@@ -8,7 +8,7 @@
 
         <div class="rectangleSpace" style="height: 3rem"></div>
 
-        <div class="rectangle mt-4" style="">
+        <div class="rectangle mt-4 gmbr-nekobot" style="background-image: url('/public/images/blog.jpg') 100%">
             {{-- <div class="rectangleSpace" style="height: 2rem"></div> --}}
             <div class="miniRectangleHeader text-center d-flex justify-content-center align-items-center">
                 <h1 class="category m-0 p-0">Technology</h1>

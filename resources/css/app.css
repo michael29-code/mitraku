@@ -489,3 +489,9 @@ select option{
     /* color: red; */
     font-family: "Satoshi-Regular";
 }
+
+.gmbr-nekobot{
+    /* background-image: url('public/images/blog.jpg'); */
+    /* background-color: red; */
+    /* background: url('public/images/blog.jpg'); */
+}

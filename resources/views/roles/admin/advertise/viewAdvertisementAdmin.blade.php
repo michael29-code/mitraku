@@ -15,7 +15,7 @@
                 </div>
             </div>
             <div class="col-md-7 mt-3">
-                <form method="GET" action="{{ route('advertisement-search-admin') }}" class="d-flex flex-row mb-3" required>
+                {{-- <form method="GET" action="{{ route('advertisement-search-admin') }}" class="d-flex flex-row mb-3" required>
                     <div class="input-group">
                         <div class="border border-end-0 input-group-text bg-transparent">
                             <i class="fa-solid fa-magnifying-glass"></i>
@@ -24,7 +24,7 @@
                             aria-label="Text input with checkbox" placeholder="search advertisement's name" name="search">
                     </div>
                     <button class="btn btn-sm btn-primary" type="submit">Search</button>
-                </form>
+                </form> --}}
             </div>
         </div>    
         <div class="row mx-3 my-5 bg-body-tertiary rounded">
