@@ -16,7 +16,8 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif --}}
-    {{-- {{ dd(Auth::user()) }} --}}
+    {{-- {{ dd(session()->all()) }} --}}
+    {{-- {{ dd(session('step1Data')) }} --}}
     {{-- {{ dd(Auth::user()->mitra) }} --}}
 
 

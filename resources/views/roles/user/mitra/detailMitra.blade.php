@@ -79,7 +79,6 @@
                     <div class="card rounded-5 w-50">
                         <div class="col">
                             <img src="{{ asset('images/' . $mitra->image_map) }}" class="img-fluid rounded" alt="Image Cover">
-                            <img src="{{ asset('images/' . ($mitra->image_map ?? 'default-image.jpg')) }}" class="img-fluid rounded" alt="Image Cover">
                         </div>
                     </div>
                 </div>

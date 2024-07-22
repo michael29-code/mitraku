@@ -32,20 +32,25 @@
                 </div>
             </div>
 
+            {{-- @if (session()->has('step1Data'))
+                {{ dd(session('step1Data')['mitraName']) }}
+            @else
+                {{ dd('gak ada data ') }}
+            @endif --}}
             <div class="row">
                 <div class="col-md-5">
                     <h4>Mitra Information</h4>
                     <div class="mb-3">
                         <label for="mitraName" class="form-label"><b>Mitra Name</b></label>
-                        <input type="text" name="mitraName" id="mitraName" class="form-control" required>
-                    </div>
+                        <input type="text" name="mitraName" id="mitraName" class="form-control" required value="{{ session()->has('step1Data') ?  session('step1Data')['mitraName'] : ''}}">
+                    </div>                    
                     <div class="mb-3">
                         <label for="mitraOverview" class="form-label"><b>Mitra Overview</b></label>
-                        <textarea name="mitraOverview" id="mitraOverview" class="form-control" style="height: 100px" required></textarea>
+                        <textarea name="mitraOverview" id="mitraOverview" class="form-control" style="height: 100px" required value="{{ session()->has('step1Data') ?  session('step1Data')['mitraOverview'] : ''}}"></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="mitraYear" class="form-label"><b>Establishment Year</b></label>
-                        <input type="number" name="mitraYear" id="mitraYear" class="form-control" required>
+                        <input type="number" name="mitraYear" id="mitraYear" class="form-control" required value="{{ session()->has('step1Data') ?  session('step1Data')['mitraYear'] : ''}}">
                     </div>
                 </div>
 
@@ -56,7 +61,7 @@
                 <div class="col-md-5 my-5">
                     <div class="mb-3">
                         <label for="mitraWebsite" class="form-label"><b>Website</b></label>
-                        <input type="text" name="mitraWebsite" id="mitraWebsite" class="form-control">
+                        <input type="text" name="mitraWebsite" id="mitraWebsite" class="form-control" required value="{{ session()->has('step1Data') ?  session('step1Data')['mitraWebsite'] : ''}}">
                     </div>
                     <div class="mb-3">
                         <label for="mitraCategory" class="form-label"><b>Category</b></label>

@@ -25,64 +25,6 @@ class MitraSeeder extends Seeder
             'contactEmail' => 'davidrodloy@teknologimajujaya.com',
             'contactPhoneNumber' => '0123456789',
             'mitra_details' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.',
-            'latest_rating_and_certificate' => json_encode([
-                [
-                    'nama_pemberi' => 'PEFINDO Credit Rating Agency',
-                    'tanggal' => 'December 2021',
-                    'rating' => '(id)BBB+/outlook stable'
-                ],
-                [
-                    'nama_pemberi' => 'Fitch Rating',
-                    'tanggal' => 'May 2018',
-                    'rating' => 'BBB+ (idn)/outlook stable'
-                ],
-                [
-                    'nama_pemberi' => 'Social Performance (Planet Rating 2014)',
-                    'tanggal' => '2014',
-                    'rating' => '4-'
-                ],
-                [
-                    'nama_pemberi' => 'Client Protection Certificate (Cerise and SPTF Team)',
-                    'tanggal' => 'April 2022',
-                    'rating' => 'Certification level: Gold'
-                ]
-            ]),
-            'awards' => json_encode([
-                [
-                    'nama_pemberi' => 'MIX Market Ranking (CGAP / World Bank)',
-                    'penghargaan' => [
-                        [
-                            'tahun' => 2009,
-                            'deskripsi' => '#1 out of 1,600 MFIs in the world'
-                        ],
-                        [
-                            'tahun' => 2008,
-                            'deskripsi' => '#1 out of 1,300 MFIs in the world'
-                        ],
-                        [
-                            'tahun' => 2007,
-                            'deskripsi' => '#25 out of 1,100 MFIs in the world'
-                        ],
-                    ]
-                ],
-                [
-                    'nama_pemberi' => 'Other',
-                    'penghargaan' => [
-                        [
-                            'tahun' => 2008,
-                            'deskripsi' => 'Grameen Foundation Excellence Award'
-                        ],
-                        [
-                            'tahun' => 2008,
-                            'deskripsi' => 'Unitus Inc. Achievement Award'
-                        ],
-                        [
-                            'tahun' => 2007,
-                            'deskripsi' => 'Ernst & Young Finalist, Social Entrepreneur Indonesia'
-                        ],
-                    ]
-                ]
-            ]),
             'image_map' => 'url/to/map/image.png',
             'address' => 'Jl. Teknologi No. 1, Jakarta, Indonesia',
             'isBlocked' => 0,
@@ -100,64 +42,6 @@ class MitraSeeder extends Seeder
             'contactEmail' => 'davidrodloy@teknologimajujaya.com',
             'contactPhoneNumber' => '0123456789',
             'mitra_details' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.',
-            'latest_rating_and_certificate' => json_encode([
-                [
-                    'nama_pemberi' => 'PEFINDO Credit Rating Agency',
-                    'tanggal' => 'December 2021',
-                    'rating' => '(id)BBB+/outlook stable'
-                ],
-                [
-                    'nama_pemberi' => 'Fitch Rating',
-                    'tanggal' => 'May 2018',
-                    'rating' => 'BBB+ (idn)/outlook stable'
-                ],
-                [
-                    'nama_pemberi' => 'Social Performance (Planet Rating 2014)',
-                    'tanggal' => '2014',
-                    'rating' => '4-'
-                ],
-                [
-                    'nama_pemberi' => 'Client Protection Certificate (Cerise and SPTF Team)',
-                    'tanggal' => 'April 2022',
-                    'rating' => 'Certification level: Gold'
-                ]
-            ]),
-            'awards' => json_encode([
-                [
-                    'nama_pemberi' => 'MIX Market Ranking (CGAP / World Bank)',
-                    'penghargaan' => [
-                        [
-                            'tahun' => 2009,
-                            'deskripsi' => '#1 out of 1,600 MFIs in the world'
-                        ],
-                        [
-                            'tahun' => 2008,
-                            'deskripsi' => '#1 out of 1,300 MFIs in the world'
-                        ],
-                        [
-                            'tahun' => 2007,
-                            'deskripsi' => '#25 out of 1,100 MFIs in the world'
-                        ],
-                    ]
-                ],
-                [
-                    'nama_pemberi' => 'Other',
-                    'penghargaan' => [
-                        [
-                            'tahun' => 2008,
-                            'deskripsi' => 'Grameen Foundation Excellence Award'
-                        ],
-                        [
-                            'tahun' => 2008,
-                            'deskripsi' => 'Unitus Inc. Achievement Award'
-                        ],
-                        [
-                            'tahun' => 2007,
-                            'deskripsi' => 'Ernst & Young Finalist, Social Entrepreneur Indonesia'
-                        ],
-                    ]
-                ]
-            ]),
             'image_map' => 'url/to/map/image.png',
             'address' => 'Jl. Teknologi No. 1, Jakarta, Indonesia',
             'isBlocked' => 0,
@@ -176,64 +60,6 @@ class MitraSeeder extends Seeder
             'contactEmail' => 'davidrodloy@teknologimajujaya.com',
             'contactPhoneNumber' => '0123456789',
             'mitra_details' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.',
-            'latest_rating_and_certificate' => json_encode([
-                [
-                    'nama_pemberi' => 'PEFINDO Credit Rating Agency',
-                    'tanggal' => 'December 2021',
-                    'rating' => '(id)BBB+/outlook stable'
-                ],
-                [
-                    'nama_pemberi' => 'Fitch Rating',
-                    'tanggal' => 'May 2018',
-                    'rating' => 'BBB+ (idn)/outlook stable'
-                ],
-                [
-                    'nama_pemberi' => 'Social Performance (Planet Rating 2014)',
-                    'tanggal' => '2014',
-                    'rating' => '4-'
-                ],
-                [
-                    'nama_pemberi' => 'Client Protection Certificate (Cerise and SPTF Team)',
-                    'tanggal' => 'April 2022',
-                    'rating' => 'Certification level: Gold'
-                ]
-            ]),
-            'awards' => json_encode([
-                [
-                    'nama_pemberi' => 'MIX Market Ranking (CGAP / World Bank)',
-                    'penghargaan' => [
-                        [
-                            'tahun' => 2009,
-                            'deskripsi' => '#1 out of 1,600 MFIs in the world'
-                        ],
-                        [
-                            'tahun' => 2008,
-                            'deskripsi' => '#1 out of 1,300 MFIs in the world'
-                        ],
-                        [
-                            'tahun' => 2007,
-                            'deskripsi' => '#25 out of 1,100 MFIs in the world'
-                        ],
-                    ]
-                ],
-                [
-                    'nama_pemberi' => 'Other',
-                    'penghargaan' => [
-                        [
-                            'tahun' => 2008,
-                            'deskripsi' => 'Grameen Foundation Excellence Award'
-                        ],
-                        [
-                            'tahun' => 2008,
-                            'deskripsi' => 'Unitus Inc. Achievement Award'
-                        ],
-                        [
-                            'tahun' => 2007,
-                            'deskripsi' => 'Ernst & Young Finalist, Social Entrepreneur Indonesia'
-                        ],
-                    ]
-                ]
-            ]),
             'image_map' => 'url/to/map/image.png',
             'address' => 'Jl. Teknologi No. 1, Jakarta, Indonesia',
             'isBlocked' => 0,
@@ -252,64 +78,6 @@ class MitraSeeder extends Seeder
             'contactEmail' => 'davidrodloy@teknologimajujaya.com',
             'contactPhoneNumber' => '0123456789',
             'mitra_details' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.',
-            'latest_rating_and_certificate' => json_encode([
-                [
-                    'nama_pemberi' => 'PEFINDO Credit Rating Agency',
-                    'tanggal' => 'December 2021',
-                    'rating' => '(id)BBB+/outlook stable'
-                ],
-                [
-                    'nama_pemberi' => 'Fitch Rating',
-                    'tanggal' => 'May 2018',
-                    'rating' => 'BBB+ (idn)/outlook stable'
-                ],
-                [
-                    'nama_pemberi' => 'Social Performance (Planet Rating 2014)',
-                    'tanggal' => '2014',
-                    'rating' => '4-'
-                ],
-                [
-                    'nama_pemberi' => 'Client Protection Certificate (Cerise and SPTF Team)',
-                    'tanggal' => 'April 2022',
-                    'rating' => 'Certification level: Gold'
-                ]
-            ]),
-            'awards' => json_encode([
-                [
-                    'nama_pemberi' => 'MIX Market Ranking (CGAP / World Bank)',
-                    'penghargaan' => [
-                        [
-                            'tahun' => 2009,
-                            'deskripsi' => '#1 out of 1,600 MFIs in the world'
-                        ],
-                        [
-                            'tahun' => 2008,
-                            'deskripsi' => '#1 out of 1,300 MFIs in the world'
-                        ],
-                        [
-                            'tahun' => 2007,
-                            'deskripsi' => '#25 out of 1,100 MFIs in the world'
-                        ],
-                    ]
-                ],
-                [
-                    'nama_pemberi' => 'Other',
-                    'penghargaan' => [
-                        [
-                            'tahun' => 2008,
-                            'deskripsi' => 'Grameen Foundation Excellence Award'
-                        ],
-                        [
-                            'tahun' => 2008,
-                            'deskripsi' => 'Unitus Inc. Achievement Award'
-                        ],
-                        [
-                            'tahun' => 2007,
-                            'deskripsi' => 'Ernst & Young Finalist, Social Entrepreneur Indonesia'
-                        ],
-                    ]
-                ]
-            ]),
             'image_map' => 'url/to/map/image.png',
             'address' => 'Jl. Teknologi No. 1, Jakarta, Indonesia',
             'isBlocked' => 0,
@@ -327,64 +95,6 @@ class MitraSeeder extends Seeder
             'contactEmail' => 'davidrodloy@teknologimajujaya.com',
             'contactPhoneNumber' => '0123456789',
             'mitra_details' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.',
-            'latest_rating_and_certificate' => json_encode([
-                [
-                    'nama_pemberi' => 'PEFINDO Credit Rating Agency',
-                    'tanggal' => 'December 2021',
-                    'rating' => '(id)BBB+/outlook stable'
-                ],
-                [
-                    'nama_pemberi' => 'Fitch Rating',
-                    'tanggal' => 'May 2018',
-                    'rating' => 'BBB+ (idn)/outlook stable'
-                ],
-                [
-                    'nama_pemberi' => 'Social Performance (Planet Rating 2014)',
-                    'tanggal' => '2014',
-                    'rating' => '4-'
-                ],
-                [
-                    'nama_pemberi' => 'Client Protection Certificate (Cerise and SPTF Team)',
-                    'tanggal' => 'April 2022',
-                    'rating' => 'Certification level: Gold'
-                ]
-            ]),
-            'awards' => json_encode([
-                [
-                    'nama_pemberi' => 'MIX Market Ranking (CGAP / World Bank)',
-                    'penghargaan' => [
-                        [
-                            'tahun' => 2009,
-                            'deskripsi' => '#1 out of 1,600 MFIs in the world'
-                        ],
-                        [
-                            'tahun' => 2008,
-                            'deskripsi' => '#1 out of 1,300 MFIs in the world'
-                        ],
-                        [
-                            'tahun' => 2007,
-                            'deskripsi' => '#25 out of 1,100 MFIs in the world'
-                        ],
-                    ]
-                ],
-                [
-                    'nama_pemberi' => 'Other',
-                    'penghargaan' => [
-                        [
-                            'tahun' => 2008,
-                            'deskripsi' => 'Grameen Foundation Excellence Award'
-                        ],
-                        [
-                            'tahun' => 2008,
-                            'deskripsi' => 'Unitus Inc. Achievement Award'
-                        ],
-                        [
-                            'tahun' => 2007,
-                            'deskripsi' => 'Ernst & Young Finalist, Social Entrepreneur Indonesia'
-                        ],
-                    ]
-                ]
-            ]),
             'image_map' => 'url/to/map/image.png',
             'address' => 'Jl. Teknologi No. 1, Jakarta, Indonesia',
             'isBlocked' => 0,
