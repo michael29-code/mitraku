@@ -30,7 +30,7 @@
         <div class="container my-5 m-auto d-flex w-100 justify-content-center align-items-center flex-column">
             <div class="row w-100">
                 <div class="col">
-                    <img src="{{ asset('images/' . $mitra->image_cover) }}" class="img-fluid rounded" alt="Image Cover">
+                    <img src="{{ $mitra->image_cover ? asset('storage/mitra-images/' . $mitra->image_cover) : asset('/images/default_mitra_image.jpg') }}" class="img-fluid w-100;img-fluid rounded"  alt="image_cover" style="object-fit: cover;">
                 </div>
                 <div class="col p-5">
                     <div class="row">
@@ -40,10 +40,12 @@
                     </div>
                     <div class="row my-3">
                         <div class="col-2">
-                            @if ($user->image)
-                                <img src="{{ asset('storage/profile-images/' . $user->image) }}" class="rounded-circle img-fluid" alt="Avatar" />
+                            @if (Auth::user()->image == 'default')
+                                <img src="/images/default_user_profile.jpg" class="rounded-circle user-profpic" id="profileImage"
+                                 style="width: 5.5rem; height: 5.5rem;"> 
                             @else
-                                <img src="{{ asset('images/profile_user.jpg') }}" class="rounded-circle img-fluid" alt="Default Avatar" />
+                                <img src="{{ Auth::user()->getImageURL() }}" class="rounded-circle user-profpic" id="profileImage"
+                                    style="width: 5.5rem; height: 5.5rem;"> 
                             @endif
                         </div>                        
                         <div class="col-5">

@@ -56,7 +56,7 @@
         <div class="profilePictureGemink">
             @auth
                 @if (Auth::user()->image == 'default')
-                    <img src="/images/default_user_profile.jpg" class="rounded-circle user-profpic" id="profileImage"
+                    <img src="/images/default_user_profile.jpg/" class="rounded-circle user-profpic" id="profileImage"
                         style="width: 3.5rem">
                 @else
                     <img src="{{ Auth::user()->getImageURL() }}" class="rounded-circle user-profpic" id="profileImage"
