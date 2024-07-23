@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use Carbon\Month;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class PaymentController extends Controller
 {
@@ -30,42 +31,35 @@ class PaymentController extends Controller
     }
 
     public function pay(Request $request){
-
         $data = $request->all();
         $user = Auth::user()->id;
-
-        // dd($request);
+        
         $monthPlus = Advertisement::where('id',$data['advertise_id'])->get();
-
+        
         $month = Carbon::now()->addMonth($monthPlus[0]->period);
-
+        
         $activeSubscription = Transaction::join('users', 'transactions.user_id', '=', 'users.id')
         ->where('transactions.user_id', $user)
         ->where('transactions.status', 'active')->exists();
         // dd($activeSubscription);
-
-
+        
+        
         if ($activeSubscription) {
             return redirect('/payment/'. $request->advertise_id)->with('error', 'You already have an active subscription.');
         }
         
-        $transaction = Transaction::create([
+        $transaction = [
             'user_id' => $user,
             'advertise_id' => $data['advertise_id'],
             'gross_amount' => $data['gross_amount'],
             'starts_at' => Carbon::now(),
             'ends_at' => $month,
-        ]);        
-        // dd($transaction->ends_at);
-        // Set your Merchant Server Key
+        ];        
         \Midtrans\Config::$serverKey = config('midtrans.server_key');
-        // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
         \Midtrans\Config::$isProduction = false;
-        // Set sanitization on (default)
         \Midtrans\Config::$isSanitized = true;
-        // Set 3DS transaction for credit card to true
         \Midtrans\Config::$is3ds = true;
-
+        
         $params = array(
             'transaction_details' => array(
                 'order_id' => rand(),
@@ -77,24 +71,51 @@ class PaymentController extends Controller
             ),
         );
         $snapToken = \Midtrans\Snap::getSnapToken($params);
+        
+        $transaction['snap_token'] = $snapToken;
+        
+        $request->session()->put('transaction', $transaction);
 
-        $transaction->snap_token = $snapToken;
-        $transaction->save();
-
-        return redirect('/checkout/' . $transaction->id);
+        return redirect('/checkout');
     }
 
-    public function checkout(Transaction $transaction)
-    {
-        return view('roles.user.advertise.checkout', compact('transaction'));
+    public function checkout()
+    {        
+        return view('roles.user.advertise.checkout');
     }
-    public function success(Transaction $transaction)
+    public function success()
     {
-        $transaction->status = 'active';
-        $transaction->save();
         return view('roles.user.advertise.successPayment');
     }
 
+    public function storeTransaction(Request $request)
+    {
+        // Validate the request
+        $request->validate([
+            'user_id' => 'required|integer',
+            'advertise_id' => 'required|integer',
+            'gross_amount' => 'required|numeric',
+            'starts_at' => 'required|date',
+            'ends_at' => 'required|date',
+            'status' => 'required|string',
+            'transaction_result' => 'required'
+        ]);
+
+        try {
+            $transaction = Transaction::create([
+                'user_id' => $request->user_id,
+                'advertise_id' => $request->advertise_id,
+                'gross_amount' => $request->gross_amount,
+                'starts_at' => $request->starts_at,
+                'ends_at' => $request->ends_at,
+                'status' => $request->status,
+            ]);
+
+            return response()->json(['success' => true, 'transaction' => $transaction]);
+        } catch (\Exception $e) {
+            return response()->json(['success' => false, 'error' => $e->getMessage()]);
+        }
+    }
     public function checkExpired()
     {
         $subscriptions = Transaction::where('status', 'active')->get();

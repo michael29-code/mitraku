@@ -121,8 +121,10 @@ Route::group(['middleware' => ['auth']], function () {
             Route::get('/transactions', [PaymentController::class, 'index'])->name('transactions');
             Route::get('/payment/{transaction}', [PaymentController::class, 'show'])->name('payment');
             Route::post('/pay/store', [PaymentController::class, 'pay'])->name('pay');
-            Route::get('/checkout/{transaction}', [PaymentController::class, 'checkout'])->name('checkout');
-            Route::get('/checkout/success/{transaction}', [PaymentController::class, 'success'])->name('checkout-success');
+            Route::post('/transaction/store', [PaymentController::class, 'storeTransaction'])->name('transaction.store');
+            // Route::get('/checkout/{transaction}', [PaymentController::class, 'checkout'])->name('checkout');
+            Route::get('/checkout', [PaymentController::class, 'checkout'])->name('checkout');
+            Route::get('/checkout/success/', [PaymentController::class, 'success'])->name('checkout-success');
         });
     });
 });

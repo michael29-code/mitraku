@@ -45,7 +45,7 @@ class RegisterController extends Controller
     public function authentication(Request $request)
     {
         $incomingFields = $request->validate([
-            'email' => ['required', 'email:dns'],
+            'email' => ['required'],
             'password' => ['required', 'min:8'],
         ]);
 

@@ -51,7 +51,7 @@
                         </div>
 
                         <div class="col-12">
-                            <button type="submit" id="submit-btn" class="btn btn-primary w-100">Confirm</button>
+                            <button id="submit-btn" class="btn btn-primary w-100">Confirm</button>
                         </div>
                     </div>
                 </form>

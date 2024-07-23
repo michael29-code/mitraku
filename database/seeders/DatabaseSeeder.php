@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             AdvertiseSeeder::class,
             SponsorSeeder::class,
-            TransactionSeeder::class,
+            // TransactionSeeder::class,
         ]);
         
         // $this->call([
