@@ -34,7 +34,7 @@
                                         style="font-size: 1.25rem; padding: 0.5em 1em;">EKSKLUSIF</span>
                                 </div>
                                 <div class="card-body">
-                                    <div class="d-flex justify-content-between align-items-center mb-2" style="margin-left: 0; padding-left: 0;">
+                                    <div class="d-flex justify-content-between">
                                         <h5 class="card-title my-0" style="font-size: 1.5rem;">{{ $mitra->mitraName }}</h5>
                                         <span class="badge text-bg-primary rounded-pill"
                                             style="font-size: 1.25rem; padding: 0.5em 1em;">{{ $mitra->mitraCategory }}</span>

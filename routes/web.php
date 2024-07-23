@@ -76,25 +76,30 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/user-search', [UserController::class, 'search'])->name('user-search-admin');
 
         //VIEW MITRA (ADA DI BAWAH)
-        // Route::get('/view-mitra-admin', [MitraController::class, 'index'])->name('view-mitra-admin');
-        // Route::patch('/toggle-mitra-blocked/{id}', [MitraController::class, 'toggleBlock'])->name('toggle-blocked-mitra');
-        // Route::get('/mitra-search', [MitraController::class, 'index'])->name('mitra-search-admin');
+        Route::get('/view-mitra-admin', [MitraController::class, 'viewMitra'])->name('view-mitra-admin');
+        Route::patch('/toggle-mitra-blocked/{id}', [MitraController::class, 'toggleBlock'])->name('toggle-blocked-mitra');
+
     });
 
     // USER YANG TIDAK DI BLOG
     Route::group(['middleware' => ['CheckBlockUser:0']], function () {
         // UNTUK USER DAN MITRA
         Route::group(['middleware' => ['CheckUser:2,3']], function () {
-            //MITRA (ADA DI BAWAH)
-            // Route::get('/view-mitra', [MitraController::class, 'mitra'])->name('view-mitra');
-            // Route::get('detailMitra', function () {
-            //     return view('roles.user.mitra.detailMitra');
-            // })->name('detailMitra');
+            // MITRA
+            Route::get('/create-mitra/step-1', [MitraController::class, 'createStep1'])->name('create-mitra-1');
+            Route::post('/create-mitra/store-step-1', [MitraController::class, 'storeStep1'])->name('store-mitra-1');
 
-            // CREATE MITRA (ADA DI BAWAH)
-            // Route::get('/create-mitra-step-1', [MitraController::class, 'createMitra1'])->name('create-mitra-1');
-            // Route::get('/create-mitra-step-2', [MitraController::class, 'createMitra2'])->name('create-mitra-2');
-            // Route::get('/create-mitra-step-3', [MitraController::class, 'createMitra3'])->name('create-mitra-3');
+            Route::get('/create-mitra/step-2', [MitraController::class, 'createStep2'])->name('create-mitra-2');
+            Route::post('/create-mitra/store-step-2', [MitraController::class, 'storeStep2'])->name('store-mitra-2');
+
+            Route::get('/create-mitra/step-3', [MitraController::class, 'createStep3'])->name('create-mitra-3');
+            Route::post('/create-mitra/store-step-3', [MitraController::class, 'storeStep3'])->name('store-mitra-3');
+
+            Route::post('/create-mitra/storeMitra', [MitraController::class, 'storeMitra'])->name('store-mitra');
+            Route::get('/mitra-search', [MitraController::class, 'search'])->name('mitra-search');
+
+            Route::get('/view-mitra', [MitraController::class, 'mitra'])->name('view-mitra');
+            Route::get('/mitraDetail/{id}', [MitraController::class, 'show'])->name('detail-mitra');
 
             //BLOG
             Route::get('/blog', [BlogController::class, 'viewBlogUser'])->name('view-blog');
@@ -138,26 +143,7 @@ Route::get('success-page', function () {
     return view('success-page');
 })->name('success-page');
 
-// VIEW MITRA USER
-Route::get('/create-mitra/step-1', [MitraController::class, 'createStep1'])->name('create-mitra-1');
-Route::post('/create-mitra/store-step-1', [MitraController::class, 'storeStep1'])->name('store-mitra-1');
 
-Route::get('/create-mitra/step-2', [MitraController::class, 'createStep2'])->name('create-mitra-2');
-Route::post('/create-mitra/store-step-2', [MitraController::class, 'storeStep2'])->name('store-mitra-2');
-
-Route::get('/create-mitra/step-3', [MitraController::class, 'createStep3'])->name('create-mitra-3');
-Route::post('/create-mitra/store-step-3', [MitraController::class, 'storeStep3'])->name('store-mitra-3');
-
-Route::post('/create-mitra/storeMitra', [MitraController::class, 'storeMitra'])->name('store-mitra');
-// Route::get('/view-mitra')
-Route::get('/mitra-search', [MitraController::class, 'search'])->name('mitra-search');
-
-Route::get('/view-mitra', [MitraController::class, 'mitra'])->name('view-mitra');
-Route::get('/mitraDetail/{id}', [MitraController::class, 'show'])->name('detail-mitra');
-
-// VIEW MITRA ADMIN
-Route::get('/view-mitra-admin', [MitraController::class, 'viewMitra'])->name('view-mitra-admin');
-Route::patch('/toggle-mitra-blocked/{id}', [MitraController::class, 'toggleBlock'])->name('toggle-blocked-mitra');
 
 Route::get('/manage-advertisement', [AdvertisementController::class, 'manage'])->name('manage-advertisement-admin');
 Route::get('/manage-advertisement-view', [AdvertisementController::class, 'index'])->name('view-advertisement-admin');
@@ -167,5 +153,4 @@ Route::delete('/manage-advertisements/{id}/delete', [AdvertisementController::cl
 Route::get('/manage-advertisements/{id}/edit', [AdvertisementController::class, 'edit'])->name('edit-advertisement-admin');
 Route::put('/manage-advertisements/{id}/update', [AdvertisementController::class, 'update'])->name('update-advertisement-admin');
 Route::get('/search-advertisement', [AdvertisementController::class, 'search'])->name('search-advertisement-admin');
-// Route::get('/mitra-search', [MitraController::class, 'index'])->name('mitra-search-admin');
 Route::get('/mitra-search-admin', [MitraController::class, 'searchAdmin'])->name('mitra-search-admin');

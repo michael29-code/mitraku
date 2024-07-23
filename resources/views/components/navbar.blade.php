@@ -24,7 +24,9 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="/view-mitra">View Mitra</a></li>
-                                <li><a class="dropdown-item" href="/create-mitra-1">Create Mitra</a></li>
+                                @if (Auth::user()->level == 2)
+                                    <li><a href="/create-mitra/step-1/" class="dropdown-item" >Create Mitra</a></li>
+                                @endif
                             </ul>
                         </li>
                     @endauth
