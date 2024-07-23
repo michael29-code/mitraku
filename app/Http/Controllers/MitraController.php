@@ -12,6 +12,7 @@ use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class MitraController extends Controller
 {
@@ -23,20 +24,40 @@ class MitraController extends Controller
 
     public function storeStep1(Request $request)
     {
-        $validatedData = $request->validate([
-            'mitraName' => 'required|string|max:255',
-            'mitraOverview' => 'required|string',
-            'mitraYear' => 'required|integer',
-            'mitraWebsite' => 'nullable|string',
-            'mitraCategory' => 'required|string|not_in:',
-            'image_cover' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-        ], [
-            'mitraName.min' => 'Mitra Name must be at least 8 characters.',
-            'mitraName.unique' => 'Mitra Name must be unique.',
+        $rules = [
+            'mitraName' => ['required', 'string', 'min:8', 'max:255', 'unique:mitras,mitraName'],
+            'mitraOverview' => ['required', 'string', function ($attribute, $value, $fail) {
+                if (str_word_count($value) < 5) {
+                    $fail('The ' . $attribute . ' must be at least five words.');
+                }
+            }],
+            'mitraYear' => ['required', 'integer', 'min:1001'], 
+            'mitraWebsite' => ['nullable', 'string'], 
+            'mitraCategory' => ['required', 'string', 'not_in:'],
+            'image_cover' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048'],
+        ];
+    
+        $messages = [
+            'mitraName.required' => 'The Mitra Name is required.',
+            'mitraName.min' => 'The Mitra Name must be at least 8 characters.',
+            'mitraName.unique' => 'The Mitra Name must be unique.',
+            'mitraOverview.required' => 'The Mitra Overview is required.',
+            'mitraYear.required' => 'The Establishment Year is required.',
+            'mitraYear.min' => 'The Establishment Year must be greater than 1000.',
+            'mitraWebsite.url' => 'The Website must be a valid URL.',
             'mitraCategory.required' => 'Please select a category.',
             'mitraCategory.not_in' => 'Please select a valid category.',
-        ]);
+        ];
+    
+        $validator = Validator::make($request->all(), $rules, $messages);
 
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+    
+        $validatedData = $validator->validated();
         if ($request->hasFile('image_cover')) {
             $image = $request->file('image_cover');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
@@ -56,13 +77,37 @@ class MitraController extends Controller
 
     public function storeStep2(Request $request)
     {
-        $validatedData = $request->validate([
-            'mitra_details' => 'required|string',
-            'contactName' => 'required|string|max:255',
-            'contactEmail' => 'required|email',
-            'contactPhoneNumber' => 'required|string|max:20',
-        ]);
 
+        $rules = [
+            'mitra_details' => ['required', function ($attribute, $value, $fail) {
+                if (str_word_count($value) < 10) { 
+                    $fail('The Mitra Details must be at least 10 words.');
+                }
+            }],
+            'contactName' => ['required', 'string', 'min:8', 'max:255', 'unique:mitras,contactName'],
+            'contactEmail' => ['required', 'string', 'min:8', 'max:255'],
+            'contactPhoneNumber' => [
+                'required'
+            ],
+        ];
+
+        $messages = [
+            'mitra_details.required' => 'The Mitra Details field is required.',
+            'contactName.required' => 'The Contact Name is required.',
+            'contactName.string' => 'The Contact Name must be a string.',
+            'contactName.max' => 'The Contact Name may not be greater than 255 characters.',
+            'contactEmail.required' => 'The Contact Email must be a valid email',
+            'contactPhoneNumber.required' => 'The Contact Phone Number field is required.'
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput(); 
+        }
+    
+        $validatedData = $validator->validated();
         $request->session()->put('step2Data', $validatedData);
         // dd($validatedData); 
         return redirect()->route('create-mitra-3')
@@ -80,12 +125,26 @@ class MitraController extends Controller
         $step1Data = $request->session()->get('step1Data', []);
         $step2Data = $request->session()->get('step2Data', []);
     
-        $validatedData = $request->validate([
-            'address' => 'required|string|max:255',
-            'image_map' => 'nullable|file|mimes:jpeg,png,jpg,gif,pdf|max:2048',
+        $rules = [
+            'address' => ['required', 'string', 'min:5', 'max:255', 'unique:mitras,mitraName'],
+            'image_map' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048'],
             'isBlock' => '0'
-        ]);
-    
+        ];
+
+        $messages = [
+            'address.required' => 'The Address is required.'
+        ];
+
+        
+        $validator = Validator::make($request->all(), $rules, $messages);
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput(); 
+        }
+        
+        $validatedData = $validator->validated();
+        $request->session()->put('step3Data', $validatedData);
         $mergedData = array_merge($step1Data, $step2Data, $validatedData);
     
         if ($request->hasFile('image_map')) {
@@ -103,10 +162,11 @@ class MitraController extends Controller
         }
     
         // dd($mitra);
-    
         $mitra->save();
         $user->level = 3;
         $user->save();
+
+        $request->session()->put('step3Data', $validatedData);
         $request->session()->forget(['step1Data', 'step2Data', 'mitra_id']);
         return redirect()->route('home')->with('success', 'Mitra created successfully!');
     }

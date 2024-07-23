@@ -96,8 +96,8 @@
                     </div>
                 </form>
             </div>
-            <div class="col-sm col-lg-6 bg-secondary">
-                {{-- <img src="" alt=""> --}}
+            <div class="col-sm col-lg-6">
+                <img src="/images/signup_image.jpg" alt="" style="width: 100%; height:100%;">
             </div>
         </div>
     </div>

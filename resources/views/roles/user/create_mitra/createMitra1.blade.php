@@ -31,12 +31,6 @@
                     </div>
                 </div>
             </div>
-
-            {{-- @if (session()->has('step1Data'))
-                {{ dd(session('step1Data')['mitraName']) }}
-            @else
-                {{ dd('gak ada data ') }}
-            @endif --}}
             <div class="row">
                 <div class="col-md-5">
                     <h4>Mitra Information</h4>
@@ -52,22 +46,25 @@
                                 </div>
                             @enderror
                         </div>
-                    </div>
-
+                    </div>                                       
                     <div class="form-group">
                         <label for="mitraOverview" class="form-label"><b>Mitra Overview</b></label>
-                        <textarea name="mitraOverview" id="mitraOverview" class="form-control" style="height: 100px" required>{{ session()->has('step1Data') ? session('step1Data')['mitraOverview'] : old('mitraOverview') }}</textarea>
+                        <textarea name="mitraOverview" id="mitraOverview" class="form-control @error('mitraOverview') is-invalid @enderror" style="height: 100px" required>{{ old('mitraOverview', session()->has('step1Data') ? session('step1Data')['mitraOverview'] : '') }}</textarea>
                         @error('mitraOverview')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
                         @enderror
-                    </div>
+                    </div>                    
                     <div class="mb-3">
                         <label for="mitraYear" class="form-label"><b>Establishment Year</b></label>
-                        <input type="number" name="mitraYear" id="mitraYear" class="form-control" required
-                            value="{{ session()->has('step1Data') ? session('step1Data')['mitraYear'] : '' }}">
-                    </div>
+                        <input type="number" name="mitraYear" id="mitraYear" class="form-control @error('mitraYear') is-invalid @enderror" required value="{{ old('mitraYear', session()->has('step1Data') ? session('step1Data')['mitraYear'] : '') }}">
+                        @error('mitraYear')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>                    
                 </div>
 
                 <div class="col-md-1 d-flex justify-content-center align-items-center">
@@ -77,9 +74,13 @@
                 <div class="col-md-5 my-5">
                     <div class="mb-3">
                         <label for="mitraWebsite" class="form-label"><b>Website</b></label>
-                        <input type="text" name="mitraWebsite" id="mitraWebsite" class="form-control" required
-                            value="{{ session()->has('step1Data') ? session('step1Data')['mitraWebsite'] : '' }}">
-                    </div>
+                        <input type="text" name="mitraWebsite" id="mitraWebsite" class="form-control @error('mitraWebsite') is-invalid @enderror" required value="{{ old('mitraWebsite', session()->has('step1Data') ? session('step1Data')['mitraWebsite'] : '') }}">
+                        @error('mitraWebsite')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>                    
                     <div class="mb-3">
                         <label for="mitraCategory" class="form-label"><b>Category</b></label>
                         <select class="form-select @error('mitraCategory') is-invalid @enderror" id="mitraCategory"
@@ -99,13 +100,13 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="image_cover">Image Cover</label>
+                        <label for="image_cover"><b>Image Cover</b></label>
                         <input type="file" class="form-control @error('image_cover') is-invalid @enderror"
                             id="image_cover" name="image_cover">
                         @if (session()->has('step1Data.image_cover'))
                             <div>
-                                <img src="{{ asset('images/' . session('step1Data.image_cover')) }}" alt="Image Cover"
-                                    style="max-width: 200px; margin-top: 10px;">
+                                <img src="{{ asset('storage/mitra-images/' . session('step1Data.image_cover')) }}" src="{{ $mitra->getImageMitra() }}"
+                                alt="image_cover" style="max-width: 200px; margin-top: 10px;">
                             </div>
                         @endif
                         @error('image_cover')
@@ -113,7 +114,7 @@
                                 {{ $message }}
                             </div>
                         @enderror
-                    </div>
+                    </div>                    
                 </div>
             </div>
 

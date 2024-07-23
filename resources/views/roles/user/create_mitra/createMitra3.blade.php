@@ -37,19 +37,25 @@
                 <div class="col-md-5 d-flex flex-column justify-content-center align-items-center">
                     <h4 class="text-center">Location Information</h4>
             
-                    <!-- Location Name Field -->
                     <div class="mb-3 w-100">
-                        <label for="address" class="form-label"><b>Location Name</b></label>
-                        <input type="text" name="address" id="address" class="form-control" required value="{{ session()->has('step3Data') ? session('step3Data')['address'] : old('address') }}">
+                        <div class="col">
+                            <label for="address" class="form-label"><b>Location</b></label>
+                            <input type="text" name="address" id="address" class="form-control @error('address') is-invalid @enderror"
+                            required value="{{ old('address', session()->has('step3Data') ? session('step3Data')['address'] : '') }}">
+                            @error('address')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>                           
                     </div>
-            
-                    <!-- Location Map Field -->
                     <div class="mb-3 w-100">
-                        <label for="image_map"><b>Location Map</b></label>
-                        <input type="file" class="form-control @error('image_map') is-invalid @enderror" id="image_map" name="image_map">
-                        @if(session()->has('step3Data.image_map'))
+                        <label for="image_map"><b>Image Map</b></label>
+                        <input type="file" class="form-control @error('image_map') is-invalid @enderror"
+                            id="image_map" name="image_map">
+                        @if (session()->has('step3Data.image_map'))
                             <div>
-                                <img src="{{ asset('storage/mitra-images/' . session('step3Data.image_map')) }}" alt="Image Map" style="max-width: 200px; margin-top: 10px;">
+                                <img src="{{ asset('storage/mitra-images/' . session('step3Data.image_map')) }}" alt="image_map" style="max-width: 200px; margin-top: 10px;">
                             </div>
                         @endif
                         @error('image_map')

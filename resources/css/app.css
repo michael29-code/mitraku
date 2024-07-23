@@ -495,3 +495,8 @@ select option{
     /* background-color: red; */
     /* background: url('public/images/blog.jpg'); */
 }
+
+.card-title {
+    margin-left: 0;
+    padding-left: 0;
+}

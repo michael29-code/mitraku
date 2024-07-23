@@ -105,7 +105,7 @@
                     </div>
                 </div> --}}
             </div>
-            <div class="col-sm col-lg-6 bg-secondary" style="height: 100%">
+            <div class="col-sm col-lg-6" style="height: 100%">
                 <img src="/images/login_image.jpg" alt="" style="width: 100%; height:100%;">
             </div>
         </div>

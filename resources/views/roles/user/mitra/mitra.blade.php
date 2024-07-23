@@ -13,35 +13,29 @@
                 <button class="btn btn-outline-primary" type="submit">Search</button>
             </div>
         </form>
+
         @if(isset($searchTerm))
-        <h5>Search Results for "{{ $searchTerm }}"</h5>
+            <h5>Search Results for "{{ $searchTerm }}"</h5>
         @endif
         
         @if(isset($mitras))
-        {{-- <ul>
-            @foreach($mitras as $mitra)
-            <li>{{ $mitra->mitraName }}</li>
-            @endforeach
-        </ul> --}}
-        <p class="mb-0">{{ $mitras->total() }} Results for Search</p>
+            <p class="mb-0">{{ $mitras->total() }} Results for Search</p>
         @endif
+
         <div class="container p-5 h-100" style="margin-top: 0;">
             <div class="row shadow bg-body-tertiary rounded gx-4 gy-4">
                 @foreach ($mitras as $mitra)
                     <div class="col-md-6 mb-4"> 
                         <a href="{{ route('detail-mitra', $mitra->id) }}" class="text-decoration-none">
                             <div class="card mx-2 mb-4">
-                                <div class="card-img-top position-relative" style="height: 50%;">
-                                    <img src="{{ asset('images/' . $mitra->image_cover) }}"
-                                        class="img-fluid w-100" alt="Avatar"
-                                        style="object-fit: cover;">
-                                        {{-- <img src="{{ asset('images/' . $mitra->image_cover) }}" class="img-fluid rounded" alt="Image Cover"> --}}
+                                <div class="card-img-top position-relative">
+                                    <img src="{{ $mitra->image_cover ? asset('storage/mitra-images/' . $mitra->image_cover) : asset('/images/default_mitra_image.jpg') }}" class="img-fluid w-100" alt="image_cover" style="object-fit: cover;">
                                     <span class="badge text-bg-primary rounded-pill position-absolute top-0 end-0 m-2"
                                         style="font-size: 1.25rem; padding: 0.5em 1em;">EKSKLUSIF</span>
                                 </div>
                                 <div class="card-body">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <h5 class="card-title my-1" style="font-size: 1.5rem;">{{ $mitra->mitraName }}</h5>
+                                    <div class="d-flex justify-content-between align-items-center mb-2" style="margin-left: 0; padding-left: 0;">
+                                        <h5 class="card-title my-0" style="font-size: 1.5rem;">{{ $mitra->mitraName }}</h5>
                                         <span class="badge text-bg-primary rounded-pill"
                                             style="font-size: 1.25rem; padding: 0.5em 1em;">{{ $mitra->mitraCategory }}</span>
                                     </div>

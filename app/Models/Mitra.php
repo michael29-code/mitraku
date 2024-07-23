@@ -36,6 +36,15 @@ class Mitra extends Model
         return $this->hasMany(Certificate::class);
     }
 
+    public function getImageMitra(){
+        // dd($this->image);
+        if($this->image){
+            // dd($this->image);
+            return url('storage/'. $this->image);
+        }
+        return "/images/default_mitra_image.jpg";
+    }
+
 }
 
 
