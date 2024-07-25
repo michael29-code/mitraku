@@ -32,10 +32,11 @@ class CategoryController extends Controller
         Session::flash('jenisKategori', $request->jenisKategori);
 
         $request->validate([
-            'jenisKategori'=>'required'
-        ],[
-            'jenisKategori'=>'Jenis Kategori wajib diisi'
+            'jenisKategori'=>'required|unique:categories'
         ]);
+        // [
+            // 'jenisKategori'=>'Jenis Kategori wajib diisi'
+        // ]);
 
         $data=[
             'jenisKategori'=>$request->input('jenisKategori')
@@ -61,8 +62,15 @@ class CategoryController extends Controller
             'jenisKategori'=>$request->input('jenisKategori')
         ];
 
-        $category = Category::where('jenisKategori', $jenisKategori)-> update($data);
-        return redirect('/view-category')->with('success', 'Berhasil Update');
+        // dd($jenisKategori);
+        $category = Category::where('jenisKategori', '=', $jenisKategori);
+        $categoryItem = $category->first();
+        // dd($jenisKategori);
+        dd('Category Item:'.$categoryItem->jenisKategori. " Jenis Kategori:  " .$jenisKategori);
+        // $message = 'Berhasil Update '.$jenisKategori.' menjadi '.$categoryItem->jenisKategori;
+        $message = 'Berhasil Update '.$jenisKategori.' menjadi '.$categoryItem->jenisKategori;
+        return redirect('/view-category')->with('success', $message);
+        // return redirect('/view-category')->with('success', 'Berhasil Update');
     }
 
     /**

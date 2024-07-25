@@ -138,6 +138,10 @@ Route::get('/profile-user', [UserController::class, 'show'])->name('profile-user
 Route::put('/profile-user', [UserController::class, 'change_password'])->name('change-password');
 Route::post('/profile-user', [UserController::class, 'uploud_image'])->name('uploud-image');
 
+Route::get('/profileMitra', [MitraController::class, 'profileMitra'])->name('profile-mitra');
+Route::get('/editProfileMitra/{id}', [MitraController::class, 'editProfileMitra'])->name('edit-profile-mitra');
+Route::post('/updateProfileMitra/{id}', [MitraController::class, 'updateProfileMitra'])->name('update-profile-mitra');
+
 
 Route::get('success-page', function () {
     return view('success-page');

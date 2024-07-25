@@ -490,14 +490,11 @@ select option{
     font-family: "Satoshi-Regular";
 }
 
-.gmbr-nekobot{
-    /* background-image: url('public/images/blog.jpg'); */
-    /* background-color: red; */
-    /* background: url('public/images/blog.jpg'); */
-}
-
 .card-title {
     margin-left: 0;
 }
 
-
+.no-outline-card {
+    border: none;
+    background-color: #f3f3f3;
+}

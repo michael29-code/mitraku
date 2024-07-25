@@ -257,4 +257,42 @@ class MitraController extends Controller
         return redirect()->back()->with('success', 'Mitra status updated successfully.');;
     }
 
+    public function profileMitra()
+    {
+        // dd(Auth::user()->mitra);
+        $userID = Auth::user()->id;
+        // dd($userID);
+        $mitra = Mitra::where('user_id', '=', $userID)->get();
+        // dd($mitra->user_id);
+        
+        return view('roles.user.profile.profileMitra', compact('mitra'));
+    }
+
+    public function editProfileMitra($id)
+    {
+        $mitra = Mitra::find($id);
+        return view('roles.user.profile.editProfileMitra', compact('mitra'));
+    }
+
+    public function updateProfileMitra(Request $request, $id)
+    {
+        $mitra = Mitra::find($id);
+        
+        $mitra->mitraWebsite = $request->mitraWebsite;
+        $mitra->mitraCategory = $request->mitraCategory;
+        $mitra->mitraOverview = $request->mitraOverview;
+        $mitra->contactName = $request->contactName;
+        $mitra->contactPhoneNumber = $request->contactPhoneNumber;
+        $mitra->contactEmail = $request->contactEmail;
+        $mitra->mitraDetails = $request->mitraDetails;
+        $mitra->mitraAddress = $request->mitraAddress;
+        $mitra->mitraLocation = $request->mitraLocation;
+        if($request->hasFile('mitraImage')) {
+            $mitra->mitraImage = $request->file('mitraImage')->store('public/images');
+        }
+
+        $mitra->save();
+
+        return redirect()->route('profileMitra', ['id' => $id])->with('success', 'Profile updated successfully');
+    }
 }
