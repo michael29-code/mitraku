@@ -42,11 +42,12 @@
                                     <br>
                                 </div>
                             </div>
-                            <div class="btn-group btn-group-s" role="group" aria-label="Basic example">
-                                <button type="button" class="btn btn-primary">love</button>
-                                <button type="button" class="btn btn-primary">like</button>
-                                <button type="button" class="btn btn-primary">unlike</button>
-                            </div>
+                            <img src="/images/like-icon.png" class="m-3" alt="like"
+                                style="width: 35px" />
+                            <img src="/images/love-icon.png" class="m-3" alt="love"
+                                style="width: 35px" />
+                            <img src="/images/unlike-icon.png" class="m-3" alt="unlike"
+                                style="width: 35px" />
                         </div>
                     </div>
                 </div>
