@@ -62,13 +62,9 @@ class CategoryController extends Controller
             'jenisKategori'=>$request->input('jenisKategori')
         ];
 
-        // dd($jenisKategori);
         $category = Category::where('jenisKategori', '=', $jenisKategori);
-        $categoryItem = $category->first();
-        // dd($jenisKategori);
-        dd('Category Item:'.$categoryItem->jenisKategori. " Jenis Kategori:  " .$jenisKategori);
-        // $message = 'Berhasil Update '.$jenisKategori.' menjadi '.$categoryItem->jenisKategori;
-        $message = 'Berhasil Update '.$jenisKategori.' menjadi '.$categoryItem->jenisKategori;
+        $category->update($data);
+        $message = 'Berhasil Update! '.$jenisKategori.' -> '.$data['jenisKategori'];
         return redirect('/view-category')->with('success', $message);
         // return redirect('/view-category')->with('success', 'Berhasil Update');
     }
