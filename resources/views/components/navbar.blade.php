@@ -17,19 +17,29 @@
                             href="{{ route('home') }}">Home</a>
                     </li>
                     @auth
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle @yield('isMitraActive')" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Mitra
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="/view-mitra">View Mitra</a></li>
-                                @if (Auth::user()->level == 2)
-                                    <li><a href="/create-mitra/step-1/" class="dropdown-item" >Create Mitra</a></li>
-                                @endif
-                            </ul>
-                        </li>
+                        @if (Auth::user()->level == 2)
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle @yield('isMitraActive')" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Mitra
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="{{ route('view-mitra') }}">View Mitra</a></li>
+                                    <li><a href="{{ route('create-mitra-1') }}" class="dropdown-item">Create Mitra</a></li>
+                                </ul>
+                            </li>
+                        @else
+                            <li class="nav-item">
+                                <a class="nav-link @yield('isMitraActive') mx-lg-2" href="{{ route('view-mitra') }}">Mitra</a>
+                            </li>
+                        @endif
                     @endauth
+                    @guest
+                        <li class="nav-item">
+                            <a class="nav-link @yield('isMitraActive') mx-lg-2" href="{{ route('view-mitra') }}">Mitra</a>
+                        </li>
+
+                    @endguest
                     <li class="nav-item">
                         <a class="nav-link @yield('isBlogActive') mx-lg-2" href="{{ route('view-blog') }}">Blog</a>
                     </li>
@@ -41,7 +51,7 @@
                         <a class="nav-link @yield('isPengajuanActive') mx-lg-2" href="/form-pengajuan">Pengajuan</a>
                     </li> --}}
                     @auth
-                        <li class="nav-item dropdown">
+                        {{-- <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle @yield('isPengajuanActive')" href="/form-pengajuan" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Pengajuan
@@ -49,7 +59,11 @@
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="/view-pengajuan">History Pengajuan</a></li>
                             </ul>
-                        </li>
+                        </li> --}}
+                        @if (Auth::user()->level == 3)
+                            <li class="nav-item">
+                                <a class="nav-link @yield('isPengajuanActive') mx-lg-2" href="/view-pengajuan">Pengajuan</a>
+                        @endif
                     @endauth
                 </ul>
             </div>
@@ -89,10 +103,10 @@
                                 <p class="body-large-medium">Mitra Profile</p>
                                 <i class="bi bi-caret-right p-0 m-0"></i>
                             </a>
-                            <a href="{{ route('transactions') }}" class="sub-menu-link">
-                                <i class="bi bi-building-fill-add"></i>
+                            <a href="{{ route('transactions') }}" class="sub-menu-link sub-menu-link2">
+                                <i class="bi bi-cash"></i>
                                 <p class="body-large-medium">Transactions</p>
-                                <i class="bi bi-caret-right p-0 m-0"></i>
+                                <i class="bi bi-caret-right bi-caret-right2 p-0 m-0"></i>
                             </a>
                         @endif
 

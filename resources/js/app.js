@@ -55,6 +55,19 @@ if (arrowIcon && subMenuLink) {
     })
 }
 
+const subMenuLink2 = document.querySelector('.sub-menu-link2');
+const arrowIcon2 = document.querySelector('.bi-caret-right2');
+if (arrowIcon2 && subMenuLink2) {
+    subMenuLink2.addEventListener('mouseover', () =>{
+        arrowIcon2.classList.remove('bi-caret-right');
+        arrowIcon2.classList.add('bi-caret-right-fill');
+    })
+    subMenuLink2.addEventListener('mouseout', () =>{
+        arrowIcon2.classList.add('bi-caret-right');
+        arrowIcon2.classList.remove('bi-caret-right-fill');
+    })
+}
+
 // === DROPDOWN END ===
 
 
