@@ -22,16 +22,24 @@
                 </div>
             </div>
             <div class="col text-center">
+              <a href="{{ route('home') }}" class="text-decoration-none black" >
                 <h5>Home</h5>
+              </a>
             </div>
             <div class="col text-center">
+              <a href="{{ route('view-mitra') }}" class="text-decoration-none black">
                 <h5>Mitra</h5>
+              </a>
             </div>
             <div class="col text-center">
+              <a href="{{ route('view-blog') }}" class="text-decoration-none black">
                 <h5>Blog</h5>
+              </a>
             </div>
             <div class="col text-center">
+              <a href="{{ route('view-advertisement-user') }}" class="text-decoration-none black">
                 <h5>Advertise</h5>
+              </a>
             </div>
         </div>
         <div class="row">
