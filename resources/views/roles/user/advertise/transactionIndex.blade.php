@@ -1,6 +1,7 @@
 @extends('layouts/layout')
 
 @section('content')
+{{-- {{ dd(Auth::user()->transactions->isEmpty()) }} --}}
     <div class="container my-5 full-height m-auto d-flex w-100 justify-content-start align-items-center flex-column">
 
         <div class="row w-100 d-flex justify-content-center">

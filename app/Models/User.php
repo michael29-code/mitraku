@@ -51,6 +51,17 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function getImageURL(){
+        // dd($this->image);
+        if($this->image){
+            // dd($this->image);
+            return url('storage/'. $this->image);
+        }
+
+        return "/images/default_user_profile.jpg";
+    }
+
     public function blogs(): HasMany
     {
         return $this->hasMany(Blog::class,'writerId');
@@ -67,16 +78,6 @@ class User extends Authenticatable
 
     public function transactions(): HasMany
     {
-        return $this->hasMany(Transaction::class,'id');
-    }
-
-    public function getImageURL(){
-        // dd($this->image);
-        if($this->image){
-            // dd($this->image);
-            return url('storage/'. $this->image);
-        }
-
-        return "/images/default_user_profile.jpg";
+        return $this->hasMany(Transaction::class,'user_id');
     }
 }

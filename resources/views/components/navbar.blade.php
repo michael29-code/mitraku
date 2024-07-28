@@ -69,8 +69,22 @@
             </div>
         </div>
         {{-- PROFILE PICTURE / SIGN IN OR SIGN UP BUTTON --}}
-        <div class="profilePictureGemink">
+        <div class="profilePictureGemink d-flex">
             @auth
+                @if (Auth::user()->mitra)
+                    <div class="d-flex justify-content-center align-items-center me-2 position-relative"
+                        style="height: 3.5rem; width: 5rem">
+                        <div class="bg-primary px-3 py-1 rounded text-white">
+                            Mitra
+                        </div>
+                        @if (!Auth::user()->transactions->isEmpty())
+                            <div class="position-absolute top-0 end-0">
+                                <i class="bi bi-badge-ad-fill text-secondary"></i>
+                            </div>
+                        @endif
+                    </div>
+                @endif
+
                 @if (Auth::user()->image == 'default')
                     <img src="/images/default_user_profile.jpg/" class="rounded-circle user-profpic" id="profileImage"
                         style="width: 3.5rem">
@@ -98,7 +112,7 @@
                                 <i class="bi bi-caret-right p-0 m-0"></i>
                             </a>
                         @else
-                            <a href="#" class="sub-menu-link">
+                            <a href="{{ route('profile-mitra') }}" class="sub-menu-link">
                                 <i class="bi bi-building-fill-gear"></i>
                                 <p class="body-large-medium">Mitra Profile</p>
                                 <i class="bi bi-caret-right p-0 m-0"></i>
@@ -108,6 +122,7 @@
                                 <p class="body-large-medium">Transactions</p>
                                 <i class="bi bi-caret-right bi-caret-right2 p-0 m-0"></i>
                             </a>
+                            {{-- TODO: KLO DIA ADVERTISE --}}
                         @endif
 
                         <form action="{{ route('logout') }}" method="POST">
