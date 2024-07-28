@@ -60,14 +60,14 @@ Route::group(['middleware' => ['auth']], function () {
         Route::put('/update-category/{jenisKategori}', [CategoryController::class, 'update'])->name('update-category.submit');
 
         //ADVERTISMENT
-        // Route::get('/manage-advertisement', [AdvertisementController::class, 'manage'])->name('manage-advertisement-admin');
-        // Route::get('/manage-advertisement-view', [AdvertisementController::class, 'index'])->name('view-advertisement-admin');
-        // Route::get('/manage-advertisement-add', [AdvertisementController::class, 'create'])->name('add-advertisement-admin');
-        // Route::post('/manage-advertisement-store', [AdvertisementController::class, 'store'])->name('store-advertisement-admin');
-        // Route::delete('/manage-advertisements/{id}/delete', [AdvertisementController::class, 'destroy'])->name('delete-advertisement-admin');
-        // Route::get('/manage-advertisements/{id}/edit', [AdvertisementController::class, 'edit'])->name('edit-advertisement-admin');
-        // Route::put('/manage-advertisements/{id}/update', [AdvertisementController::class, 'update'])->name('update-advertisement-admin');
-        // Route::get('/search-advertisement', [AdvertisementController::class, 'search'])->name('search-advertisement-admin');
+        Route::get('/manage-advertisement', [AdvertisementController::class, 'manage'])->name('manage-advertisement-admin');
+        Route::get('/manage-advertisement-view', [AdvertisementController::class, 'index'])->name('view-advertisement-admin');
+        Route::get('/manage-advertisement-add', [AdvertisementController::class, 'create'])->name('add-advertisement-admin');
+        Route::post('/manage-advertisement-store', [AdvertisementController::class, 'store'])->name('store-advertisement-admin');
+        Route::delete('/manage-advertisements/{id}/delete', [AdvertisementController::class, 'destroy'])->name('delete-advertisement-admin');
+        Route::get('/manage-advertisements/{id}/edit', [AdvertisementController::class, 'edit'])->name('edit-advertisement-admin');
+        Route::put('/manage-advertisements/{id}/update', [AdvertisementController::class, 'update'])->name('update-advertisement-admin');
+        Route::get('/search-advertisement', [AdvertisementController::class, 'search'])->name('search-advertisement-admin');
 
 
         //VIEW USER
@@ -105,10 +105,14 @@ Route::group(['middleware' => ['auth']], function () {
             Route::get('/blog', [BlogController::class, 'viewBlogUser'])->name('view-blog');
             Route::get('/blog-detail/{id}', [BlogController::class, 'blogDetailUser'])->name('view-blog-detail');
 
-            //PROFILE
-            // Route::get('/profile', function () {
-            //     return view('profile');
-            // });
+            //PROFILE USER
+            Route::get('/profile-user', [UserController::class, 'show'])->name('profile-user');
+            Route::put('/profile-user', [UserController::class, 'change_password'])->name('change-password');
+            Route::post('/profile-user', [UserController::class, 'uploud_image'])->name('uploud-image');
+
+            Route::get('/profileMitra', [MitraController::class, 'profileMitra'])->name('profile-mitra');
+            Route::get('/editProfileMitra/{id}', [MitraController::class, 'editProfileMitra'])->name('edit-profile-mitra');
+            Route::post('/updateProfileMitra/{id}', [MitraController::class, 'updateProfileMitra'])->name('update-profile-mitra');
 
             //ADVERTISMENT
             Route::get('/userAdvertisement', [AdvertisementController::class, 'userIndex'])->name('view-advertisement-user');
@@ -133,28 +137,10 @@ Route::group(['middleware' => ['auth']], function () {
         });
     });
 });
-//PROFILE USER
-Route::get('/profile-user', [UserController::class, 'show'])->name('profile-user');
-Route::put('/profile-user', [UserController::class, 'change_password'])->name('change-password');
-Route::post('/profile-user', [UserController::class, 'uploud_image'])->name('uploud-image');
-
-Route::get('/profileMitra', [MitraController::class, 'profileMitra'])->name('profile-mitra');
-Route::get('/editProfileMitra/{id}', [MitraController::class, 'editProfileMitra'])->name('edit-profile-mitra');
-Route::post('/updateProfileMitra/{id}', [MitraController::class, 'updateProfileMitra'])->name('update-profile-mitra');
 
 
+// TODO: INI BELUM DIPINDAH
 Route::get('success-page', function () {
     return view('success-page');
 })->name('success-page');
 
-
-
-Route::get('/manage-advertisement', [AdvertisementController::class, 'manage'])->name('manage-advertisement-admin');
-Route::get('/manage-advertisement-view', [AdvertisementController::class, 'index'])->name('view-advertisement-admin');
-Route::get('/manage-advertisement-add', [AdvertisementController::class, 'create'])->name('add-advertisement-admin');
-Route::post('/manage-advertisement-store', [AdvertisementController::class, 'store'])->name('store-advertisement-admin');
-Route::delete('/manage-advertisements/{id}/delete', [AdvertisementController::class, 'destroy'])->name('delete-advertisement-admin');
-Route::get('/manage-advertisements/{id}/edit', [AdvertisementController::class, 'edit'])->name('edit-advertisement-admin');
-Route::put('/manage-advertisements/{id}/update', [AdvertisementController::class, 'update'])->name('update-advertisement-admin');
-Route::get('/search-advertisement', [AdvertisementController::class, 'search'])->name('search-advertisement-admin');
-Route::get('/mitra-search-admin', [MitraController::class, 'searchAdmin'])->name('mitra-search-admin');
