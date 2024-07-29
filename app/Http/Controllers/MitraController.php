@@ -3,11 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
-use App\Models\Certificate;
-use App\Models\Penghargaan;
-use PDF;
+
 use App\Models\Mitra;
-use App\Models\Pengajuan;
 use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -198,6 +195,7 @@ class MitraController extends Controller
     {
         $mitras = Mitra::all();
         return view('roles.admin.mitra.viewMitra', compact('mitras'));
+        
     }
 
     public function search(Request $request)
