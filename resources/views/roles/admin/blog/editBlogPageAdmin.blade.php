@@ -93,7 +93,7 @@
                                                         <input class="form-control @error('image') is-invalid @enderror "
                                                             type="file" id="image" name="image"
                                                             onchange="previewImage()"
-                                                            value="{{ old('image'), $blog->image }}">
+                                                            value="{{ old('image', $blog->image) }}">
                                                         <input type="hidden" name="oldImage" value="{{ $blog->image }}">
                                                         @error('image')
                                                             <div class="invalid-feedback m-1">
