@@ -221,21 +221,21 @@ class MitraController extends Controller
     public function toggleBlock($id){
         $mitra = Mitra::find($id);
         $user = User::find($mitra->user_id);
-        // dd($user);
-        // dd($mitra);
+        $message = $mitra->mitraName;
         if($mitra->isBlocked == 0){
             $mitra->isBlocked = 1;
             $user->isBlocked = 1;
-            // dd($user);
+            $message = $message.' has been blocked successfully'; 
         } else {
             $mitra->isBlocked = 0;
             $user->isBlocked = 0;
+            $message = $message.' has been unblocked successfully'; 
         }
         $user->save();
         $mitra->save();
 
         // dd($user);
-        return redirect()->back();
+        return redirect()->back()->with('blockSuccess', $message);
     }
 
 

@@ -46,7 +46,9 @@ class BlogController extends Controller
         }
         Blog::create($validatedData);
 
-        return redirect('/manage-blog')->with('success', 'Blog has been posted');
+        $message = "\"" . $request->title . "\" has been posted successfully";
+
+        return redirect('/view-blog')->with('success', $message);
     }
 
     public function show(Blog $blog)
@@ -68,9 +70,9 @@ class BlogController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|max:255',
             'writerId' => 'required',
-            'slug' => 'required|unique:blogs',
+            // 'slug' => 'required|unique:blogs',
             'kategoriId' => 'required|exists:categories,id',
-            'image' => 'required|image|file|max:1024',
+            // 'image' => 'required|image|file',
             'body' => 'required',
         ]);
 
@@ -82,7 +84,13 @@ class BlogController extends Controller
         }
         Blog::where('slug',$blog->slug)
         ->update($validatedData);
-        return redirect('/manage-blog')->with('success', 'Blog has been updated');
+
+        $message = "\"" . $blog->title . "\" has been updadated successfully";
+
+        if($request->title !== $blog->title){
+            $message = $message. " to ".$request->title;
+        }
+        return redirect('/view-blog')->with('success', $message);
     }
 
     public function view(): View
@@ -97,7 +105,8 @@ class BlogController extends Controller
             Storage::delete($blog->image);
         }
         Blog::destroy($blog->id);
-        return redirect('/view-blog')->with('success', 'Blog has been deleted');
+        $message = "\"" . $blog->title . "\" has been deleted sucessfully";
+        return redirect('/view-blog')->with('success', $message);
     }
     
     public function search(Request $request){

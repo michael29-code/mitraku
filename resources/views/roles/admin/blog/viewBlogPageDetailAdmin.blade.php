@@ -10,7 +10,7 @@
                             <div class="col-5">
                                 <div class="col">
                                     <h4>
-                                        <a href="/view-blog">
+                                        <a href="/view-blog" class="text-decoration-none">
                                             <i class="fa-solid fa-arrow-left" style="font-size: 2rem"></i>
                                         </a>
                                         View Blog

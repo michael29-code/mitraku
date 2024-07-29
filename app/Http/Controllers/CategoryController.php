@@ -44,7 +44,9 @@ class CategoryController extends Controller
 
         Category::create($data);
 
-        return redirect()->route('view-category-admin')->with('success', 'Berhasil menambah kategori');
+        $message = "Category \"" . $request->jenisKategori . "\" has been created successfully";
+
+        return redirect()->route('view-category-admin')->with('success', $message);
     }
 
     /**

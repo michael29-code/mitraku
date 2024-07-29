@@ -3,6 +3,13 @@
 @section('isViewUserActive', 'active')
 
 @section('content')
+    @if (session()->has('blockSuccess'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('blockSuccess') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+
     <div class="container d-flex justify-content-center">
         <div class="col-lg-10">
             <div class="p-4">

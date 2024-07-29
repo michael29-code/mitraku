@@ -31,15 +31,16 @@ class UserController extends Controller
     
     public function toggleBlock($id){
         $user = User::find($id);
-        // $user->isBlocked = 1;
-        // dd($user);
+        $message = $user->username;
         if($user->isBlocked == 0){
             $user->isBlocked = 1;
+            $message = $message.' has been blocked successfully'; 
         } else {
             $user->isBlocked = 0;
+            $message = $message.' has been unblocked successfully'; 
         }
         $user->save();
-        return redirect()->back();
+        return redirect()->back()->with('blockSuccess', $message);
     }
 
 

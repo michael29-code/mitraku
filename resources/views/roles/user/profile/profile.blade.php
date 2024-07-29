@@ -36,12 +36,12 @@
                 <div class="col-8">
                     <h6>{{ $user->username }}</h6>
                 </div>
-                <div class="col-4">
+                {{-- <div class="col-4">
                     <h6>Level</h6>
                 </div>
                 <div class="col-8">
                     <h6>{{ $user->level }}</h6>
-                </div>
+                </div> --}}
                 <div class="col-4">
                     <h6>Birthdate</h6>
                 </div>

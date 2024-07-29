@@ -46,7 +46,7 @@
                             @foreach ($blogs as $blog)
                                 <div class="col my-3">
                                     <div class="card mx-2 h-100 d-flex flex-column">
-                                        <a href="/view-blog-detail/{{ $blog->slug }}">
+                                        <a href="/view-blog-detail/{{ $blog->slug }}" class="text-decoration-none">
                                             <img src="{{ asset('storage/' . $blog->image) }}" class="card-img-top mx-auto"
                                                 alt="..." style="max-height: 300px; object-fit: cover;">
                                             <div class="card-body-blog mx-3 d-flex flex-column">
