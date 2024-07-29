@@ -22,8 +22,15 @@ class AdvertisementController extends Controller
     }
 
     public function store(Request $request){
-        Advertisement::create($request->all());
-        return redirect()->route('manage-advertisement-admin')->with('success', $request->title . ' created successfully.');
+        $incomingFields = $request->validate([
+            'title' => ['required', 'min:5', 'unique:advertise'],
+            'price' => ['required', 'numeric', 'min:1'],
+            'period' => ['required', 'numeric', 'min:1'],
+            'description' => ['required', 'min:5', 'max:255'],
+
+        ]);
+        Advertisement::create($incomingFields);
+        return redirect()->route('view-advertisement-admin')->with('success', $incomingFields['title'] . ' created successfully.');
     }
 
     public function index() {
@@ -47,8 +54,17 @@ class AdvertisementController extends Controller
 
     public function update(Request $request, $id) {
         $advertisement = Advertisement::findOrFail($id);
-        $advertisement->update($request->all());
-        return redirect()->route('view-advertisement-admin')->with('success', 'Advertisement updated successfully.');
+        $incomingFields = $request->validate([
+            'title' => ['required', 'min:5'],
+            'price' => ['required', 'numeric', 'min:1'],
+            'period' => ['required', 'numeric', 'min:1'],
+            'description' => ['required', 'min:5', 'max:255'],
+            
+        ]);
+        $advertisement->update($incomingFields);
+        return redirect()->route('view-advertisement-admin')->with('success', $incomingFields['title'] . ' updated successfully.');
+        
+        // return redirect()->route('view-advertisement-admin')->with('success', 'Advertisement updated successfully.');
     }
 
     public function manage() {
