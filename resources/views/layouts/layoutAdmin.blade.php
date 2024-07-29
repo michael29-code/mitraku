@@ -40,7 +40,7 @@
     </nav>
 
     <div class="main-container d-flex">
-        <div class="sidebar sidebar-rch shadow-sm h6 d-flex flex-column justify-content-between" id="side_nav">
+        <div class="sidebar active sidebar-rch shadow-sm h6 d-flex flex-column justify-content-between" id="side_nav">
             <div class="">
                 <div class="header-box px-2 pt-3 pb-4 d-flex justify-content-between">
                     <div class="div"></div>

@@ -74,10 +74,11 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/view-user-admin', [UserController::class, 'index'])->name('view-user-admin');
         Route::patch('/toggle-user-blocked/{id}', [UserController::class, 'toggleBlock'])->name('toggle-blocked-user');
         Route::get('/user-search', [UserController::class, 'search'])->name('user-search-admin');
-
+        
         //VIEW MITRA (ADA DI BAWAH)
         Route::get('/view-mitra-admin', [MitraController::class, 'viewMitra'])->name('view-mitra-admin');
         Route::patch('/toggle-mitra-blocked/{id}', [MitraController::class, 'toggleBlock'])->name('toggle-blocked-mitra');
+        Route::get('/mitra-search-admin', [MitraController::class, 'searchAdmin'])->name('mitra-search-admin');
 
     });
 
