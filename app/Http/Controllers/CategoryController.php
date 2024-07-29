@@ -14,7 +14,7 @@ class CategoryController extends Controller
      */
 
     public function viewCategoryAdmin() {
-        $data = Category::all();
+        $data = Category::orderBy('created_at', 'DESC')->get();
         return view('roles.admin.category.viewCategoryAdmin')->with('data', $data);
     }
     

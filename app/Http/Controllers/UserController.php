@@ -14,7 +14,7 @@ class UserController extends Controller
 {
     // View User Admin
     public function index(){
-        $users = User::where('level', 2)->get();
+        $users = User::where('level', 2)->orderBy('created_at', 'DESC')->get();
         return view('roles.admin.block.viewUser', compact('users'));
     }
 

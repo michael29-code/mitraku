@@ -281,11 +281,11 @@ h6,
 
 /* ===== EDIT SIDEBAR END =====*/
 
-.passs{
+.passs {
     position: relative;
 }
 
-.passs i{
+.passs i {
     position: absolute;
     top: 0.5rem;
     right: 1.65rem;
@@ -297,105 +297,98 @@ h6,
 
 /* === EDIT BOOTSTRAP END === */
 
-
-
 /* ===== EDIT DROPDOWN START =====*/
 
-.submenu-wrap{
+.submenu-wrap {
     position: absolute;
     top: 100%;
     right: 5.5%;
     max-height: 0px;
     overflow: hidden;
-    transition: max-height 0.5s ;
+    transition: max-height 0.5s;
 }
 
-.submenu-wrap.open-menu{
+.submenu-wrap.open-menu {
     max-height: 400px;
     border-radius: 5%;
 }
 
-.submenu{
+.submenu {
     background-color: #ffffff;
     padding: 1rem;
 }
 
-.user-info{
+.user-info {
     display: flex;
     align-items: flex-end;
 }
 
-.user-info:hover p{
+.user-info:hover p {
     display: flex;
     align-items: center;
     font-weight: bold;
 }
 
-.user-info img{
+.user-info img {
     width: 4rem;
     margin-right: 1rem;
 }
 
-.submenu hr{
+.submenu hr {
     border: 0;
     height: 0.1rem;
     width: 100%;
     background: #ccc;
-    margin: 1rem 0 .7rem 0;
-}   
+    margin: 1rem 0 0.7rem 0;
+}
 
-.sub-menu-link{
+.sub-menu-link {
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
     color: #2d68fe;
-
 }
 
-.sub-menu-link i{
+.sub-menu-link i {
     font-size: 1.5rem;
-    padding: .3rem;
-    margin-right: .6rem;
+    padding: 0.3rem;
+    margin-right: 0.6rem;
 }
 
-.sub-menu-link .bi-caret-right{
+.sub-menu-link .bi-caret-right {
     font-size: 1.5rem;
-    padding: .3rem;
-    margin-right: .6rem;
+    padding: 0.3rem;
+    margin-right: 0.6rem;
 }
 
-.sub-menu-link p{
+.sub-menu-link p {
     width: 100%;
     margin: 0;
 }
 
-.sub-menu-link:hover p{
+.sub-menu-link:hover p {
     width: 100%;
     margin: 0;
     font-weight: bold;
 }
 
-
 /* ===== EDIT DROPDOWN END =====*/
-
 
 /* ===== EDIT PROFILE PICTURE START =====*/
 
-.user-profpic{
+.user-profpic {
     aspect-ratio: 1 / 1;
 }
 
 /* ===== EDIT PROFILE PICTURE END =====*/
-
-
 
 .rectangle {
     width: 100%;
     margin: 0 auto;
     height: 200px;
     /* background-image: url('path/to/your/image.jpg'); */
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     /* background-image: url('{{ asset('images/cover.jpg') }}'); */
     border-radius: 8px;
 
@@ -430,7 +423,6 @@ h6,
     font-weight: bold;
 }
 
-
 .miniRectangleHeader {
     width: 100px;
     background-color: rgb(218, 235, 241);
@@ -450,7 +442,7 @@ h6,
 .card-title {
     font-size: 14px;
     color: black;
-    margin-left: 20px;;
+    margin-left: 20px;
 }
 
 .blogTitle {
@@ -485,7 +477,7 @@ h6,
     left: 0;
 }
 
-select option{
+select option {
     /* color: red; */
     font-family: "Satoshi-Regular";
 }

@@ -193,7 +193,7 @@ class MitraController extends Controller
     //ADMIN
     public function index()
     {
-        $mitras = Mitra::all();
+        $mitras = Mitra::orderBy('created_at', 'DESC')->get();
         return view('roles.admin.mitra.viewMitra', compact('mitras'));
         
     }

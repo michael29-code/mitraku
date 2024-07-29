@@ -26,7 +26,7 @@ class AdvertisementController extends Controller
             'title' => ['required', 'min:5', 'unique:advertise'],
             'price' => ['required', 'numeric', 'min:1'],
             'period' => ['required', 'numeric', 'min:1'],
-            'description' => ['required', 'min:5', 'max:255'],
+            'description' => ['required', 'min:100', 'max:255'],
 
         ]);
         Advertisement::create($incomingFields);
@@ -34,7 +34,7 @@ class AdvertisementController extends Controller
     }
 
     public function index() {
-        $advertisements = Advertisement::all();
+        $advertisements = Advertisement::orderBy('created_at', 'DESC')->get();
         return view('roles.admin.advertise.viewAdvertisementAdmin', ['advertisements' => $advertisements]);
     }
 
@@ -58,7 +58,7 @@ class AdvertisementController extends Controller
             'title' => ['required', 'min:5'],
             'price' => ['required', 'numeric', 'min:1'],
             'period' => ['required', 'numeric', 'min:1'],
-            'description' => ['required', 'min:5', 'max:255'],
+            'description' => ['required', 'min:100', 'max:255'],
             
         ]);
         $advertisement->update($incomingFields);

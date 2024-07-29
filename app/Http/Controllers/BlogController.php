@@ -65,16 +65,19 @@ class BlogController extends Controller
     {
         // dd($request);
 
-        $request['slug'] = Str::of($request['title'])->slug('-');
         // dd( $request['slug']);
         $validatedData = $request->validate([
             'title' => 'required|max:255',
             'writerId' => 'required',
             // 'slug' => 'required|unique:blogs',
             'kategoriId' => 'required|exists:categories,id',
-            // 'image' => 'required|image|file',
+            'image' => 'required|image|file',
             'body' => 'required',
         ]);
+        
+        $request['slug'] = Str::of($request['title'])->slug('-');
+
+        $validatedData['slug'] = $request['slug'];
 
         if ($request->file('image')) {
             if ($request->oldImage) {
@@ -95,7 +98,7 @@ class BlogController extends Controller
 
     public function view(): View
     {
-        $blogs = Blog::paginate(10); // Mengambil 10 data per halaman
+        $blogs = Blog::orderBy('created_at', 'DESC')->paginate(10); // Mengambil 10 data per halaman
         return view('roles.admin.blog.viewBlogPageAdmin',["blogs"=> $blogs]);
     }
 
