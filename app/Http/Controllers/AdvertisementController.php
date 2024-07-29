@@ -23,7 +23,7 @@ class AdvertisementController extends Controller
 
     public function store(Request $request){
         Advertisement::create($request->all());
-        return redirect()->route('view-advertisement-admin')->with('success', 'Advertisement created successfully.');
+        return redirect()->route('manage-advertisement-admin')->with('success', $request->title . ' created successfully.');
     }
 
     public function index() {
@@ -33,8 +33,10 @@ class AdvertisementController extends Controller
 
     public function destroy($id) {
         $advertisement = Advertisement::findOrFail($id);
+
+        $message = $advertisement->title.' deleted successfully.';
         $advertisement->delete();
-        return redirect()->route('view-advertisement-admin')->with('success', 'Advertisement deleted successfully.');
+        return redirect()->route('view-advertisement-admin')->with('success', $message );
     }
 
     public function edit($id)

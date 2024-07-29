@@ -1,5 +1,7 @@
 @extends('layouts.layoutAdmin')
 
+@section('isViewBlogActive', 'active')
+
 @section('content')
     <div class="container ">
         <div class="row shadow bg-body-tertiary rounded">

@@ -1,5 +1,7 @@
 @extends('layouts.layoutAdmin')
 
+@section('isViewBlogActive', 'active')
+
 @section('content')
     <div class="container my-5 p-5">
         <div class="row">

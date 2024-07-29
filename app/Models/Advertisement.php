@@ -15,7 +15,7 @@ class Advertisement extends Model
     protected $fillable = [
         'title',
         'price',
-        'subscriptionDate',
+        // 'subscriptionDate',
         'period',
         'description',
     ];

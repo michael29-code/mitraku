@@ -80,6 +80,7 @@ class CategoryController extends Controller
         if ($category) {
             $category->delete();
         }
-        return redirect()->route('view-category-admin')->with('success', 'Berhasil hapus data');
+        $message = "\"" . $jenisKategori . "\" has been deleted successfully";
+        return redirect()->route('view-category-admin')->with('success', $message);
     }
 }
