@@ -33,4 +33,9 @@ class Transaction extends Model
     {
         return Carbon::now()->greaterThan($this->ends_at);
     }
+
+    public function mitra()
+    {
+        return $this->belongsTo(Mitra::class, 'advertise_id');
+    }
 }

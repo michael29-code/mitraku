@@ -20,7 +20,7 @@ class MitraSeeder extends Seeder
             'mitraYear' => 2010,
             'mitraWebsite' => 'www.teknologimajujaya.co.id',
             'mitraCategory' => 'Teknologi',
-            'image_cover' => 'images/cover.jpg',
+            'image_cover' => '/images/default_mitra_image.jpg',
             'contactName' => 'David Rodloy',
             'contactEmail' => 'davidrodloy@teknologimajujaya.com',
             'contactPhoneNumber' => '0123456789',

@@ -51,7 +51,7 @@
                         <div class="col-5">
                             <p style="font-size: 1.5rem; margin-bottom: 0;">{{ $mitra->contactName }}</p>
                             <span>Email: {{ $mitra->contactEmail }}</span>
-                            <span>Phone no: {{ $mitra->contactPhoneNumber }}</span>
+                            <span><p>Phone no: {{ $mitra->contactPhoneNumber }}</p></span>
                         </div>
                     </div>
                     <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">

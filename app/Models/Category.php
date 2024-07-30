@@ -16,4 +16,9 @@ class Category extends Model
     {
         return $this->hasMany(Blog::class,'kategoriId');
     }
+
+    public function mitras()
+    {
+        return $this->hasMany(Mitra::class, 'category_id');
+    }
 }

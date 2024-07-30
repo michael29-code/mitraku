@@ -9,7 +9,7 @@ class Mitra extends Model
 {
     use HasFactory;
     protected $guarded = [];
-    public $timestamps = true;  // Enable timestamps
+    public $timestamps = true; 
 
     protected $fillable = [
         'mitraName',
@@ -31,11 +31,6 @@ class Mitra extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function certificates()
-    {
-        return $this->hasMany(Certificate::class);
-    }
-
     public function getImageMitra(){
         // dd($this->image);
         if($this->image){
@@ -45,6 +40,15 @@ class Mitra extends Model
         return "/images/default_mitra_image.jpg";
     }
 
+    public function transaction()
+    {
+        return $this->hasOne(Transaction::class, 'advertise_id');
+    }
+    
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
+    }
 }
 
 

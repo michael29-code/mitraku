@@ -9,6 +9,7 @@ use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class MitraController extends Controller
@@ -24,8 +25,8 @@ class MitraController extends Controller
         $rules = [
             'mitraName' => ['required', 'string', 'min:8', 'max:255', 'unique:mitras,mitraName'],
             'mitraOverview' => ['required', 'string', function ($attribute, $value, $fail) {
-                if (str_word_count($value) < 5) {
-                    $fail('The ' . $attribute . ' must be at least five words.');
+                if (str_word_count($value) < 15) {
+                    $fail('The Mitra Overview must be at least 15 words');
                 }
             }],
             'mitraYear' => ['required', 'integer', 'min:1001'], 
@@ -77,8 +78,8 @@ class MitraController extends Controller
 
         $rules = [
             'mitra_details' => ['required', function ($attribute, $value, $fail) {
-                if (str_word_count($value) < 10) { 
-                    $fail('The Mitra Details must be at least 10 words.');
+                if (str_word_count($value) < 20) { 
+                    $fail('The Mitra Details must be at least 20 words.');
                 }
             }],
             'contactName' => ['required', 'string', 'min:8', 'max:255', 'unique:mitras,contactName'],
@@ -170,24 +171,18 @@ class MitraController extends Controller
     
     public function mitra()
     {
-        $activeMitraIds = Transaction::where('status', 'active')
-            ->pluck('advertise_id')
-            ->toArray();
-
-        $mitras = Mitra::select('*')
-            ->orderByRaw('FIELD(id, ' . implode(',', $activeMitraIds) . ') DESC')
-            ->paginate(4);
-
-        return view('roles.user.mitra.mitra', compact('mitras'));
+        $categories = Category::all(); 
+        $mitras = Mitra::with('transaction')->paginate(10);
+        return view('roles.user.mitra.mitra', compact('mitras', 'categories'));
     }
 
     public function show($id)
-{
-    $mitra = Mitra::findOrFail($id);
-    $user = $mitra->user; 
+    {
+        $mitra = Mitra::findOrFail($id);
+        $user = $mitra->user; 
 
-    return view('roles.user.mitra.detailMitra', compact('mitra', 'user'));
-}
+        return view('roles.user.mitra.detailMitra', compact('mitra', 'user'));
+    }
 
 
     //ADMIN
@@ -198,13 +193,32 @@ class MitraController extends Controller
         
     }
 
+
     public function search(Request $request)
     {
         $searchTerm = $request->input('search');
-        $mitras = Mitra::where('mitraName', 'like', '%'.$searchTerm.'%')->paginate(10);
-        return view('roles.user.mitra.mitra', compact('mitras', 'searchTerm'));
+        $categoryId = $request->input('category');
+        $query = Mitra::query();
+
+        if ($searchTerm) {
+            $query->where('mitraName', 'like', '%' . $searchTerm . '%');
+        }
+
+        if ($categoryId) {
+            $category = Category::find($categoryId);
+
+            if ($category) {
+                $query->where('mitraCategory', $category->jenisKategori);
+            }
+        }
+
+        $mitras = $query->paginate(10);
+        $categories = Category::all();
+
+        return view('roles.user.mitra.mitra', compact('mitras', 'searchTerm', 'categories', 'categoryId'));
     }
 
+    // ADMIN
     public function searchAdmin(Request $request)
     {
         $searchTerm = $request->input('search');
@@ -236,11 +250,10 @@ class MitraController extends Controller
         return redirect()->back()->with('blockSuccess', $message);
     }
 
-
+    // USER
     public function viewMitra()
     {
-        $mitras = Mitra::all(); // Fetch all mitras
-
+        $mitras = Mitra::all();
         return view('roles.admin.mitra.viewMitra', compact('mitras'));
     }
                 
@@ -257,12 +270,8 @@ class MitraController extends Controller
 
     public function profileMitra()
     {
-        // dd(Auth::user()->mitra);
         $userID = Auth::user()->id;
-        // dd($userID);
         $mitra = Mitra::where('user_id', '=', $userID)->get();
-        // dd($mitra->user_id);
-        
         return view('roles.user.profile.profileMitra', compact('mitra'));
     }
 
