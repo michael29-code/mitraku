@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Category;
 use App\Models\Mitra;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -13,14 +14,20 @@ class MitraSeeder extends Seeder
      */
     public function run(): void
     {
+        $categories = Category::all();
         Mitra::create([
             'user_id' => '7',
             'mitraName' => 'PT Teknologi Maju Jaya',
             'mitraOverview' => 'PT Teknologi Maju Jaya adalah perusahaan teknologi yang fokus pada pengembangan solusi perangkat lunak untuk bisnis.',
             'mitraYear' => 2010,
             'mitraWebsite' => 'www.teknologimajujaya.co.id',
+<<<<<<< Updated upstream
             'mitraCategory' => 'Teknologi',
             'image_cover' => 'images/default_mitra_image.jpg', 
+=======
+            'mitraCategory' => $categories->random()->id,
+            'image_cover' => 'images/cover.jpg',
+>>>>>>> Stashed changes
             'contactName' => 'David Rodloy',
             'contactEmail' => 'davidrodloy@teknologimajujaya.com',
             'contactPhoneNumber' => '0123456789',
@@ -37,8 +44,13 @@ class MitraSeeder extends Seeder
             'mitraOverview' => 'PT Doremi Mundur Jaya adalah perusahaan teknologi yang fokus pada pengembangan solusi perangkat lunak untuk bisnis.',
             'mitraYear' => 2010,
             'mitraWebsite' => 'www.teknologimajujaya.co.id',
+<<<<<<< Updated upstream
             'mitraCategory' => 'Teknologi',
             'image_cover' => 'images/cover.jpg/',
+=======
+            'mitraCategory' => $categories->random()->id,
+            'image_cover' => 'images/cover.jpg',
+>>>>>>> Stashed changes
             'contactName' => 'David Rodloy',
             'contactEmail' => 'davidrodloy@teknologimajujaya.com',
             'contactPhoneNumber' => '0123456789',
@@ -55,7 +67,7 @@ class MitraSeeder extends Seeder
             'mitraOverview' => 'PT Teknologi Maju Jaya adalah perusahaan teknologi yang fokus pada pengembangan solusi perangkat lunak untuk bisnis.',
             'mitraYear' => 2010,
             'mitraWebsite' => 'www.teknologimajujaya.co.id',
-            'mitraCategory' => 'Teknologi',
+            'mitraCategory' => $categories->random()->id,
             'image_cover' => 'images/cover.jpg',
             'contactName' => 'David Rodloy',
             'contactEmail' => 'davidrodloy@teknologimajujaya.com',
@@ -73,7 +85,7 @@ class MitraSeeder extends Seeder
             'mitraOverview' => 'PT Teknologi Maju Jaya adalah perusahaan teknologi yang fokus pada pengembangan solusi perangkat lunak untuk bisnis.',
             'mitraYear' => 2010,
             'mitraWebsite' => 'www.teknologimajujaya.co.id',
-            'mitraCategory' => 'Teknologi',
+            'mitraCategory' => $categories->random()->id,
             'image_cover' => 'images/cover.jpg',
             'contactName' => 'David Rodloy',
             'contactEmail' => 'davidrodloy@teknologimajujaya.com',
@@ -90,7 +102,7 @@ class MitraSeeder extends Seeder
             'mitraOverview' => 'PT Teknologi Maju Jaya adalah perusahaan teknologi yang fokus pada pengembangan solusi perangkat lunak untuk bisnis.',
             'mitraYear' => 2010,
             'mitraWebsite' => 'www.teknologimajujaya.co.id',
-            'mitraCategory' => 'Teknologi',
+            'mitraCategory' => $categories->random()->id,
             'image_cover' => 'images/cover.jpg',
             'contactName' => 'David Rodloy',
             'contactEmail' => 'davidrodloy@teknologimajujaya.com',

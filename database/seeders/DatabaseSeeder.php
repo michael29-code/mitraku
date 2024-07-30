@@ -20,9 +20,9 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             UserSeeder::class, 
-            MitraSeeder::class,
             PengajuanSeeder::class,
             CategorySeeder::class,
+            MitraSeeder::class,
             AdvertiseSeeder::class,
             SponsorSeeder::class,
             // TransactionSeeder::class,

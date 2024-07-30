@@ -39,6 +39,7 @@ class Mitra extends Model
         }
         return "/images/default_mitra_image.jpg";
     }
+<<<<<<< Updated upstream
 
     public function transaction()
     {
@@ -48,6 +49,10 @@ class Mitra extends Model
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id');
+=======
+    public function category(){
+        return $this->hasOne(Category::class, 'id', 'mitraCategory');
+>>>>>>> Stashed changes
     }
 }
 

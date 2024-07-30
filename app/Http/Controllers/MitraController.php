@@ -271,20 +271,40 @@ class MitraController extends Controller
     public function profileMitra()
     {
         $userID = Auth::user()->id;
+<<<<<<< Updated upstream
         $mitra = Mitra::where('user_id', '=', $userID)->get();
+=======
+        $mitra = Mitra::where('user_id', '=', $userID)->first(); // Fetch the first mitra of the authenticated user
+        
+>>>>>>> Stashed changes
         return view('roles.user.profile.profileMitra', compact('mitra'));
     }
 
     public function editProfileMitra($id)
     {
-        $mitra = Mitra::find($id);
-        return view('roles.user.profile.editProfileMitra', compact('mitra'));
+        $mitra = Mitra::findOrFail($id);
+        $categories = Category::all(); // Fetch all categories from the database
+        // dump($categories);
+        return view('roles.user.profile.editProfileMitra', compact('mitra', 'categories'));
     }
-
+    
     public function updateProfileMitra(Request $request, $id)
     {
-        $mitra = Mitra::find($id);
-        
+        $mitra = Mitra::findOrFail($id);
+
+        $request->validate([
+            'mitraWebsite' => 'nullable|string',
+            'mitraCategory' => 'required|exists:categories,id',
+            'mitraOverview' => 'required|string|min:15|max:255',
+            'contactName' => 'required|string|min:8|max:255',
+            'contactPhoneNumber' => 'required|string',
+            'contactEmail' => 'required|email|max:255',
+            'mitraDetails' => 'required|string|min:20|max:255',
+            'address' => 'nullable|string|max:255',
+            'mitraLocation' => 'nullable|string|max:255',
+            'mitraImage' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
         $mitra->mitraWebsite = $request->mitraWebsite;
         $mitra->mitraCategory = $request->mitraCategory;
         $mitra->mitraOverview = $request->mitraOverview;
@@ -292,14 +312,16 @@ class MitraController extends Controller
         $mitra->contactPhoneNumber = $request->contactPhoneNumber;
         $mitra->contactEmail = $request->contactEmail;
         $mitra->mitraDetails = $request->mitraDetails;
-        $mitra->mitraAddress = $request->mitraAddress;
+        $mitra->address = $request->address;
         $mitra->mitraLocation = $request->mitraLocation;
-        if($request->hasFile('mitraImage')) {
-            $mitra->mitraImage = $request->file('mitraImage')->store('public/images');
+
+        if ($request->hasFile('mitraImage')) {
+            $imagePath = $request->file('mitraImage')->store('public/images');
+            $mitra->image_cover = $imagePath;
         }
 
         $mitra->save();
 
-        return redirect()->route('profileMitra', ['id' => $id])->with('success', 'Profile updated successfully');
+        return redirect()->route('profile-mitra')->with('success', 'Profile updated successfully');
     }
 }
