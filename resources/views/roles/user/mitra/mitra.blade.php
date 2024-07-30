@@ -10,7 +10,7 @@
         <form action="{{ route('mitra-search') }}" method="GET" class="mb-4">
             <div class="row g-2 align-items-center">
                 <div class="col-md-2">
-                    <select class="form-select" name="category" aria-label="Category">
+                    <select class="form-select" name="category" aria-label="Category" onchange="this.form.submit()">
                         <option value="" {{ request('category') == '' ? 'selected' : '' }}>All Categories</option>
                         @foreach($categories as $category)
                             <option value="{{ $category->id }}" {{ request('category') == $category->id ? 'selected' : '' }}>
@@ -26,7 +26,7 @@
                     <button class="btn btn-outline-primary w-100" type="submit">Search</button>
                 </div>
             </div>
-        </form>
+        </form>         
 
         @if(isset($searchTerm) && $searchTerm)
             <h5>Search Results for "{{ $searchTerm }}"</h5>
