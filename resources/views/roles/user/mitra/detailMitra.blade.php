@@ -30,7 +30,7 @@
         <div class="container my-5 m-auto d-flex w-100 justify-content-center align-items-center flex-column">
             <div class="row w-100">
                 <div class="col">
-                    <img src="{{ $mitra->image_cover ? asset('storage/mitra-images/' . $mitra->image_cover) : asset('/images/default_mitra_image.jpg') }}" class="img-fluid w-100;img-fluid rounded"  alt="image_cover" style="object-fit: cover;">
+                    <img src="{{ $mitra->getImageCover() }}" class="img-fluid w-100 rounded" alt="image_cover" style="object-fit: cover;">
                 </div>
                 <div class="col p-5">
                     <div class="row">
@@ -69,23 +69,20 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="container my-5 m-auto d-flex w-100 justify-content-center align-items-center flex-column">
-        <div class="row">
-            <div class="col-md-6 mb-4">
-                <div class="col">
-                    <h4>Location</h4>
-                    <div class="card rounded-5 w-50">
+                <div class="row p-3 mt-5">
+                    <div class="col-md-6 mb-4">
                         <div class="col">
-                            <img src="{{ asset('images/' . $mitra->image_map) }}" class="img-fluid rounded" alt="Image Cover">
+                            <h4>Location</h4>
+                            <div class="card rounded-5 w-50">
+                                <div class="col">
+                                    <img src="{{ $mitra->getImageMap() }}" class="img-fluid w-100 rounded" alt="Image Cover">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div>        
 </div>    
 @endsection

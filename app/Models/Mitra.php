@@ -31,15 +31,21 @@ class Mitra extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function getImageMitra(){
-        // dd($this->image);
-        if($this->image){
-            // dd($this->image);
-            return url('storage/'. $this->image);
+    public function getImageCover()
+    {
+        if ($this->image_cover) {
+            return url('storage/mitra-images/' . $this->image_cover);
         }
-        return "/images/default_mitra_image.jpg";
+        return "/images/default_mitra_image.png";
     }
-<<<<<<< Updated upstream
+
+    public function getImageMap()
+    {
+        if ($this->image_map) {
+            return url('storage/mitra-images/' . $this->image_map);
+        }
+        return "/images/mapLocation.png";
+    }
 
     public function transaction()
     {
@@ -49,10 +55,6 @@ class Mitra extends Model
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id');
-=======
-    public function category(){
-        return $this->hasOne(Category::class, 'id', 'mitraCategory');
->>>>>>> Stashed changes
     }
 }
 

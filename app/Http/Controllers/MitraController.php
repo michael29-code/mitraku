@@ -10,6 +10,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class MitraController extends Controller
@@ -30,11 +31,11 @@ class MitraController extends Controller
                 }
             }],
             'mitraYear' => ['required', 'integer', 'min:1001'], 
-            'mitraWebsite' => ['nullable', 'string'], 
-            'mitraCategory' => ['required', 'string', 'not_in:'],
+            'mitraWebsite' => ['required'], 
+            'mitraCategory' => ['required', 'string', 'not_in:'], 
             'image_cover' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048'],
         ];
-    
+
         $messages = [
             'mitraName.required' => 'The Mitra Name is required.',
             'mitraName.min' => 'The Mitra Name must be at least 8 characters.',
@@ -46,7 +47,7 @@ class MitraController extends Controller
             'mitraCategory.required' => 'Please select a category.',
             'mitraCategory.not_in' => 'Please select a valid category.',
         ];
-    
+
         $validator = Validator::make($request->all(), $rules, $messages);
 
         if ($validator->fails()) {
@@ -54,14 +55,24 @@ class MitraController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         }
-    
+
         $validatedData = $validator->validated();
+
         if ($request->hasFile('image_cover')) {
             $image = $request->file('image_cover');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->storeAs('public/mitra-images', $imageName);
+            $image->storeAs('public/mitra-images', $imageName); 
             $validatedData['image_cover'] = $imageName;
+        } else {
+            $validatedData['image_cover'] = 'default_mitra_image.jpg'; 
         }
+
+        // if($request->has('image_cover')){
+        //     $imagePath = $request->file('image')->store('mitra-images', 'public');
+        //     $validate ['image_cover'] = $imagePath;
+
+        //     Storage::disk('public')->delete($request->image_map);
+        // }
 
         $request->session()->put('step1Data', $validatedData);
         return redirect()->route('create-mitra-2')
@@ -146,10 +157,12 @@ class MitraController extends Controller
         $mergedData = array_merge($step1Data, $step2Data, $validatedData);
     
         if ($request->hasFile('image_map')) {
-            $locationMap = $request->file('image_map');
-            $locationMapName = time() . '_' . $locationMap->getClientOriginalName();
-            $locationMap->move(public_path('images'), $locationMapName);
-            $validatedData['image_map'] = $locationMapName;
+            $image = $request->file('image_map');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->storeAs('public/mitra-images', $imageName); 
+            $validatedData['image_map'] = $imageName;
+        } else {
+            $validatedData['image_map'] = 'mapLocation.png'; 
         }
     
         $mitra = new Mitra();
@@ -158,6 +171,7 @@ class MitraController extends Controller
         if (isset($validatedData['image_map'])) {
             $mitra->image_map = $validatedData['image_map'];
         }
+        $mitra->isBlocked = 0;
     
         // dd($mitra);
         $mitra->save();
@@ -271,12 +285,8 @@ class MitraController extends Controller
     public function profileMitra()
     {
         $userID = Auth::user()->id;
-<<<<<<< Updated upstream
-        $mitra = Mitra::where('user_id', '=', $userID)->get();
-=======
-        $mitra = Mitra::where('user_id', '=', $userID)->first(); // Fetch the first mitra of the authenticated user
+        $mitra = Mitra::where('user_id', '=', $userID)->first();
         
->>>>>>> Stashed changes
         return view('roles.user.profile.profileMitra', compact('mitra'));
     }
 

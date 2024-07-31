@@ -6,8 +6,8 @@
     <div class="container px-4">
         <div class="row shadow bg-body-tertiary rounded">
             <div class="col">
-                <div class="card border border-0 position-relative"> {{-- Tambahkan class position-relative --}}
-                    <div class="card-body-blog pb-5" style="min-height: 450px;"> {{-- Menyesuaikan tinggi kartu --}}
+                <div class="card border border-0 position-relative"> 
+                    <div class="card-body-blog pb-5" style="min-height: 450px;"> 
                         <div class="row my-3">
                             <div class="col-5">
                                 <div class="row">
@@ -61,7 +61,6 @@
                                                         </div>
                                                         <div class="col d-flex align-items-center">
                                                             <div class="flex-grow-1">
-                                                                <!-- Menggunakan flex-grow-1 untuk memperluas area -->
                                                                 <div>{{ $blog->writer->username }}</div>
                                                                 <div>{{ $blog->created_at->diffForHumans() }}</div>
                                                             </div>
@@ -69,7 +68,7 @@
                                                     </div>
 
                                                 </div>
-                                                <div class="mt-auto me-3"> {{-- Menggunakan mt-auto untuk menekan tombol delete ke bawah --}}
+                                                <div class="mt-auto me-3">
                                                     <form action="/delete-blog/{{ $blog->slug }}"
                                                         method="post"class="d-inline">
                                                         @method('delete')

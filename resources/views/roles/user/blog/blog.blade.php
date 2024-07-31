@@ -34,7 +34,6 @@
 
         <div class="rectangleSpace" style="height: 7rem"></div>
 
-
         <div class="container row row-cols-4">
             @foreach ($blogs as $blog)
                 <div>

@@ -32,11 +32,10 @@ class MitraSeeder extends Seeder
             'contactEmail' => 'davidrodloy@teknologimajujaya.com',
             'contactPhoneNumber' => '0123456789',
             'mitra_details' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.',
-            'image_map' => 'url/to/map/image.png',
+            'image_map' => '',
             'address' => 'Jl. Teknologi No. 1, Jakarta, Indonesia',
             'isBlocked' => 0,
         ]);
-        
 
         Mitra::create([
             'user_id' => '3',
@@ -55,7 +54,7 @@ class MitraSeeder extends Seeder
             'contactEmail' => 'davidrodloy@teknologimajujaya.com',
             'contactPhoneNumber' => '0123456789',
             'mitra_details' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.',
-            'image_map' => 'url/to/map/image.png',
+            'image_map' => '',
             'address' => 'Jl. Teknologi No. 1, Jakarta, Indonesia',
             'isBlocked' => 0,
 
@@ -73,7 +72,7 @@ class MitraSeeder extends Seeder
             'contactEmail' => 'davidrodloy@teknologimajujaya.com',
             'contactPhoneNumber' => '0123456789',
             'mitra_details' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.',
-            'image_map' => 'url/to/map/image.png',
+            'image_map' => '',
             'address' => 'Jl. Teknologi No. 1, Jakarta, Indonesia',
             'isBlocked' => 0,
 
@@ -91,7 +90,7 @@ class MitraSeeder extends Seeder
             'contactEmail' => 'davidrodloy@teknologimajujaya.com',
             'contactPhoneNumber' => '0123456789',
             'mitra_details' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.',
-            'image_map' => 'url/to/map/image.png',
+            'image_map' => '',
             'address' => 'Jl. Teknologi No. 1, Jakarta, Indonesia',
             'isBlocked' => 0,
         ]);
@@ -108,7 +107,7 @@ class MitraSeeder extends Seeder
             'contactEmail' => 'davidrodloy@teknologimajujaya.com',
             'contactPhoneNumber' => '0123456789',
             'mitra_details' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.',
-            'image_map' => 'url/to/map/image.png',
+            'image_map' => '',
             'address' => 'Jl. Teknologi No. 1, Jakarta, Indonesia',
             'isBlocked' => 0,
         ]);
