@@ -36,7 +36,7 @@ class Mitra extends Model
         if ($this->image_cover) {
             return url('storage/mitra-images/' . $this->image_cover);
         }
-        return "/images/default_mitra_image.png";
+        return "/images/default_mitra_image.jpg";
     }
 
     public function getImageMap()

@@ -54,7 +54,7 @@
                                         <span class="badge text-bg-primary rounded-pill position-absolute top-0 end-0 m-2"
                                             style="font-size: 1.25rem; padding: 0.5em 1em;">EKSKLUSIF</span>
                                     @endif
-                                </div>                                
+                                </div>                                  
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between">
                                         <h5 class="card-title my-1" style="font-size: 1.5rem;">{{ $mitra->mitraName }}</h5>
