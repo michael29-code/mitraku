@@ -214,6 +214,7 @@ class MitraController extends Controller
 
     public function search(Request $request)
     {
+        $shuffledAdvertisement = Cache::get('shuffled_advertisement');
         $searchTerm = $request->input('search');
         $categoryId = $request->input('category');
         $query = Mitra::query();
@@ -233,7 +234,7 @@ class MitraController extends Controller
         $mitras = $query->paginate(10);
         $categories = Category::all();
 
-        return view('roles.user.mitra.mitra', compact('mitras', 'searchTerm', 'categories', 'categoryId'));
+        return view('roles.user.mitra.mitra', compact('mitras', 'searchTerm', 'categories', 'categoryId','shuffledAdvertisement'));
     }
 
     // ADMIN
