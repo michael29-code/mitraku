@@ -56,6 +56,10 @@ class Mitra extends Model
     {
         return $this->belongsTo(Category::class, 'category_id');
     }
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class, 'user_id', 'id');
+    }
 }
 
 

@@ -48,5 +48,29 @@ class TransactionSeeder extends Seeder
             'ends_at' => Carbon::now()->addDay(),
             'status' => 'active',
         ]);
+        Transaction::create([
+            'user_id' => 7,
+            'advertise_id' => 1,
+            'gross_amount' => 10,
+            'starts_at' => Carbon::now()->subMonth(),
+            'ends_at' => Carbon::now()->addDay(),
+            'status' => 'active',
+        ]);
+        Transaction::create([
+            'user_id' => 5,
+            'advertise_id' => 1,
+            'gross_amount' => 10,
+            'starts_at' => Carbon::now()->subMonth(),
+            'ends_at' => Carbon::now()->addDay(),
+            'status' => 'active',
+        ]);
+        Transaction::create([
+            'user_id' => 6,
+            'advertise_id' => 1,
+            'gross_amount' => 10,
+            'starts_at' => Carbon::now()->subMonth(),
+            'ends_at' => Carbon::now()->addDay(),
+            'status' => 'active',
+        ]);
     }
 }

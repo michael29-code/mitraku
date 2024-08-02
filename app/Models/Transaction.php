@@ -38,4 +38,8 @@ class Transaction extends Model
     {
         return $this->belongsTo(Mitra::class, 'advertise_id');
     }
+    public function mitraTransaction()
+    {
+        return $this->belongsTo(Mitra::class, 'user_id', 'id');
+    }
 }

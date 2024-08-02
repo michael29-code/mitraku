@@ -12,3 +12,6 @@ Artisan::command('inspire', function () {
 
 // Schedule::command('app:check-expired-subscriptions')->daily();
 Schedule::command('app:check-expired-subscriptions')->everyFiveMinutes();
+
+Schedule::command('advertisement:shuffle')->everyMinute();
+

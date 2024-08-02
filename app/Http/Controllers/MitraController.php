@@ -9,9 +9,11 @@ use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Session;
 
 class MitraController extends Controller
 {
@@ -186,8 +188,10 @@ class MitraController extends Controller
     public function mitra()
     {
         $categories = Category::all(); 
-        $mitras = Mitra::with('transaction')->paginate(10);
-        return view('roles.user.mitra.mitra', compact('mitras', 'categories'));
+        $mitras = Mitra::with('transactions')->paginate(10);
+        $shuffledAdvertisement = Cache::get('shuffled_advertisement');
+
+        return view('roles.user.mitra.mitra', compact('mitras', 'categories','shuffledAdvertisement'));
     }
 
     public function show($id)
