@@ -3,42 +3,24 @@
 @section('isHomeActive', 'active')
 
 @section('content')
-    {{-- @if (session()->has('success'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ session('success') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif --}}
-
-    {{-- @if (session()->has('loginError'))
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            {{ session('loginError') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif --}}
-    {{-- {{ dd(session()->all()) }} --}}
-    {{-- {{ dd(session('step1Data')) }} --}}
-    {{-- {{ dd(Auth::user()->mitra) }} --}}
-
-
-    <div class="mx-auto m-3 text-center" style="width: 35rem;">
+    <div class="mx-auto mb-1 text-center my-5 p-3" style="width: 40rem;">
         <h2>We make it easy for tenants and landlords.</h2>
     </div>
 
-    <div class="mx-auto m-0 text-center" style="width: 50rem;">
+    <div class="mx-auto mb-4 text-center" style="width: 50rem;">
         <p class="body-large-bold">Whether it's selling your current home, getting financing, or buying a new home, we
             make it easy and efficient. The best part? you'll save a bunch of money and time with our services.</p>
     </div>
 
-    <div class="text-center">
+    <div class="mb-5 text-center">
         <a href="{{ route('view-mitra') }}" type="button" class="btn btn-primary btn-sm">View Mitra</a>
     </div>
 
-    <div class="mx-auto m-5 row justify-content-center">
+    <div class="mx-auto mb-4 row justify-content-center p-5">
         <img src="/images/RumahNekoya.png" class="img-fluid home-picture" alt="rumah-nekoya" style="width: 80rem">
     </div>
 
-    <div class="p-5 m-6 row justify-content-center text-center">
+    <div class="p-5 mb-5 row justify-content-center text-center">
         <h3>Trusted by over a lot of companies.</h3>
         <div class="justify-content-center text-center g-5 row row-cols-5">
             <div>
@@ -71,7 +53,7 @@
         </div>
     </div>
 
-    <div class="text-center row row-cols-2 m-3 g-3 p-5">
+    <div class="text-center row row-cols-2 mb-4 g-3 p-5 mx-5 my-5">
         <img class="" src="/images/Dinding.png" alt="dinding" height="300rem">
         <div class="align-self-center col body-medium-bold p-2">
             <div class="row p-2">
@@ -87,8 +69,7 @@
         </div>
     </div>
 
-    <div class="p-5 m-5 mx-auto text-center g-3" style="width: 85rem">
-
+    <div class="p-5 mb-5 mx-auto text-center g-3" style="width: 85rem">
         <div class="row">
             <h2>Benefit and Regulated</h2>
         </div>
@@ -155,9 +136,7 @@
 
     </div>
 
-
-
-    <div class="text-center row row-cols-2 m-3 g-3 p-5">
+    <div class="text-center row row-cols-2 mb-5 g-3 p-5">
         <div class="align-self-center col body-medium-bold p-2">
             <div class="row p-2">
                 <h2>Multi Curency Increase Update</h2>
@@ -173,7 +152,7 @@
         <img class="" src="/images/Dinding.png" alt="dinding" height="300rem">
     </div>
 
-    <div class="text-center row row-cols-2 m-3 g-3 p-5">
+    <div class="text-center row row-cols-2 mb-5 g-3 p-5">
         <img class="" src="/images/DenahRumah.png" alt="denah-rumah" height="300rem">
         <div class="align-self-center col body-medium-bold p-2">
             <div class="row p-2">

@@ -91,15 +91,6 @@ Route::group(['middleware' => ['auth']], function () {
             Route::get('/editProfileMitra', [MitraController::class, 'editProfileMitra'])->name('edit-profile-mitra');
             Route::post('/updateProfileMitra', [MitraController::class, 'updateProfileMitra'])->name('update-profile-mitra');
 
-            // FORM PENGAJUAN
-            Route::get('/view-pengajuan', [PengajuanController::class, 'view']);
-            Route::get('/form-pengajuan/{pengajuan}', [PengajuanController::class, 'create'])->name('form-pengajuan');
-            Route::post('/add-pengajuan', [PengajuanController::class, 'store']);
-            Route::get('/download/{pengajuan}', DownloadPDFController::class);
-            Route::get('/pengajuan/edit/{id}', [PengajuanController::class, 'edit']);
-            Route::put('/pengajuan/update/{id}', [PengajuanController::class, 'update']);
-            Route::delete('/pengajuan/delete/{id}', [PengajuanController::class, 'destroy']);
-
             //PAYMENT
             Route::get('/transactions', [PaymentController::class, 'index'])->name('transactions');
             Route::get('/payment/{transaction}', [PaymentController::class, 'show'])->name('payment');
@@ -140,6 +131,15 @@ Route::group(['middleware' => ['auth']], function () {
 
             //ADVERTISMENT
             Route::get('/userAdvertisement', [AdvertisementController::class, 'userIndex'])->name('view-advertisement-user');
+
+            // FORM PENGAJUAN
+            Route::get('/view-pengajuan', [PengajuanController::class, 'view']);
+            Route::get('/form-pengajuan/{pengajuan}', [PengajuanController::class, 'create'])->name('form-pengajuan');
+            Route::post('/add-pengajuan', [PengajuanController::class, 'store']);
+            Route::get('/download/{pengajuan}', DownloadPDFController::class);
+            Route::get('/pengajuan/edit/{id}', [PengajuanController::class, 'edit']);
+            Route::put('/pengajuan/update/{id}', [PengajuanController::class, 'update']);
+            Route::delete('/pengajuan/delete/{id}', [PengajuanController::class, 'destroy']);
         });
     });
 });

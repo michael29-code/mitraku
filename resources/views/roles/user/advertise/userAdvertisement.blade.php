@@ -3,10 +3,10 @@
 @section('isAdvertisementActive', 'active')
 
 @section('content')
-    <div class="row justify-content-center mt-5">
+    <div class="row justify-content-center mt-5 my-5 p-5">
         <div class="header-advertisment col-lg-5 p-4 text-center">
             <h1 class="h1">Reach millions of early adopters</h1>
-            <div class="body-large">
+            <div class="body-large my-3">
                 Our advertising options will help you build traction with the most influential early adopters on the web.
                 Campaigns start at just $5,000.
             </div>
@@ -21,9 +21,8 @@
     </div>
 
 
-    <div class="sponsor-advertisement row mt-3 d-flex justify-content-center
-">
-        <div class="col-md-4">
+    <div class="sponsor-advertisement row mt-3 d-flex justify-content-center">
+        <div class="col-md-4 my-5">
             <h1 class="d-flex justify-content-center h1 mb-4">Trusted By</h1>
             <div class="d-flex justify-content-center flex-wrap gap-3">
                 @foreach ($sponsors as $sponsor)
@@ -35,16 +34,16 @@
         </div>
     </div>
 
-    <div class="row justify-content-center">
-        <div class="find-new-customer col-lg-10 mt-5">
+    <div class="row justify-content-center p-5 my-5">
+        <div class="find-new-customer col-lg-8 mt-5">
             <h1 class="col bold fs-1 text-center">Find new customers</h1>
-            <div class="col body-large-medium text-center">Advertising on Mitraku helps you grow awareness, trials and usage
+            <div class="col body-large-medium text-center my-3">Advertising on Mitraku helps you grow awareness, trials and usage
                 of your product by reaching millions of the most influential early adopters and techies around the globe.
             </div>
         </div>
     </div>
 
-    <div class="row justify-content-center mt-5">
+    <div class="row justify-content-center mt-5 p-5">
         @foreach ($advertisements as $advertisement)
             <div class="explanation col-lg-10 mt-5">
                 <div class="col d-flex justify-content-center shadow bg-body-tertiary rounded mx-auto p-3">

@@ -98,7 +98,7 @@ class BlogController extends Controller
 
     public function view(): View
     {
-        $blogs = Blog::orderBy('created_at', 'DESC')->paginate(10); // Mengambil 10 data per halaman
+        $blogs = Blog::orderBy('created_at', 'DESC')->paginate(12); // Mengambil 10 data per halaman
         return view('roles.admin.blog.viewBlogPageAdmin',["blogs"=> $blogs]);
     }
 
@@ -129,7 +129,7 @@ class BlogController extends Controller
 
     public function viewBlogUser(): View
     {
-        $blogs = Blog::orderBy('created_at', 'desc')->paginate(10);
+        $blogs = Blog::orderBy('created_at', 'desc')->paginate(12);
         return view('roles.user.blog.blog', ['blogs' => $blogs]);
     }
     
