@@ -17,22 +17,28 @@
             @endif
             <div class="col">
                 <ol class="list-group list-group-numbered">
-                    @foreach ($pengajuans as $pengajuan)
-                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                            <div class="ms-2 me-auto">
-                                <div class="fw-bold">{{ $pengajuan->name }}</div>
-                                {{ $pengajuan->kategori }} - {{ $pengajuan->start_time }}
-                            </div>
-                            <a href="/pengajuan/edit/{{ $pengajuan->id }}" class="btn btn-warning">Edit</a>
-                            <a href="/download/{{ $pengajuan->id }}" class="btn btn-primary">Download PDF</a>
-                            <form action="/pengajuan/delete/{{ $pengajuan->id }}" method="POST" class="d-inline">
-                                @method('delete')
-                                @csrf
-                                <button class="btn btn-danger w-100" onclick="return confirm('Are You sure?')"><span
-                                        data-feather="x-circle"></span> Delete</button>
-                            </form>
+                    @if ($pengajuans->isempty())
+                        <li class="text-center">
+                            There is No History Pengajuan
                         </li>
-                    @endforeach
+                    @else
+                        @foreach ($pengajuans as $pengajuan)
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold">{{ $pengajuan->name }}</div>
+                                    {{ $pengajuan->kategori }} - {{ $pengajuan->start_time }}
+                                </div>
+                                <a href="/pengajuan/edit/{{ $pengajuan->id }}" class="btn btn-warning">Edit</a>
+                                <a href="/download/{{ $pengajuan->id }}" class="btn btn-primary">Download PDF</a>
+                                <form action="/pengajuan/delete/{{ $pengajuan->id }}" method="POST" class="d-inline">
+                                    @method('delete')
+                                    @csrf
+                                    <button class="btn btn-danger w-100" onclick="return confirm('Are You sure?')"><span
+                                            data-feather="x-circle"></span> Delete</button>
+                                </form>
+                            </li>
+                        @endforeach
+                    @endif
                 </ol>
             </div>
         </div>

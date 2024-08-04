@@ -188,7 +188,7 @@ class MitraController extends Controller
     public function mitra()
     {
         $categories = Category::all(); 
-        $mitras = Mitra::with('transactions')->paginate(10);
+        $mitras = Mitra::with('transactions')->paginate(6);
         $shuffledAdvertisement = Cache::get('shuffled_advertisement');
 
         return view('roles.user.mitra.mitra', compact('mitras', 'categories','shuffledAdvertisement'));

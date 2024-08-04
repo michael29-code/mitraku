@@ -37,7 +37,8 @@
     <div class="row justify-content-center p-5 my-5">
         <div class="find-new-customer col-lg-8 mt-5">
             <h1 class="col bold fs-1 text-center">Find new customers</h1>
-            <div class="col body-large-medium text-center my-3">Advertising on Mitraku helps you grow awareness, trials and usage
+            <div class="col body-large-medium text-center my-3">Advertising on Mitraku helps you grow awareness, trials and
+                usage
                 of your product by reaching millions of the most influential early adopters and techies around the globe.
             </div>
         </div>
@@ -47,17 +48,19 @@
         @foreach ($advertisements as $advertisement)
             <div class="explanation col-lg-10 mt-5">
                 <div class="col d-flex justify-content-center shadow bg-body-tertiary rounded mx-auto p-3">
-                    <div class="text p-3">
-                        <h1 class="body-large-bold blue mb-4 mt-2">Starting at ${{ $advertisement->price }}</h1>
-                        <h1 class="h3 mb-4">{{ $advertisement->title }}</h1>
-                        <div class="body-large-medium mb-3">
-                            {{ $advertisement->description }}
+                    <div class="row">
+                        <div class="col-9 text p-3">
+                            <h1 class="body-large-bold blue mb-4 mt-2">Starting at ${{ $advertisement->price }}</h1>
+                            <h1 class="h3 mb-4">{{ $advertisement->title }}</h1>
+                            <div class="body-large-medium mb-3">
+                                {{ $advertisement->description }}
+                            </div>
+                            <a href="/payment/{{ $advertisement->id }}" class="btn btn-primary">Get Started</a>
                         </div>
-                        <a href="/payment/{{ $advertisement->id }}" class="btn btn-primary">Get Started</a>
-                    </div>
-                    <div class="col image mx-3">
-                        <img class="img-thumbnail" style="max-width: 213.5px; height: 171.105px"
-                            src="images/AdvertisementPage.png" alt="">
+                        <div class="col-2 image mx-3">
+                            <img class="img-thumbnail" style="max-width: 213.5px; height: 171.105px"
+                                src="images/AdvertisementPage.png" alt="">
+                        </div>
                     </div>
                 </div>
             </div>

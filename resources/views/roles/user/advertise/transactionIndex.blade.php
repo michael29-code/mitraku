@@ -1,7 +1,7 @@
 @extends('layouts/layout')
 
 @section('content')
-{{-- {{ dd(Auth::user()->transactions->isEmpty()) }} --}}
+    {{-- {{ dd(Auth::user()->transactions->isEmpty()) }} --}}
     <div class="container my-5 full-height m-auto d-flex w-100 justify-content-start align-items-center flex-column">
 
         <div class="row w-100 d-flex justify-content-center">
@@ -42,7 +42,8 @@
         </div>
         <div class="row">
             <div class="col d-flex justify-content-center"> {{-- Center the pagination links --}}
-                {{ $transactions->links() }} </div>
+                {{ $transactions->links() }}
+            </div>
         </div>
     </div>
 @endsection
