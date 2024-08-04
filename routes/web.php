@@ -88,8 +88,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::group(['middleware' => ['CheckUser:3']], function () {
             // PROFILE MITRA
             Route::get('/profileMitra', [MitraController::class, 'profileMitra'])->name('profile-mitra');
-            Route::get('/editProfileMitra', [MitraController::class, 'editProfileMitra'])->name('edit-profile-mitra');
-            Route::post('/updateProfileMitra', [MitraController::class, 'updateProfileMitra'])->name('update-profile-mitra');
+            Route::get('/editProfileMitra/{mitra}', [MitraController::class, 'editProfileMitra'])->name('edit-profile-mitra');
+            Route::put('/updateProfileMitra/{mitra}', [MitraController::class, 'updateProfileMitra'])->name('update-profile-mitra');
 
             //PAYMENT
             Route::get('/transactions', [PaymentController::class, 'index'])->name('transactions');
