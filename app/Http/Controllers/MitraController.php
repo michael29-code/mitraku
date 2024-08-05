@@ -34,7 +34,7 @@ class MitraController extends Controller
             }],
             'mitraYear' => ['required', 'integer', 'min:1001'], 
             'mitraWebsite' => ['required'], 
-            'mitraCategory' => ['required', 'string', 'not_in:'], 
+            'mitraCategory' => ['required', 'exists:categories,id'], 
             'image_cover' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048'],
         ];
 
@@ -47,7 +47,7 @@ class MitraController extends Controller
             'mitraYear.min' => 'The Establishment Year must be greater than 1000.',
             'mitraWebsite.url' => 'The Website must be a valid URL.',
             'mitraCategory.required' => 'Please select a category.',
-            'mitraCategory.not_in' => 'Please select a valid category.',
+            'mitraCategory.exists' => 'Please select a valid category.',
         ];
 
         $validator = Validator::make($request->all(), $rules, $messages);
@@ -68,13 +68,6 @@ class MitraController extends Controller
         } else {
             $validatedData['image_cover'] = 'default_mitra_image.jpg'; 
         }
-
-        // if($request->has('image_cover')){
-        //     $imagePath = $request->file('image')->store('mitra-images', 'public');
-        //     $validate ['image_cover'] = $imagePath;
-
-        //     Storage::disk('public')->delete($request->image_map);
-        // }
 
         $request->session()->put('step1Data', $validatedData);
         return redirect()->route('create-mitra-2')
@@ -131,75 +124,71 @@ class MitraController extends Controller
     }
 
     public function storeStep3(Request $request)
-    {
-        $user = Auth::user();
-        $step1Data = $request->session()->get('step1Data', []);
-        $step2Data = $request->session()->get('step2Data', []);
-    
-        $rules = [
-            'address' => ['required', 'string', 'min:5', 'max:255', 'unique:mitras,mitraName'],
-            'image_map' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048'],
-            'isBlock' => '0'
-        ];
+{
+    $user = Auth::user();
+    $step1Data = $request->session()->get('step1Data', []);
+    $step2Data = $request->session()->get('step2Data', []);
 
-        $messages = [
-            'address.required' => 'The Address is required.'
-        ];
+    $rules = [
+        'address' => ['required', 'string', 'min:5', 'max:255', 'unique:mitras,mitraName'],
+        'image_map' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048'],
+        'isBlock' => 'nullable|boolean'
+    ];
 
-        
-        $validator = Validator::make($request->all(), $rules, $messages);
-        if ($validator->fails()) {
-            return redirect()->back()
-                ->withErrors($validator)
-                ->withInput(); 
-        }
-        
-        $validatedData = $validator->validated();
-        $request->session()->put('step3Data', $validatedData);
-        $mergedData = array_merge($step1Data, $step2Data, $validatedData);
-    
-        if ($request->hasFile('image_map')) {
-            $image = $request->file('image_map');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->storeAs('public/mitra-images', $imageName); 
-            $validatedData['image_map'] = $imageName;
-        } else {
-            $validatedData['image_map'] = 'mapLocation.png'; 
-        }
-    
-        $mitra = new Mitra();
-        $mitra->fill($mergedData);
-        $mitra->user_id = $user->id; 
-        if (isset($validatedData['image_map'])) {
-            $mitra->image_map = $validatedData['image_map'];
-        }
-        $mitra->isBlocked = 0;
-    
-        // dd($mitra);
-        $mitra->save();
-        $user->level = 3;
-        $user->save();
+    $messages = [
+        'address.required' => 'The Address is required.'
+    ];
 
-        $request->session()->put('step3Data', $validatedData);
-        $request->session()->forget(['step1Data', 'step2Data', 'mitra_id']);
-        return redirect()->route('home')->with('success', 'Mitra created successfully!');
+    $validator = Validator::make($request->all(), $rules, $messages);
+
+    if ($validator->fails()) {
+        return redirect()->back()
+            ->withErrors($validator)
+            ->withInput();
     }
+
+    $validatedData = $validator->validated();
+    
+    if ($request->hasFile('image_map')) {
+        $image = $request->file('image_map');
+        $imageName = time() . '.' . $image->getClientOriginalExtension();
+        $image->storeAs('public/mitra-images', $imageName);
+        $validatedData['image_map'] = $imageName;
+    } else {
+        $validatedData['image_map'] = 'mapLocation.png'; 
+    }
+
+    $mergedData = array_merge($step1Data, $step2Data, $validatedData);
+
+    $mitra = new Mitra();
+    $mitra->fill($mergedData);
+    $mitra->user_id = $user->id;
+    $mitra->isBlocked = $validatedData['isBlock'] ?? 0;
+    $mitra->save();
+
+    $user->level = 3;
+    $user->save();
+
+    $request->session()->forget(['step1Data', 'step2Data', 'mitra_id']);
+    return redirect()->route('home')->with('success', 'Mitra created successfully!');
+}
+
     
     public function mitra(Request $request)
-{
-    $categories = Category::all();
-    $selectedCategory = $request->input('category'); 
+    {
+        $categories = Category::all();
+        $selectedCategory = $request->input('category'); 
 
-    $mitras = Mitra::with('transactions')
-        ->when($selectedCategory, function ($query, $selectedCategory) {
-            return $query->where('mitraCategory', $selectedCategory);
-        })
-        ->paginate(6);
+        $mitras = Mitra::with('transactions')
+            ->when($selectedCategory, function ($query, $selectedCategory) {
+                return $query->where('mitraCategory', $selectedCategory);
+            })
+            ->paginate(6);
 
-    $shuffledAdvertisement = Cache::get('shuffled_advertisement');
+        $shuffledAdvertisement = Cache::get('shuffled_advertisement');
 
-    return view('roles.user.mitra.mitra', compact('mitras', 'categories', 'shuffledAdvertisement', 'selectedCategory'));
-}
+        return view('roles.user.mitra.mitra', compact('mitras', 'categories', 'shuffledAdvertisement', 'selectedCategory'));
+    }
 
     public function show($id)
     {

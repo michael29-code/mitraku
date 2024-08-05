@@ -89,12 +89,11 @@
                     </div>
                     <div class="mb-3">
                         <label for="mitraCategory" class="form-label"><b>Category</b></label>
-                        <select class="form-select @error('mitraCategory') is-invalid @enderror" id="mitraCategory"
-                            name="mitraCategory" required>
+                        <select class="form-select @error('mitraCategory') is-invalid @enderror" id="mitraCategory" name="mitraCategory" required>
                             <option value="">Open this select menu</option>
                             @foreach ($categories as $category)
-                                <option value="{{ $category->jenisKategori }}"
-                                    {{ session()->has('step1Data') && session('step1Data')['mitraCategory'] == $category->jenisKategori ? 'selected' : (old('mitraCategory') == $category->jenisKategori ? 'selected' : '') }}>
+                                <option value="{{ $category->id }}" 
+                                    {{ session()->has('step1Data') && session('step1Data')['mitraCategory'] == $category->id ? 'selected' : (old('mitraCategory') == $category->id ? 'selected' : '') }}>
                                     {{ $category->jenisKategori }}
                                 </option>
                             @endforeach
@@ -104,7 +103,7 @@
                                 {{ $message }}
                             </div>
                         @enderror
-                    </div>
+                    </div>                    
                     <div class="form-group">
                         <label for="image_cover"><b>Image Cover</b></label>
                         <input type="file" class="form-control @error('image_cover') is-invalid @enderror"
