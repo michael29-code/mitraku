@@ -11,14 +11,13 @@ class Blog extends Model
     use HasFactory;
     protected $fillable = ['title','slug','writerId','kategoriId','image','body'];
     
-    public function kategori(): BelongsTo
+    public function kategori()
     {
-        return $this->belongsTo(Category::class , 'kategoriId');
+        return $this->belongsTo(Category::class, 'kategoriId');
     }
-
-    public function writer(): BelongsTo
+    
+    public function writer()
     {
-        return $this->belongsTo(User::class,'writerId');
+        return $this->belongsTo(User::class, 'writerId');
     }
-
 }

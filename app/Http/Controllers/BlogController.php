@@ -129,10 +129,17 @@ class BlogController extends Controller
 
     public function viewBlogUser(): View
     {
-        $blogs = Blog::orderBy('created_at', 'desc')->paginate(12);
-        return view('roles.user.blog.blog', ['blogs' => $blogs]);
+        $latestBlog = Blog::orderBy('created_at', 'desc')->first();
+
+        $blogs = Blog::where('id', '!=', $latestBlog->id)
+            ->orderBy('created_at', 'desc')
+            ->paginate(12);
+
+        return view('roles.user.blog.blog', [
+            'latestBlog' => $latestBlog,
+            'blogs' => $blogs
+        ]);
     }
-    
 
     public function blogDetailUser($id): View
     {
