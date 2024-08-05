@@ -1,14 +1,14 @@
 @extends('layouts.layoutAdmin')
 
 @section('isViewBlogActive', 'active')
-@section('title', "View Blog Page")
+@section('title', 'View Blog Page')
 
 @section('content')
     <div class="container px-4">
         <div class="row shadow bg-body-tertiary rounded">
             <div class="col">
-                <div class="card border border-0 position-relative"> 
-                    <div class="card-body-blog pb-5" style="min-height: 450px;"> 
+                <div class="card border border-0 position-relative">
+                    <div class="card-body-blog pb-5" style="min-height: 450px;">
                         <div class="row my-3">
                             <div class="col-5">
                                 <div class="row">
@@ -48,8 +48,13 @@
                                 <div class="col my-3">
                                     <div class="card mx-2 h-100 d-flex flex-column">
                                         <a href="/view-blog-detail/{{ $blog->slug }}" class="text-decoration-none">
-                                            <img src="{{ asset('storage/' . $blog->image) }}" class="card-img-top mx-auto"
-                                                alt="..." style="max-height: 300px; object-fit: cover;">
+                                            <img src="{{ asset('storage/' . $blog->image) ? asset('storage/' . $blog->image) : asset('storage/blog-images/default.png') }}"
+                                                class="card-img-top mx-auto" alt="..."
+                                                style="max-height: 300px; object-fit: cover;">
+
+                                            {{-- <img src="{{ asset('storage/' . $blog->image) }}" class="card-img-top mx-auto"
+                                                alt="..." style="max-height: 300px; object-fit: cover;"> --}}
+
                                             <div class="card-body-blog mx-3 d-flex flex-column">
                                                 <div>
                                                     <span
