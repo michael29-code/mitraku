@@ -80,7 +80,7 @@ class BlogController extends Controller
         $validatedData['slug'] = $request['slug'];
 
         if ($request->file('image')) {
-            if ($request->oldImage) {
+            if ($request->oldImage && $request->oldImage != 'blog-images/default.png') {
                 Storage::delete($request->oldImage);
             }
             $validatedData['image'] = $request->file('image')->store('blog-images');
@@ -104,7 +104,7 @@ class BlogController extends Controller
 
     public function destroy(Blog $blog)
     {
-        if ($blog->image != 'default.png' && $blog->image) {
+        if ($blog->image != 'blog-images/default.png' && $blog->image) {
             Storage::delete($blog->image);
         }
         Blog::destroy($blog->id);

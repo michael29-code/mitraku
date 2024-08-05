@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('isBlogActive', 'active')
-@section('title', "Blog Detail")
+@section('title', 'Blog Detail')
 
 @section('content')
     <div class="container my-5">
@@ -30,17 +30,13 @@
                             </div>
                             <div class="row my-3">
                                 <div class="col">
-                                    <img src="/{{ $blog->image }}" class="rounded w-100" alt="bnr1"
-                                        style="height: 50vh">
+                                    <img src="{{ asset('storage/' . $blog->image) ? asset('storage/' . $blog->image) : asset('storage/blog-images/default.png') }}"
+                                        class="rounded w-100" alt="bnr1" style="height: 50vh">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <p>
-                                        {{ $blog->body }}
-                                    </p>
-                                    <br>
-                                    <br>
+                                    {!! $blog->body !!}
                                 </div>
                             </div>
                         </div>
