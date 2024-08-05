@@ -1,4 +1,5 @@
 @extends('layouts.layoutRegister')
+@section('title', "Sign In")
 
 @section('content')
     <div class="container p-5" style="height: 90%;width: 100%">

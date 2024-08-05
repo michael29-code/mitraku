@@ -1,6 +1,7 @@
 @extends('layouts.layoutAdmin')
 
 @section('isViewMitraActive', 'active')
+@section('title', "View Mitra")
 
 @section('content')
     @if (session()->has('success'))

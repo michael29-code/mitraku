@@ -1,4 +1,5 @@
 @extends('layouts/layout')
+@section('title', "Success")
 
 @section('content')
     {{-- {{ dd(session()->all()) }} --}}

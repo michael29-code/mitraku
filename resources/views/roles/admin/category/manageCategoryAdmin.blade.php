@@ -1,6 +1,7 @@
 @extends('layouts.layoutAdmin')
 
 @section('isViewCategoryActive', 'active')
+@section('title', "Manage Category")
 
 @section('content')
     <div class="container my-5 p-5">

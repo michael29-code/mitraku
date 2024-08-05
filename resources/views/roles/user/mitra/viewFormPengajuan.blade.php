@@ -1,6 +1,7 @@
 @extends('layouts.layout')
 
 @section('isPengajuanActive', 'active')
+@section('title', "Form Pengajuan")
 
 @section('content')
     <div class="container mb-5 full-height m-auto d-flex w-100 justify-content-start align-items-center flex-column">

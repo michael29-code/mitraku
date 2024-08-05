@@ -1,4 +1,5 @@
 @extends('layouts.layout')
+@section('title', "Edit Profile Mitra")
 
 @section('content')
     <div class="container">

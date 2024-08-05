@@ -1,4 +1,5 @@
 @extends('layouts/layout')
+@section('title', "Transactions")
 
 @section('content')
     {{-- {{ dd(Auth::user()->transactions->isEmpty()) }} --}}
