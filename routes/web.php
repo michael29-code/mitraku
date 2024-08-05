@@ -74,7 +74,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/view-user-admin', [UserController::class, 'index'])->name('view-user-admin');
         Route::patch('/toggle-user-blocked/{id}', [UserController::class, 'toggleBlock'])->name('toggle-blocked-user');
         Route::get('/user-search', [UserController::class, 'search'])->name('user-search-admin');
-        
+
         //VIEW MITRA (ADA DI BAWAH)
         Route::get('/view-mitra-admin', [MitraController::class, 'viewMitra'])->name('view-mitra-admin');
         Route::patch('/toggle-mitra-blocked/{id}', [MitraController::class, 'toggleBlock'])->name('toggle-blocked-mitra');
@@ -84,6 +84,21 @@ Route::group(['middleware' => ['auth']], function () {
 
     // USER YANG TIDAK DI BLOG
     Route::group(['middleware' => ['CheckBlockUser:0']], function () {
+        // UNTUK USER SAJA
+        Route::group(['middleware' => ['CheckUser:2']], function () {
+            // CREATE MITRA
+            Route::get('/create-mitra/step-1', [MitraController::class, 'createStep1'])->name('create-mitra-1');
+            Route::post('/create-mitra/store-step-1', [MitraController::class, 'storeStep1'])->name('store-mitra-1');
+
+            Route::get('/create-mitra/step-2', [MitraController::class, 'createStep2'])->name('create-mitra-2');
+            Route::post('/create-mitra/store-step-2', [MitraController::class, 'storeStep2'])->name('store-mitra-2');
+
+            Route::get('/create-mitra/step-3', [MitraController::class, 'createStep3'])->name('create-mitra-3');
+            Route::post('/create-mitra/store-step-3', [MitraController::class, 'storeStep3'])->name('store-mitra-3');
+
+            Route::post('/create-mitra/storeMitra', [MitraController::class, 'storeMitra'])->name('store-mitra');
+        });
+
         // UNTUK MITRA SAJA
         Route::group(['middleware' => ['CheckUser:3']], function () {
             // PROFILE MITRA
@@ -99,26 +114,20 @@ Route::group(['middleware' => ['auth']], function () {
             // Route::get('/checkout/{transaction}', [PaymentController::class, 'checkout'])->name('checkout');
             Route::get('/checkout', [PaymentController::class, 'checkout'])->name('checkout');
             Route::get('/checkout/success/', [PaymentController::class, 'success'])->name('checkout-success');
+
+            Route::get('success-page', function () {
+                return view('success-page');
+            })->name('success-page');
+            
         });
 
         // UNTUK USER DAN MITRA
         Route::group(['middleware' => ['CheckUser:2,3']], function () {
-            // CREATE MITRA
-            Route::get('/create-mitra/step-1', [MitraController::class, 'createStep1'])->name('create-mitra-1');
-            Route::post('/create-mitra/store-step-1', [MitraController::class, 'storeStep1'])->name('store-mitra-1');
-
-            Route::get('/create-mitra/step-2', [MitraController::class, 'createStep2'])->name('create-mitra-2');
-            Route::post('/create-mitra/store-step-2', [MitraController::class, 'storeStep2'])->name('store-mitra-2');
-
-            Route::get('/create-mitra/step-3', [MitraController::class, 'createStep3'])->name('create-mitra-3');
-            Route::post('/create-mitra/store-step-3', [MitraController::class, 'storeStep3'])->name('store-mitra-3');
-
-            Route::post('/create-mitra/storeMitra', [MitraController::class, 'storeMitra'])->name('store-mitra');
-            Route::get('/mitra-search', [MitraController::class, 'search'])->name('mitra-search');
-
             // VIEW MITRA 
             Route::get('/view-mitra', [MitraController::class, 'mitra'])->name('view-mitra');
             Route::get('/mitraDetail/{id}', [MitraController::class, 'show'])->name('detail-mitra');
+
+            Route::get('/mitra-search', [MitraController::class, 'search'])->name('mitra-search');
 
             //BLOG
             Route::get('/blog', [BlogController::class, 'viewBlogUser'])->name('view-blog');
@@ -143,10 +152,3 @@ Route::group(['middleware' => ['auth']], function () {
         });
     });
 });
-
-
-// TODO: INI BELUM DIPINDAH
-Route::get('success-page', function () {
-    return view('success-page');
-})->name('success-page');
-
