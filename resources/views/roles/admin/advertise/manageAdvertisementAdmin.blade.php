@@ -1,6 +1,7 @@
 @extends('layouts.layoutAdmin')
 
 @section('isViewAdvertisementActive', 'active')
+@section('title', "Manage Advertisement")
 
 @section('content')
     <div class="container my-5 p-5">

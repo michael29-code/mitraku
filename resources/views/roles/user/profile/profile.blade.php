@@ -1,4 +1,5 @@
 @extends('layouts.layout')
+    @section('title', "Profile")
 
 @section('content')
     <div class="row" style="height: 80vh">

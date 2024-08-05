@@ -1,6 +1,7 @@
 @extends('layouts/layoutAdmin')
 
 @section('isViewUserActive', 'active')
+@section('title', "View User Block")
 
 @section('content')
     @if (session()->has('blockSuccess'))

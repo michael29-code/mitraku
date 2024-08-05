@@ -1,6 +1,7 @@
 @extends('layouts.layoutAdmin')
 
 @section('isViewAdvertisementActive', 'active')
+@section('title', "View Advertisement")
 
 @section('content')
 

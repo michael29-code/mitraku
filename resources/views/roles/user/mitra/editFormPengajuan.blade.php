@@ -1,4 +1,5 @@
 @extends('layouts.layout')
+@section('title', "Edit Form Pengajuan")
 
 @section('content')
     <div class="container my-5 full-height m-auto d-flex w-100 justify-content-center align-items-center flex-column">

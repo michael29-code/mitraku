@@ -1,4 +1,5 @@
 @extends('layouts.layoutAdmin')
+@section('title', "Manage Advertisement")
 
 @section('content')
     <div class="d-flex justify-content-center">

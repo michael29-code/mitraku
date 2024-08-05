@@ -1,6 +1,7 @@
 @extends('layouts.layoutAdmin')
 
 @section('isViewBlogActive', 'active')
+@section('title', "View Blog Detail")
 
 @section('content')
     <div class="container ">

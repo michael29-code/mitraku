@@ -1,6 +1,7 @@
 @extends('layouts.layout')
 
 @section('isMitraActive', 'active')
+@section('title', "Detail Mitra")
 
 @section('content')
 <div class="container my-5 mx-auto">

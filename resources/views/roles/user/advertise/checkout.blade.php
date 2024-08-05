@@ -1,4 +1,5 @@
 @extends('layouts/layout')
+@section('title', "Checkout Page")
 
 @section('content')
     {{-- {{ dd(session()->all()) }} --}}

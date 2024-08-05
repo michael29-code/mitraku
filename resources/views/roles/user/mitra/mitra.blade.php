@@ -1,6 +1,7 @@
 @extends('layouts.layout')
 
 @section('isMitraActive', 'active')
+@section('title', "Mitra")
 
 @section('content')
     <div class="row">

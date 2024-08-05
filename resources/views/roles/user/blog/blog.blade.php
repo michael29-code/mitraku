@@ -1,6 +1,7 @@
 @extends('layouts.layout')
 
 @section('isBlogActive', 'active')
+@section('title', "Blog")
 
 @section('content')
 

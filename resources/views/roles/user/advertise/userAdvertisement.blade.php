@@ -1,6 +1,7 @@
 @extends('layouts/layout')
 
 @section('isAdvertisementActive', 'active')
+@section('title', "Advertisement")
 
 @section('content')
     <div class="row justify-content-center mt-5 my-5 p-5">

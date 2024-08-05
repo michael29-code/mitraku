@@ -1,5 +1,6 @@
 @extends('layouts.layout')
 @section('isPengajuanActive', 'active')
+@section('title', "History Pengajuan")
 
 @section('content')
     <div class="container my-5 full-height m-auto d-flex w-100 justify-content-start align-items-center flex-column">
