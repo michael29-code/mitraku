@@ -6,8 +6,10 @@
     @if ($latestBlog)
         <a href="{{ route('view-blog-detail', $latestBlog->id) }}" class="text-decoration-none">
             <div class="rectangle mt-5 gmbr-nekobot"
-                style="background-image: url('{{ asset('storage/' . $latestBlog->image) }}'); background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: center;filter: blur(0.05rem) saturate(0.7) contrast(1.5) brightness(1.2);
-">
+                style="background: linear-gradient(
+                rgba(0, 0, 0, 0.5),  /* Shadow color and opacity at the top */
+                rgba(0, 0, 0, 0.5)  /* Shadow color and opacity at the bottom */
+            ),  url('{{ asset('storage/' . $latestBlog->image) }}'); background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: center;filter: blur(0.05rem) saturate(0.7) contrast(1.5) brightness(1.2);">
                 <div class="miniRectangleHeader text-center">
                     <h1 class="category m-0 p-1" style="color: primary;">{{ $latestBlog->kategori->jenisKategori }}</h1>
                 </div>
