@@ -19,7 +19,7 @@ class BlogFactory extends Factory
         return [
             'title' => $this->faker->sentence(mt_rand(2,8)),
             'slug' => $this->faker->slug(),
-            'image' => 'images/banner1.jpeg',
+            'image' => 'blog-images/default.png',
             'body' => collect($this->faker->paragraphs(mt_rand(5,10)))
                      ->map(fn($p) => "$p")
                      ->implode(''),
