@@ -18,8 +18,10 @@ return new class extends Migration
             $table->text('mitraOverview');
             $table->integer('mitraYear');
             $table->string('mitraWebsite');
-            // $table->foreignId('mitraCategory')->constrained('categories', 'id')->onDelete('cascade');
-            $table->string('mitraCategory');
+            // $table->string('mitraCategory');
+            $table->unsignedBigInteger('mitraCategory');
+            $table->foreign('mitraCategory')->references('id')->on('categories')->onDelete('cascade');
+
             $table->string('image_cover')->nullable(); 
             $table->string('contactName');
             $table->string('contactEmail');

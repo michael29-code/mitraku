@@ -19,6 +19,6 @@ class Category extends Model
 
     public function mitras()
     {
-        return $this->hasMany(Mitra::class, 'category_id');
+        return $this->hasMany(Mitra::class, 'mitraCategory');
     }
 }

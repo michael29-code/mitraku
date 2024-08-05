@@ -54,7 +54,7 @@ class Mitra extends Model
     
     public function category()
     {
-        return $this->belongsTo(Category::class, 'id');
+        return $this->belongsTo(Category::class, 'mitraCategory');
     }
     public function transactions()
     {

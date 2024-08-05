@@ -38,7 +38,8 @@ class ShuffleAdvertisements extends Command
         // $activeAdvertisements = Transaction::with('mitraTransaction')->where('status', 'active')->get();
         $activeAdvertisements = DB::table('transactions')
         ->join('mitras', 'transactions.user_id', '=', 'mitras.user_id')->where('status', 'active')
-        ->select('transactions.*', 'mitras.*')
+        ->join('categories', 'mitras.mitraCategory', '=', 'categories.id')
+        ->select('transactions.*', 'mitras.*', 'categories.*')
         ->get();
 
         if ($activeAdvertisements->isNotEmpty()) {

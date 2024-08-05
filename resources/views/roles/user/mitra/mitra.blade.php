@@ -52,7 +52,7 @@
                                         <div class="">
                                             <span class="badge rounded-pill text-bg-primary">Ad</span>
                                             <span
-                                                class="badge rounded-pill text-bg-primary">{{ $shuffledAdvertisement->mitraCategory }}</span>
+                                                class="badge rounded-pill text-bg-primary">{{ $shuffledAdvertisement->jenisKategori }}</span>
                                         </div>
                                     </div>
                                     <p>{{ $shuffledAdvertisement->address }}</p>
@@ -106,18 +106,20 @@
                 <a href="{{ route('detail-mitra', $mitra->id) }}" class="text-decoration-none">
                     <div class="card mx-2 mb-4">
                         <div class="card-img-top position-relative" style="height: 50%;">
-                            <img src="{{ $mitra->getImageCover() }}" class="img-fluid w-100 rounded" alt="image_cover"
-                                style="object-fit: cover;">
-                            @if ($mitra->status === 'active')
-                                <span class="badge text-bg-primary rounded-pill position-absolute top-0 end-0 m-2"
-                                    style="font-size: 1.25rem; padding: 0.5em 1em;">EKSKLUSIF</span>
-                            @endif
+                            <div class="fixed-height-container">
+                                <img src="{{ $mitra->image_cover ? asset('storage/' . $mitra->image_cover) : asset('/images/default_mitra_image.jpg') }}"
+                                    class="img-fuid w-100 rounded" alt="image_cover" style="object-fit: cover;">
+                                @if ($mitra->status === 'active')
+                                    <span class="badge text-bg-primary rounded-pill position-absolute top-0 end-0 m-2"
+                                        style="font-size: 1.25rem; padding: 0.5em 1em;">EKSKLUSIF</span>
+                                @endif
+                            </div>
                         </div>
                         <div class="card-body">
                             <div class="d-flex justify-content-between">
                                 <h5 class="card-title my-1" style="font-size: 1.5rem;">{{ $mitra->mitraName }}</h5>
                                 <span class="badge text-bg-primary rounded-pill"
-                                    style="font-size: 1.25rem; padding: 0.5em 1em;">{{ $mitra->mitraCategory }}</span>
+                                    style="font-size: 1.25rem; padding: 0.5em 1em;">{{ $mitra->category->jenisKategori }}</span>
                             </div>
                             <div class="col" style="text-decoration: none">
                                 {{ $mitra->address }}

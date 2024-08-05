@@ -490,3 +490,14 @@ select option {
     border: none;
     background-color: #f3f3f3;
 }
+
+.fixed-height-container {
+    height: 500px; /* Set the desired height */
+    width: auto; /* Set the desired width or use 100% to fill the parent container */
+    overflow: hidden;
+}
+.fixed-height-container img {
+    height: 100%;
+    width: auto;
+    object-fit: cover; /* or contain, depending on your needs */
+}

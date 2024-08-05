@@ -2,6 +2,16 @@
 
 @section('content')
     <div class="container">
+        <div class="row">
+            <div class="col">
+                @if (session()->has('success'))
+                    <div class="alert alert-success alert-dismissible fade show my-3" role="alert">
+                        {{ session('success') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+            </div>
+        </div>
         <h2 class="text-center p-3">Profile Mitra</h2>
         <div class="row d-flex justify-content-center">
             <label class="text-center" for="Mitra Profile Picture">

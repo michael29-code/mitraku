@@ -40,7 +40,7 @@
                         <div class="col">
                             <div class="row my-2">
                                 <div class="col">
-                                    <p><b>Category(Penawaran/Perjanjian)</b></p>
+                                    <p><b>Category (Penawaran/Perjanjian)</b></p>
                                     <div class="row mb-3">
                                         <div class="col">
                                             <select class="form-select @error('kategori') is-invalid @enderror"
@@ -149,7 +149,7 @@
                         <div class="col">
                             <div class="row my-2">
                                 <div class="col">
-                                    <p><b>Duration</b></p>
+                                    <p><b>Duration (Month)</b></p>
                                     <div class="row">
                                         <div class="col">
                                             <input type="number"
