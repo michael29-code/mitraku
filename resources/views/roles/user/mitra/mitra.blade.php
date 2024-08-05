@@ -108,7 +108,7 @@
                     <div class="card mx-2 mb-4">
                         <div class="card-img-top position-relative" style="height: 50%;">
                             <div class="fixed-height-container">
-                                <img src="{{ $mitra->image_cover ? asset('storage/' . $mitra->image_cover) : asset('/images/default_mitra_image.jpg') }}"
+                                <img src="{{ $mitra->getImageCover() }}" class="img-fluid w-100 rounded" alt="image_cover" style="object-fit: cover;">
                                     class="img-fluid w-100 rounded" alt="image_cover" style="object-fit: cover;">
                                 @if ($mitra->status === 'active')
                                     <span class="badge text-bg-primary rounded-pill position-absolute top-0 end-0 m-2"

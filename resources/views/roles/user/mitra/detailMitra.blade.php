@@ -23,7 +23,7 @@
                 <div class="col text-center">
                     <p style="font-size: 1.3rem; margin-bottom: 0;">{{ $mitra->mitraOverview }}</p>
                     <h6 style="margin-bottom: 2rem;">Since {{ $mitra->mitraYear }} | {{ $mitra->mitraWebsite }}</h6>
-                    <span class="badge text-bg-primary rounded-pill" style="font-size: 1rem; padding: 0.5em 1em;">{{ $mitra->mitraCategory }}</span>
+                    <span class="badge text-bg-primary rounded-pill" style="font-size: 1rem; padding: 0.5em 1em;">{{ $mitra->category->jenisKategori }}</span>
                 </div>
             </div>
         </div>
@@ -55,7 +55,7 @@
                             <span><p>Phone no: {{ $mitra->contactPhoneNumber }}</p></span>
                         </div>
                     </div>
-                    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-toolbar" role="toolba   r" aria-label="Toolbar with button groups">
                         <div class="btn-group me-1" role="group" aria-label="First button">
                             <a href="https://api.whatsapp.com/send?phone={{ $mitra->contactPhoneNumber }}" target="_blank" class="btn btn-primary">Contact</a>
                         </div>
