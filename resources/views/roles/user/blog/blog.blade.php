@@ -21,8 +21,6 @@
         </div>
     </div>
 </div>
-
-
         <div class="rectangleSpace" style="height: 7rem"></div>
 
         <div class="container my-4">

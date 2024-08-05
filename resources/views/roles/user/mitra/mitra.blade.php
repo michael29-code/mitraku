@@ -8,14 +8,14 @@
             <h2 class="h2">Mitra Page</h2>
             <p>Check out live properties on the market currently for sale</p>
 
-            <form action="{{ route('mitra-search') }}" method="GET" class="mb-4">
+            <!-- Updated form to handle category selection -->
+            <form action="{{ route('view-mitra') }}" method="GET" class="mb-4">
                 <div class="row g-2 align-items-center">
                     <div class="col-md-2">
                         <select class="form-select" name="category" aria-label="Category" onchange="this.form.submit()">
                             <option value="" {{ request('category') == '' ? 'selected' : '' }}>All Categories</option>
                             @foreach ($categories as $category)
-                                <option value="{{ $category->id }}"
-                                    {{ request('category') == $category->id ? 'selected' : '' }}>
+                                <option value="{{ $category->id }}" {{ (isset($selectedCategory) && $selectedCategory == $category->id) ? 'selected' : '' }}>
                                     {{ $category->jenisKategori }}
                                 </option>
                             @endforeach
@@ -42,7 +42,7 @@
                         <div class="row no-gutters shadow bg-body-tertiary rounded">
                             <div class="col-2 p-3">
                                 @if ($shuffledAdvertisement)
-                                    <img src="{{ $shuffledAdvertisement->image_cover ? asset('storage/mitra-images/' . $mitra->image_cover) : asset('/images/default_mitra_image.jpg') }}"
+                                    <img src="{{ $shuffledAdvertisement->image_cover ? asset('storage/mitra-images/' . $shuffledAdvertisement->image_cover) : asset('/images/default_mitra_image.jpg') }}"
                                         class="img-fluid">
                             </div>
                             <div class="col-md-10">
@@ -51,8 +51,7 @@
                                         <h5 class="card-title">{{ $shuffledAdvertisement->mitraName }}</h5>
                                         <div class="">
                                             <span class="badge rounded-pill text-bg-primary">Ad</span>
-                                            <span
-                                                class="badge rounded-pill text-bg-primary">{{ $shuffledAdvertisement->jenisKategori }}</span>
+                                            <span class="badge rounded-pill text-bg-primary">{{ $shuffledAdvertisement->jenisKategori }}</span>
                                         </div>
                                     </div>
                                     <p>{{ $shuffledAdvertisement->address }}</p>
@@ -61,8 +60,8 @@
                                         class="btn btn-outline-primary w-100" style="text-decoration: none;">Chat
                                         dan Lakukan Kerja Sama</a>
                                 </div>
-                            @else
-                                <p>No active advertisement available.</p>
+                                @else
+                                    <p>No active advertisement available.</p>
                                 @endif
                             </div>
                         </div>
@@ -71,6 +70,7 @@
             </div>
         </div>
     </div>
+
     @if (isset($searchTerm) && $searchTerm)
         <div class="row mb-5">
             <div class="col">
@@ -79,10 +79,10 @@
         </div>
     @endif
 
-    @if (isset($categoryId) && $categoryId)
+    @if (isset($selectedCategory) && $selectedCategory)
         <div class="row mb-5">
             <div class="col">
-                <h5>Filtered by Category: {{ $categories->find($categoryId)->jenisKategori }}</h5>
+                <h5>Filtered by Category: {{ $categories->find($selectedCategory)->jenisKategori }}</h5>
             </div>
         </div>
     @endif
@@ -108,7 +108,7 @@
                         <div class="card-img-top position-relative" style="height: 50%;">
                             <div class="fixed-height-container">
                                 <img src="{{ $mitra->image_cover ? asset('storage/' . $mitra->image_cover) : asset('/images/default_mitra_image.jpg') }}"
-                                    class="img-fuid w-100 rounded" alt="image_cover" style="object-fit: cover;">
+                                    class="img-fluid w-100 rounded" alt="image_cover" style="object-fit: cover;">
                                 @if ($mitra->status === 'active')
                                     <span class="badge text-bg-primary rounded-pill position-absolute top-0 end-0 m-2"
                                         style="font-size: 1.25rem; padding: 0.5em 1em;">EKSKLUSIF</span>
@@ -118,8 +118,9 @@
                         <div class="card-body">
                             <div class="d-flex justify-content-between">
                                 <h5 class="card-title my-1" style="font-size: 1.5rem;">{{ $mitra->mitraName }}</h5>
-                                <span class="badge text-bg-primary rounded-pill"
-                                    style="font-size: 1.25rem; padding: 0.5em 1em;">{{ $mitra->category->jenisKategori }}</span>
+                                <span class="badge text-bg-primary rounded-pill" style="font-size: 1.25rem; padding: 0.5em 1em;">
+                                    {{ $mitra->category->jenisKategori }}
+                                </span>
                             </div>
                             <div class="col" style="text-decoration: none">
                                 {{ $mitra->address }}
@@ -140,7 +141,5 @@
     </div>
     <div class="d-flex justify-content-center mt-4">
         {{ $mitras->links() }}
-    </div>
-    </div>
     </div>
 @endsection

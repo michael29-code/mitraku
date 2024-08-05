@@ -185,14 +185,21 @@ class MitraController extends Controller
         return redirect()->route('home')->with('success', 'Mitra created successfully!');
     }
     
-    public function mitra()
-    {
-        $categories = Category::all(); 
-        $mitras = Mitra::with('transactions')->paginate(6);
-        $shuffledAdvertisement = Cache::get('shuffled_advertisement');
+    public function mitra(Request $request)
+{
+    $categories = Category::all();
+    $selectedCategory = $request->input('category'); 
 
-        return view('roles.user.mitra.mitra', compact('mitras', 'categories','shuffledAdvertisement'));
-    }
+    $mitras = Mitra::with('transactions')
+        ->when($selectedCategory, function ($query, $selectedCategory) {
+            return $query->where('mitraCategory', $selectedCategory);
+        })
+        ->paginate(6);
+
+    $shuffledAdvertisement = Cache::get('shuffled_advertisement');
+
+    return view('roles.user.mitra.mitra', compact('mitras', 'categories', 'shuffledAdvertisement', 'selectedCategory'));
+}
 
     public function show($id)
     {

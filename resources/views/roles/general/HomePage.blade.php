@@ -24,31 +24,31 @@
         <h3>Trusted by over a lot of companies.</h3>
         <div class="justify-content-center text-center g-5 row row-cols-5">
             <div>
-                <img src="/images/logo-1.png" class="img-fluid" alt="logo1" style="width: 10rem">
+                <img src="/images/aws.png" class="img-fluid" alt="logo1" style="width: 22rem">
             </div>
             <div>
-                <img src="/images/logo-1.png" class="img-fluid" alt="logo1" style="width: 10rem">
+                <img src="/images/google.jpg" class="img-fluid" alt="logo1" style="width: 10rem">
             </div>
             <div>
-                <img src="/images/logo-1.png" class="img-fluid" alt="logo1" style="width: 10rem">
+                <img src="/images/microsoft.png" class="img-fluid" alt="logo1" style="width: 20rem">
             </div>
             <div>
-                <img src="/images/logo-1.png" class="img-fluid" alt="logo1" style="width: 10rem">
+                <img src="/images/databricks.png" class="img-fluid" alt="logo1" style="width: 13rem">
             </div>
             <div>
-                <img src="/images/logo-1.png" class="img-fluid" alt="logo1" style="width: 10rem">
+                <img src="/images/salesforce.jpg" class="img-fluid" alt="logo1" style="width: 13rem">
             </div>
             <div>
-                <img src="/images/logo-1.png" class="img-fluid" alt="logo1" style="width: 10rem">
+                <img src="/images/snowflake.jpg" class="img-fluid" alt="logo1" style="width: 20rem">
             </div>
             <div>
-                <img src="/images/logo-1.png" class="img-fluid" alt="logo1" style="width: 10rem">
+                <img src="/images/oracle.jpg" class="img-fluid" alt="logo1" style="width: 12rem">
             </div>
             <div>
-                <img src="/images/logo-1.png" class="img-fluid" alt="logo1" style="width: 10rem">
+                <img src="/images/tableau.png" class="img-fluid" alt="logo1" style="width: 20rem">
             </div>
             <div>
-                <img src="/images/logo-1.png" class="img-fluid" alt="logo1" style="width: 10rem">
+                <img src="/images/cisco.png" class="img-fluid" alt="logo1" style="width: 12rem">
             </div>
         </div>
     </div>
