@@ -308,16 +308,14 @@ class MitraController extends Controller
         // $mitra = Mitra::findOrFail($id);
 
         $request->validate([
-            'mitraWebsite' => 'nullable|string',
+            'mitraWebsite' => 'required|string',
             'mitraCategory' => 'required|exists:categories,id',
             'mitraOverview' => 'required|string|min:15|max:255',
             'contactName' => 'required|string|min:8|max:255',
             'contactPhoneNumber' => 'required|string',
             'contactEmail' => 'required|email|max:255',
             'mitraDetails' => 'required|string|min:20|max:255',
-            'address' => 'nullable|string|max:255',
-            'image_map' => 'image|mimes:jpeg,png,jpg,gif',
-            'mitraImage' => 'image|mimes:jpeg,png,jpg,gif',
+            'address' => 'required|string|max:255',
         ]);
 
         $mitra->mitraWebsite = $request->mitraWebsite;
@@ -327,7 +325,7 @@ class MitraController extends Controller
         $mitra->contactPhoneNumber = $request->contactPhoneNumber;
         $mitra->contactEmail = $request->contactEmail;
         $mitra->mitra_details = $request->mitraDetails;
-        $mitra->address = $request->mitraAddress;
+        $mitra->address = $request->address;
 
 
         if ($request->file('image_cover')) {

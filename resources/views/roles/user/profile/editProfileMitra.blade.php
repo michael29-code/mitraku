@@ -22,6 +22,11 @@
                     <label for="mitraWebsite" class="form-label"><b>Mitra Website</b></label>
                     <input type="text" id="mitraWebsite" name="mitraWebsite" class="form-control"
                         value="{{ $mitra->mitraWebsite }}">
+                    @error('mitraWebsite')
+                        <div class="invalid-feedback m-1">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
             </div>
 
@@ -41,8 +46,12 @@
                                 {{ $category->jenisKategori }}
                             </option>
                         @endforeach
-
                     </select>
+                    @error('mitraCategory')
+                        <div class="invalid-feedback m-1">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
             </div>
 
@@ -50,6 +59,11 @@
                 <div class="col-10">
                     <label for="mitraOverview" class="form-label"><b>Mitra Overview (15-25 words)</b></label>
                     <textarea id="mitraOverview" name="mitraOverview" class="form-control" rows="3">{{ $mitra->mitraOverview }}</textarea>
+                    @error('mitraOverview')
+                        <div class="invalid-feedback m-1">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
             </div>
 
@@ -58,11 +72,21 @@
                     <label for="contactName" class="form-label"><b>Contact Name</b></label>
                     <input type="text" id="contactName" name="contactName" class="form-control"
                         value="{{ $mitra->contactName }}">
+                    @error('contactName')
+                        <div class="invalid-feedback m-1">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
                 <div class="col-5">
                     <label for="contactPhoneNumber" class="form-label"><b>Contact Phone Number</b></label>
                     <input type="text" id="contactPhoneNumber" name="contactPhoneNumber" class="form-control"
                         value="{{ $mitra->contactPhoneNumber }}">
+                    @error('contactPhoneNumber')
+                        <div class="invalid-feedback m-1">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
             </div>
 
@@ -71,6 +95,11 @@
                     <label for="contactEmail" class="form-label"><b>Contact Email</b></label>
                     <input type="email" id="contactEmail" name="contactEmail" class="form-control"
                         value="{{ $mitra->contactEmail }}">
+                    @error('contactEmail')
+                        <div class="invalid-feedback m-1">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
             </div>
 
@@ -78,13 +107,23 @@
                 <div class="col-10">
                     <label for="mitraDetails" class="form-label"><b>Mitra Details (20-40 words)</b></label>
                     <textarea id="mitraDetails" name="mitraDetails" class="form-control" rows="3">{{ $mitra->mitra_details }}</textarea>
+                    @error('mitraDetails')
+                        <div class="invalid-feedback m-1">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
             </div>
 
             <div class="row d-flex justify-content-center mb-4">
                 <div class="col-10">
-                    <label for="mitraAddress" class="form-label"><b>Mitra Address</b></label>
-                    <textarea id="mitraAddress" name="mitraAddress" class="form-control" rows="2">{{ $mitra->address }}</textarea>
+                    <label for="address" class="form-label"><b>Mitra Address</b></label>
+                    <textarea id="address" name="address" class="form-control" rows="2">{{ $mitra->address }}</textarea>
+                    @error('address')
+                        <div class="invalid-feedback m-1">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
             </div>
 
@@ -97,8 +136,8 @@
                     @else
                         <img class="img-preview2 img-fluid mb-3 col-sm-5">
                     @endif
-                    <input class="form-control @error('image_cover') is-invalid @enderror " type="file" id="image_cover"
-                        name="image_cover" onchange="previewImage2()"
+                    <input class="form-control @error('image_cover') is-invalid @enderror " type="file"
+                        id="image_cover" name="image_cover" onchange="previewImage2()"
                         value="{{ old('image_cover', $mitra->image_cover) }}">
                     <input type="hidden" name="oldImageMitra" value="{{ $mitra->image_cover }}">
                     @error('image_cover')
@@ -110,7 +149,7 @@
             </div>
 
             <div class="row d-flex justify-content-center mb-4">
-                <div class="col-10 d-flex justify-content-between">
+                <div class="col-10">
                     <div>
                         <label for="mitraLocation" class="form-label"><b>Mitra Location</b></label>
                         @if ($mitra->image_map)
