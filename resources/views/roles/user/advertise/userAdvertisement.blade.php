@@ -26,11 +26,30 @@
         <div class="col-md-4 my-5">
             <h1 class="d-flex justify-content-center h1 mb-4">Trusted By</h1>
             <div class="d-flex justify-content-center flex-wrap gap-3">
-                @foreach ($sponsors as $sponsor)
-                    <span class="border d-flex p-2 bd-highlight border-dark rounded-pill mb-2 mr-2">
-                        <b class="body-medium-bold">{{ $sponsor->name }}</b>
-                    </span>
-                @endforeach
+                <div>
+                    <img src="/images/aws.png" class="img-fluid" alt="logo1" style="width: 8rem">
+                </div>
+                <div>
+                    <img src="/images/google.jpg" class="img-fluid" alt="logo1" style="width: 5rem">
+                </div>
+                <div>
+                    <img src="/images/microsoft.png" class="img-fluid" alt="logo1" style="width: 8rem">
+                </div>
+                <div>
+                    <img src="/images/databricks.png" class="img-fluid" alt="logo1" style="width: 8rem">
+                </div>
+                <div>
+                    <img src="/images/salesforce.jpg" class="img-fluid" alt="logo1" style="width: 8rem">
+                </div>
+                <div>
+                    <img src="/images/snowflake.jpg" class="img-fluid" alt="logo1" style="width: 8rem">
+                </div>
+                <div>
+                    <img src="/images/oracle.jpg" class="img-fluid" alt="logo1" style="width: 6rem">
+                </div>
+                <div>
+                    <img src="/images/tableau.png" class="img-fluid" alt="logo1" style="width: 9rem">
+                </div>
             </div>
         </div>
     </div>
