@@ -108,7 +108,7 @@
                 <div class="col-10">
                     <div class="row">
                         <label for="mitraLocation" class="form-label"><b>Mitra Location</b></label>
-                        <img src="{{ $mitra->getImageMap() }}" class="img-fluid w-50 rounded" alt="Mitra Location">
+                        <img src="{{ $mitra->getImageMap() }}" class="img-fluid w-25 rounded" alt="Mitra Location">
                     </div>
                 </div>
             </div>
