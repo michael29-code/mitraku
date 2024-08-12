@@ -18,10 +18,7 @@
             <label class="text-center" for="Mitra Profile Picture">
                 <b class="h6">Mitra Profile Picture</b>
             </label>
-            <img src="{{ $mitra->image_cover ? asset('storage/' . $mitra->image_cover) : asset('/images/default_mitra_image.jpg') }}"
-                class="mt-2 mb-4" style="width: 30%; height: 50%;">
-            {{-- <img src="{{ $mitra->image_cover ? asset('storage/mitra-images/' . $mitra->image_cover) : asset('/images/default_mitra_image.jpg') }}" class="img-fluid w-100;img-fluid rounded"  alt="image_cover" style="object-fit: cover;"> --}}
-
+            <img src="{{ $mitra->getImageCover() }}" class="img-fluid rounded" alt="image_cover" style="width: 300px; height: 300px; object-fit: cover;">
         </div>
 
         <form>
@@ -110,8 +107,7 @@
                 <div class="col-10">
                     <div class="row">
                         <label for="mitraLocation" class="form-label"><b>Mitra Location</b></label>
-                        <img src="{{ asset('storage/' . $mitra->image_map) }}" class="img-fluid mt-2" style="width: 40%"
-                            alt="Mitra Location">
+                        <img src="{{ $mitra->getImageMap() }}" class="img-fluid w-50 rounded" alt="Mitra Location">
                     </div>
                 </div>
             </div>
