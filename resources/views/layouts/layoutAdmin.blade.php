@@ -103,7 +103,7 @@
             @endauth
         </div>
         <div class="content">
-            <div class="dashboard-content px-3 pt-4">
+            <div class="dashboard-content px-3">
                 @yield('content')
             </div>
         </div>
