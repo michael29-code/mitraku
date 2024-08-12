@@ -14,11 +14,12 @@
             </div>
         </div>
         <h2 class="text-center p-3">Profile Mitra</h2>
-        <div class="row d-flex justify-content-center">
+        <div class="row d-flex justify-content-center mb-5">
             <label class="text-center" for="Mitra Profile Picture">
                 <b class="h6">Mitra Profile Picture</b>
             </label>
-            <img src="{{ $mitra->getImageCover() }}" class="img-fluid rounded" alt="image_cover" style="width: 300px; height: 300px; object-fit: cover;">
+            <img src="{{ $mitra->getImageCover() }}" class="img-fluid" alt="image_cover" style="width: 280px; height: 280px; object-fit: cover; border-radius: 5%;">
+
         </div>
 
         <form>
