@@ -19,7 +19,7 @@
                         <div class="row">
                             <div class="col mx-2 my-2 py-2 border-bottom d-flex align-items-center">
                                 <i class="bi bi-plus-square-fill fs-4 me-3"></i>
-                                <a href="{{ route('add-advertisement-admin') }}" class="text-decoration-none text-black" style="font-size: 15px;">Write Advertisement</a>
+                                <a href="{{ route('add-advertisement-admin') }}" class="text-decoration-none text-black" style="font-size: 15px;">Add Advertisement</a>
                             </div>
                         </div>
                     </div>

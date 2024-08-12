@@ -14,7 +14,7 @@
                                     style="font-size: 2rem"></i></a>
                         </div>
                         <div class="col">
-                            <h4>Write Blog</h4>
+                            <h4>Add Advertisment</h4>
                         </div>
                     </div>
                 </div>
