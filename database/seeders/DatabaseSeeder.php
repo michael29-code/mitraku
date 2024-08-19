@@ -26,11 +26,11 @@ class DatabaseSeeder extends Seeder
             AdvertiseSeeder::class,
             SponsorSeeder::class,
             TransactionSeeder::class,
+            BlogSeeder::class,
         ]);
         
         // $this->call([
         //     CategorySeeder::class
         // ]);
-        Blog::factory(15)->create();
     }
 }
