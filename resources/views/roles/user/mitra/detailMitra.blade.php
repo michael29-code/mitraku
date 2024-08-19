@@ -66,9 +66,9 @@
                     <div class="row my-5">
                         <div class="col">
                             <p style="font-size: 1.3rem; margin-bottom: 0;"><b>Mitra Details</b></p>
-                            <p style="font-size: 1.2rem; margin-bottom: 0;">{{ $mitra->mitraOverview }}</p>
+                            <p style="font-size: 1.2rem; margin-bottom: 0; text-align: justify;">{{ $mitra->mitra_details }}</p>
                         </div>
-                    </div>
+                    </div>                    
                 </div>
                 <div class="row p-3 mt-5">
                     <div class="col-md-6 mb-4">

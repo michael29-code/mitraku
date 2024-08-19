@@ -130,47 +130,51 @@
 
             <div class="row d-flex justify-content-center mb-4">
                 <div class="col-10">
-                    <label for="mitraLocation" class="form-label"><b>Mitra Image</b></label>
-                    @if ($mitra->image_cover)
-                        <img class="img-preview2 img-fluid mb-3 col-sm-5 d-block"
-                            src="{{ asset('storage/' . $mitra->image_cover) }}">
-                    @else
-                        <img class="img-preview2 img-fluid mb-3 col-sm-5">
-                    @endif
-                    <input class="form-control @error('image_cover') is-invalid @enderror " type="file"
-                        id="image_cover" name="image_cover" onchange="previewImage2()"
-                        value="{{ old('image_cover', $mitra->image_cover) }}">
-                    <input type="hidden" name="oldImageMitra" value="{{ $mitra->image_cover }}">
-                    @error('image_cover')
-                        <div class="invalid-feedback m-1">
-                            {{ $message }}
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="mitraLocation" class="form-label"><b>Mitra Image</b></label>
                         </div>
-                    @enderror
-                </div>
-            </div>
-
-            <div class="row d-flex justify-content-center mb-4">
-                <div class="col-10">
-                    <div>
-                        <label for="mitraLocation" class="form-label"><b>Mitra Location</b></label>
-                        @if ($mitra->image_map)
-                            <img class="img-preview img-fluid mb-3 col-sm-5 d-block"
-                                src="{{ asset('storage/' . $mitra->image_map) }}">
-                        @else
-                            <img class="img-preview img-fluid mb-3 col-sm-5">
-                        @endif
-                        <input class="form-control @error('image_map') is-invalid @enderror " type="file"
-                            id="image_map" name="image_map" onchange="previewImage()"
-                            value="{{ old('image_map', $mitra->image_map) }}">
-                        <input type="hidden" name="oldImageLocation" value="{{ $mitra->image_map }}">
-                        @error('image_map')
-                            <div class="invalid-feedback m-1">
-                                {{ $message }}
-                            </div>
-                        @enderror
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-2 d-flex flex-column align-items-center">
+                            <img src="{{ $mitra->getImageCover() }}" class="img-fluid rounded mb-2" alt="image_cover" style="width: 200px; height: 200px">
+                            <input class="form-control @error('image_cover') is-invalid @enderror" type="file" id="image_cover" name="image_cover" onchange="previewImage2()" value="{{ old('image_cover', $mitra->image_cover) }}">
+                            <input type="hidden" name="oldImageMitra" value="{{ $mitra->image_cover }}">
+                            @error('image_cover')
+                                <div class="invalid-feedback m-1">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
                     </div>
                 </div>
             </div>
+            
+
+            <div class="row d-flex justify-content-center mb-4">
+                <div class="col-10">
+                    <div class="row mb-2">
+                        <div class="col-12">
+                            <label for="mitraLocation" class="form-label"><b>Mitra Location</b></label>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-2 d-flex flex-column align-items-center">
+                            <img src="{{ $mitra->getImageMap() }}" class="img-fluid rounded mb-2" alt="Mitra Location">
+                            <input class="form-control @error('image_map') is-invalid @enderror" type="file" id="image_map" name="image_map" onchange="previewImage()" value="{{ old('image_map', $mitra->image_map) }}">
+                            <input type="hidden" name="oldImageLocation" value="{{ $mitra->image_map }}">
+                            @error('image_map')
+                                <div class="invalid-feedback m-1">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
 
             <div class="row d-flex justify-content-center mb-4">
                 <div class="col-10 d-flex justify-content-between">

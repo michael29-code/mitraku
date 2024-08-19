@@ -9,7 +9,6 @@
             <h2 class="h2">Mitra Page</h2>
             <p>Check out live properties on the market currently for sale</p>
 
-            <!-- Updated form to handle category selection -->
             <form action="{{ route('view-mitra') }}" method="GET" class="mb-4">
                 <div class="row g-2 align-items-center">
                     <div class="col-md-2">
