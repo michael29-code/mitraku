@@ -22,7 +22,7 @@
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </div>
                         <input type="text" class="form-control border border-start-0"
-                            aria-label="Text input with checkbox" placeholder="search user" name="search">
+                            aria-label="Text input with checkbox" placeholder="Search User by Name" name="search">
                     </div>
                     <button class="btn btn-sm btn-primary" type="submit">Search</button>
                 </form>
