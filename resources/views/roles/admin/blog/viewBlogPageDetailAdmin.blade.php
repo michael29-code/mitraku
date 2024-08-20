@@ -58,7 +58,6 @@
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <p>Body</p>
                                     {!! $blog->body !!}
                                 </div>
                             </div>
