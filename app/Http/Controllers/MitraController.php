@@ -262,7 +262,7 @@ class MitraController extends Controller
         $mitra->save();
 
         // dd($user);
-        return redirect()->back()->with('blockSuccess', $message);
+        return redirect()->back()->with('success', $message);
     }
 
     // USER
